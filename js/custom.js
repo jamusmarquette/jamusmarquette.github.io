@@ -30,9 +30,11 @@
             
             $("#content").css("opacity", "0");
             $("#content").css("display", "none");
+            
 
             $("#work").css("display", "none");
             $("footer").css("display", "none");
+            $("#project").css("display", "none");
     
         }
     
@@ -45,10 +47,13 @@
             $("#about").css("display", "none");
             $("#about").css("opacity", "0");
             $("#about").css("pointer-events", "none");
+
             $("#content").css("display", "block");
+           
 
             $("#work").css("display", "block");
             $("footer").css("display", "block");
+            $("#project").css("display", "block");
         }
     
     
