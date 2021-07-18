@@ -1,0 +1,132 @@
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+
+// Smaller than small devices (567 and down)
+@media (max-width: 576px) {
+
+    #info {
+        
+        ul {
+
+            display: flex;
+            flex-flow: column-reverse;
+
+            li {
+
+                a {
+
+                    margin-right: 0 !important;
+                }
+            }
+
+        }
+
+    }
+
+
+    #intro {
+        padding-top: 70px;
+        z-index: -50;
+        position: relative;
+   
+    }
+        
+
+    .hidemobile {
+        display: none;
+
+    }
+
+    .showmobile {
+        display: block !important;
+
+    }
+
+
+    #work {
+        position: relative;
+        padding-top: 0;
+    }
+
+    .scope br {
+        display: none;
+    }
+
+}
+
+
+
+// Stack about nav links from (788 and down)
+@media (max-width: 788px) {
+    #aboutheader ul li {
+        float: left;
+    }
+
+
+
+
+}
+
+
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .hidemobile {
+        display: block;
+
+    }
+
+    .showmobile {
+        display: none;
+
+    }
+
+}
+
+
+
+// Medium devices (tablets, 767px and down)
+@media (max-width: 767px) {
+.hidemd {
+    display: none;
+
+}
+
+.showmd{
+    display: block !important;
+
+}
+}
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+    /*p.test {
+        max-width: 400px;
+    }*/
+
+    .hidemd {
+        display: block;
+
+    }
+
+    .showmd{
+        display: none;
+
+    }
+
+
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}

@@ -1,0 +1,22 @@
+{
+  "name": "jamus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "sass --watch scss/main.scss:dist/css/main.css",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://jamusmarquette.github.io/",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta3",
+    "gh-pages": "^3.2.3"
+  },
+  "devDependencies": {
+    "sass": "^1.32.8",
+    "stickybits": "^3.7.9"
+  }
+}

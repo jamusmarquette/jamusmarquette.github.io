@@ -1,0 +1,145 @@
+//adobe
+$font-stack: 'nimbus-sans', sans-serif;
+//$font-stack: 'macho', sans-serif; //** I like this//
+//$font-stack: 'gitan-latin', sans-serif; //regular
+
+//google
+//$font-stack: 'Imprima', sans-serif;
+//$font-stack: 'DotGothic16', sans-serif;
+//$font-stack: 'Stardos Stencil', cursive;
+//$font-stack: 'VT323', monospace;
+//$font-stack: 'Space Mono', monospace;
+
+//websafe
+//$font-stack: 'georgia', sans-serif;
+
+//$font-stack: 'quasimoda', sans-serif;
+//$font-stack: 'roboto', Arial, Helvetica, sans-serif;
+$font-weight: 400;
+
+
+//fs-text, fine print
+.xs-text {}
+
+//Hover caption sizes?
+.sm-text {}
+
+//body, p, etc.
+.rg-text {
+    font-size: 1.75rem ;
+    line-height: 1.2;
+
+    font-weight: 400 !important;
+
+}
+
+//about, footer
+.md-text {
+    //margin-bottom: 3.5rem;
+    font-size: 3rem;
+}
+
+//big type, first paragraph
+.lg-text {
+    font-size: 4.5rem !important;
+}
+
+.fs-5 {
+    font-weight:400;
+}
+
+
+
+
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Smaller than small devices (567 and down)
+@media (max-width: 576px) {
+
+    //fs-text, fine print
+    
+
+    .xs-text, .sm-text, .rg-text, .md-text, .lg-text, .h3-ul {
+        font-weight: 400 !important;
+        font-style: normal;
+        font-size: 1.75rem !important;
+        line-height: 1.35;
+    }
+
+
+
+    #intro-paragraph {
+        //height: auto !important;
+        //padding-bottom: 100px;
+    }
+
+
+}
+
+
+// Stack about nav links from (788 and down)
+@media (max-width: 788px) {
+
+}
+
+
+
+/* No greater than 900px, no less than 400px */
+@media (max-width:900px) and (min-width:400px) {
+
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+     .h3-ul {
+        font-weight: 400 !important;
+        font-style: normal;
+        font-size: 1.75rem !important;
+        line-height: 1.35;
+    }
+
+    //fs-text, fine print
+    .xs-text {}
+
+    //Hover caption sizes?
+    .sm-text {}
+
+    //body, p, etc.
+    .rg-text {}
+
+    //about, footer
+    .md-text {
+            font-size: calc(1.425rem + 2.1vw);
+            line-height: 1.2;
+
+    }
+
+    //big type, first paragraph
+    .lg-text {
+        font-size: calc(1.525rem + 3.3vw) !important;
+        //font-weight: 200;
+        font-weight: 300;
+        //line-height: 1.4; //maybe?
+    }
+
+
+}
+
+
+
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}

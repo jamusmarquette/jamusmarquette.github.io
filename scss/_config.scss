@@ -1,0 +1,27 @@
+.fade {
+    opacity: 0;
+  }
+
+
+
+//link hover style
+.blur {
+    color: $primary;
+    text-decoration: none;
+
+    -webkit-filter: blur(0);
+    filter: blur(0);
+
+
+
+    &:hover {
+        color: $primary;
+
+        -webkit-transition: filter 0.1s ease-in-out 0s;
+        -moz-transition: filter 0.1s ease-in-out 0s;
+        transition: filter 0.1s ease-in-out 0s;
+
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+    }
+}

@@ -1,0 +1,198 @@
+/* --- header ---- */
+
+.project-intro {
+    padding-top: 63px;
+
+    &-paragraph {
+        //height: calc(100vh - 63px);
+        padding-top: 63px;
+    }
+
+}
+
+
+.full-width-img {
+    width: 100% !important;
+}
+
+.h3ul {
+    margin-bottom: 1.25rem;
+    text-decoration: underline;
+    line-height: 1.2;
+}
+
+
+.lg-full-ht {
+    height: 87vh;
+
+}
+
+@media (max-width: 768px) {
+    .lg-full-ht {
+        height: 0 !important;
+        padding-bottom: 0rem;
+
+    }
+}
+
+
+
+// Stack about nav links from (788 and down)
+@media (max-width: 788px) {
+    #aboutheader ul li {
+        float: left;
+    }
+
+
+    .project-intro {
+        //padding-top: 100px !important;
+        //padding-bottom:100px;
+
+        &-paragraph {
+            //height: calc(100vh - 63px);
+            //padding-top: 100px !important;
+
+        }
+    }
+
+    #projectinfo {
+        position: relative;
+    }
+
+}
+
+
+
+
+#downgradient {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+}
+
+
+
+
+
+/*  --------- begin project --------- */
+
+#projectinfo .col-18.mb-5 {
+    margin-bottom: 0px !important;
+}
+
+
+
+
+/* Footer Navigation  */
+
+
+
+#footernav {
+    padding-left: 0;
+}
+
+
+@media (min-width: 768px) {
+    #footernav li {
+        display: inline;
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+
+//extended bottom margin
+/*.pb-6 {
+    padding-bottom: 100px;
+}*/
+
+//remove margins
+.nomargin {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+//add a space at the top of the page to clear header gradient
+.topmargin {
+    //padding-top: 63px;
+    padding-top: 100px;
+}
+
+
+@media (max-width: 788px) {
+
+    .topmargin {
+        //padding-top: 100px !important;
+        padding-top: 125px;
+    }
+}
+
+
+
+/* ---- begin video sound btn overlay ---- */
+.video-content {
+    cursor: pointer;
+    position: relative;
+    margin: auto 0;
+    overflow: hidden;
+
+
+    &-video {
+        width: 100%;
+        opacity: 1;
+    }
+
+
+    &-details {
+
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        pointer-events: none;
+
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+
+
+        h3 {
+            color: $primary;
+            font-family: $font-stack !important;
+            font-weight: $font-weight !important;
+
+            margin-right: 10px;
+            margin-bottom: 10px;
+
+            cursor: pointer;
+        }
+
+    }
+
+
+    &:hover {
+
+        .video-content-details {   
+            opacity: 1;
+
+        }
+
+    }
+
+}
+
+//End content image
