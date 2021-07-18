@@ -1,0 +1,37 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 4123125, 2021-07-09T08:18:23-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: OktaNeue-UltraLight by Groteskly Yours
+ * URL: https://www.myfonts.com/fonts/groteskly-yours/okta-neue/ultra-light/
+ * 
+ * Webfont: OktaNeue-BlackItalic by Groteskly Yours
+ * URL: https://www.myfonts.com/fonts/groteskly-yours/okta-neue/black-italic/
+ * 
+ * 
+ * Webfonts copyright: Copyright © 2019 by Eugene Tantsurin. All rights reserved.
+ * 
+ * © 2021 MyFonts Inc
+*/
+
+
+
+  
+@font-face {
+  font-family: "OktaNeue-UltraLight";
+  src: url('webFonts/OktaNeueUltraLight/font.woff2') format('woff2'), url('webFonts/OktaNeueUltraLight/font.woff') format('woff');
+}
+@font-face {
+  font-family: "OktaNeue";
+  font-style: italic;
+  font-weight: bold;
+  font-stretch: normal;
+  src: url('webFonts/OktaNeue/italic_normal_bold.woff2') format('woff2'), url('webFonts/OktaNeue/italic_normal_bold.woff') format('woff');
+}
+
