@@ -13451,6 +13451,14 @@ textarea.form-control-lg {
   opacity: 1;
 }
 
+#backtowork ul {
+  text-decoration: none;
+  padding-left: 0;
+}
+#backtowork ul li {
+  margin-bottom: 0.5rem;
+}
+
 body {
   background-color: white !important;
   color: #929697 !important;
@@ -13640,7 +13648,7 @@ ul {
 /* Project Image Hover */
 #work {
   position: relative;
-  padding-top: 100vh;
+  padding-top: 85vh;
 }
 
 .content {
@@ -13711,7 +13719,7 @@ ul {
   filter: blur(25px);*/
 }
 .content .content-details h3, .content .content-details .h3 {
-  color: #929697;
+  color: white;
   font-family: "nimbus-sans", sans-serif !important;
   font-weight: 400 !important;
 }
@@ -13731,13 +13739,15 @@ ul {
   width: 100vw;
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
+  padding-top: 5rem;
 }
 #aboutheader {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1030;
 }
 #aboutheader ul {
   margin-bottom: 0 !important;
@@ -13852,6 +13862,9 @@ footer {
     padding-top: 70px;
     z-index: -50;
     position: relative;
+  }
+  #intro-paragraph {
+    height: calc(85vh - 63px);
   }
 
   .hidemobile {
