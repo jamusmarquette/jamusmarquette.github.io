@@ -369,11 +369,12 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
             //color: $primary;
             color:rgb(255, 255, 255);
             font-family: $font-stack !important;
-            font-weight: $font-weight !important;
+            //font-weight: $font-weight !important;
+            font-weight: 400 !important;
         }
 
         p {
-            color: $primary;
+            color: $secondary;
         }
     }
 
