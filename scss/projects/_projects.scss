@@ -210,3 +210,30 @@
     }
 
 }
+
+
+
+//Swap page title description for 'all projects'
+#logo a {
+    color: $primary !important;
+    .love { 
+        //text-decoration: underline; white-space: nowrap;
+        display: inline;
+        color: $primary !important;
+    }
+    .home {
+        //text-decoration: underline; white-space: nowrap;
+        display: none;
+        color: $primary !important;
+    }
+    &:hover > .home { 
+        display: inline;
+        color: $primary !important; 
+    }
+
+    &:hover > .love { 
+        display: none; 
+        color: $primary !important;
+    }
+
+}
