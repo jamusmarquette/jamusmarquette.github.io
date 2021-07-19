@@ -5,7 +5,7 @@
 
 @import 'color';
 @import 'fonts';
-@import 'config';
+@import 'config'; 
 @import 'projects/projects';
 
 
@@ -266,7 +266,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 #work {
     position: relative;
-    padding-top: 100vh;
+    padding-top: 85vh;
 }
 
 
@@ -366,7 +366,8 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         filter: blur(25px);*/
 
         h3 {
-            color: $primary;
+            //color: $primary;
+            color:rgb(255, 255, 255);
             font-family: $font-stack !important;
             font-weight: $font-weight !important;
         }
@@ -400,13 +401,17 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
+    padding-top: 5rem;
 
     &header {
-        position: absolute;
+        //position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+        z-index: 1030;
+    
 
         ul {
             margin-bottom: 0 !important;

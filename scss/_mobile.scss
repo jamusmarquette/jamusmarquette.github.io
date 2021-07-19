@@ -29,10 +29,16 @@
         padding-top: 70px;
         z-index: -50;
         position: relative;
+
+        &-paragraph {
+            height: calc(85vh - 63px);
+            //padding-top: 80px;
+        }
    
     }
         
 
+    
     .hidemobile {
         display: none;
 
