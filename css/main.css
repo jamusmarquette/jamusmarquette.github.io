@@ -13465,6 +13465,7 @@ textarea.form-control-lg {
 #logo a .love {
   display: inline;
   color: #929697 !important;
+  white-space: pre !important;
 }
 #logo a .home {
   display: none;
@@ -13972,7 +13973,7 @@ footer {
   }
 
   #cercaestas {
-    margin-bottom: initial !important;
+    margin-bottom: 1.75rem !important;
   }
 
   #humanrobot {
