@@ -13504,12 +13504,12 @@ body {
 }
 
 *::selection {
-  background: #959ba2;
+  background: #b6b9b9;
   /* WebKit/Blink Browsers */
 }
 
 *::-moz-selection {
-  background: #959ba2;
+  background: #b6b9b9;
   /* Gecko Browsers */
 }
 

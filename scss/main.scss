@@ -35,7 +35,7 @@ body {
 
 
 *::selection {
-    background: #959ba2;
+    background: rgb(182, 185, 185);
     /* WebKit/Blink Browsers */
     //background-color: #EEE;
     //color: $tertiary-color;
@@ -43,7 +43,7 @@ body {
 }
 
 *::-moz-selection {
-    background: #959ba2;
+    background: rgb(182, 185, 185);
     /* Gecko Browsers */
     //color: $tertiary-color;
 }
