@@ -638,6 +638,9 @@ footer {
     margin-top: 5rem;
 }
 
+#dirtbags .content {
+    margin-top: 90%;
+}
 
 
 
@@ -692,6 +695,10 @@ footer {
 
     //
     #humanrobot {
+        margin-top: initial !important;
+    }
+
+    #dirtbags .content {
         margin-top: initial !important;
     }
 
