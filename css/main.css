@@ -13465,7 +13465,6 @@ textarea.form-control-lg {
 #logo a .love {
   display: inline;
   color: #929697 !important;
-  white-space: pre !important;
 }
 #logo a .home {
   display: none;
@@ -13934,6 +13933,10 @@ footer {
   margin-top: 5rem;
 }
 
+#dirtbags .content {
+  margin-top: 90%;
+}
+
 @media (max-width: 767px) {
   #wnet {
     margin-bottom: initial !important;
@@ -13977,6 +13980,10 @@ footer {
   }
 
   #humanrobot {
+    margin-top: initial !important;
+  }
+
+  #dirtbags .content {
     margin-top: initial !important;
   }
 }
