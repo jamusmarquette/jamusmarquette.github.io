@@ -5,7 +5,7 @@
 
 @import 'color';
 @import 'fonts';
-@import 'config'; 
+@import 'config';
 @import 'projects/projects';
 
 
@@ -16,7 +16,7 @@
 
 
 body {
-    
+
     background-color: $secondary-color !important;
     color: $primary !important;
 
@@ -81,9 +81,10 @@ p {
 
 
 sup {
-    display:inline-block;
-  text-decoration: none;
+    display: inline-block;
+    text-decoration: none;
 }
+
 .display-3 {
     //font-size: calc(1.525rem + 3.3vw);
     font-weight: 200;
@@ -120,9 +121,9 @@ ul {
     //padding: 0;
 
     font-weight: 400 !important;
-        font-style: normal;
-        font-size: 1.75rem;
-        //line-height: 1.35;
+    font-style: normal;
+    font-size: 1.75rem;
+    //line-height: 1.35;
 }
 
 
@@ -159,8 +160,8 @@ ul {
     background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
 
 
-//background: rgb(123, 129, 136);
-/*background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
+    //background: rgb(123, 129, 136);
+    /*background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
 background: -webkit-linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
 background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
 */
@@ -168,6 +169,8 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 #info {
     text-align: right;
+    width: 0 !important;
+    
 
     a {
         color: $primary;
@@ -197,16 +200,24 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 }
 
 @-webkit-keyframes image_blur {
-    0% { -webkit-filter: blur(0px);}
-    50% { -webkit-filter: blur(3px);}
-    100% { -webkit-filter: blur(0px);}
-    
+    0% {
+        -webkit-filter: blur(0px);
+    }
+
+    50% {
+        -webkit-filter: blur(3px);
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+    }
+
 }
 
 
 /* Scroll arrow */
 .scrolldown {
-    
+
 
     width: 2.5rem;
 
@@ -230,9 +241,9 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         position: absolute;
         display: block;
 
-        -webkit-animation: image_blur 3s; 
-        -webkit-animation-iteration-count:infinite;
-        -webkit-animation-timing-function:ease-in-out;
+        -webkit-animation: image_blur 3s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
 
     }
 }
@@ -250,8 +261,8 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
     &-paragraph {
         height: calc(100vh - 63px);
         padding-top: 80px;
-    
-       
+
+
     }
 }
 
@@ -282,12 +293,12 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     &:hover {
         background-color: rgb(91, 98, 100) !important;
-        
+
         .content-overlay {
             opacity: 1;
             top: 0;
 
-            
+
         }
 
         .content-details {
@@ -295,7 +306,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
             //left: 50%;
             opacity: 1;
 
-            
+
             /*-webkit-filter: blur(0);
             -moz-filter: blur(0);
             -o-filter: blur(0);
@@ -303,11 +314,12 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
             filter: blur(0);*/
         }
 
-        .content-image, .video-content-video {
+        .content-image,
+        .video-content-video {
             width: 100%;
             -webkit-filter: blur(70px);
             filter: blur(70px);
-            
+
             //opacity: 0.5;
         }
     }
@@ -367,7 +379,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
         h3 {
             //color: $primary;
-            color:rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
             font-family: $font-stack !important;
             //font-weight: $font-weight !important;
             font-weight: 400 !important;
@@ -412,12 +424,12 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         left: 0;
         width: 100%;
         z-index: 1030;
-    
+
 
         ul {
             margin-bottom: 0 !important;
-                padding-left: 0 !important;
-            
+            padding-left: 0 !important;
+
 
             li {
                 clear: both;
@@ -432,21 +444,21 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
     }
 
 
-    
+
     .row {
         --bs-gutter-x: 0 !important;
     }
-    
-    
+
+
     &content {
         padding-left: 2rem;
         padding-right: 2rem;
         padding-bottom: 5rem;
 
         ul {
-          
-                padding-left: 0;
-            
+
+            padding-left: 0;
+
         }
     }
 
@@ -487,7 +499,8 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 
 
-    &awards, &work {
+    &awards,
+    &work {
         margin-bottom: 6rem;
 
         li {
@@ -509,7 +522,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
     &gradient {
         pointer-events: none;
         height: 100%;
-        max-height:100vh;
+        max-height: 100vh;
         position: relative;
         z-index: 1035;
 
@@ -544,27 +557,146 @@ button {
 
 footer {
 
-    z-index:999999;
-    padding-bottom:.5rem;
+    z-index: 999999;
+    padding-bottom: .5rem;
 }
+
 #footergradient {
     height: 200px;
     position: relative;
 
 }
+
 #contact {
     //padding-top: 200px;
     font-weight: 200;
     background-color: $secondary-color !important;
-    
+
 }
 
 .upgradient {
-    pointer-events: none; 
+    pointer-events: none;
     background: linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
     background: -webkit-linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
     background: linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
 }
+
+
+
+
+/* ---- image order ---- */
+
+//row 1
+#wnet {
+    margin-bottom: 5rem;
+
+    .content {
+        margin-top: 50%;
+    }
+}
+
+//row 2
+#hereforgood .content {
+    margin-top: 115%;
+}
+
+#re {
+    margin-bottom: 450px;
+
+    .content {
+        margin-top: -20%;
+    }
+}
+
+#sva {
+    position: absolute;
+    right: 1rem;
+    margin-top: 200px;
+}
+
+//row 6
+#historypop {
+    margin-top: 5rem;
+}
+
+#janda {
+    margin-top: 7rem;
+}
+
+//
+#cercaandbody {
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+}
+
+#cercaestas {
+    margin-bottom: 6rem;
+}
+
+//
+#humanrobot {
+    margin-top: 5rem;
+}
+
+
+
+
+@media (max-width: 767px) {
+
+    //row 1
+    #wnet {
+        margin-bottom: initial !important;
+
+        .content {
+            margin-top: initial !important;
+        }
+    }
+
+    //row 2
+    #hereforgood .content {
+        margin-top: initial !important;
+    }
+
+    #re {
+        margin-bottom: initial !important;
+
+        .content {
+            margin-top: initial !important;
+        }
+    }
+
+    #sva {
+        position: relative !important;
+        right: initial !important;
+        margin-top: initial !important;
+    }
+
+    //row 6
+    #historypop {
+        margin-top: initial !important;
+    }
+
+    #janda {
+        margin-top: initial !important;
+    }
+
+    //
+    #cercaandbody {
+        margin-top: initial !important;
+        margin-bottom: initial !important;
+    }
+
+    #cercaestas {
+        margin-bottom: initial !important;
+    }
+
+    //
+    #humanrobot {
+        margin-top: initial !important;
+    }
+
+}
+
 
 
 @import 'mobile';

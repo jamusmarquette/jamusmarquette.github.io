@@ -13604,6 +13604,7 @@ ul {
 
 #info {
   text-align: right;
+  width: 0 !important;
 }
 #info a {
   color: #929697;
@@ -13704,7 +13705,8 @@ ul {
   -ms-filter: blur(0);
   filter: blur(0);*/
 }
-.content:hover .content-image, .content:hover .video-content-video {
+.content:hover .content-image,
+.content:hover .video-content-video {
   width: 100%;
   -webkit-filter: blur(70px);
   filter: blur(70px);
@@ -13885,6 +13887,98 @@ footer {
   background: linear-gradient(to top, white, rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
 }
 
+/* ---- image order ---- */
+#wnet {
+  margin-bottom: 5rem;
+}
+#wnet .content {
+  margin-top: 50%;
+}
+
+#hereforgood .content {
+  margin-top: 115%;
+}
+
+#re {
+  margin-bottom: 450px;
+}
+#re .content {
+  margin-top: -20%;
+}
+
+#sva {
+  position: absolute;
+  right: 1rem;
+  margin-top: 200px;
+}
+
+#historypop {
+  margin-top: 5rem;
+}
+
+#janda {
+  margin-top: 7rem;
+}
+
+#cercaandbody {
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+}
+
+#cercaestas {
+  margin-bottom: 6rem;
+}
+
+#humanrobot {
+  margin-top: 5rem;
+}
+
+@media (max-width: 767px) {
+  #wnet {
+    margin-bottom: initial !important;
+  }
+  #wnet .content {
+    margin-top: initial !important;
+  }
+
+  #hereforgood .content {
+    margin-top: initial !important;
+  }
+
+  #re {
+    margin-bottom: initial !important;
+  }
+  #re .content {
+    margin-top: initial !important;
+  }
+
+  #sva {
+    position: relative !important;
+    right: initial !important;
+    margin-top: initial !important;
+  }
+
+  #historypop {
+    margin-top: initial !important;
+  }
+
+  #janda {
+    margin-top: initial !important;
+  }
+
+  #cercaandbody {
+    margin-top: initial !important;
+    margin-bottom: initial !important;
+  }
+
+  #cercaestas {
+    margin-bottom: initial !important;
+  }
+
+  #humanrobot {
+    margin-top: initial !important;
+  }
+}
 @media (max-width: 576px) {
   #info ul {
     display: flex;
