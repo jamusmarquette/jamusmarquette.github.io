@@ -5095,7 +5095,7 @@ textarea.form-control-lg {
   display: block;
   color: #929697;
   background-color: #fff;
-  border: 1px solid #dee2e6;
+  border: 0 solid #dee2e6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -5105,26 +5105,26 @@ textarea.form-control-lg {
 }
 .page-link:hover {
   z-index: 2;
-  color: #757879;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
+  color: #929697;
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0);
 }
 .page-link:focus {
   z-index: 3;
-  color: #757879;
-  background-color: #e9ecef;
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(146, 150, 151, 0.25);
+  box-shadow: none;
 }
 
 .page-item:not(:first-child) .page-link {
-  margin-left: -1px;
+  margin-left: 0;
 }
 .page-item.active .page-link {
   z-index: 3;
-  color: #fff;
-  background-color: #929697;
-  border-color: #929697;
+  color: #929697;
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0);
 }
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -5134,16 +5134,16 @@ textarea.form-control-lg {
 }
 
 .page-link {
-  padding: 0.375rem 0.75rem;
+  padding: 0 1rem;
 }
 
 .page-item:first-child .page-link {
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .page-item:last-child .page-link {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .pagination-lg .page-link {
@@ -13479,6 +13479,17 @@ textarea.form-control-lg {
   color: #929697 !important;
 }
 
+/* Pagination */
+.pagination {
+  margin-bottom: 0 !important;
+}
+.pagination .page-link:first-child {
+  padding-left: 0 !important;
+}
+.pagination .page-item.active .page-link {
+  filter: blur(2px);
+}
+
 body {
   background-color: white !important;
   color: #929697 !important;
@@ -13854,6 +13865,7 @@ button {
 
 footer {
   z-index: 999999;
+  padding-bottom: 0.5rem;
 }
 
 #footergradient {

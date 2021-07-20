@@ -237,3 +237,22 @@
     }
 
 }
+
+
+
+
+
+/* Pagination */
+.pagination {
+        margin-bottom: 0 !important;
+    
+        .page-link:first-child {
+        padding-left: 0 !important;
+    }
+
+    .page-item.active .page-link {
+        filter: blur(2px);
+    }
+    
+
+}
