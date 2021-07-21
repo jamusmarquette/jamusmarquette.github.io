@@ -13274,6 +13274,7 @@ textarea.form-control-lg {
 
 .md-text {
   font-size: 3rem;
+  font-weight: 300;
 }
 
 .lg-text {
@@ -13304,6 +13305,7 @@ textarea.form-control-lg {
   .md-text {
     font-size: calc(1.425rem + 2.1vw);
     line-height: 1.2;
+    font-weight: 300 !important;
   }
 
   .lg-text {
@@ -13823,7 +13825,7 @@ ul {
 #about h3, #about .h3 {
   border-bottom: solid 2px #929697;
   width: fit-content;
-  font-weight: 400;
+  font-weight: 300;
 }
 #aboutstory {
   max-width: 100%;

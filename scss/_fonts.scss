@@ -37,6 +37,7 @@ $font-weight: 400;
 .md-text {
     //margin-bottom: 3.5rem;
     font-size: 3rem;
+    font-weight:300;
 }
 
 //big type, first paragraph
@@ -114,6 +115,7 @@ $font-weight: 400;
     .md-text {
             font-size: calc(1.425rem + 2.1vw);
             line-height: 1.2;
+            font-weight: 300 !important;
 
     }
 
