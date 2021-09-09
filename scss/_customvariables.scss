@@ -450,6 +450,7 @@ $font-weight-bolder:          bolder !default;
 $font-weight-base:            $font-weight-normal !default;
 
 $line-height-base:            1.5 !default;
+//$line-height-sm:              1.25 !default;
 $line-height-sm:              1.25 !default;
 $line-height-lg:              2 !default;
 
@@ -477,7 +478,8 @@ $headings-margin-bottom:      $spacer / 2 !default;
 $headings-font-family:        null !default;
 $headings-font-style:         null !default;
 $headings-font-weight:        500 !default;
-$headings-line-height:        1.2 !default;
+//$headings-line-height:        1.2 !default;
+$headings-line-height:        1.25 !default;
 $headings-color:              null !default;
 // scss-docs-end headings-variables
 
