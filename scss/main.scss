@@ -644,6 +644,9 @@ footer {
     margin-top: 90%;
 }
 
+#confinement {
+    margin-top: 5rem;
+}
 
 
 @media (max-width: 767px) {
@@ -701,6 +704,10 @@ footer {
     }
 
     #dirtbags .content {
+        margin-top: initial !important;
+    }
+
+    #confinement {
         margin-top: initial !important;
     }
 
