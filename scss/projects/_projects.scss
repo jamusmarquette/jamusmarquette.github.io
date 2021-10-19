@@ -244,6 +244,12 @@
 
 }
 
+@media (max-width: 1170px) {
+    #backtowork {
+        display:none;
+    }
+}
+
 
 .gradientHideMenu {
     pointer-events: none;
@@ -446,11 +452,11 @@
 
 
 
-/*@media (max-width: 992px) {768 576
-    @media (max-width: 1170px) {*/
+//@media (max-width: 992px) {768 576
+    @media (max-width: 1170px) {
 //@media (max-width: 768px) {
 //@media (max-width: 576px) {
-@media (max-width: 664px) {
+//@media (max-width: 664px) {
 
     .col-3.blur.nextProject,
     .col-3.blur.previousProject {

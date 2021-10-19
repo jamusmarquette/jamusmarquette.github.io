@@ -186,7 +186,7 @@ function toggleSound() {
 
 
 //const downarrowEl = document.querySelector('#downarrow')
-const thumbnailsEl = document.querySelector('#thumbnails')
+const backupEl = document.querySelector('#backup')
 
 const handler = (entries) => {
   console.log(entries)
@@ -206,7 +206,7 @@ const handler = (entries) => {
 // create the observer
 const observer = new window.IntersectionObserver(handler)
 // give the observer some dom nodes to keep an eye on
-observer.observe(thumbnailsEl)
+observer.observe(backupEl)
 
 
 
