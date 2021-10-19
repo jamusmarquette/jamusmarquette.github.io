@@ -13373,6 +13373,11 @@ textarea.form-control-lg {
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 1170px) {
+  #backtowork {
+    display: none;
+  }
+}
 .gradientHideMenu {
   pointer-events: none;
   background: linear-gradient(to top, white 25%, rgba(255, 255, 255, 0));
@@ -13497,9 +13502,7 @@ textarea.form-control-lg {
     max-width: 600px;
     margin: 0 auto;
   }*/
-/*@media (max-width: 992px) {768 576
-    @media (max-width: 1170px) {*/
-@media (max-width: 664px) {
+@media (max-width: 1170px) {
   .col-3.blur.nextProject,
 .col-3.blur.previousProject {
     width: auto;
