@@ -13391,10 +13391,6 @@ textarea.form-control-lg {
   padding: 0;
   width: 100%;
 }
-.is-pinned {
-  color: red !important;
-}
-
 .bottomnav-gradient {
   pointer-events: none;
   height: 30px;
@@ -13406,6 +13402,12 @@ textarea.form-control-lg {
   background: linear-gradient(to top, white, rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
 }
 
+/*#downarrow {
+
+    &.enabled:after {
+
+    }
+}*/
 /* bottom Navigation links */
 #bottomNav {
   width: 100%;
@@ -13414,6 +13416,7 @@ textarea.form-control-lg {
   padding-top: 8px !important;
   padding-bottom: 12px !important;
   margin: 0;
+  background-color: #fff;
 }
 #bottomNav a {
   color: #929697;
@@ -13473,6 +13476,27 @@ textarea.form-control-lg {
   display: block;
 }
 
+/*#thumbnails {
+    // DOM element for triggering the intersection observer event
+    // you can use 'height' to determine when the event is triggered
+    height: 50rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: green;
+  }
+
+  body {
+    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Open Sans", "Arial", sans-serif;
+    background-color: #f3eee8;
+  }
+
+  .page {
+    padding: 6rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }*/
 /*@media (max-width: 992px) {768 576
     @media (max-width: 1170px) {*/
 @media (max-width: 664px) {
