@@ -25,7 +25,8 @@ body {
     font-style: normal;
 
     /*This is the default h3 font size/line-height*/
-    font-size: 1.75rem;
+    //font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 1.2;
 
     -moz-osx-font-smoothing: grayscale;
@@ -71,7 +72,8 @@ h6 {
 
 h3 {
     font-style: normal;
-    font-size: 1.75rem;
+    //font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 1.2;
 }
 
@@ -122,7 +124,8 @@ ul {
 
     font-weight: 400 !important;
     font-style: normal;
-    font-size: 1.75rem;
+    //font-size: 1.75rem;
+    font-size: 1.5rem;
     //line-height: 1.35;
 }
 
@@ -130,6 +133,7 @@ ul {
 /* ——— Header ——— */
 //Main Header
 .headercontainer {
+    z-index: 1032;
     pointer-events: none;
 
     .inner-container {
@@ -138,8 +142,10 @@ ul {
 }
 
 .inner-container {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    /*padding-top: 15px;
+    padding-bottom: 15px;*/
+    padding-top: 12px;
+    padding-bottom: 12px;
     //background-color: $secondary-color !important;
 }
 
@@ -167,10 +173,13 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 */
 }
 
+
+
+
 #info {
     text-align: right;
     width: 0 !important;
-    
+
 
     a {
         color: $primary;
@@ -179,6 +188,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     ul {
         margin-bottom: 0;
+    
 
         li {
             display: inline;
@@ -212,6 +222,42 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         -webkit-filter: blur(0px);
     }
 
+}
+
+
+
+/* Header Collapse Categories*/
+#collapseCategories {
+    padding-top: 30px;
+    --bs-gutter-x: initial;
+
+    &List {
+        max-width: 80%;
+        //padding-left: 157px;
+        padding-left: 135px;
+    }
+
+    &Close {
+        max-width: 20%;
+
+        a {
+            font-size: 30px;
+            line-height: 0.1em;
+            cursor: pointer;
+        }
+
+    }
+
+    ul {
+        padding-left: 0;
+    }
+
+}
+
+@media (max-width: 712px) {
+    #collapseCategoriesList {
+        padding-left: initial;
+    }
 }
 
 
@@ -260,7 +306,8 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     &-paragraph {
         height: calc(100vh - 63px);
-        padding-top: 80px;
+        //padding-top: 80px;
+        padding-top: 52px;
 
 
     }
@@ -277,7 +324,8 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 #work {
     position: relative;
-    padding-top: 85vh;
+    //padding-top: 85vh;
+    padding-top: 90vh;
 }
 
 
@@ -286,10 +334,15 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
     position: relative;
     margin: auto;
     overflow: hidden;
+    padding: 0;
     margin-bottom: $container-padding-x;
+
     //background-color: rgba($primary, 1);
     background-color: rgb(91, 98, 100);
 
+    .video-content-video {
+        display: block !important;
+    }
 
     &:hover {
         background-color: rgb(91, 98, 100) !important;
@@ -297,21 +350,22 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         .content-overlay {
             opacity: 1;
             top: 0;
-
-
         }
 
         .content-details {
-            //top: 50%;
-            //left: 50%;
-            opacity: 1;
+            color: $primary;
+            text-decoration: none;
+
+            -webkit-filter: blur(0);
+            filter: blur(0);
 
 
-            /*-webkit-filter: blur(0);
-            -moz-filter: blur(0);
-            -o-filter: blur(0);
-            -ms-filter: blur(0);
-            filter: blur(0);*/
+            p,
+            h3 {
+                -webkit-filter: blur(3px) !important;
+                filter: blur(3px) !important;
+
+            }
         }
 
         .content-image,
@@ -319,8 +373,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
             width: 100%;
             -webkit-filter: blur(70px);
             filter: blur(70px);
-
-            //opacity: 0.5;
+            display: block !important;
         }
     }
 
@@ -333,7 +386,6 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         width: 100%;
         left: 0;
         top: 0;
-        //top: -100%;
         bottom: 0;
         right: 0;
 
@@ -356,37 +408,32 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
     }
 
 
-    .content-details {
+    &-details {
 
-        position: absolute;
-        text-align: center;
-        padding-left: 1em;
-        padding-right: 1em;
-        width: 100%;
-        top: 50%;
-        left: 50%;
-        opacity: 0;
+        background-color: #fff;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        padding-left: 3px;
 
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        -webkit-transition: all 0.3s ease-in-out 0s;
-        -moz-transition: all 0.3s ease-in-out 0s;
-        transition: all 0.3s ease-in-out 0s;
+        //position: absolute;
+        //text-align: left;
+        //padding-left: 1em;
+        //padding-right: 1em;
+        //width: 100%;
+        //bottom: 2.5em;
+        //opacity: 0;
 
-        /*-webkit-filter: blur(25px);
-        filter: blur(25px);*/
 
         h3 {
             //color: $primary;
-            color: rgb(255, 255, 255);
-            font-family: $font-stack !important;
+            //color: rgb(255, 255, 255);
+            //font-family: $font-stack !important;
             //font-weight: $font-weight !important;
-            font-weight: 400 !important;
+            //font-weight: 400 !important;
         }
 
         p {
-            color: $secondary;
+            //color: $secondary;
         }
     }
 
@@ -458,7 +505,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         ul {
 
             padding-left: 0;
-            
+
 
         }
     }
@@ -483,6 +530,10 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     }
 
+    p:last-child {
+        margin-bottom: 0;
+    }
+
     h3 {
         border-bottom: solid 2px $primary;
         width: fit-content;
@@ -495,7 +546,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         max-width: 100%;
         position: relative;
         overflow: hidden;
-        margin-bottom: 6rem;
+        //margin-bottom: 6rem;
 
     }
 
@@ -503,7 +554,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     &awards,
     &work {
-        margin-bottom: 6rem;
+        //margin-bottom: 6rem;
 
         li {
             margin-bottom: 3rem;
@@ -539,7 +590,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 
 
- 
+
 button {
     background: rgba(0, 0, 0, 0);
     border: none;
@@ -557,14 +608,23 @@ button {
 
 
 
-footer {
+#contactSection {
 
     z-index: 999999;
     padding-bottom: .5rem;
+    position: relative;
+}
+
+#footerSection {
+
+    padding-bottom: .5rem;
+    z-index: 1031;
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
 }
 
 #footergradient {
-    height: 200px;
+    height: 100px;
     position: relative;
 
 }
@@ -576,14 +636,77 @@ footer {
 
 }
 
-.upgradient {
-    pointer-events: none;
-    background: linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
-    background: -webkit-linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
-    background: linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+/* Footer categories */
+#categories {
+    ul {
+        padding-left: 0;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .category {
+
+        text-decoration: underline;
+        padding-bottom: 10px !important;
+    }
+}
+
+@media (max-width: 1150px) {
+    #lftcol {
+        margin-left: 0;
+        width: 50%;
+    }
+
+    #rtcol {
+        width: 50%;
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: 576px) {
+    #lftcol {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #rtcol {
+        width: 100%;
+        margin-left: 0;
+    }
+
 }
 
 
+
+.upgradient {
+    pointer-events: none;
+
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, .75));
+    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, .75));
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, .75));
+
+
+    /* This is a very clean gradient */
+    /*   background: linear-gradient(to top, white, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(to top, white,  rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, white, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+*/
+}
+
+
+.projectsgradient {
+
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0));
+
+
+    /*    background: linear-gradient(to top,rgba(255, 255, 255, 0.21875) 7.9%, rgba(255, 255, 255, 0.203125) 15.3%, rgba(255, 255, 255, 0.1875) 22.2%, rgba(255, 255, 255, 0.171875) 28.7%, rgba(255, 255, 255, 0.15625) 34.8%, rgba(255, 255, 255, 0.140625) 40.6%, rgba(255, 255, 255, 0.125) 46.2%, rgba(255, 255, 255, 0.109275) 51.7%, rgba(255, 255, 255, 0.09375) 57.2%, rgba(255, 255, 255, 0.078125) 62.8%, rgba(255, 255, 255, 0.0625) 68.7%, rgba(255, 255, 255, 0.046875) 75.2%, rgba(255, 255, 255, 0.03125) 82.6%, rgba(255, 255, 255, 0.015625) 91.2%, rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0.21875) 7.9%, rgba(255, 255, 255, 0.203125) 15.3%, rgba(255, 255, 255, 0.1875) 22.2%, rgba(255, 255, 255, 0.171875) 28.7%, rgba(255, 255, 255, 0.15625) 34.8%, rgba(255, 255, 255, 0.140625) 40.6%, rgba(255, 255, 255, 0.125) 46.2%, rgba(255, 255, 255, 0.109275) 51.7%, rgba(255, 255, 255, 0.09375) 57.2%, rgba(255, 255, 255, 0.078125) 62.8%, rgba(255, 255, 255, 0.0625) 68.7%, rgba(255, 255, 255, 0.046875) 75.2%, rgba(255, 255, 255, 0.03125) 82.6%, rgba(255, 255, 255, 0.015625) 91.2%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.21875) 7.9%, rgba(255, 255, 255, 0.203125) 15.3%, rgba(255, 255, 255, 0.1875) 22.2%, rgba(255, 255, 255, 0.171875) 28.7%, rgba(255, 255, 255, 0.15625) 34.8%, rgba(255, 255, 255, 0.140625) 40.6%, rgba(255, 255, 255, 0.125) 46.2%, rgba(255, 255, 255, 0.109275) 51.7%, rgba(255, 255, 255, 0.09375) 57.2%, rgba(255, 255, 255, 0.078125) 62.8%, rgba(255, 255, 255, 0.0625) 68.7%, rgba(255, 255, 255, 0.046875) 75.2%, rgba(255, 255, 255, 0.03125) 82.6%, rgba(255, 255, 255, 0.015625) 91.2%, rgba(255, 255, 255, 0));
+*/
+}
 
 
 /* ---- image order ---- */

@@ -1,7 +1,8 @@
 /* --- header ---- */
 
 .project-intro {
-    padding-top: 63px;
+    //padding-top: 63px;
+    padding-top: 40px;
 
     &-paragraph {
         //height: calc(100vh - 63px);
@@ -127,7 +128,8 @@
 //add a space at the top of the page to clear header gradient
 .topmargin {
     //padding-top: 63px;
-    padding-top: 100px;
+    //padding-top: 100px;
+    padding-top: 80px;
 }
 
 
@@ -186,7 +188,7 @@
 
     &:hover {
 
-        .video-content-details {   
+        .video-content-details {
             opacity: 1;
 
         }
@@ -199,9 +201,40 @@
 
 
 
+#credits {
+    .bodyul {
+        border-bottom: 2px solid #929697;
+        padding-bottom: 0;
+    }
+
+    #roles {
+        padding-left: 0;
+
+        .collaborator {
+            padding-bottom: .5rem;
+
+            .role {
+                //font-style: italic !important;
+            }
+        }
+    }
+
+
+}
+
+#topgradient {
+    z-index: 1031;
+
+}
+
+
 #backtowork {
+    z-index: 1031;
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+
     ul {
-        text-decoration:none;
+        text-decoration: none;
         padding-left: 0;
 
         li {
@@ -212,29 +245,151 @@
 }
 
 
+.gradientHideMenu {
+    pointer-events: none;
 
-//Swap page title description for 'all projects'
-#logo a {
-    color: $primary !important;
-    .love { 
-        //text-decoration: underline; white-space: nowrap;
-        display: inline;
-        color: $primary !important;
-        //white-space: pre !important;
-    }
-    .home {
-        //text-decoration: underline; white-space: nowrap;
-        display: none;
-        color: $primary !important;
-    }
-    &:hover > .home { 
-        display: inline;
-        color: $primary !important; 
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0));
+    z-index: 1031;
+
+    /* This is a very clean gradient */
+    /*   background: linear-gradient(to top, white, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(to top, white,  rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, white, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+*/
+}
+
+
+/* Bottom Menu */
+
+#bottomMenu {
+    padding: 0;
+    //padding-right: var(--bs-gutter-x, 1.75rem);
+    //padding-left: var(--bs-gutter-x, 1.75rem);
+    width: 100%;
+
+    .row {
+        //padding-right: var(--bs-gutter-x, 1.75rem);
+        //padding-left: var(--bs-gutter-x, 1.75rem);
     }
 
-    &:hover > .love { 
-        display: none; 
-        color: $primary !important;
+}
+
+    .is-pinned {
+        color: red !important;
+    }
+
+
+.bottomnav-gradient {
+    pointer-events: none;
+    //height: 30px;
+    height: 30px;
+    position: relative;
+    padding-right: var(--bs-gutter-x, 1.75rem);
+    padding-left: var(--bs-gutter-x, 1.75rem);
+
+
+    background: linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: -webkit-linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
+
+
+}
+
+
+
+/* bottom Navigation links */
+#bottomNav {
+    //text-align: right;
+    width: 100%;
+    //width: auto;
+    //z-index: 1030;
+    padding-right: var(--bs-gutter-x, 1.75rem) !important;
+    padding-left: var(--bs-gutter-x, 1.75rem) !important;
+    padding-top: 8px !important;
+    padding-bottom: 12px !important;
+
+    margin: 0;
+
+
+    a {
+        color: $primary;
+        text-decoration: none;
+    }
+
+    ul {
+        margin-bottom: 0;
+
+        li {
+            display: inline;
+
+
+            a {
+                color: $primary;
+                text-decoration: none;
+                margin-right: 30px;
+
+
+            }
+
+            &:last-child {
+                margin-right: none;
+            }
+        }
+    }
+}
+
+#currentproject {
+    //padding: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* bottom Navigation: Next Project */
+.nextProject {
+    //padding: 0 !important;
+    overflow: hidden;
+    padding-right: 0 !important;
+
+    a {
+        position: relative;
+        text-decoration: none;
+
+    }
+
+    .title-ctn {
+        float: left;
+        //width: 90%;
+        width: 88.392%;
+        overflow: hidden;
+
+
+        div {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+
+            margin-left: 0px;
+            text-align: right;
+        }
+    }
+
+    .paging {
+        float: right;
+        width: auto;
+        //width: 11.607%;
+        text-align: right;
+        //padding-top: 6px;
+        //height: 71px;
+
+        div {
+            display: block;
+        }
     }
 
 }
@@ -243,17 +398,243 @@
 
 
 
+/*@media (max-width: 992px) {768 576
+    @media (max-width: 1170px) {*/
+//@media (max-width: 768px) {
+//@media (max-width: 576px) {
+@media (max-width: 664px) {
+
+    .col-3.blur.nextProject,
+    .col-3.blur.previousProject {
+        width: auto;
+    }
+
+    .title-ctn {
+        display: none;
+    }
+}
+
+
+
+/* bottom Navigation: Previous Project */
+.previousProject {
+    overflow: hidden;
+    //padding-left: 0 !important;
+    padding-right: 0;
+
+
+    a {
+        position: relative;
+        text-decoration: none;
+
+    }
+
+    .title-ctn {
+        float: right;
+        width: 88.392%;
+        //width: 90%;
+        overflow: hidden;
+        //padding-left: 1rem;
+
+
+
+        div {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+
+            margin-right: 0px;
+        }
+    }
+
+    .paging {
+        float: left;
+        //width: 11.607%;
+        width: auto;
+        text-align: left;
+
+        div {
+            display: block;
+        }
+    }
+
+}
+
+/* Adjust arrows if they are used on the right mobile */
+@media (max-width: 576px) {
+
+    //@media (max-width: 768px) {
+    .nextProject {
+        //padding-right: 30px !important;
+        width: auto !important;
+    }
+
+
+    .previousProject {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: auto !important;
+    }
+
+    #bottomMenu {
+        //padding: 0 !important;
+        //padding-right: var(--bs-gutter-x, 1.75rem);
+        //padding-left: var(--bs-gutter-x, 1.75rem);
+        width: 100% !important;
+        width: auto !important;
+    }
+}
+
+
+//@media (max-width: 939px) {
+@media (max-width: 1050px) {
+
+    .nextProject,
+    .previousProject {
+        .title-ctn {
+            //width: 80%
+            //width: 80%
+            width: 75%;
+        }
+    }
+}
+
+
+
+#downarrow {}
+
+
+
+//Swap page title description for 'all projects'
+#logo a {
+    color: $primary !important;
+
+    .love {
+        //text-decoration: underline; white-space: nowrap;
+        display: inline;
+        color: $primary !important;
+
+        //white-space: pre !important;
+        &:after {
+            content: ".";
+            display: inline-block;
+            position: relative;
+            text-decoration: none !important;
+        }
+    }
+
+    .home {
+        //text-decoration: underline; white-space: nowrap;
+        display: none;
+        color: $primary !important;
+
+        &:after {
+            content: ".";
+            display: inline-block;
+            position: relative;
+            text-decoration: none !important;
+        }
+    }
+
+    &:hover>.home {
+        display: inline;
+        color: $primary !important;
+    }
+
+    &:hover>.love {
+        display: none;
+        color: $primary !important;
+    }
+
+}
+
+
+
+
 /* Pagination */
 .pagination {
-        margin-bottom: 0 !important;
-    
-        .page-link:first-child {
+    margin-bottom: 0 !important;
+
+    .page-link:first-child {
         padding-left: 0 !important;
     }
 
     .page-item.active .page-link {
         filter: blur(2px);
     }
-    
+
+
+}
+
+
+/* Thumbnails */
+#thumbnails {
+    position: relative;
+    z-index: 1031;
+    background-color: white;
+}
+
+/*@media (max-width: 992px) {*/
+@media (max-width: 1170px) {
+    #thumbnails {
+
+        .col-md-2 {
+            width: 25%;
+            max-width: 25%;
+        }
+    }
+
+}
+
+/*@media (max-width: 768px) {
+    #thumbnails {
+        .col-md-2 {
+            width: 25%;
+            max-width: 25%;
+        }
+    }
+
+}*/
+
+
+@media (max-width: 576px) {
+    #thumbnails {
+        .col-md-2 {
+            width: 50%;
+            max-width: 50%;
+        }
+    }
+
+}
+
+
+
+/* Restuarants on Mission video columns */
+
+/*@media (max-width: 992px) {*/
+@media (max-width: 1170px) {
+    #reVideos {
+        .col-md-4  {
+            width: 25% !important;
+            max-width: 25% !important;
+        }
+    }
+
+
+}
+
+@media (max-width: 576px) {
+    #reVideos {
+        .col-md-4  {
+            width: 50% !important;
+            max-width: 50% !important;
+
+        }
+    }
 
 }

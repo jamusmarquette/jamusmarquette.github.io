@@ -26,7 +26,8 @@ $font-weight: 400;
 
 //body, p, etc.
 .rg-text {
-    font-size: 1.75rem ;
+    //font-size: 1.75rem ;
+    font-size: 1.5rem;
     line-height: 1.2;
     font-weight: 400 !important;
 
@@ -36,7 +37,7 @@ $font-weight: 400;
 .md-text {
     //margin-bottom: 3.5rem;
     font-size: 3rem;
-    font-weight:300;
+    font-weight: 300;
 }
 
 //big type, first paragraph
@@ -64,7 +65,8 @@ $font-weight: 400;
     .xs-text, .sm-text, .rg-text, .md-text, .lg-text, .h3-ul {
         font-weight: 400 !important;
         font-style: normal;
-        font-size: 1.75rem !important;
+        //font-size: 1.75rem !important;
+        font-size: 1.5rem !important;
         line-height: 1.35;
     }
 
@@ -97,7 +99,8 @@ $font-weight: 400;
      .h3-ul {
         font-weight: 400 !important;
         font-style: normal;
-        font-size: 1.75rem !important;
+        //font-size: 1.75rem !important;
+        font-size: 1.5rem;
         line-height: 1.35;
     }
 
@@ -120,10 +123,13 @@ $font-weight: 400;
 
     //big type, first paragraph
     .lg-text {
-        font-size: calc(1.525rem + 3.3vw) !important;
-        //font-weight: 200;
-        font-weight: 300;
-        //line-height: 1.4; //maybe?
+        //font-size: calc(1.525rem + 3.3vw) !important;
+        //font-weight: 300;
+     
+            font-size: calc(2.55rem + 3.3vw) !important;
+            font-weight: 300;
+            line-height: 1.1;
+        
     }
 
 
