@@ -182,28 +182,37 @@ function toggleSound() {
 
 
 
+/* Change the footer menu arrow once the thumbnails are in the viewport using intersection observer */
+
+
+//const downarrowEl = document.querySelector('#downarrow')
+const thumbnailsEl = document.querySelector('#thumbnails')
+
+const handler = (entries) => {
+  console.log(entries)
+  // entries is an array of observed dom nodes
+  // we're only interested in the first one at [0]
+  // because that's our .thumbnails node.
+  // Here observe whether or not that node is in the viewport
+  if (!entries[0].isIntersecting) {
+    //downarrowEl.classList.add('enabled')
+    $("#downarrow").html('↓');
+  } else {
+    //downarrowEl.classList.remove('enabled')
+    $("#downarrow").html('↑');
+  }
+}
+
+// create the observer
+const observer = new window.IntersectionObserver(handler)
+// give the observer some dom nodes to keep an eye on
+observer.observe(thumbnailsEl)
 
 
 
-const el = document.querySelector("#bottomMenu");
-const observer = new IntersectionObserver(
-    ([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1), {
-        threshold: [1]
-    }
-);
 
 
-observer.observe(el);
 
-/*
 
-document.addEventListener('sticky-change', e => {
-  const header = e.detail.target;  // header became sticky or stopped sticking.
-  const sticking = e.detail.stuck; // true when header is sticky.
-  header.classList.toggle('shadow', sticking); // add drop shadow when sticking.
-
-  document.querySelector('#bottomMenu').textContent = header.textContent;
-});
-*/
 
 
