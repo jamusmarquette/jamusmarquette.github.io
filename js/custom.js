@@ -186,33 +186,29 @@ function toggleSound() {
 
 
 //const downarrowEl = document.querySelector('#downarrow')
-const backupEl = document.querySelector('#backup')
+const backupEl = document.querySelector('#backup');
 
 const handler = (entries) => {
-  console.log(entries)
-  // entries is an array of observed dom nodes
-  // we're only interested in the first one at [0]
-  // because that's our .thumbnails node.
-  // Here observe whether or not that node is in the viewport
-  if (!entries[0].isIntersecting) {
-    //downarrowEl.classList.add('enabled')
-    $("#downarrow").html('↓');
-  } else {
-    //downarrowEl.classList.remove('enabled')
-    $("#downarrow").html('↑');
-  }
+    console.log(entries)
+    // entries is an array of observed dom nodes
+    // we're only interested in the first one at [0]
+    // because that's our .backup node.
+    // Here observe whether or not that node is in the viewport
+    if (!entries[0].isIntersecting) {
+        //downarrowEl.classList.add('enabled')
+        $("#downarrow").html('↓');
+
+
+    } else {
+
+        //downarrowEl.classList.remove('enabled')
+        $("#downarrow").html('<a class="blur" href="#top">↑</a>');
+
+    }
 }
+
 
 // create the observer
 const observer = new window.IntersectionObserver(handler)
 // give the observer some dom nodes to keep an eye on
 observer.observe(backupEl)
-
-
-
-
-
-
-
-
-
