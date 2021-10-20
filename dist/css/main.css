@@ -13361,8 +13361,6 @@ textarea.form-control-lg {
 }
 
 #backtowork {
-  z-index: 1031;
-  background-color: white;
   position: relative;
 }
 #backtowork ul {
@@ -14283,7 +14281,7 @@ button {
 }
 @media (max-width: 767px) {
   .hidemd {
-    display: none;
+    display: none !important;
   }
 
   .showmd {

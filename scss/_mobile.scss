@@ -96,7 +96,7 @@
 // Medium devices (tablets, 767px and down)
 @media (max-width: 767px) {
 .hidemd {
-    display: none;
+    display: none !important;
 
 }
 
