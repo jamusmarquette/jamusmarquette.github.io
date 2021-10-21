@@ -110,10 +110,6 @@ sup {
 }
 
 
-//xs type (descriptions, fineprint)
-.fs-5 {}
-
-
 
 
 
@@ -175,7 +171,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 
 
-
+/* header contact/info section (right) */
 #info {
     text-align: right;
     width: 0 !important;
@@ -188,7 +184,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     ul {
         margin-bottom: 0;
-    
+
 
         li {
             display: inline;
@@ -222,6 +218,17 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
         -webkit-filter: blur(0px);
     }
 
+}
+
+/* header contact/info section stack */
+@media (max-width: 854px) {
+    #info ul li {
+
+        display: block;
+        a{
+            margin-right:0;
+        }
+    }
 }
 
 
@@ -840,6 +847,7 @@ button {
 
 video {
     //object-fit: cover;
+    display: block;
 }
 
 

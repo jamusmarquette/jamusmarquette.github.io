@@ -39,7 +39,7 @@
 
 
 // Stack about nav links from (788 and down)
-@media (max-width: 788px) {
+@media (max-width: 854px) {
     #aboutheader ul li {
         float: left;
     }
@@ -565,13 +565,30 @@
 
 
 //Swap page title description for 'all projects'
-#logo a {
+#logo button {
     color: $primary !important;
+    width: 100%;
+    max-width: 250px;
+    padding:0;
+    margin:0;
+    text-align:left;
+    //display: block; 
+    display: inline;
+    
+
+
 
     .love {
         //text-decoration: underline; white-space: nowrap;
         display: inline;
         color: $primary !important;
+
+      
+
+        //display: inline-block;
+    
+ 
+    
 
         //white-space: pre !important;
         &:after {
