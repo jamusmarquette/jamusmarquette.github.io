@@ -13225,6 +13225,45 @@ textarea.form-control-lg {
   filter: blur(3px);
 }
 
+.coloranimate {
+  -webkit-animation: colorchange 20s infinite alternate;
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    color: #0080FF;
+  }
+  10% {
+    color: #929697;
+  }
+  20% {
+    color: #0ABB4F;
+  }
+  30% {
+    color: #FD3845;
+  }
+  40% {
+    color: #FFFD78;
+  }
+  50% {
+    color: #929697;
+  }
+  60% {
+    color: #0080FF;
+  }
+  70% {
+    color: #0ABB4F;
+  }
+  80% {
+    color: #FFFD78;
+  }
+  90% {
+    color: #FD3845;
+  }
+  100% {
+    color: #FF9DB6;
+  }
+}
 /* --- header ---- */
 .project-intro {
   padding-top: 40px;
@@ -13667,7 +13706,7 @@ body {
   font-style: normal;
   /*This is the default h3 font size/line-height*/
   font-size: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.2125;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -13968,8 +14007,23 @@ ul {
   width: 100vw;
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 3rem;
   padding-top: 5rem;
+  padding-bottom: 1.5rem;
+  /*.row {
+      --bs-gutter-x: 0 !important;
+  }*/
+  /*&gradient {
+      pointer-events: none;
+      height: 100%;
+      max-height: 100vh;
+      position: relative;
+      z-index: 1035;
+
+      background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
+      background: -webkit-linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
+      background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
+
+  }*/
 }
 #aboutheader {
   position: fixed;
@@ -13990,31 +14044,19 @@ ul {
 #aboutheader ul li:last-child {
   margin-right: 0;
 }
-#about .row {
-  --bs-gutter-x: 0 !important;
-}
 #aboutcontent {
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 5rem;
 }
 #aboutcontent ul {
   padding-left: 0;
+  margin-bottom: 0;
 }
-#aboutimage {
-  background-image: url("../img/jamus_highschool_unitednations_class_photo_test.jpg");
-  background-size: cover;
-  background-position: top center;
-  width: 100vw;
-  height: 100vh;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
+#aboutcontent ul li {
+  padding-bottom: 0.75rem;
 }
-#about p,
-#about h3,
-#about .h3 {
-  margin-bottom: 3.5rem;
+#aboutcontent ul li:last-child {
+  padding-bottom: 0;
 }
 #about p:last-child {
   margin-bottom: 0;
@@ -14022,31 +14064,10 @@ ul {
 #about h3, #about .h3 {
   border-bottom: solid 2px #929697;
   width: fit-content;
-  font-weight: 300;
 }
-#aboutstory {
-  max-width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-#aboutawards li, #aboutwork li {
-  margin-bottom: 3rem;
-}
-#aboutawards li:last-child, #aboutwork li:last-child {
-  margin-bottom: 0;
-}
-#aboutcontact {
-  margin-bottom: 6rem;
-}
-#aboutgradient {
-  pointer-events: none;
-  height: 100%;
-  max-height: 100vh;
-  position: relative;
-  z-index: 1035;
-  background: linear-gradient(to bottom, #7b8188, rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
-  background: -webkit-linear-gradient(to bottom, #7b8188, rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
-  background: linear-gradient(to bottom, #7b8188, rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
+#aboutcontact h3, #aboutcontact .h3 {
+  color: mediumslateblue;
+  border-bottom: none;
 }
 
 button {
