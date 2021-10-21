@@ -25,3 +25,30 @@
         filter: blur(3px);
     }
 }
+
+
+
+
+
+
+.coloranimate {
+    
+    -webkit-animation:colorchange 20s infinite alternate;
+    
+    
+  }
+
+  @-webkit-keyframes colorchange {
+    0% {color: #0080FF;}
+    10% {color: #929697;}   
+    20% {color: #0ABB4F;}
+    30% {color: #FD3845;}
+    40% {color: #FFFD78;}//blue
+    50% {color: #929697;}
+    60% {color: #0080FF;}
+    70% {color: #0ABB4F;}//lt blue/green
+    80% {color: #FFFD78;}
+    90% {color: #FD3845;}//lt blue
+    100% {color: #FF9DB6;}
+  }
+

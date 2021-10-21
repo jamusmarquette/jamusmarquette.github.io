@@ -28,10 +28,14 @@
         $("#content").css("opacity", "0");
         $("#content").css("display", "none");
 
-
+        /*Hide these sections because they are too long and show beyond the page
+        then display them again after */
         $("#work").css("display", "none");
-        $("footer").css("display", "none");
         $("#project").css("display", "none");
+        //$("footer").css("display", "none");
+        $("#topgradient").css("display", "none"); //topgradient is a div that contains most of the bottom
+
+        
 
     }
 
@@ -49,8 +53,9 @@
 
 
         $("#work").css("display", "block");
-        $("footer").css("display", "block");
         $("#project").css("display", "block");
+        //$("footer").css("display", "block");
+        $("#topgradient").css("display", "block");
 
     }
 

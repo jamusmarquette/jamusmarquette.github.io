@@ -27,7 +27,7 @@ body {
     /*This is the default h3 font size/line-height*/
     //font-size: 1.75rem;
     font-size: 1.5rem;
-    line-height: 1.2;
+    line-height: 1.2125;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -458,7 +458,6 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 /* info section */
 #about {
     position: absolute;
-    //position:relative;
     top: 0;
     left: 0;
     right: 0;
@@ -469,11 +468,11 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: 3rem;
     padding-top: 5rem;
+    padding-bottom: 1.5rem;
+
 
     &header {
-        //position: absolute;
         position: fixed;
         top: 0;
         left: 0;
@@ -500,40 +499,43 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 
 
-    .row {
+    /*.row {
         --bs-gutter-x: 0 !important;
-    }
+    }*/
+
 
 
     &content {
         padding-left: 2rem;
         padding-right: 2rem;
-        padding-bottom: 5rem;
+        //padding-bottom: 5rem;
+        //padding-bottom: .25rem;
 
         ul {
-
             padding-left: 0;
+            margin-bottom:0;
 
+            li {
+                padding-bottom: .75rem;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+            }
 
         }
     }
 
 
-    &image {
-        background-image: url('../img/jamus_highschool_unitednations_class_photo_test.jpg');
-        background-size: cover;
-        background-position: top center;
-        width: 100vw;
-        height: 100vh;
-        max-width: 100%;
-        max-height: 100%;
-        overflow: hidden;
+
+    &story {
+
+
     }
 
     p,
     h3 {
 
-        margin-bottom: 3.5rem;
 
 
     }
@@ -545,58 +547,46 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
     h3 {
         border-bottom: solid 2px $primary;
         width: fit-content;
-        //font-weight: 400;
-        font-weight: 300;
-
-    }
-
-    &story {
-        max-width: 100%;
-        position: relative;
-        overflow: hidden;
-        //margin-bottom: 6rem;
 
     }
 
 
+    &awards {
+
+        ul {
+
+        }
+    }
 
     &awards,
     &work {
-        //margin-bottom: 6rem;
-
-        li {
-            margin-bottom: 3rem;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-
 
     }
 
     &contact {
-        margin-bottom: 6rem;
-        //margin-bottom: 3.5rem;
+        
+        h3 {
+            color: mediumslateblue;
+        //border-bottom: 2px solid mediumslateblue !important;
+        border-bottom:none;
+        }
+       // margin-bottom: 6rem;
     }
 
-    &gradient {
+    /*&gradient {
         pointer-events: none;
         height: 100%;
         max-height: 100vh;
         position: relative;
         z-index: 1035;
 
-        //background: rgb(123, 129, 136);
         background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
         background: -webkit-linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
         background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0.945) 7.9%, rgba(123, 129, 136, 0.883) 15.3%, rgba(123, 129, 136, 0.815) 22.2%, rgba(123, 129, 136, 0.743) 28.7%, rgba(123, 129, 136, 0.667) 34.8%, rgba(123, 129, 136, 0.589) 40.6%, rgba(123, 129, 136, 0.509) 46.2%, rgba(123, 129, 136, 0.429) 51.7%, rgba(123, 129, 136, 0.348) 57.2%, rgba(123, 129, 136, 0.269) 62.8%, rgba(123, 129, 136, 0.193) 68.7%, rgba(123, 129, 136, 0.121) 75.2%, rgba(123, 129, 136, 0.059) 82.6%, rgba(123, 129, 136, 0.015) 91.2%, rgba(123, 129, 136, 0));
 
-    }
+    }*/
 
 }
-
-
 
 
 button {
