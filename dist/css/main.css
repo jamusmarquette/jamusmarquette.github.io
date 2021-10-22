@@ -13704,6 +13704,19 @@ textarea.form-control-lg {
     max-width: 50% !important;
   }
 }
+@media (min-width: 768px) {
+  #humanrobotvid {
+    max-height: 1000px;
+    overflow: hidden;
+  }
+  #humanrobotvid div video {
+    display: block;
+    width: 103.55%;
+    max-width: 200% !important;
+    width: auto\9 ;
+    -ms-interpolation-mode: bicubic;
+  }
+}
 body {
   background-color: white !important;
   color: #929697 !important;

@@ -707,3 +707,21 @@
     }
 
 }
+
+
+
+@media (min-width: 768px) {
+    #humanrobotvid {
+
+        max-height: 1000px;
+        overflow: hidden;
+
+        div video {
+            display: block;
+            width: 103.55%;
+            max-width: 200% !important;
+            width: auto\9;
+            -ms-interpolation-mode: bicubic;
+        }
+    }
+}
