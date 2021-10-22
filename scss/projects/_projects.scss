@@ -716,12 +716,16 @@
         max-height: 1000px;
         overflow: hidden;
 
-        div video {
-            display: block;
-            width: 103.55%;
-            max-width: 200% !important;
-            width: auto\9;
-            -ms-interpolation-mode: bicubic;
+        div {
+            overflow: hidden;
+
+            video {
+                display: block;
+                width: 103.55%;
+                max-width: 200% !important;
+                width: auto\9;
+                -ms-interpolation-mode: bicubic;
+            }
         }
     }
 }

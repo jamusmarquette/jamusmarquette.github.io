@@ -13709,6 +13709,9 @@ textarea.form-control-lg {
     max-height: 1000px;
     overflow: hidden;
   }
+  #humanrobotvid div {
+    overflow: hidden;
+  }
   #humanrobotvid div video {
     display: block;
     width: 103.55%;
