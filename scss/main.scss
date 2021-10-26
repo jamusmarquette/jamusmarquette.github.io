@@ -27,7 +27,8 @@ body {
     /*This is the default h3 font size/line-height*/
     //font-size: 1.75rem;
     font-size: 1.5rem;
-    line-height: 1.2125;
+    //line-height: 1.2125;
+    line-height: 1.3;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -350,6 +351,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     .video-content-video {
         display: block !important;
+        
     }
 
     &:hover {

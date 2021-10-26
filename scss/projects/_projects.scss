@@ -402,6 +402,18 @@
 
 
 
+/* Increase footer font size on mobile */
+@media (max-width: 576px) {
+
+    #bottomNav .fs-5,
+    #currentproject #downarrow a,
+    .previousProject a,
+    .nextProject a {
+        //font-size: calc(1.275rem + 0.3vw) !important;
+        font-size: 1.5rem !important;
+    }
+}
+
 
 
 /*#thumbnails {
@@ -572,8 +584,6 @@
     text-align:left;
     //display: block; 
     display: inline;
-    
-
 
 
     .love {
@@ -660,15 +670,7 @@
 
 }
 
-/*@media (max-width: 768px) {
-    #thumbnails {
-        .col-md-2 {
-            width: 25%;
-            max-width: 25%;
-        }
-    }
 
-}*/
 
 
 @media (max-width: 576px) {
@@ -729,3 +731,5 @@
         }
     }
 }
+
+
