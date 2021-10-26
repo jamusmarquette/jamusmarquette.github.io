@@ -14294,6 +14294,16 @@ video {
 }
 
 @media (max-width: 576px) {
+  .hideonmobile {
+    display: none !important;
+  }
+}
+@media (min-width: 576px) {
+  .hideonmedium {
+    display: none !important;
+  }
+}
+@media (max-width: 576px) {
   #info ul {
     display: flex;
     flex-flow: column-reverse;

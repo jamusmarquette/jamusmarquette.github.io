@@ -188,7 +188,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 
         li {
-            
+
             display: inline;
 
 
@@ -227,8 +227,9 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
     #info ul li {
 
         display: block;
-        a{
-            margin-right:0;
+
+        a {
+            margin-right: 0;
         }
     }
 }
@@ -351,7 +352,7 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     .video-content-video {
         display: block !important;
-        
+
     }
 
     &:hover {
@@ -515,14 +516,14 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
         ul {
             padding-left: 0;
-            margin-bottom:0;
+            margin-bottom: 0;
 
             li {
                 padding-bottom: .75rem;
 
-            &:last-child {
-                padding-bottom: 0;
-            }
+                &:last-child {
+                    padding-bottom: 0;
+                }
             }
 
         }
@@ -530,17 +531,10 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 
 
-    &story {
-
-
-    }
+    &story {}
 
     p,
-    h3 {
-
-
-
-    }
+    h3 {}
 
     p:last-child {
         margin-bottom: 0;
@@ -555,24 +549,21 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
     &awards {
 
-        ul {
-
-        }
+        ul {}
     }
 
     &awards,
-    &work {
-
-    }
+    &work {}
 
     &contact {
-        
+
         h3 {
             color: mediumslateblue;
-        //border-bottom: 2px solid mediumslateblue !important;
-        border-bottom:none;
+            //border-bottom: 2px solid mediumslateblue !important;
+            border-bottom: none;
         }
-       // margin-bottom: 6rem;
+
+        // margin-bottom: 6rem;
     }
 
     /*&gradient {
@@ -842,6 +833,26 @@ video {
     //object-fit: cover;
     display: block;
 }
+
+
+
+
+@media (max-width: 576px) {
+    .hideonmobile {
+        display: none !important;
+    }
+
+}
+
+@media (min-width: 576px) {
+    .hideonmedium {
+        display: none !important;
+    }
+}
+
+
+
+
 
 
 @import 'mobile';
