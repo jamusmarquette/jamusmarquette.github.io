@@ -14018,7 +14018,7 @@ ul {
   padding-left: 3px;
 }
 .content-details h3, .content-details .h3 {
-  margin-bottom: 0;
+  margin-bottom: 0.125rem;
 }
 /* info section */
 #about {
