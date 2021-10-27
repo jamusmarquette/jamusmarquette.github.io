@@ -13350,12 +13350,12 @@ textarea.form-control-lg {
 }
 
 .topmargin {
-  padding-top: 80px;
+  margin-top: 80px;
 }
 
 @media (max-width: 788px) {
   .topmargin {
-    padding-top: 125px;
+    margin-top: 115px;
   }
 }
 /* ---- begin video sound btn overlay ---- */
@@ -14017,6 +14017,9 @@ ul {
   padding-bottom: 2px;
   padding-left: 3px;
 }
+.content-details h3, .content-details .h3 {
+  margin-bottom: 0;
+}
 /* info section */
 #about {
   position: absolute;
@@ -14313,12 +14316,16 @@ video {
   }
 
   #intro {
-    padding-top: 70px;
+    padding-top: 70px !important;
     z-index: -50;
     position: relative;
   }
   #intro-paragraph {
-    height: calc(85vh - 63px);
+    height: auto;
+  }
+
+  .project-intro-paragraph {
+    padding-top: 70px;
   }
 
   .hidemobile {
