@@ -375,8 +375,8 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
             h3 {
                 -webkit-filter: blur(3px) !important;
                 filter: blur(3px) !important;
-
             }
+
         }
 
         .content-image,
@@ -436,11 +436,9 @@ background: linear-gradient(to bottom, rgb(123, 129, 136), rgba(123, 129, 136, 0
 
 
         h3 {
-            //color: $primary;
-            //color: rgb(255, 255, 255);
-            //font-family: $font-stack !important;
-            //font-weight: $font-weight !important;
-            //font-weight: 400 !important;
+            
+                margin-bottom: 0;
+            
         }
 
         p {

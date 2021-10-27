@@ -6,7 +6,7 @@
 @media (max-width: 576px) {
 
     #info {
-        
+
         ul {
 
             display: flex;
@@ -26,19 +26,28 @@
 
 
     #intro {
-        padding-top: 70px;
+        padding-top: 70px !important;
         z-index: -50;
         position: relative;
 
         &-paragraph {
-            height: calc(85vh - 63px);
-            //padding-top: 80px;
+            height: auto;
         }
-   
-    }
-        
 
-    
+    }
+
+
+
+
+    .project-intro-paragraph {
+        padding-top: 70px;
+    }
+
+
+
+
+
+
     .hidemobile {
         display: none;
 
@@ -95,15 +104,15 @@
 
 // Medium devices (tablets, 767px and down)
 @media (max-width: 767px) {
-.hidemd {
-    display: none !important;
+    .hidemd {
+        display: none !important;
 
-}
+    }
 
-.showmd {
-    display: block !important;
+    .showmd {
+        display: block !important;
 
-}
+    }
 }
 
 
@@ -119,7 +128,7 @@
 
     }
 
-    .showmd{
+    .showmd {
         display: none;
 
     }
