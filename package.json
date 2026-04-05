@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    
     "scss": "sass --watch scss/main.scss:dist/css/main.css",
     "deploy": "gh-pages -d dist"
   },
@@ -12,11 +13,12 @@
   "license": "ISC",
   "homepage": "https://jamusmarquette.github.io/",
   "dependencies": {
-    "bootstrap": "^5.0.0-beta3",
-    "gh-pages": "^3.2.3"
+    "bootstrap": "^5.0.0-beta3"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "sass": "^1.32.8",
     "stickybits": "^3.7.9"
   }
 }
+
