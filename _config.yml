@@ -1,0 +1,27 @@
+title: Jamus Marquette
+baseurl: ""
+url: "http://127.0.0.1:4000"
+
+theme: null
+
+source: source
+destination: _site
+
+exclude:
+  - node_modules
+  - package-lock.json
+  - package.json
+  - .git
+  - .vscode
+  - README.md
+
+collections:
+  projects:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

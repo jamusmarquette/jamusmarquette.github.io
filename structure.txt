@@ -1,0 +1,2109 @@
+.
+├── _config.yml
+├── _includes
+│   ├── footer.html
+│   └── header.html
+├── _layouts
+│   └── default.html
+├── _site
+│   ├── assets
+│   │   └── css
+│   │       └── style.css
+│   ├── dist
+│   │   ├── category
+│   │   │   ├── cnn_grill_at_sxsw
+│   │   │   │   ├── img
+│   │   │   │   │   ├── 00_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 02_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 03_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 04_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 05_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 06_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 07_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 08_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 09_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 10_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design_neon_boot.jpg
+│   │   │   │   │   ├── 11_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 12_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 13_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 14_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 15_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 16_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 17_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   ├── 18_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   │   └── jamus_marquette_cnn_grill_at_sxsw_logo_design.svg
+│   │   │   │   └── index.html
+│   │   │   └── confinement
+│   │   │       ├── img
+│   │   │       │   ├── 00_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 01_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 02_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 03_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 04_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │   │       │   ├── 05_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │   │       │   ├── 06_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │   │       │   ├── 07_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │   │       │   ├── 08_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 09_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 10_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 11_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │   │       │   ├── 12_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │   │       │   ├── 13_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │   │       │   ├── 14_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │   │       │   ├── 15_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │   │       │   ├── 16_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │   │       │   ├── 17_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_cover_02.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_cover_03.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_cover_opened.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_cover.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_coverb.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_opening_page.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_opening_page1.jpg
+│   │   │       │   ├── jamus_marquette_confinement_photo_book_quote_page.jpg
+│   │   │       │   └── jamus_marquette_confinement_photo_book_title_page.jpg
+│   │   │       └── index.html
+│   │   ├── CNAME
+│   │   ├── css
+│   │   │   ├── main.css
+│   │   │   ├── main.css.map
+│   │   │   ├── styles.css
+│   │   │   └── styles.css.map
+│   │   ├── fonts
+│   │   │   ├── BNBergenSt-Black.otf
+│   │   │   ├── BNBergenSt-Bold.otf
+│   │   │   ├── BNBergenSt-Light.otf
+│   │   │   ├── BNBergenSt-Medium.otf
+│   │   │   ├── BNBergenSt.otf
+│   │   │   ├── Okta_neue.css
+│   │   │   └── webFonts
+│   │   │       ├── OktaNeue
+│   │   │       │   ├── italic_normal_bold.woff
+│   │   │       │   └── italic_normal_bold.woff2
+│   │   │       └── OktaNeueUltraLight
+│   │   │           ├── font.woff
+│   │   │           └── font.woff2
+│   │   ├── header-test
+│   │   │   ├── css
+│   │   │   │   ├── main.css
+│   │   │   │   └── main.css.map
+│   │   │   ├── index.html
+│   │   │   ├── js
+│   │   │   │   └── header.js
+│   │   │   ├── page.html
+│   │   │   └── scss
+│   │   │       └── main.scss
+│   │   ├── img
+│   │   │   ├── 00_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │   │   ├── 00_jamus_marquette_jamus_and_adriana_tshirt_illustrations.jpg
+│   │   │   ├── 01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
+│   │   │   ├── down_arrow_a.svg
+│   │   │   ├── down_arrow.svg
+│   │   │   ├── Favicon__.png
+│   │   │   ├── Favicon_.png
+│   │   │   ├── favicon.ai
+│   │   │   ├── Favicon.png
+│   │   │   ├── image_test.jpg
+│   │   │   ├── jamus_and_adriana_theater_posters.gif
+│   │   │   ├── jamus_highschool_unitednations_class_photo_test.jpg
+│   │   │   ├── jamus_highschool_unitednations_class_photo.jpg
+│   │   │   ├── jamus_marquette_confinement_photo_book_lr.gif
+│   │   │   ├── jamus_marquette_design_firms_open_for_business_book_design.jpg
+│   │   │   ├── jamus_marquette_human_robot_animation.gif
+│   │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design.gif
+│   │   │   ├── jamus_marquette_invasion_of_the_body_snatchers_by_jack_finn_book_cover_design.jpg
+│   │   │   ├── jamus_marquette_irvine_welsh_covers_animation.gif
+│   │   │   ├── jamus_marquette_jonathan_childrens_trust.gif
+│   │   │   ├── jamus_marquette_laureate_summit_logo.gif
+│   │   │   ├── jamus_marquette_laureate_summit_logo.png
+│   │   │   ├── jamus_marquette_marcela_gandara_album_cover_artwork_.jpg
+│   │   │   ├── jamus_marquette_marcela_gandara_album_cover_artwork_old.jpg
+│   │   │   ├── jamus_marquette_marcela_gandara_album_cover_artwork.jpg
+│   │   │   ├── jamus_marquette_mtc_spring_gala_invite_old.jpg
+│   │   │   ├── jamus_marquette_mtc_spring_gala_invite.gif
+│   │   │   ├── jamus_marquette_nflpa_ribbon_animation.gif
+│   │   │   ├── jamus_marquette_restaurants-on-missions-animation.gif
+│   │   │   ├── jamus_marquette_sva_motion_graphics_reel.gif
+│   │   │   ├── jamus_marquette_wnet_thirteen_covers.jpg
+│   │   │   ├── jamus_theater_posters_old.gif
+│   │   │   ├── jamus_theater_posters.gif
+│   │   │   ├── the_strokes_is_this_it_album_artwork.gif
+│   │   │   ├── up_arrow_a.svg
+│   │   │   └── up_arrow.svg
+│   │   ├── index.html
+│   │   ├── js
+│   │   │   └── custom.js
+│   │   └── project
+│   │       ├── cnn_grill_at_sxsw
+│   │       │   ├── img
+│   │       │   │   ├── 00_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 02_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 03_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 04_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 05_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 06_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 07_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 08_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 09_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 10_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design_neon_boot.jpg
+│   │       │   │   ├── 11_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 12_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 13_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 14_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 15_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 16_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 17_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   ├── 18_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │       │   │   └── jamus_marquette_cnn_grill_at_sxsw_logo_design.svg
+│   │       │   └── index.html
+│   │       ├── confinement
+│   │       │   ├── img
+│   │       │   │   ├── 00_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 01_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 02_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 03_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 04_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   │   ├── 05_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   │   ├── 06_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   │   ├── 07_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   │   ├── 08_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 09_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 10_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 11_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   │   ├── 12_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   │   ├── 13_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   │   ├── 14_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   │   ├── 15_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   │   ├── 16_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   │   ├── 17_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_cover_02.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_cover_03.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_cover_opened.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_cover.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_coverb.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_opening_page.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_opening_page1.jpg
+│   │       │   │   ├── jamus_marquette_confinement_photo_book_quote_page.jpg
+│   │       │   │   └── jamus_marquette_confinement_photo_book_title_page.jpg
+│   │       │   └── index.html
+│   │       ├── design_firms_open_for_business
+│   │       │   ├── img
+│   │       │   │   ├── 00_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 01_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 02_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 03_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 04_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 05_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 06_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 07_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 08_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 09_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 10_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 11_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 12_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 13_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 14_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 15_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 16_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   ├── 17_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   │   └── 18_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│   │       │   └── index.html
+│   │       ├── dirtbags
+│   │       │   ├── img
+│   │       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_logo_stuffed_animal_with_real_life_problems.png
+│   │       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_packaged_stuffed_animal_with_real_life_problems.jpg
+│   │       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_stuffed_animal_with_real_life_problems.gif
+│   │       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_stuffed_animal_with_real_life_problems.jpg
+│   │       │   │   ├── jamus_marquette_dirtbags_hmo_rabbit_logo_stuffed_animal_with_real_life_problems.png
+│   │       │   │   ├── jamus_marquette_dirtbags_hmo_rabbit_packaged_stuffed_animal_with_real_life_problems.jpg
+│   │       │   │   ├── jamus_marquette_dirtbags_hmo_rabbit_stuffed_animal_with_real_life_problems.gif
+│   │       │   │   ├── jamus_marquette_dirtbags_voodoobear_logo_stuffed_animal_with_real_life_problems.png
+│   │       │   │   ├── jamus_marquette_dirtbags_voodoobear_packaged_stuffed_animal_with_real_life_problems.jpg
+│   │       │   │   ├── jamus_marquette_dirtbags_voodoobear_stuffed_animal_with_real_life_problems.gif
+│   │       │   │   ├── jamusmarquette_dirtbags_logo_mark_old.svg
+│   │       │   │   ├── jamusmarquette_dirtbags_logo_mark.svg
+│   │       │   │   └── jamusmarquette_dirtbags_logo.svg
+│   │       │   └── index.html
+│   │       ├── here_for_good
+│   │       │   ├── img
+│   │       │   │   ├── 493_Laureate_summit_brand-4.jpg
+│   │       │   │   ├── 493_Laureate_summit_brand-5.jpg
+│   │       │   │   ├── 493_Laureate_summit_brand-7.jpg
+│   │       │   │   ├── 493_Laureate_summit_brand-8.jpg
+│   │       │   │   ├── here_for_good_animation.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_book.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_clinton_x.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_clinton.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_logo.gif
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_map_x.gif
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_map.gif
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_slide_x.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_slide.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_stage_01_x.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_stage_01.jpg
+│   │       │   │   ├── jamus_marquette_laureate_summit_brand_stage_02_x.jpg
+│   │       │   │   └── jamus_marquette_laureate_summit_brand_stage_02.jpg
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       └── here_for_good_animation.mp4
+│   │       ├── history_pop_shop
+│   │       │   ├── img
+│   │       │   │   ├── 01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
+│   │       │   │   ├── 02_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_tshirt.jpg
+│   │       │   │   ├── 03_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_door_old.jpg
+│   │       │   │   ├── 03_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_door.jpg
+│   │       │   │   ├── 04_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_and_interior.jpg
+│   │       │   │   └── jamus_marquette_history_pop_shop.jpg
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       └── jamus_marquette_history_pop_shop.mp4
+│   │       ├── humanrobot
+│   │       │   ├── img
+│   │       │   │   ├── jamus_marquette_humanrobot_text_animation_poster.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design_logo_animation.gif
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design_text_illustrations.gif
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design.gif
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design10.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design11.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design12.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design13.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design14.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design2.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design3.gif
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design4.gif
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design5.gif
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design6.gif
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design7.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design8.jpg
+│   │       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design9.jpg
+│   │       │   │   └── jamus_marquette_humanrobot_web_poster.jpg
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       ├── jamus_marquette_humanrobot_text_animation.mp4
+│   │       │       └── jamus_marquette_humanrobot_website.mp4
+│   │       ├── illustrations
+│   │       │   ├── img
+│   │       │   │   ├── 01_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── 02_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── 03_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── 04_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── 05_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── 06_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── 07_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── 08_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │       │   │   ├── eat.gif
+│   │       │   │   ├── jamus_marquette_eat_animation.gif
+│   │       │   │   ├── jamus_marquette_jamus_and_adriana_tshirt_illustration.jpg
+│   │       │   │   ├── love_cross.gif
+│   │       │   │   ├── love_hands.gif
+│   │       │   │   ├── wresting_with_god_animation_poster.gif
+│   │       │   │   └── wresting_with_god.gif
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       ├── jamus_marquette_animation_eat.mp4
+│   │       │       └── wresting_with_god.mp4
+│   │       ├── invasion_of_the_body_snachers
+│   │       │   ├── img
+│   │       │   │   ├── jamus_marquette_invasion_of_the_body_snachers_book_cover_layout.jpg
+│   │       │   │   └── jamus_marquette_invasion_of_the_body_snachers_book_cover.jpg
+│   │       │   └── index.html
+│   │       ├── irvine_welsh_book_covers
+│   │       │   ├── img
+│   │       │   │   ├── jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_design.jpg
+│   │       │   │   ├── jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_designs_wide.jpg
+│   │       │   │   ├── jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_designs.jpg
+│   │       │   │   ├── jamus_marquette_irvine_welsh_kingdom_of_fife_book_cover_design.jpg
+│   │       │   │   ├── jamus_marquette_irvine_welsh_miss_arizona_book_cover_design.jpg
+│   │       │   │   └── jamus_marquette_irvine_welsh_the_dogs_of_lincoln_park_book_cover_design.jpg
+│   │       │   └── index.html
+│   │       ├── jonathan_childrens_trust
+│   │       │   ├── img
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust_logo_animation_old.gif
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust_logo_animation.gif
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust_logo.svg
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust_pattern_video_poster.jpg
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust_white.jpg
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust.jpg
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust2_white.jpg
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust2.jpg
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust4.jpg
+│   │       │   │   ├── jamus_marquette_jonathan_childrens_trust5.jpg
+│   │       │   │   └── jamus_marquette_jonathan_childrens_trust6.jpg
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       └── jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
+│   │       ├── marcela_gandara_album_artwork
+│   │       │   └── img
+│   │       │       └── jamus_marquette_marcela_gandara_album_cover_artwork.jpg
+│   │       ├── motion_graphics
+│   │       │   ├── img
+│   │       │   │   └── jamus_marquette_sva_motion_graphics_reel.jpg
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       └── jamus_marquette_sva_motion_graphics_reel.mp4
+│   │       ├── mtc_spring_gala
+│   │       │   ├── img
+│   │       │   │   ├── 01_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│   │       │   │   ├── 02_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│   │       │   │   ├── 03_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│   │       │   │   ├── 04_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│   │       │   │   ├── jamus_marquette_mtc_poster_image_2021.gif
+│   │       │   │   └── mtc_static_2021.gif
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       └── jamus_marquette_mtc_animation.mp4
+│   │       ├── nflpa
+│   │       │   ├── img
+│   │       │   │   ├── 01_jamus_marquette_nflpa_logos.jpg
+│   │       │   │   ├── 03_jamus_marquette_nflpa_logo_branding_on_tshirt.jpg
+│   │       │   │   ├── 04_jamus_marquette_nflpa_rookie_logo_football_player.jpg
+│   │       │   │   ├── 05_jamus_marquette_nflpa_logo_live_old.jpg
+│   │       │   │   ├── 05_jamus_marquette_nflpa_logo_live.jpg
+│   │       │   │   ├── 06_jamus_marquette_nflpa_rookie_logo_on_football_player.jpg
+│   │       │   │   ├── 06_jamus_marquette_nflpa_rookie_logo_on_football_players.jpg
+│   │       │   │   ├── 07_jamus_marquette_nflpa_tv_logo.jpg
+│   │       │   │   └── 08_jamus_marquette_nflpa_rookie_logo_on_football_helmet.jpeg
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       ├── jamus_marquette_nflpa_hero.mp4
+│   │       │       ├── jamus_marquette_nflpa_tv_lines.mp4
+│   │       │       ├── jamus_marquette_nflpa_tv_ribbon.mp4
+│   │       │       └── jamus_marquette_nflpa_tv_shape_soundedit.mp4
+│   │       ├── no_love
+│   │       │   ├── img
+│   │       │   │   └── jamus_marquette_no_love_animation.jpg
+│   │       │   └── video
+│   │       │       └── no_love_no_life_animation.mp4
+│   │       ├── restaurants_on_mission
+│   │       │   ├── img
+│   │       │   │   ├── 01_jamus_marquette_restaurants_on_mission_stationary_letterhead_on_recycled_cardboard_paper.jpg
+│   │       │   │   ├── 02_jamus_marquette_restaurants_on_mission_stationary_businescards_on_recycled_cardboard_paper.jpg
+│   │       │   │   ├── 03_jamus_marquette_restaurants_on_mission_black_booklet_with_pattern_and_logo_b.jpg
+│   │       │   │   ├── 03_jamus_marquette_restaurants_on_mission_black_booklet_with_pattern_and_logo.jpg
+│   │       │   │   ├── 04_jamus_marquette_restaurants_on_mission_black_booklet_with_logo_and_interior_spread.jpg
+│   │       │   │   ├── 06_jamus_marquette_restaurants_on_mission_web_orig.jpg
+│   │       │   │   ├── 06_jamus_marquette_restaurants_on_mission_web.jpg
+│   │       │   │   ├── 07_jamus_marquette_restaurants_on_mission_mobile.jpg
+│   │       │   │   ├── 08_jamus_marquette_restaurants_on_mission__re_floral_pattern_01.jpg
+│   │       │   │   ├── 09_jamus_marquette_restaurants_on_mission_re_floral_pattern_02.jpg
+│   │       │   │   ├── 10_jamus_marquette_restaurants_on_mission_re_jewelry_collection.jpg
+│   │       │   │   ├── 11_jamus_marquette_restaurants_on_mission_girl_in_shirt.jpg
+│   │       │   │   ├── 12_jamus_marquette_restaurants_on_mission_re_jewelry.jpg
+│   │       │   │   ├── 13_jamus_marquette_restaurants_on_mission_re_pattern_2_black_on_white.jpg
+│   │       │   │   ├── 14_jamus_marquette_restaurants_on_mission_re_pattern_2_white_on_black.jpg
+│   │       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white_large.png
+│   │       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white_wid.png
+│   │       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white_wide.png
+│   │       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white.jpg
+│   │       │   │   ├── 16_jamus_marquette_restaurants_on_mission_re_pattern_white_and_black.jpg
+│   │       │   │   ├── jamusandadriana_restaurants_on_mission_re_alternate_logo_black_on_white.png
+│   │       │   │   ├── jamusandadriana_restaurants_on_mission_re_alternate_logo.png
+│   │       │   │   ├── logo_seal_on_black_ani.gif
+│   │       │   │   ├── logo_seal_on_black.gif
+│   │       │   │   └── logo_seal_on_white.gif
+│   │       │   ├── index.html
+│   │       │   └── video
+│   │       │       ├── 00_jamus_marquette_restaurants_on_mission_animation.mp4
+│   │       │       ├── 01_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 02_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 04_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 06_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 08_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 09_jamus_marquette_restaurants_on_mission_animations_lr.mp4
+│   │       │       ├── 10_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 11_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 13_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 14_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 15_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 16_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       ├── 17_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       │       └── 18_jamus_marquette_restaurants_on_mission_animations.mp4
+│   │       ├── the_strokes
+│   │       │   ├── img
+│   │       │   │   ├── jamus_marquette_the_strokes_package_closed.jpg
+│   │       │   │   ├── jamus_marquette_the_strokes_package_opened.jpg
+│   │       │   │   ├── the_strokes_package_01_orig.jpg
+│   │       │   │   ├── the_strokes_package_02_orig.jpg
+│   │       │   │   ├── the-strokes_poster_back_flat.jpg
+│   │       │   │   └── the-strokes_poster_front_flat.jpg
+│   │       │   └── index.html
+│   │       ├── theater_campaigns
+│   │       │   ├── img
+│   │       │   │   ├── 00-jamus-marquette-theater-poster-designs-on-theater-row-wall.jpg
+│   │       │   │   ├── 01-jamus-marquette-theater-poster-design-happy-days-by-samuel-beckett-westport-country-playhouse.jpg
+│   │       │   │   ├── 02-jamus-marquette-theater-poster-design-kin-by-bathsheba-doran-directed-by-sam-gold-playwrights-horizons.jpg
+│   │       │   │   ├── 03-jamus-marquette-theater-poster-design-marie-and-bruce-by-wallace-shawn-the-new-group.jpg
+│   │       │   │   ├── 04-jamus-marquette-theater-poster-design-blood-from-a-stone-by-tommy-nohilly-directed-by-scott-elliott-the-new-group.jpg
+│   │       │   │   ├── 05-jamus-marquette-theater-poster-design-the-flick-by-annie-baker-directed-by-sam-gold-playwrights-horizon.jpg
+│   │       │   │   ├── 06-jamus-marquette-theater-poster-design-russian-transport-by-erika-sheffer-directed-by-scott-elliott-the-new-group.jpg
+│   │       │   │   ├── 07-jamus-marquette-theater-poster-design-the_new_sincerity-alena-smith-bay-street-theater.jpg
+│   │       │   │   ├── 08-jamus-marquette-theater-poster-travesties-by-tom-stoppard-directed-by-gregory-boyd-bay-street-theatre.jpg
+│   │       │   │   ├── 09-jamus-marquette-theater-poster-design-mr-burns-by-anne-washburn-directed-by-steve-cosson-music-by-michael-friedman-playwright-horizon-simpsons-burnt-image.jpg
+│   │       │   │   ├── 10-jamus-marquette-theater-poster-design-grey-gardens-the-musical-by-doug-wright-directed-by-michael-wilson-bay-street-theater.jpg
+│   │       │   │   ├── 11-jamus-marquette-theater-poster-design-vision-disturbance-a-new-play-by-Christina-masciotti-directed-by-richard-maxwell.jpg
+│   │       │   │   ├── 12-jamus-marquette-theater-poster-design-assistance-by-leslye-headland-directed-by-trip-cullman.jpg
+│   │       │   │   └── 13-jamus-marquette-theater-poster-design-completeness-a-new-play-by-itmar-moses-and-assistance-directed-by-pam-machinnon.jpg
+│   │       │   └── index.html
+│   │       └── wnet_thirteen
+│   │           ├── img
+│   │           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_education_issue_and_carousel.jpg
+│   │           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_education_meets_broadway_and_new_york_state_of_mind.jpg
+│   │           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_thank_you_cake_and_annie.jpg
+│   │           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_women_war_and_peace_cover_and_911_american_flag.jpg
+│   │           │   ├── jamus_marquette_wnet_thirteen_covers 2.jpg
+│   │           │   ├── jamus_marquette_wnet_thirteen_covers.jpg
+│   │           │   └── jamus_marquette_wnet_thirteen_covers.mp4
+│   │           └── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── scss
+│   │   └── main.scss
+│   └── test.html
+├── Gemfile
+├── Gemfile.lock
+├── node_modules
+│   ├── @nodelib
+│   │   ├── fs.scandir
+│   │   │   ├── LICENSE
+│   │   │   ├── out
+│   │   │   │   ├── adapters
+│   │   │   │   │   ├── fs.d.ts
+│   │   │   │   │   └── fs.js
+│   │   │   │   ├── constants.d.ts
+│   │   │   │   ├── constants.js
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── providers
+│   │   │   │   │   ├── async.d.ts
+│   │   │   │   │   ├── async.js
+│   │   │   │   │   ├── common.d.ts
+│   │   │   │   │   ├── common.js
+│   │   │   │   │   ├── sync.d.ts
+│   │   │   │   │   └── sync.js
+│   │   │   │   ├── settings.d.ts
+│   │   │   │   ├── settings.js
+│   │   │   │   ├── types
+│   │   │   │   │   ├── index.d.ts
+│   │   │   │   │   └── index.js
+│   │   │   │   └── utils
+│   │   │   │       ├── fs.d.ts
+│   │   │   │       ├── fs.js
+│   │   │   │       ├── index.d.ts
+│   │   │   │       └── index.js
+│   │   │   ├── package.json
+│   │   │   └── README.md
+│   │   ├── fs.stat
+│   │   │   ├── LICENSE
+│   │   │   ├── out
+│   │   │   │   ├── adapters
+│   │   │   │   │   ├── fs.d.ts
+│   │   │   │   │   └── fs.js
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── providers
+│   │   │   │   │   ├── async.d.ts
+│   │   │   │   │   ├── async.js
+│   │   │   │   │   ├── sync.d.ts
+│   │   │   │   │   └── sync.js
+│   │   │   │   ├── settings.d.ts
+│   │   │   │   ├── settings.js
+│   │   │   │   └── types
+│   │   │   │       ├── index.d.ts
+│   │   │   │       └── index.js
+│   │   │   ├── package.json
+│   │   │   └── README.md
+│   │   └── fs.walk
+│   │       ├── LICENSE
+│   │       ├── out
+│   │       │   ├── index.d.ts
+│   │       │   ├── index.js
+│   │       │   ├── providers
+│   │       │   │   ├── async.d.ts
+│   │       │   │   ├── async.js
+│   │       │   │   ├── index.d.ts
+│   │       │   │   ├── index.js
+│   │       │   │   ├── stream.d.ts
+│   │       │   │   ├── stream.js
+│   │       │   │   ├── sync.d.ts
+│   │       │   │   └── sync.js
+│   │       │   ├── readers
+│   │       │   │   ├── async.d.ts
+│   │       │   │   ├── async.js
+│   │       │   │   ├── common.d.ts
+│   │       │   │   ├── common.js
+│   │       │   │   ├── reader.d.ts
+│   │       │   │   ├── reader.js
+│   │       │   │   ├── sync.d.ts
+│   │       │   │   └── sync.js
+│   │       │   ├── settings.d.ts
+│   │       │   ├── settings.js
+│   │       │   └── types
+│   │       │       ├── index.d.ts
+│   │       │       └── index.js
+│   │       ├── package.json
+│   │       └── README.md
+│   ├── @popperjs
+│   │   └── core
+│   │       ├── dist
+│   │       │   ├── cjs
+│   │       │   │   ├── popper-base.js
+│   │       │   │   ├── popper-base.js.flow
+│   │       │   │   ├── popper-base.js.map
+│   │       │   │   ├── popper-lite.js
+│   │       │   │   ├── popper-lite.js.flow
+│   │       │   │   ├── popper-lite.js.map
+│   │       │   │   ├── popper.js
+│   │       │   │   ├── popper.js.flow
+│   │       │   │   └── popper.js.map
+│   │       │   ├── esm
+│   │       │   │   ├── createPopper.js
+│   │       │   │   ├── dom-utils
+│   │       │   │   │   ├── contains.js
+│   │       │   │   │   ├── getBoundingClientRect.js
+│   │       │   │   │   ├── getClippingRect.js
+│   │       │   │   │   ├── getCompositeRect.js
+│   │       │   │   │   ├── getComputedStyle.js
+│   │       │   │   │   ├── getDocumentElement.js
+│   │       │   │   │   ├── getDocumentRect.js
+│   │       │   │   │   ├── getHTMLElementScroll.js
+│   │       │   │   │   ├── getLayoutRect.js
+│   │       │   │   │   ├── getNodeName.js
+│   │       │   │   │   ├── getNodeScroll.js
+│   │       │   │   │   ├── getOffsetParent.js
+│   │       │   │   │   ├── getParentNode.js
+│   │       │   │   │   ├── getScrollParent.js
+│   │       │   │   │   ├── getViewportRect.js
+│   │       │   │   │   ├── getWindow.js
+│   │       │   │   │   ├── getWindowScroll.js
+│   │       │   │   │   ├── getWindowScrollBarX.js
+│   │       │   │   │   ├── instanceOf.js
+│   │       │   │   │   ├── isScrollParent.js
+│   │       │   │   │   ├── isTableElement.js
+│   │       │   │   │   └── listScrollParents.js
+│   │       │   │   ├── enums.js
+│   │       │   │   ├── index.js
+│   │       │   │   ├── modifiers
+│   │       │   │   │   ├── applyStyles.js
+│   │       │   │   │   ├── arrow.js
+│   │       │   │   │   ├── computeStyles.js
+│   │       │   │   │   ├── eventListeners.js
+│   │       │   │   │   ├── flip.js
+│   │       │   │   │   ├── hide.js
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── offset.js
+│   │       │   │   │   ├── popperOffsets.js
+│   │       │   │   │   └── preventOverflow.js
+│   │       │   │   ├── popper-base.js
+│   │       │   │   ├── popper-lite.js
+│   │       │   │   ├── popper.js
+│   │       │   │   ├── types.js
+│   │       │   │   └── utils
+│   │       │   │       ├── computeAutoPlacement.js
+│   │       │   │       ├── computeOffsets.js
+│   │       │   │       ├── debounce.js
+│   │       │   │       ├── detectOverflow.js
+│   │       │   │       ├── expandToHashMap.js
+│   │       │   │       ├── format.js
+│   │       │   │       ├── getAltAxis.js
+│   │       │   │       ├── getAltLen.js
+│   │       │   │       ├── getBasePlacement.js
+│   │       │   │       ├── getFreshSideObject.js
+│   │       │   │       ├── getMainAxisFromPlacement.js
+│   │       │   │       ├── getOppositePlacement.js
+│   │       │   │       ├── getOppositeVariationPlacement.js
+│   │       │   │       ├── getVariation.js
+│   │       │   │       ├── math.js
+│   │       │   │       ├── mergeByName.js
+│   │       │   │       ├── mergePaddingObject.js
+│   │       │   │       ├── orderModifiers.js
+│   │       │   │       ├── rectToClientRect.js
+│   │       │   │       ├── uniqueBy.js
+│   │       │   │       ├── validateModifiers.js
+│   │       │   │       └── within.js
+│   │       │   └── umd
+│   │       │       ├── popper-base.js
+│   │       │       ├── popper-base.js.map
+│   │       │       ├── popper-base.min.js
+│   │       │       ├── popper-base.min.js.flow
+│   │       │       ├── popper-base.min.js.map
+│   │       │       ├── popper-lite.js
+│   │       │       ├── popper-lite.js.map
+│   │       │       ├── popper-lite.min.js
+│   │       │       ├── popper-lite.min.js.flow
+│   │       │       ├── popper-lite.min.js.map
+│   │       │       ├── popper.js
+│   │       │       ├── popper.js.map
+│   │       │       ├── popper.min.js
+│   │       │       ├── popper.min.js.flow
+│   │       │       └── popper.min.js.map
+│   │       ├── index.d.ts
+│   │       ├── lib
+│   │       │   ├── createPopper.d.ts
+│   │       │   ├── createPopper.js
+│   │       │   ├── createPopper.js.flow
+│   │       │   ├── dom-utils
+│   │       │   │   ├── contains.d.ts
+│   │       │   │   ├── contains.js
+│   │       │   │   ├── contains.js.flow
+│   │       │   │   ├── getBoundingClientRect.d.ts
+│   │       │   │   ├── getBoundingClientRect.js
+│   │       │   │   ├── getBoundingClientRect.js.flow
+│   │       │   │   ├── getClippingRect.d.ts
+│   │       │   │   ├── getClippingRect.js
+│   │       │   │   ├── getClippingRect.js.flow
+│   │       │   │   ├── getCompositeRect.d.ts
+│   │       │   │   ├── getCompositeRect.js
+│   │       │   │   ├── getCompositeRect.js.flow
+│   │       │   │   ├── getComputedStyle.d.ts
+│   │       │   │   ├── getComputedStyle.js
+│   │       │   │   ├── getComputedStyle.js.flow
+│   │       │   │   ├── getDocumentElement.d.ts
+│   │       │   │   ├── getDocumentElement.js
+│   │       │   │   ├── getDocumentElement.js.flow
+│   │       │   │   ├── getDocumentRect.d.ts
+│   │       │   │   ├── getDocumentRect.js
+│   │       │   │   ├── getDocumentRect.js.flow
+│   │       │   │   ├── getHTMLElementScroll.d.ts
+│   │       │   │   ├── getHTMLElementScroll.js
+│   │       │   │   ├── getHTMLElementScroll.js.flow
+│   │       │   │   ├── getLayoutRect.d.ts
+│   │       │   │   ├── getLayoutRect.js
+│   │       │   │   ├── getLayoutRect.js.flow
+│   │       │   │   ├── getNodeName.d.ts
+│   │       │   │   ├── getNodeName.js
+│   │       │   │   ├── getNodeName.js.flow
+│   │       │   │   ├── getNodeScroll.d.ts
+│   │       │   │   ├── getNodeScroll.js
+│   │       │   │   ├── getNodeScroll.js.flow
+│   │       │   │   ├── getOffsetParent.d.ts
+│   │       │   │   ├── getOffsetParent.js
+│   │       │   │   ├── getOffsetParent.js.flow
+│   │       │   │   ├── getParentNode.d.ts
+│   │       │   │   ├── getParentNode.js
+│   │       │   │   ├── getParentNode.js.flow
+│   │       │   │   ├── getScrollParent.d.ts
+│   │       │   │   ├── getScrollParent.js
+│   │       │   │   ├── getScrollParent.js.flow
+│   │       │   │   ├── getViewportRect.d.ts
+│   │       │   │   ├── getViewportRect.js
+│   │       │   │   ├── getViewportRect.js.flow
+│   │       │   │   ├── getWindow.d.ts
+│   │       │   │   ├── getWindow.js
+│   │       │   │   ├── getWindow.js.flow
+│   │       │   │   ├── getWindowScroll.d.ts
+│   │       │   │   ├── getWindowScroll.js
+│   │       │   │   ├── getWindowScroll.js.flow
+│   │       │   │   ├── getWindowScrollBarX.d.ts
+│   │       │   │   ├── getWindowScrollBarX.js
+│   │       │   │   ├── getWindowScrollBarX.js.flow
+│   │       │   │   ├── instanceOf.d.ts
+│   │       │   │   ├── instanceOf.js
+│   │       │   │   ├── instanceOf.js.flow
+│   │       │   │   ├── isScrollParent.d.ts
+│   │       │   │   ├── isScrollParent.js
+│   │       │   │   ├── isScrollParent.js.flow
+│   │       │   │   ├── isTableElement.d.ts
+│   │       │   │   ├── isTableElement.js
+│   │       │   │   ├── isTableElement.js.flow
+│   │       │   │   ├── listScrollParents.d.ts
+│   │       │   │   ├── listScrollParents.js
+│   │       │   │   └── listScrollParents.js.flow
+│   │       │   ├── enums.d.ts
+│   │       │   ├── enums.js
+│   │       │   ├── enums.js.flow
+│   │       │   ├── index.d.ts
+│   │       │   ├── index.js
+│   │       │   ├── index.js.flow
+│   │       │   ├── modifiers
+│   │       │   │   ├── applyStyles.d.ts
+│   │       │   │   ├── applyStyles.js
+│   │       │   │   ├── applyStyles.js.flow
+│   │       │   │   ├── arrow.d.ts
+│   │       │   │   ├── arrow.js
+│   │       │   │   ├── arrow.js.flow
+│   │       │   │   ├── computeStyles.d.ts
+│   │       │   │   ├── computeStyles.js
+│   │       │   │   ├── computeStyles.js.flow
+│   │       │   │   ├── eventListeners.d.ts
+│   │       │   │   ├── eventListeners.js
+│   │       │   │   ├── eventListeners.js.flow
+│   │       │   │   ├── flip.d.ts
+│   │       │   │   ├── flip.js
+│   │       │   │   ├── flip.js.flow
+│   │       │   │   ├── hide.d.ts
+│   │       │   │   ├── hide.js
+│   │       │   │   ├── hide.js.flow
+│   │       │   │   ├── index.d.ts
+│   │       │   │   ├── index.js
+│   │       │   │   ├── index.js.flow
+│   │       │   │   ├── offset.d.ts
+│   │       │   │   ├── offset.js
+│   │       │   │   ├── offset.js.flow
+│   │       │   │   ├── popperOffsets.d.ts
+│   │       │   │   ├── popperOffsets.js
+│   │       │   │   ├── popperOffsets.js.flow
+│   │       │   │   ├── preventOverflow.d.ts
+│   │       │   │   ├── preventOverflow.js
+│   │       │   │   └── preventOverflow.js.flow
+│   │       │   ├── popper-base.d.ts
+│   │       │   ├── popper-base.js
+│   │       │   ├── popper-base.js.flow
+│   │       │   ├── popper-lite.d.ts
+│   │       │   ├── popper-lite.js
+│   │       │   ├── popper-lite.js.flow
+│   │       │   ├── popper.d.ts
+│   │       │   ├── popper.js
+│   │       │   ├── popper.js.flow
+│   │       │   ├── types.d.ts
+│   │       │   ├── types.js
+│   │       │   ├── types.js.flow
+│   │       │   └── utils
+│   │       │       ├── computeAutoPlacement.d.ts
+│   │       │       ├── computeAutoPlacement.js
+│   │       │       ├── computeAutoPlacement.js.flow
+│   │       │       ├── computeOffsets.d.ts
+│   │       │       ├── computeOffsets.js
+│   │       │       ├── computeOffsets.js.flow
+│   │       │       ├── debounce.d.ts
+│   │       │       ├── debounce.js
+│   │       │       ├── debounce.js.flow
+│   │       │       ├── detectOverflow.d.ts
+│   │       │       ├── detectOverflow.js
+│   │       │       ├── detectOverflow.js.flow
+│   │       │       ├── expandToHashMap.d.ts
+│   │       │       ├── expandToHashMap.js
+│   │       │       ├── expandToHashMap.js.flow
+│   │       │       ├── format.d.ts
+│   │       │       ├── format.js
+│   │       │       ├── format.js.flow
+│   │       │       ├── getAltAxis.d.ts
+│   │       │       ├── getAltAxis.js
+│   │       │       ├── getAltAxis.js.flow
+│   │       │       ├── getAltLen.d.ts
+│   │       │       ├── getAltLen.js
+│   │       │       ├── getAltLen.js.flow
+│   │       │       ├── getBasePlacement.d.ts
+│   │       │       ├── getBasePlacement.js
+│   │       │       ├── getBasePlacement.js.flow
+│   │       │       ├── getFreshSideObject.d.ts
+│   │       │       ├── getFreshSideObject.js
+│   │       │       ├── getFreshSideObject.js.flow
+│   │       │       ├── getMainAxisFromPlacement.d.ts
+│   │       │       ├── getMainAxisFromPlacement.js
+│   │       │       ├── getMainAxisFromPlacement.js.flow
+│   │       │       ├── getOppositePlacement.d.ts
+│   │       │       ├── getOppositePlacement.js
+│   │       │       ├── getOppositePlacement.js.flow
+│   │       │       ├── getOppositeVariationPlacement.d.ts
+│   │       │       ├── getOppositeVariationPlacement.js
+│   │       │       ├── getOppositeVariationPlacement.js.flow
+│   │       │       ├── getVariation.d.ts
+│   │       │       ├── getVariation.js
+│   │       │       ├── getVariation.js.flow
+│   │       │       ├── math.d.ts
+│   │       │       ├── math.js
+│   │       │       ├── math.js.flow
+│   │       │       ├── mergeByName.d.ts
+│   │       │       ├── mergeByName.js
+│   │       │       ├── mergeByName.js.flow
+│   │       │       ├── mergePaddingObject.d.ts
+│   │       │       ├── mergePaddingObject.js
+│   │       │       ├── mergePaddingObject.js.flow
+│   │       │       ├── orderModifiers.d.ts
+│   │       │       ├── orderModifiers.js
+│   │       │       ├── orderModifiers.js.flow
+│   │       │       ├── rectToClientRect.d.ts
+│   │       │       ├── rectToClientRect.js
+│   │       │       ├── rectToClientRect.js.flow
+│   │       │       ├── uniqueBy.d.ts
+│   │       │       ├── uniqueBy.js
+│   │       │       ├── uniqueBy.js.flow
+│   │       │       ├── validateModifiers.d.ts
+│   │       │       ├── validateModifiers.js
+│   │       │       ├── validateModifiers.js.flow
+│   │       │       ├── within.d.ts
+│   │       │       ├── within.js
+│   │       │       └── within.js.flow
+│   │       ├── LICENSE.md
+│   │       ├── package.json
+│   │       └── README.md
+│   ├── anymatch
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── array-union
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── async
+│   │   ├── all.js
+│   │   ├── allLimit.js
+│   │   ├── allSeries.js
+│   │   ├── any.js
+│   │   ├── anyLimit.js
+│   │   ├── anySeries.js
+│   │   ├── apply.js
+│   │   ├── applyEach.js
+│   │   ├── applyEachSeries.js
+│   │   ├── asyncify.js
+│   │   ├── auto.js
+│   │   ├── autoInject.js
+│   │   ├── bower.json
+│   │   ├── cargo.js
+│   │   ├── cargoQueue.js
+│   │   ├── CHANGELOG.md
+│   │   ├── compose.js
+│   │   ├── concat.js
+│   │   ├── concatLimit.js
+│   │   ├── concatSeries.js
+│   │   ├── constant.js
+│   │   ├── detect.js
+│   │   ├── detectLimit.js
+│   │   ├── detectSeries.js
+│   │   ├── dir.js
+│   │   ├── dist
+│   │   │   ├── async.js
+│   │   │   ├── async.min.js
+│   │   │   └── async.mjs
+│   │   ├── doDuring.js
+│   │   ├── doUntil.js
+│   │   ├── doWhilst.js
+│   │   ├── during.js
+│   │   ├── each.js
+│   │   ├── eachLimit.js
+│   │   ├── eachOf.js
+│   │   ├── eachOfLimit.js
+│   │   ├── eachOfSeries.js
+│   │   ├── eachSeries.js
+│   │   ├── ensureAsync.js
+│   │   ├── every.js
+│   │   ├── everyLimit.js
+│   │   ├── everySeries.js
+│   │   ├── filter.js
+│   │   ├── filterLimit.js
+│   │   ├── filterSeries.js
+│   │   ├── find.js
+│   │   ├── findLimit.js
+│   │   ├── findSeries.js
+│   │   ├── flatMap.js
+│   │   ├── flatMapLimit.js
+│   │   ├── flatMapSeries.js
+│   │   ├── foldl.js
+│   │   ├── foldr.js
+│   │   ├── forEach.js
+│   │   ├── forEachLimit.js
+│   │   ├── forEachOf.js
+│   │   ├── forEachOfLimit.js
+│   │   ├── forEachOfSeries.js
+│   │   ├── forEachSeries.js
+│   │   ├── forever.js
+│   │   ├── groupBy.js
+│   │   ├── groupByLimit.js
+│   │   ├── groupBySeries.js
+│   │   ├── index.js
+│   │   ├── inject.js
+│   │   ├── internal
+│   │   │   ├── applyEach.js
+│   │   │   ├── asyncEachOfLimit.js
+│   │   │   ├── awaitify.js
+│   │   │   ├── breakLoop.js
+│   │   │   ├── consoleFunc.js
+│   │   │   ├── createTester.js
+│   │   │   ├── DoublyLinkedList.js
+│   │   │   ├── eachOfLimit.js
+│   │   │   ├── filter.js
+│   │   │   ├── getIterator.js
+│   │   │   ├── Heap.js
+│   │   │   ├── initialParams.js
+│   │   │   ├── isArrayLike.js
+│   │   │   ├── iterator.js
+│   │   │   ├── map.js
+│   │   │   ├── once.js
+│   │   │   ├── onlyOnce.js
+│   │   │   ├── parallel.js
+│   │   │   ├── promiseCallback.js
+│   │   │   ├── queue.js
+│   │   │   ├── range.js
+│   │   │   ├── reject.js
+│   │   │   ├── setImmediate.js
+│   │   │   ├── withoutIndex.js
+│   │   │   └── wrapAsync.js
+│   │   ├── LICENSE
+│   │   ├── log.js
+│   │   ├── map.js
+│   │   ├── mapLimit.js
+│   │   ├── mapSeries.js
+│   │   ├── mapValues.js
+│   │   ├── mapValuesLimit.js
+│   │   ├── mapValuesSeries.js
+│   │   ├── memoize.js
+│   │   ├── nextTick.js
+│   │   ├── package.json
+│   │   ├── parallel.js
+│   │   ├── parallelLimit.js
+│   │   ├── priorityQueue.js
+│   │   ├── queue.js
+│   │   ├── race.js
+│   │   ├── README.md
+│   │   ├── reduce.js
+│   │   ├── reduceRight.js
+│   │   ├── reflect.js
+│   │   ├── reflectAll.js
+│   │   ├── reject.js
+│   │   ├── rejectLimit.js
+│   │   ├── rejectSeries.js
+│   │   ├── retry.js
+│   │   ├── retryable.js
+│   │   ├── select.js
+│   │   ├── selectLimit.js
+│   │   ├── selectSeries.js
+│   │   ├── seq.js
+│   │   ├── series.js
+│   │   ├── setImmediate.js
+│   │   ├── some.js
+│   │   ├── someLimit.js
+│   │   ├── someSeries.js
+│   │   ├── sortBy.js
+│   │   ├── timeout.js
+│   │   ├── times.js
+│   │   ├── timesLimit.js
+│   │   ├── timesSeries.js
+│   │   ├── transform.js
+│   │   ├── tryEach.js
+│   │   ├── unmemoize.js
+│   │   ├── until.js
+│   │   ├── waterfall.js
+│   │   ├── whilst.js
+│   │   └── wrapSync.js
+│   ├── binary-extensions
+│   │   ├── binary-extensions.json
+│   │   ├── binary-extensions.json.d.ts
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── bootstrap
+│   │   ├── dist
+│   │   │   ├── css
+│   │   │   │   ├── bootstrap-grid.css
+│   │   │   │   ├── bootstrap-grid.css.map
+│   │   │   │   ├── bootstrap-grid.min.css
+│   │   │   │   ├── bootstrap-grid.min.css.map
+│   │   │   │   ├── bootstrap-grid.rtl.css
+│   │   │   │   ├── bootstrap-grid.rtl.css.map
+│   │   │   │   ├── bootstrap-grid.rtl.min.css
+│   │   │   │   ├── bootstrap-grid.rtl.min.css.map
+│   │   │   │   ├── bootstrap-reboot.css
+│   │   │   │   ├── bootstrap-reboot.css.map
+│   │   │   │   ├── bootstrap-reboot.min.css
+│   │   │   │   ├── bootstrap-reboot.min.css.map
+│   │   │   │   ├── bootstrap-reboot.rtl.css
+│   │   │   │   ├── bootstrap-reboot.rtl.css.map
+│   │   │   │   ├── bootstrap-reboot.rtl.min.css
+│   │   │   │   ├── bootstrap-reboot.rtl.min.css.map
+│   │   │   │   ├── bootstrap-utilities.css
+│   │   │   │   ├── bootstrap-utilities.css.map
+│   │   │   │   ├── bootstrap-utilities.min.css
+│   │   │   │   ├── bootstrap-utilities.min.css.map
+│   │   │   │   ├── bootstrap-utilities.rtl.css
+│   │   │   │   ├── bootstrap-utilities.rtl.css.map
+│   │   │   │   ├── bootstrap-utilities.rtl.min.css
+│   │   │   │   ├── bootstrap-utilities.rtl.min.css.map
+│   │   │   │   ├── bootstrap.css
+│   │   │   │   ├── bootstrap.css.map
+│   │   │   │   ├── bootstrap.min.css
+│   │   │   │   ├── bootstrap.min.css.map
+│   │   │   │   ├── bootstrap.rtl.css
+│   │   │   │   ├── bootstrap.rtl.css.map
+│   │   │   │   ├── bootstrap.rtl.min.css
+│   │   │   │   └── bootstrap.rtl.min.css.map
+│   │   │   └── js
+│   │   │       ├── bootstrap.bundle.js
+│   │   │       ├── bootstrap.bundle.js.map
+│   │   │       ├── bootstrap.bundle.min.js
+│   │   │       ├── bootstrap.bundle.min.js.map
+│   │   │       ├── bootstrap.esm.js
+│   │   │       ├── bootstrap.esm.js.map
+│   │   │       ├── bootstrap.esm.min.js
+│   │   │       ├── bootstrap.esm.min.js.map
+│   │   │       ├── bootstrap.js
+│   │   │       ├── bootstrap.js.map
+│   │   │       ├── bootstrap.min.js
+│   │   │       └── bootstrap.min.js.map
+│   │   ├── js
+│   │   │   ├── dist
+│   │   │   │   ├── alert.js
+│   │   │   │   ├── alert.js.map
+│   │   │   │   ├── base-component.js
+│   │   │   │   ├── base-component.js.map
+│   │   │   │   ├── button.js
+│   │   │   │   ├── button.js.map
+│   │   │   │   ├── carousel.js
+│   │   │   │   ├── carousel.js.map
+│   │   │   │   ├── collapse.js
+│   │   │   │   ├── collapse.js.map
+│   │   │   │   ├── dom
+│   │   │   │   │   ├── data.js
+│   │   │   │   │   ├── data.js.map
+│   │   │   │   │   ├── event-handler.js
+│   │   │   │   │   ├── event-handler.js.map
+│   │   │   │   │   ├── manipulator.js
+│   │   │   │   │   ├── manipulator.js.map
+│   │   │   │   │   ├── selector-engine.js
+│   │   │   │   │   └── selector-engine.js.map
+│   │   │   │   ├── dropdown.js
+│   │   │   │   ├── dropdown.js.map
+│   │   │   │   ├── modal.js
+│   │   │   │   ├── modal.js.map
+│   │   │   │   ├── offcanvas.js
+│   │   │   │   ├── offcanvas.js.map
+│   │   │   │   ├── popover.js
+│   │   │   │   ├── popover.js.map
+│   │   │   │   ├── scrollspy.js
+│   │   │   │   ├── scrollspy.js.map
+│   │   │   │   ├── tab.js
+│   │   │   │   ├── tab.js.map
+│   │   │   │   ├── toast.js
+│   │   │   │   ├── toast.js.map
+│   │   │   │   ├── tooltip.js
+│   │   │   │   └── tooltip.js.map
+│   │   │   └── src
+│   │   │       ├── alert.js
+│   │   │       ├── base-component.js
+│   │   │       ├── button.js
+│   │   │       ├── carousel.js
+│   │   │       ├── collapse.js
+│   │   │       ├── dom
+│   │   │       │   ├── data.js
+│   │   │       │   ├── event-handler.js
+│   │   │       │   ├── manipulator.js
+│   │   │       │   └── selector-engine.js
+│   │   │       ├── dropdown.js
+│   │   │       ├── modal.js
+│   │   │       ├── offcanvas.js
+│   │   │       ├── popover.js
+│   │   │       ├── scrollspy.js
+│   │   │       ├── tab.js
+│   │   │       ├── toast.js
+│   │   │       ├── tooltip.js
+│   │   │       └── util
+│   │   │           ├── index.js
+│   │   │           ├── sanitizer.js
+│   │   │           └── scrollbar.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── scss
+│   │       ├── _accordion.scss
+│   │       ├── _alert.scss
+│   │       ├── _badge.scss
+│   │       ├── _breadcrumb.scss
+│   │       ├── _button-group.scss
+│   │       ├── _buttons.scss
+│   │       ├── _card.scss
+│   │       ├── _carousel.scss
+│   │       ├── _close.scss
+│   │       ├── _containers.scss
+│   │       ├── _dropdown.scss
+│   │       ├── _forms.scss
+│   │       ├── _functions.scss
+│   │       ├── _grid.scss
+│   │       ├── _helpers.scss
+│   │       ├── _images.scss
+│   │       ├── _list-group.scss
+│   │       ├── _mixins.scss
+│   │       ├── _modal.scss
+│   │       ├── _nav.scss
+│   │       ├── _navbar.scss
+│   │       ├── _offcanvas.scss
+│   │       ├── _pagination.scss
+│   │       ├── _popover.scss
+│   │       ├── _progress.scss
+│   │       ├── _reboot.scss
+│   │       ├── _root.scss
+│   │       ├── _spinners.scss
+│   │       ├── _tables.scss
+│   │       ├── _toasts.scss
+│   │       ├── _tooltip.scss
+│   │       ├── _transitions.scss
+│   │       ├── _type.scss
+│   │       ├── _utilities.scss
+│   │       ├── _variables.scss
+│   │       ├── bootstrap-grid.scss
+│   │       ├── bootstrap-reboot.scss
+│   │       ├── bootstrap-utilities.scss
+│   │       ├── bootstrap.scss
+│   │       ├── forms
+│   │       │   ├── _floating-labels.scss
+│   │       │   ├── _form-check.scss
+│   │       │   ├── _form-control.scss
+│   │       │   ├── _form-range.scss
+│   │       │   ├── _form-select.scss
+│   │       │   ├── _form-text.scss
+│   │       │   ├── _input-group.scss
+│   │       │   ├── _labels.scss
+│   │       │   └── _validation.scss
+│   │       ├── helpers
+│   │       │   ├── _clearfix.scss
+│   │       │   ├── _colored-links.scss
+│   │       │   ├── _position.scss
+│   │       │   ├── _ratio.scss
+│   │       │   ├── _stretched-link.scss
+│   │       │   ├── _text-truncation.scss
+│   │       │   └── _visually-hidden.scss
+│   │       ├── mixins
+│   │       │   ├── _alert.scss
+│   │       │   ├── _border-radius.scss
+│   │       │   ├── _box-shadow.scss
+│   │       │   ├── _breakpoints.scss
+│   │       │   ├── _buttons.scss
+│   │       │   ├── _caret.scss
+│   │       │   ├── _clearfix.scss
+│   │       │   ├── _container.scss
+│   │       │   ├── _deprecate.scss
+│   │       │   ├── _forms.scss
+│   │       │   ├── _gradients.scss
+│   │       │   ├── _grid.scss
+│   │       │   ├── _image.scss
+│   │       │   ├── _list-group.scss
+│   │       │   ├── _lists.scss
+│   │       │   ├── _pagination.scss
+│   │       │   ├── _reset-text.scss
+│   │       │   ├── _resize.scss
+│   │       │   ├── _table-variants.scss
+│   │       │   ├── _text-truncate.scss
+│   │       │   ├── _transition.scss
+│   │       │   ├── _utilities.scss
+│   │       │   └── _visually-hidden.scss
+│   │       ├── utilities
+│   │       │   └── _api.scss
+│   │       └── vendor
+│   │           └── _rfs.scss
+│   ├── braces
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── compile.js
+│   │   │   ├── constants.js
+│   │   │   ├── expand.js
+│   │   │   ├── parse.js
+│   │   │   ├── stringify.js
+│   │   │   └── utils.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── chokidar
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── constants.js
+│   │   │   ├── fsevents-handler.js
+│   │   │   └── nodefs-handler.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── types
+│   │       └── index.d.ts
+│   ├── commander
+│   │   ├── esm.mjs
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── argument.js
+│   │   │   ├── command.js
+│   │   │   ├── error.js
+│   │   │   ├── help.js
+│   │   │   ├── option.js
+│   │   │   └── suggestSimilar.js
+│   │   ├── LICENSE
+│   │   ├── package-support.json
+│   │   ├── package.json
+│   │   ├── Readme.md
+│   │   └── typings
+│   │       ├── esm.d.mts
+│   │       └── index.d.ts
+│   ├── commondir
+│   │   ├── example
+│   │   │   └── dir.js
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── readme.markdown
+│   │   └── test
+│   │       └── dirs.js
+│   ├── dir-glob
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── email-addresses
+│   │   ├── bower.json
+│   │   ├── Changes.md
+│   │   ├── lib
+│   │   │   ├── email-addresses.d.ts
+│   │   │   ├── email-addresses.js
+│   │   │   └── email-addresses.min.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       ├── email-addresses.js
+│   │       ├── is_email.js
+│   │       └── tests.xml
+│   ├── escape-string-regexp
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── fast-glob
+│   │   ├── LICENSE
+│   │   ├── out
+│   │   │   ├── index.d.ts
+│   │   │   ├── index.js
+│   │   │   ├── managers
+│   │   │   │   ├── tasks.d.ts
+│   │   │   │   └── tasks.js
+│   │   │   ├── providers
+│   │   │   │   ├── async.d.ts
+│   │   │   │   ├── async.js
+│   │   │   │   ├── filters
+│   │   │   │   │   ├── deep.d.ts
+│   │   │   │   │   ├── deep.js
+│   │   │   │   │   ├── entry.d.ts
+│   │   │   │   │   ├── entry.js
+│   │   │   │   │   ├── error.d.ts
+│   │   │   │   │   └── error.js
+│   │   │   │   ├── matchers
+│   │   │   │   │   ├── matcher.d.ts
+│   │   │   │   │   ├── matcher.js
+│   │   │   │   │   ├── partial.d.ts
+│   │   │   │   │   └── partial.js
+│   │   │   │   ├── provider.d.ts
+│   │   │   │   ├── provider.js
+│   │   │   │   ├── stream.d.ts
+│   │   │   │   ├── stream.js
+│   │   │   │   ├── sync.d.ts
+│   │   │   │   ├── sync.js
+│   │   │   │   └── transformers
+│   │   │   │       ├── entry.d.ts
+│   │   │   │       └── entry.js
+│   │   │   ├── readers
+│   │   │   │   ├── async.d.ts
+│   │   │   │   ├── async.js
+│   │   │   │   ├── reader.d.ts
+│   │   │   │   ├── reader.js
+│   │   │   │   ├── stream.d.ts
+│   │   │   │   ├── stream.js
+│   │   │   │   ├── sync.d.ts
+│   │   │   │   └── sync.js
+│   │   │   ├── settings.d.ts
+│   │   │   ├── settings.js
+│   │   │   ├── types
+│   │   │   │   ├── index.d.ts
+│   │   │   │   └── index.js
+│   │   │   └── utils
+│   │   │       ├── array.d.ts
+│   │   │       ├── array.js
+│   │   │       ├── errno.d.ts
+│   │   │       ├── errno.js
+│   │   │       ├── fs.d.ts
+│   │   │       ├── fs.js
+│   │   │       ├── index.d.ts
+│   │   │       ├── index.js
+│   │   │       ├── path.d.ts
+│   │   │       ├── path.js
+│   │   │       ├── pattern.d.ts
+│   │   │       ├── pattern.js
+│   │   │       ├── stream.d.ts
+│   │   │       ├── stream.js
+│   │   │       ├── string.d.ts
+│   │   │       └── string.js
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── fastq
+│   │   ├── bench.js
+│   │   ├── eslint.config.js
+│   │   ├── example.js
+│   │   ├── example.mjs
+│   │   ├── index.d.ts
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── queue.js
+│   │   ├── README.md
+│   │   ├── SECURITY.md
+│   │   └── test
+│   │       ├── example.ts
+│   │       ├── promise.js
+│   │       ├── test.js
+│   │       └── tsconfig.json
+│   ├── filename-reserved-regex
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── filenamify
+│   │   ├── filenamify-path.d.ts
+│   │   ├── filenamify-path.js
+│   │   ├── filenamify.d.ts
+│   │   ├── filenamify.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── fill-range
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── find-cache-dir
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── find-up
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── fs-extra
+│   │   ├── lib
+│   │   │   ├── copy
+│   │   │   │   ├── copy-sync.js
+│   │   │   │   ├── copy.js
+│   │   │   │   └── index.js
+│   │   │   ├── empty
+│   │   │   │   └── index.js
+│   │   │   ├── ensure
+│   │   │   │   ├── file.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── link.js
+│   │   │   │   ├── symlink-paths.js
+│   │   │   │   ├── symlink-type.js
+│   │   │   │   └── symlink.js
+│   │   │   ├── esm.mjs
+│   │   │   ├── fs
+│   │   │   │   └── index.js
+│   │   │   ├── index.js
+│   │   │   ├── json
+│   │   │   │   ├── index.js
+│   │   │   │   ├── jsonfile.js
+│   │   │   │   ├── output-json-sync.js
+│   │   │   │   └── output-json.js
+│   │   │   ├── mkdirs
+│   │   │   │   ├── index.js
+│   │   │   │   ├── make-dir.js
+│   │   │   │   └── utils.js
+│   │   │   ├── move
+│   │   │   │   ├── index.js
+│   │   │   │   ├── move-sync.js
+│   │   │   │   └── move.js
+│   │   │   ├── output-file
+│   │   │   │   └── index.js
+│   │   │   ├── path-exists
+│   │   │   │   └── index.js
+│   │   │   ├── remove
+│   │   │   │   └── index.js
+│   │   │   └── util
+│   │   │       ├── async.js
+│   │   │       ├── stat.js
+│   │   │       └── utimes.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── fsevents
+│   │   ├── fsevents.d.ts
+│   │   ├── fsevents.js
+│   │   ├── fsevents.node
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── gh-pages
+│   │   ├── bin
+│   │   │   ├── gh-pages-clean.js
+│   │   │   └── gh-pages.js
+│   │   ├── lib
+│   │   │   ├── git.js
+│   │   │   ├── index.js
+│   │   │   └── util.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── glob-parent
+│   │   ├── CHANGELOG.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── globby
+│   │   ├── gitignore.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   ├── readme.md
+│   │   └── stream-utils.js
+│   ├── graceful-fs
+│   │   ├── clone.js
+│   │   ├── graceful-fs.js
+│   │   ├── legacy-streams.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── polyfills.js
+│   │   └── README.md
+│   ├── ignore
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── legacy.js
+│   │   ├── LICENSE-MIT
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── is-binary-path
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── is-extglob
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── is-glob
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── is-number
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── jsonfile
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── utils.js
+│   ├── locate-path
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── make-dir
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── merge2
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── micromatch
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── normalize-path
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── p-limit
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── p-locate
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── p-try
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── path-exists
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── path-type
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── picomatch
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── constants.js
+│   │   │   ├── parse.js
+│   │   │   ├── picomatch.js
+│   │   │   ├── scan.js
+│   │   │   └── utils.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── pkg-dir
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── queue-microtask
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── readdirp
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── reusify
+│   │   ├── benchmarks
+│   │   │   ├── createNoCodeFunction.js
+│   │   │   ├── fib.js
+│   │   │   └── reuseNoCodeFunction.js
+│   │   ├── eslint.config.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── reusify.d.ts
+│   │   ├── reusify.js
+│   │   ├── SECURITY.md
+│   │   ├── test.js
+│   │   └── tsconfig.json
+│   ├── run-parallel
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── sass
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── sass.dart.js
+│   │   └── sass.js
+│   ├── semver
+│   │   ├── bin
+│   │   │   └── semver.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── range.bnf
+│   │   ├── README.md
+│   │   └── semver.js
+│   ├── slash
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── stickybits
+│   │   ├── CHANGELOG.md
+│   │   ├── dist
+│   │   │   ├── jquery.stickybits.js
+│   │   │   ├── jquery.stickybits.min.js
+│   │   │   ├── stickybits.es.js
+│   │   │   ├── stickybits.js
+│   │   │   ├── stickybits.min.js
+│   │   │   └── umbrella.stickybits.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── src
+│   │   │   ├── jquery.stickybits.js
+│   │   │   ├── stickybits.js
+│   │   │   └── umbrella.stickybits.js
+│   │   └── types
+│   │       └── index.d.ts
+│   ├── strip-outer
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── to-regex-range
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── trim-repeated
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   └── universalify
+│       ├── index.js
+│       ├── LICENSE
+│       ├── package.json
+│       └── README.md
+├── package-lock.json
+├── package.json
+├── scss
+│   ├── _color.scss
+│   ├── _config.scss
+│   ├── _custombootstrap.scss
+│   ├── _customvariables.scss
+│   ├── _fonts.scss
+│   ├── _mobile.scss
+│   ├── main.scss
+│   └── projects
+│       └── _projects.scss
+├── source
+│   ├── category
+│   │   ├── cnn_grill_at_sxsw
+│   │   │   ├── img
+│   │   │   │   ├── 00_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 02_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 03_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 04_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 05_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 06_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 07_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 08_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 09_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 10_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design_neon_boot.jpg
+│   │   │   │   ├── 11_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 12_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 13_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 14_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 15_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 16_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 17_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   ├── 18_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│   │   │   │   └── jamus_marquette_cnn_grill_at_sxsw_logo_design.svg
+│   │   │   └── index.html
+│   │   └── confinement
+│   │       ├── img
+│   │       │   ├── 00_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 01_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 02_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 03_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 04_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   ├── 05_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   ├── 06_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   ├── 07_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│   │       │   ├── 08_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 09_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 10_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 11_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│   │       │   ├── 12_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   ├── 13_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   ├── 14_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   ├── 15_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   ├── 16_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   ├── 17_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_cover_02.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_cover_03.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_cover_opened.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_cover.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_coverb.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_opening_page.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_opening_page1.jpg
+│   │       │   ├── jamus_marquette_confinement_photo_book_quote_page.jpg
+│   │       │   └── jamus_marquette_confinement_photo_book_title_page.jpg
+│   │       └── index.html
+│   ├── CNAME
+│   ├── css
+│   │   ├── main.css
+│   │   ├── main.css.map
+│   │   ├── styles.css
+│   │   └── styles.css.map
+│   ├── fonts
+│   │   ├── BNBergenSt-Black.otf
+│   │   ├── BNBergenSt-Bold.otf
+│   │   ├── BNBergenSt-Light.otf
+│   │   ├── BNBergenSt-Medium.otf
+│   │   ├── BNBergenSt.otf
+│   │   ├── Okta_neue.css
+│   │   └── webFonts
+│   │       ├── OktaNeue
+│   │       │   ├── italic_normal_bold.woff
+│   │       │   └── italic_normal_bold.woff2
+│   │       └── OktaNeueUltraLight
+│   │           ├── font.woff
+│   │           └── font.woff2
+│   ├── img
+│   │   ├── 00_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│   │   ├── 00_jamus_marquette_jamus_and_adriana_tshirt_illustrations.jpg
+│   │   ├── 01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
+│   │   ├── 2x
+│   │   ├── down_arrow_a.svg
+│   │   ├── down_arrow.svg
+│   │   ├── Favicon__.png
+│   │   ├── Favicon_.png
+│   │   ├── favicon.ai
+│   │   ├── Favicon.png
+│   │   ├── image_test.jpg
+│   │   ├── jamus_and_adriana_theater_posters.gif
+│   │   ├── jamus_highschool_unitednations_class_photo_test.jpg
+│   │   ├── jamus_highschool_unitednations_class_photo.jpg
+│   │   ├── jamus_marquette_confinement_photo_book_lr.gif
+│   │   ├── jamus_marquette_design_firms_open_for_business_book_design.jpg
+│   │   ├── jamus_marquette_human_robot_animation.gif
+│   │   ├── jamus_marquette_humanrobot_web_motion_branding_design.gif
+│   │   ├── jamus_marquette_invasion_of_the_body_snatchers_by_jack_finn_book_cover_design.jpg
+│   │   ├── jamus_marquette_irvine_welsh_covers_animation.gif
+│   │   ├── jamus_marquette_jonathan_childrens_trust.gif
+│   │   ├── jamus_marquette_laureate_summit_logo.gif
+│   │   ├── jamus_marquette_laureate_summit_logo.png
+│   │   ├── jamus_marquette_marcela_gandara_album_cover_artwork_.jpg
+│   │   ├── jamus_marquette_marcela_gandara_album_cover_artwork_old.jpg
+│   │   ├── jamus_marquette_marcela_gandara_album_cover_artwork.jpg
+│   │   ├── jamus_marquette_mtc_spring_gala_invite_old.jpg
+│   │   ├── jamus_marquette_mtc_spring_gala_invite.gif
+│   │   ├── jamus_marquette_nflpa_ribbon_animation.gif
+│   │   ├── jamus_marquette_restaurants-on-missions-animation.gif
+│   │   ├── jamus_marquette_sva_motion_graphics_reel.gif
+│   │   ├── jamus_marquette_wnet_thirteen_covers.jpg
+│   │   ├── jamus_theater_posters_old.gif
+│   │   ├── jamus_theater_posters.gif
+│   │   ├── the_strokes_is_this_it_album_artwork.gif
+│   │   ├── up_arrow_a.svg
+│   │   └── up_arrow.svg
+│   ├── index.html
+│   ├── js
+│   │   └── custom.js
+│   └── project
+│       ├── cnn_grill_at_sxsw
+│       │   ├── img
+│       │   │   ├── 00_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 02_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 03_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 04_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 05_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 06_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 07_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 08_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 09_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 10_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design_neon_boot.jpg
+│       │   │   ├── 11_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 12_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 13_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 14_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 15_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 16_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 17_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   ├── 18_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+│       │   │   └── jamus_marquette_cnn_grill_at_sxsw_logo_design.svg
+│       │   └── index.html
+│       ├── confinement
+│       │   ├── img
+│       │   │   ├── 00_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 01_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 02_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 03_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 04_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│       │   │   ├── 05_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│       │   │   ├── 06_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│       │   │   ├── 07_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
+│       │   │   ├── 08_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 09_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 10_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 11_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
+│       │   │   ├── 12_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│       │   │   ├── 13_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│       │   │   ├── 14_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│       │   │   ├── 15_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│       │   │   ├── 16_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│       │   │   ├── 17_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_cover_02.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_cover_03.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_cover_opened.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_cover.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_coverb.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_opening_page.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_opening_page1.jpg
+│       │   │   ├── jamus_marquette_confinement_photo_book_quote_page.jpg
+│       │   │   └── jamus_marquette_confinement_photo_book_title_page.jpg
+│       │   └── index.html
+│       ├── design_firms_open_for_business
+│       │   ├── img
+│       │   │   ├── 00_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 01_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 02_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 03_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 04_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 05_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 06_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 07_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 08_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 09_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 10_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 11_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 12_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 13_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 14_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 15_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 16_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   ├── 17_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   │   └── 18_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
+│       │   └── index.html
+│       ├── dirtbags
+│       │   ├── img
+│       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_logo_stuffed_animal_with_real_life_problems.png
+│       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_packaged_stuffed_animal_with_real_life_problems.jpg
+│       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_stuffed_animal_with_real_life_problems.gif
+│       │   │   ├── jamus_marquette_dirtbags_dont_sleep_sheep_stuffed_animal_with_real_life_problems.jpg
+│       │   │   ├── jamus_marquette_dirtbags_hmo_rabbit_logo_stuffed_animal_with_real_life_problems.png
+│       │   │   ├── jamus_marquette_dirtbags_hmo_rabbit_packaged_stuffed_animal_with_real_life_problems.jpg
+│       │   │   ├── jamus_marquette_dirtbags_hmo_rabbit_stuffed_animal_with_real_life_problems.gif
+│       │   │   ├── jamus_marquette_dirtbags_voodoobear_logo_stuffed_animal_with_real_life_problems.png
+│       │   │   ├── jamus_marquette_dirtbags_voodoobear_packaged_stuffed_animal_with_real_life_problems.jpg
+│       │   │   ├── jamus_marquette_dirtbags_voodoobear_stuffed_animal_with_real_life_problems.gif
+│       │   │   ├── jamusmarquette_dirtbags_logo_mark_old.svg
+│       │   │   ├── jamusmarquette_dirtbags_logo_mark.svg
+│       │   │   └── jamusmarquette_dirtbags_logo.svg
+│       │   └── index.html
+│       ├── here_for_good
+│       │   ├── img
+│       │   │   ├── 493_Laureate_summit_brand-4.jpg
+│       │   │   ├── 493_Laureate_summit_brand-5.jpg
+│       │   │   ├── 493_Laureate_summit_brand-7.jpg
+│       │   │   ├── 493_Laureate_summit_brand-8.jpg
+│       │   │   ├── here_for_good_animation.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_book.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_clinton_x.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_clinton.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_logo.gif
+│       │   │   ├── jamus_marquette_laureate_summit_brand_map_x.gif
+│       │   │   ├── jamus_marquette_laureate_summit_brand_map.gif
+│       │   │   ├── jamus_marquette_laureate_summit_brand_slide_x.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_slide.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_stage_01_x.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_stage_01.jpg
+│       │   │   ├── jamus_marquette_laureate_summit_brand_stage_02_x.jpg
+│       │   │   └── jamus_marquette_laureate_summit_brand_stage_02.jpg
+│       │   ├── index.html
+│       │   └── video
+│       │       └── here_for_good_animation.mp4
+│       ├── history_pop_shop
+│       │   ├── img
+│       │   │   ├── 01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
+│       │   │   ├── 02_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_tshirt.jpg
+│       │   │   ├── 03_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_door_old.jpg
+│       │   │   ├── 03_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_door.jpg
+│       │   │   ├── 04_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_and_interior.jpg
+│       │   │   └── jamus_marquette_history_pop_shop.jpg
+│       │   ├── index.html
+│       │   └── video
+│       │       └── jamus_marquette_history_pop_shop.mp4
+│       ├── humanrobot
+│       │   ├── img
+│       │   │   ├── jamus_marquette_humanrobot_text_animation_poster.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design_logo_animation.gif
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design_text_illustrations.gif
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design.gif
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design10.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design11.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design12.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design13.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design14.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design2.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design3.gif
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design4.gif
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design5.gif
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design6.gif
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design7.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design8.jpg
+│       │   │   ├── jamus_marquette_humanrobot_web_motion_branding_design9.jpg
+│       │   │   └── jamus_marquette_humanrobot_web_poster.jpg
+│       │   ├── index.html
+│       │   └── video
+│       │       ├── jamus_marquette_humanrobot_text_animation.mp4
+│       │       └── jamus_marquette_humanrobot_website.mp4
+│       ├── illustrations
+│       │   ├── img
+│       │   │   ├── 01_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── 02_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── 03_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── 04_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── 05_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── 06_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── 07_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── 08_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
+│       │   │   ├── eat.gif
+│       │   │   ├── jamus_marquette_eat_animation.gif
+│       │   │   ├── jamus_marquette_jamus_and_adriana_tshirt_illustration.jpg
+│       │   │   ├── love_cross.gif
+│       │   │   ├── love_hands.gif
+│       │   │   ├── wresting_with_god_animation_poster.gif
+│       │   │   └── wresting_with_god.gif
+│       │   ├── index.html
+│       │   └── video
+│       │       ├── jamus_marquette_animation_eat.mp4
+│       │       └── wresting_with_god.mp4
+│       ├── invasion_of_the_body_snachers
+│       │   ├── img
+│       │   │   ├── jamus_marquette_invasion_of_the_body_snachers_book_cover_layout.jpg
+│       │   │   └── jamus_marquette_invasion_of_the_body_snachers_book_cover.jpg
+│       │   └── index.html
+│       ├── irvine_welsh_book_covers
+│       │   ├── img
+│       │   │   ├── jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_design.jpg
+│       │   │   ├── jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_designs_wide.jpg
+│       │   │   ├── jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_designs.jpg
+│       │   │   ├── jamus_marquette_irvine_welsh_kingdom_of_fife_book_cover_design.jpg
+│       │   │   ├── jamus_marquette_irvine_welsh_miss_arizona_book_cover_design.jpg
+│       │   │   └── jamus_marquette_irvine_welsh_the_dogs_of_lincoln_park_book_cover_design.jpg
+│       │   └── index.html
+│       ├── jonathan_childrens_trust
+│       │   ├── img
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust_logo_animation_old.gif
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust_logo_animation.gif
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust_logo.svg
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust_pattern_video_poster.jpg
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust_white.jpg
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust.jpg
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust2_white.jpg
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust2.jpg
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust4.jpg
+│       │   │   ├── jamus_marquette_jonathan_childrens_trust5.jpg
+│       │   │   └── jamus_marquette_jonathan_childrens_trust6.jpg
+│       │   ├── index.html
+│       │   └── video
+│       │       └── jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
+│       ├── marcela_gandara_album_artwork
+│       │   └── img
+│       │       └── jamus_marquette_marcela_gandara_album_cover_artwork.jpg
+│       ├── motion_graphics
+│       │   ├── img
+│       │   │   └── jamus_marquette_sva_motion_graphics_reel.jpg
+│       │   ├── index.html
+│       │   └── video
+│       │       └── jamus_marquette_sva_motion_graphics_reel.mp4
+│       ├── mtc_spring_gala
+│       │   ├── img
+│       │   │   ├── 01_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│       │   │   ├── 02_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│       │   │   ├── 03_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│       │   │   ├── 04_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
+│       │   │   ├── jamus_marquette_mtc_poster_image_2021.gif
+│       │   │   └── mtc_static_2021.gif
+│       │   ├── index.html
+│       │   └── video
+│       │       └── jamus_marquette_mtc_animation.mp4
+│       ├── nflpa
+│       │   ├── img
+│       │   │   ├── 01_jamus_marquette_nflpa_logos.jpg
+│       │   │   ├── 03_jamus_marquette_nflpa_logo_branding_on_tshirt.jpg
+│       │   │   ├── 04_jamus_marquette_nflpa_rookie_logo_football_player.jpg
+│       │   │   ├── 05_jamus_marquette_nflpa_logo_live_old.jpg
+│       │   │   ├── 05_jamus_marquette_nflpa_logo_live.jpg
+│       │   │   ├── 06_jamus_marquette_nflpa_rookie_logo_on_football_player.jpg
+│       │   │   ├── 06_jamus_marquette_nflpa_rookie_logo_on_football_players.jpg
+│       │   │   ├── 07_jamus_marquette_nflpa_tv_logo.jpg
+│       │   │   └── 08_jamus_marquette_nflpa_rookie_logo_on_football_helmet.jpeg
+│       │   ├── index.html
+│       │   └── video
+│       │       ├── jamus_marquette_nflpa_hero.mp4
+│       │       ├── jamus_marquette_nflpa_tv_lines.mp4
+│       │       ├── jamus_marquette_nflpa_tv_ribbon.mp4
+│       │       └── jamus_marquette_nflpa_tv_shape_soundedit.mp4
+│       ├── no_love
+│       │   ├── img
+│       │   │   └── jamus_marquette_no_love_animation.jpg
+│       │   └── video
+│       │       └── no_love_no_life_animation.mp4
+│       ├── restaurants_on_mission
+│       │   ├── img
+│       │   │   ├── 01_jamus_marquette_restaurants_on_mission_stationary_letterhead_on_recycled_cardboard_paper.jpg
+│       │   │   ├── 02_jamus_marquette_restaurants_on_mission_stationary_businescards_on_recycled_cardboard_paper.jpg
+│       │   │   ├── 03_jamus_marquette_restaurants_on_mission_black_booklet_with_pattern_and_logo_b.jpg
+│       │   │   ├── 03_jamus_marquette_restaurants_on_mission_black_booklet_with_pattern_and_logo.jpg
+│       │   │   ├── 04_jamus_marquette_restaurants_on_mission_black_booklet_with_logo_and_interior_spread.jpg
+│       │   │   ├── 06_jamus_marquette_restaurants_on_mission_web_orig.jpg
+│       │   │   ├── 06_jamus_marquette_restaurants_on_mission_web.jpg
+│       │   │   ├── 07_jamus_marquette_restaurants_on_mission_mobile.jpg
+│       │   │   ├── 08_jamus_marquette_restaurants_on_mission__re_floral_pattern_01.jpg
+│       │   │   ├── 09_jamus_marquette_restaurants_on_mission_re_floral_pattern_02.jpg
+│       │   │   ├── 10_jamus_marquette_restaurants_on_mission_re_jewelry_collection.jpg
+│       │   │   ├── 11_jamus_marquette_restaurants_on_mission_girl_in_shirt.jpg
+│       │   │   ├── 12_jamus_marquette_restaurants_on_mission_re_jewelry.jpg
+│       │   │   ├── 13_jamus_marquette_restaurants_on_mission_re_pattern_2_black_on_white.jpg
+│       │   │   ├── 14_jamus_marquette_restaurants_on_mission_re_pattern_2_white_on_black.jpg
+│       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white_large.png
+│       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white_wid.png
+│       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white_wide.png
+│       │   │   ├── 15_jamus_marquette_restaurants_on_mission_re_pattern_black_and_white.jpg
+│       │   │   ├── 16_jamus_marquette_restaurants_on_mission_re_pattern_white_and_black.jpg
+│       │   │   ├── jamusandadriana_restaurants_on_mission_re_alternate_logo_black_on_white.png
+│       │   │   ├── jamusandadriana_restaurants_on_mission_re_alternate_logo.png
+│       │   │   ├── logo_seal_on_black_ani.gif
+│       │   │   ├── logo_seal_on_black.gif
+│       │   │   └── logo_seal_on_white.gif
+│       │   ├── index.html
+│       │   └── video
+│       │       ├── 00_jamus_marquette_restaurants_on_mission_animation.mp4
+│       │       ├── 01_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 02_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 04_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 06_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 08_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 09_jamus_marquette_restaurants_on_mission_animations_lr.mp4
+│       │       ├── 10_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 11_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 13_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 14_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 15_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 16_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       ├── 17_jamus_marquette_restaurants_on_mission_animations.mp4
+│       │       └── 18_jamus_marquette_restaurants_on_mission_animations.mp4
+│       ├── the_strokes
+│       │   ├── img
+│       │   │   ├── jamus_marquette_the_strokes_package_closed.jpg
+│       │   │   ├── jamus_marquette_the_strokes_package_opened.jpg
+│       │   │   ├── the_strokes_package_01_orig.jpg
+│       │   │   ├── the_strokes_package_02_orig.jpg
+│       │   │   ├── the-strokes_poster_back_flat.jpg
+│       │   │   └── the-strokes_poster_front_flat.jpg
+│       │   └── index.html
+│       ├── theater_campaigns
+│       │   ├── img
+│       │   │   ├── 00-jamus-marquette-theater-poster-designs-on-theater-row-wall.jpg
+│       │   │   ├── 01-jamus-marquette-theater-poster-design-happy-days-by-samuel-beckett-westport-country-playhouse.jpg
+│       │   │   ├── 02-jamus-marquette-theater-poster-design-kin-by-bathsheba-doran-directed-by-sam-gold-playwrights-horizons.jpg
+│       │   │   ├── 03-jamus-marquette-theater-poster-design-marie-and-bruce-by-wallace-shawn-the-new-group.jpg
+│       │   │   ├── 04-jamus-marquette-theater-poster-design-blood-from-a-stone-by-tommy-nohilly-directed-by-scott-elliott-the-new-group.jpg
+│       │   │   ├── 05-jamus-marquette-theater-poster-design-the-flick-by-annie-baker-directed-by-sam-gold-playwrights-horizon.jpg
+│       │   │   ├── 06-jamus-marquette-theater-poster-design-russian-transport-by-erika-sheffer-directed-by-scott-elliott-the-new-group.jpg
+│       │   │   ├── 07-jamus-marquette-theater-poster-design-the_new_sincerity-alena-smith-bay-street-theater.jpg
+│       │   │   ├── 08-jamus-marquette-theater-poster-travesties-by-tom-stoppard-directed-by-gregory-boyd-bay-street-theatre.jpg
+│       │   │   ├── 09-jamus-marquette-theater-poster-design-mr-burns-by-anne-washburn-directed-by-steve-cosson-music-by-michael-friedman-playwright-horizon-simpsons-burnt-image.jpg
+│       │   │   ├── 10-jamus-marquette-theater-poster-design-grey-gardens-the-musical-by-doug-wright-directed-by-michael-wilson-bay-street-theater.jpg
+│       │   │   ├── 11-jamus-marquette-theater-poster-design-vision-disturbance-a-new-play-by-Christina-masciotti-directed-by-richard-maxwell.jpg
+│       │   │   ├── 12-jamus-marquette-theater-poster-design-assistance-by-leslye-headland-directed-by-trip-cullman.jpg
+│       │   │   └── 13-jamus-marquette-theater-poster-design-completeness-a-new-play-by-itmar-moses-and-assistance-directed-by-pam-machinnon.jpg
+│       │   ├── index.html
+│       │   └── lr
+│       └── wnet_thirteen
+│           ├── img
+│           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_education_issue_and_carousel.jpg
+│           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_education_meets_broadway_and_new_york_state_of_mind.jpg
+│           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_thank_you_cake_and_annie.jpg
+│           │   ├── jamus_marquette_wnet_pbs_thirteen_guide_and_covers_women_war_and_peace_cover_and_911_american_flag.jpg
+│           │   ├── jamus_marquette_wnet_thirteen_covers 2.jpg
+│           │   ├── jamus_marquette_wnet_thirteen_covers.jpg
+│           │   └── jamus_marquette_wnet_thirteen_covers.mp4
+│           └── index.html
+└── structure.txt
+
+285 directories, 1822 files

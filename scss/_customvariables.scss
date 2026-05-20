@@ -68,9 +68,10 @@ $colors: (
 
 // scss-docs-start theme-color-variables
 //$primary:       $blue !default;
-$primary:     rgb(146, 150, 151) !default;
+//$primary:     rgb(146, 150, 151) !default;
+$primary:     rgb(199, 199, 199) !default;
 //$secondary:     $gray-600 !default;
-$secondary:     rgb(255, 255, 255) !default;
+$secondary:     rgb(19, 19, 19) !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -356,14 +357,16 @@ $container-max-widths: (
 //$grid-columns:                18 !default;  *********************
 $grid-columns:                16 !default;
 //$grid-gutter-width:           1.5rem !default;
-$grid-gutter-width:           1.75rem !default;
+//$grid-gutter-width:           1.75rem !default;
+$grid-gutter-width:           .75rem !default;
 $grid-row-columns:            6 !default;
 $gutters: $spacers !default;
 
 // Container padding
 
 //$container-padding-x: $grid-gutter-width / 2 !default;
-$container-padding-x: $grid-gutter-width !default;
+//$container-padding-x: $grid-gutter-width !default;
+$container-padding-x: 20px !default;
 
 
 // Components

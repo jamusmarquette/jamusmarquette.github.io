@@ -4,7 +4,7 @@
 
 
 
-//link hover style
+//link blur hover style
 .blur {
     color: $primary;
     text-decoration: none;
@@ -27,7 +27,20 @@
 }
 
 
+//link black w/out blur hover style
+.black {
+    color: $primary;
+    text-decoration: none;
 
+    &:hover {
+        color: #000 !important;
+
+        -webkit-transition: filter 0.1s ease-in-out 0s;
+        -moz-transition: filter 0.1s ease-in-out 0s;
+        transition: filter 0.1s ease-in-out 0s;
+
+    }
+}
 
 
 

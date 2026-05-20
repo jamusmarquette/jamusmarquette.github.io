@@ -6,7 +6,8 @@
   "scripts": {
     
     "scss": "sass --watch scss/main.scss:dist/css/main.css",
-    "deploy": "gh-pages -d dist"
+    "scss-header-test": "sass --watch dist/header-test/scss/main.scss:dist/header-test/css/main.css",
+    "deploy": "gh-pages -d dist -c jamusmarquette.com"
   },
   "keywords": [],
   "author": "",
