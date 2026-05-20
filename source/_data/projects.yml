@@ -1,0 +1,179 @@
+- title: "Theater Posters"
+  slug: "theater_campaigns"
+  thumbnail: "/img/jamus_theater_posters.gif"
+  description: "Key Art, Illustration, Art direction"
+  categories:
+    - key-art
+    - illustration
+    - art-direction
+  featured: true
+  order: 18
+
+- title: "Confinement"
+  slug: "confinement"
+  thumbnail: "/img/jamus_marquette_confinement_photo_book_lr.gif"
+  description: "Editorial & Publications, Book design, Personal project"
+  categories:
+    - editorial
+    - book-design
+    - personal
+  featured: true
+  order: 2
+
+- title: "Irvine Welsh"
+  slug: "irvine_welsh_book_covers"
+  thumbnail: "/img/jamus_marquette_irvine_welsh_covers_animation.gif"
+  description: "Book Covers"
+  categories:
+    - book-covers
+  featured: true
+  order: 3
+
+- title: "Laureate Summit"
+  slug: "here_for_good"
+  thumbnail: "/img/jamus_marquette_laureate_summit_logo.png"
+  description: "Identity & Branding, Environmentals & Interactives"
+  categories:
+    - branding
+    - environmental
+    - interactive
+  featured: true
+  order: 4
+
+- title: "Dirtbags"
+  slug: "dirtbags"
+  thumbnail: "/project/dirtbags/img/jamus_marquette_dirtbags_hmo_rabbit_stuffed_animal_with_real_life_problems.gif"
+  description: "Personal project"
+  categories:
+    - personal
+  featured: true
+  order: 5
+
+- title: "Jonathan Children's Trust"
+  slug: "jonathan_childrens_trust"
+  thumbnail: "/img/jamus_marquette_jonathan_childrens_trust.gif"
+  description: "Identity & Branding"
+  categories:
+    - branding
+  featured: true
+  order: 6
+
+- title: "Restaurants On Mission"
+  slug: "restaurants_on_mission"
+  thumbnail: "/img/jamus_marquette_restaurants-on-missions-animation.gif"
+  description: "Identity & Branding, Motion, Digital Campaign"
+  categories:
+    - branding
+    - motion
+    - digital
+  featured: true
+  order: 7
+
+- title: "PBS’ THIRTEEN."
+  slug: "wnet_thirteen"
+  thumbnail: "/img/jamus_marquette_wnet_thirteen_covers.jpg"
+  description: "Cover Art, Illustration, Editorial & Publications"
+  categories:
+    - editorial
+    - illustration
+    - cover-art
+  featured: true
+  order: 8
+
+- title: "Invasion of The Body Snatchers"
+  slug: "invasion_of_the_body_snachers"
+  thumbnail: "/img/jamus_marquette_invasion_of_the_body_snatchers_by_jack_finn_book_cover_design.jpg"
+  description: "Book Cover"
+  categories:
+    - book-cover
+  featured: true
+  order: 9
+
+- title: "CNN Grill at SXSW"
+  slug: "cnn_grill_at_sxsw"
+  thumbnail: "/project/cnn_grill_at_sxsw/img/01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg"
+  description: "Identity & Branding, Environments & Interactives"
+  categories:
+    - branding
+    - environmental
+    - interactive
+  featured: true
+  order: 10
+
+- title: "Humanrobot"
+  slug: "humanrobot"
+  thumbnail: "/img/jamus_marquette_human_robot_animation.gif"
+  description: "Identity & Branding, Web"
+  categories:
+    - branding
+    - web
+  featured: true
+  order: 11
+
+- title: "+ Illustrations"
+  slug: "illustrations"
+  thumbnail: "/img/00_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif"
+  description: "Personal Project, Illustration"
+  categories:
+    - personal
+    - illustration
+  featured: true
+  order: 12
+
+- title: "MTC Spring Gala"
+  slug: "mtc_spring_gala"
+  thumbnail: "/img/jamus_marquette_mtc_spring_gala_invite.gif"
+  description: "Special Events"
+  categories:
+    - events
+  featured: true
+  order: 13
+
+- title: "NFLPA Branding"
+  slug: "nflpa"
+  thumbnail: "/img/jamus_marquette_nflpa_ribbon_animation.gif"
+  description: "Identity & Branding, Motion"
+  categories:
+    - branding
+    - motion
+  featured: true
+  order: 14
+
+- title: "The Strokes - Is This It?"
+  slug: "the_strokes"
+  thumbnail: "/img/the_strokes_is_this_it_album_artwork.gif"
+  description: "Album Artwork"
+  categories:
+    - album-art
+  featured: true
+  order: 15
+
+- title: "Motion Graphics"
+  slug: "motion_graphics"
+  thumbnail: "/img/jamus_marquette_sva_motion_graphics_reel.gif"
+  description: "Motion"
+  categories:
+    - motion
+  featured: true
+  order: 16
+
+- title: "History Channel Pop Shop"
+  slug: "history_pop_shop"
+  thumbnail: "/img/01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg"
+  description: "Identity & Branding, Environmentals & Interactives"
+  categories:
+    - branding
+    - environmental
+    - interactive
+  featured: true
+  order: 17
+
+- title: "Design Firms Open For Business"
+  slug: "design_firms_open_for_business"
+  thumbnail: "/img/jamus_marquette_design_firms_open_for_business_book_design.jpg"
+  description: "Book Design, Editorial & Publications"
+  categories:
+    - book-design
+    - editorial
+  featured: true
+  order: 1

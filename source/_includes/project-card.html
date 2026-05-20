@@ -1,0 +1,34 @@
+<div
+    class="col-md-2 project-card"
+    data-category="{{ include.project.categories | join: ' ' }}"
+>
+
+    <div class="content">
+
+        <a href="{{ '/project/' | append: include.project.slug | append: '/' | relative_url }}">
+
+            <div class="content-overlay"></div>
+
+            <img
+                class="content-image"
+                src="{{ include.project.thumbnail | relative_url }}"
+                alt="{{ include.project.title }}"
+            >
+
+            <div class="content-details">
+
+                <h3 class="rg-text">
+                    {{ include.project.title }}
+                </h3>
+
+                <p class="fs-5">
+                    {{ include.project.description }}
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</div>
