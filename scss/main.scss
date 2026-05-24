@@ -254,12 +254,14 @@ ul {
     background-color: $secondary-color;
     --bs-gutter-x: initial;
     overflow: hidden;
+    
 
     &List {
         max-width: 80%;
         padding-left: 135px;
         padding-top: 30px;
         padding-bottom: 4rem;
+        height: 100dvh !important;
     }
 
     &Close {
@@ -314,8 +316,14 @@ ul {
 @media (max-width: 712px) {
     #collapseCategoriesList {
         padding-left: 20px;
+        
     }
 }
+
+.filtered-category {
+    text-transform: lowercase;
+}
+
 
 
 /* Scroll arrow */
@@ -472,12 +480,15 @@ ul {
     overflow: hidden;
     padding: 0;
     margin-bottom: $container-padding-x;
+    
+    
 
     //background-color: rgba($primary, 1);
-    background-color: rgb(91, 98, 100);
+    //background-color: rgb(91, 98, 100);
 
     .video-content-video {
         display: block !important;
+
 
     }
 
@@ -512,6 +523,7 @@ ul {
             -webkit-filter: blur(70px);
             filter: blur(70px);
             display: block !important;
+            
         }
     }
 
@@ -539,6 +551,7 @@ ul {
         -o-filter: blur(0);
         -ms-filter: blur(0);
         filter: blur(0);
+        /*border-radius: 10px;*/
 
         /*-webkit-transition: all .25s ease-in-out 0s;
         -moz-transition: all .25s ease-in-out 0s;
@@ -976,6 +989,9 @@ video {
 
 
 
+.active-category {
+    color: black !important;
+}
 
 
 

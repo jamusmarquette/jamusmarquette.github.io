@@ -5,32 +5,31 @@
             <!--<div class="col col-md-11 me-auto" id="logo">-->
             <div class="col col-md-8 me-auto" id="logo">
                 {% if page.url == "/" %}
-  <span class="logo">Jamus Loves</span>
+  <span class="logo">Jamus loves</span>
 {% else %}
-  <a href="{{ '/' | relative_url }}" class="logo">Jamus Loves</a>
+  <a href="{{ '/' | relative_url }}" class="logo">Jamus loves</a>
 {% endif %}
                 <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategories"
                     aria-expanded="false" aria-controls="collapseCategories">
 
 
-                    <span class="love"
+                    <span id="project-title" class="love"
       style="text-decoration: underline; white-space:nowrap;">
-  {{ page.love_text | default: "featured projects" }}
+  {{ page.page_label | default: "all projects" }}
 </span>
 
 <span class="home"
       style="text-decoration: underline; white-space:nowrap;">
-  {{ page.home_text | default: "unique projects" }}
+  {{ page.home_text | default: "select projects" }}
 </span>
                 </button>
 
             </div>
 
-
             <!-- info -->
             <div class="col" id="info">
                 <ul>
-                    <li><a href="mailto:jamusss@gmail.com" target="_blank" class="black">Contact</a></li>
+                    <!-- <li><a href="mailto:jamusss@gmail.com" target="_blank" class="black">Contact</a></li> -->
                     <li><button type="button" class="opennav black">Info</button></li>
                 </ul>
             </div>
@@ -45,33 +44,119 @@
             <div class="col-md-8 me-auto" id="collapseCategoriesList">
 
                 <ul>
-                    <li class="category"><a class="black category" href="{{ '/project/theater_campaigns/' | relative_url }}">Theater
-                            Posters</a>
-                    </li>
-                    <li class="category"><a class="black" href="{{ '/project/cnn_grill_at_sxsw/' | relative_url }}">Identity &
-                            Branding</a></li>
 
-                    <li class="category"><a class="black category"
-                            href="{{ '/project/irvine_welsh_book_covers/' | relative_url }}">Book Covers</a>
-                    </li>
-                    <li class="category"><a class="black category" href="{{ '/project/wnet_thirteen/' | relative_url }}">Editorial & Publications</a>
-                    </li>
-                    <li class="category"><a class="black category" href="{{ '/project/illustrations/' | relative_url }}">Personal
-                            Projects</a></li>
-                    <li class="category"><a class="black category" href="{{ '/project/motion_graphics/' | relative_url }}">Motion</a>
-                    </li>
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="all"
+        href="{{ '/' | relative_url }}"
+    >
+        All Projects
+    </a>
+</li>
 
-                    <!-- NEW Categories-->
-                    <li class="category"><a class="black category" href="{{ '/project/font_design/' | relative_url }}">Font Design</a>
-                    </li>
 
-                    <li class="category"><a class="black category" href="{{ '/project/websites/' | relative_url }}">Websites</a>
-                    </li>
-                    
-                    <li class="category"><a class="black category" href="{{ '/project/tools/' | relative_url }}">Interactive Tools</a>
-                    </li>
+                    <li class="category">
+    <a
+        class="black category category-filter"
+        data-category="theater"
+        href="{{ '/?category=theater' | relative_url }}"
+    >
+        Theater Posters
+    </a>
+</li>
 
-                    <li class="category"><a class="black category" href="{{ '/project/tools/' | relative_url }}">Environmentals & Interactives</a>
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="branding"
+        href="{{ '/?category=branding' | relative_url }}"
+    >
+        Identity & Branding
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="book-covers"
+        href="{{ '/?category=book-covers' | relative_url }}"
+    >
+        Book Covers
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="editorial"
+        href="{{ '/?category=editorial' | relative_url }}"
+    >
+        Editorial & Publications
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="personal"
+        href="{{ '/?category=personal' | relative_url }}"
+    >
+        Personal Projects
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="motion"
+        href="{{ '/?category=motion' | relative_url }}"
+    >
+        Motion
+    </a>
+</li>
+
+<!-- NEW Categories -->
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="font-design"
+        href="{{ '/?category=font-design' | relative_url }}"
+    >
+        Font Design
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="websites"
+        href="{{ '/?category=websites' | relative_url }}"
+    >
+        Websites
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="tools"
+        href="{{ '/?category=tools' | relative_url }}"
+    >
+        Interactive Tools
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="environmentals"
+        href="{{ '/?category=environmentals' | relative_url }}"
+    >
+        Environmentals & Interactives
+    </a>
+</li>
 
                 </ul>
 

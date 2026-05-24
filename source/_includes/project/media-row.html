@@ -1,0 +1,23 @@
+{% assign row = include.row %}
+
+{% if row.caption %}
+
+    {% include project/caption.html
+        title=row.caption.title
+        text=row.caption.text %}
+
+{% endif %}
+
+<div class="row">
+
+    {% for item in row.items %}
+
+    <div class="{{ item.col | default: 'col-md-16' }} mb-4">
+
+        {% include project/media-item.html item=item %}
+
+    </div>
+
+    {% endfor %}
+
+</div>

@@ -18,7 +18,11 @@ exclude:
 collections:
   projects:
     output: true
+    permalink: /project/:name/
 
+  pages:
+    output: true
+    
 defaults:
   - scope:
       path: ""

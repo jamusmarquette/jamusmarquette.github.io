@@ -1,0 +1,502 @@
+---
+layout: default
+---
+
+<main class="project-page">
+
+    <div id="stickycontainer">
+
+        {% if page.hero_type == "centered-image" %}
+
+        <div class="container-fluid project-intro">
+
+            <div class="row" style="height:90vh">
+                <div class="col-16 d-flex justify-content-center align-items-center">
+
+                    <img
+                        src="{{ page.hero | relative_url }}"
+                        alt="{{ page.title }}"
+                        style="width:400px;" />
+
+                </div>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+
+        {% if page.hero_type == "full-image" %}
+
+        <div class="container-fluid project-hero-full">
+
+            <img
+                class="full-width-img"
+                src="{{ page.hero | relative_url }}"
+                alt="{{ page.title }}" />
+
+        </div>
+
+        {% endif %}
+
+
+{{ content }}
+
+
+ <!-- begin bottom menu -->
+        <div class="container-fluid" id="bottomMenu">
+            <div class="container-fluid bottomnav-gradient"></div>
+            <div class="row align-items-center" id="bottomNav" style="padding-top: 15px; padding-bottom: 15px; background-color:#fff;">
+
+
+                <!-- current project -->
+                <div class="fs-5 col d-flex align-items-center text-truncate" id="currentproject">More &nbsp;<span
+                        id="downarrow">↓</span>
+                    
+                </div>
+
+               <!-- next project (dynamic loop) -->
+{% assign projects = site.projects | sort: "order" %}
+
+{% assign next = nil %}
+{% assign found = false %}
+
+{% for project in projects %}
+  {% if found == true %}
+    {% assign next = project %}
+    {% break %}
+  {% endif %}
+
+  {% if project.url == page.url %}
+    {% assign found = true %}
+  {% endif %}
+{% endfor %}
+
+{%- comment -%}
+If we're on the last project, loop back to the first one
+{%- endcomment -%}
+
+{% if next == nil and projects.size > 0 %}
+  {% assign next = projects[0] %}
+{% endif %}
+
+
+{% if next %}
+<div class="col text-end black nextProject">
+
+    <a class="fs-5 d-flex align-items-center justify-content-end gap-3"
+       href="{{ next.url | relative_url }}">
+
+        <div class="title-ctn">
+            <div>
+                Next Project: {{ next.title }}
+            </div>
+        </div>
+
+        {% if next.thumbnail %}
+        <img
+            src="{{ next.thumbnail | relative_url }}"
+            alt="{{ next.title }}"
+            style="width:60px; height:auto; object-fit:cover;">
+        {% endif %}
+
+        <!--<div class="paging">
+            <div>→</div>
+        </div>-->
+
+    </a>
+
+</div>
+{% endif %}
+
+            </div>
+        </div>
+        <!-- end bottom menu -->
+
+        
+  
+
+        
+
+</div><!--end stickycontainer-->
+
+
+<div id="backup"></div>
+
+
+    <!-- top gradient/bottom section-->
+    <div id="topgradient">
+        <!--<div class="container-fluid gradientHideMenu hidemobile" id="footergradient"></div>-->
+
+
+
+        <!----------------- begin thumbnails ----------------->
+        <div class="container-fluid pb-6 pt-6" id="thumbnails">
+
+            <!--row 1 -->
+            <div class="row d-flex align-items-center">
+
+                <!-- image 1 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/theater_campaigns/' | relative_url }}">
+
+                            <!--<div>-->
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_theater_posters.gif' | relative_url }}">
+
+                            <!--</div>-->
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Theater Posters</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 1 -->
+
+
+                <!-- image 2 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/cnn_grill_at_sxsw/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/project/cnn_grill_at_sxsw/img/01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">CNN Grill SXSW</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 2 -->
+
+
+                <!-- image 3 -->
+                <div class="col-md-2 pt-4">
+                    <div class="content">
+                        <a href="{{ '/project/history_pop_shop/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/img/01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">History Channel <br />Pop Shop</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 3 -->
+
+
+                <!-- image 4 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/nflpa/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_nflpa_ribbon_animation.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">NFLPA</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 4 -->
+
+
+                <!-- image 5 -->
+                <div class="col-md-2">
+                    <div class="content" style="background:none;">
+                        <a href="{{ '/project/here_for_good/' | relative_url }}">
+
+                            <!--<div>-->
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_laureate_summit_logo.png' | relative_url }}">
+
+                            <!--</div>-->
+
+                            <div class="content-details">
+                                <h3 class="fs-5" style="letter-spacing:-.2px;">Laureate Summit</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 5 -->
+
+
+                <!-- image 6 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/humanrobot/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_human_robot_animation.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Humanrobot</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 6 -->
+
+
+                <!-- image 7 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/restaurants_on_mission/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/img/jamus_marquette_restaurants-on-missions-animation.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Restaurants On Mission</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 7 -->
+
+
+                <!-- image 8 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/jonathan_childrens_trust/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_jonathan_childrens_trust.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Jonathan Children's Trust</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 8 -->
+
+            </div>
+            <!--end row 1 -->
+
+
+
+            <!--row 2 -->
+            <div class="row d-flex align-items-center">
+
+
+                <!-- image 9 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/illustrations/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/img/00_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">+ Illustrations</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 9 -->
+
+
+                <!-- image 10 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/dirtbags/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/project/dirtbags/img/jamus_marquette_dirtbags_hmo_rabbit_stuffed_animal_with_real_life_problems.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Dirtbags</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 10 -->
+
+
+                <!-- image 11 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/irvine_welsh_book_covers/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/img/jamus_marquette_irvine_welsh_covers_animation.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Irvine Welsh</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 11 -->
+
+
+                <!-- image 12 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/invasion_of_the_body_snachers/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/img/jamus_marquette_invasion_of_the_body_snatchers_by_jack_finn_book_cover_design.jpg' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Invasion of The Body Snatchers</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 12 -->
+
+
+                <!-- image 13 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/the_strokes/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/the_strokes_is_this_it_album_artwork.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">The Strokes: Is This It?</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 13 -->
+
+
+                <!-- image 14 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/wnet_thirteen/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_wnet_thirteen_covers.jpg' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">PBS’ THIRTEEN.</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 14 -->
+
+
+                <!-- image 15 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/confinement/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_confinement_photo_book_lr.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Confinement</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 15 -->
+
+
+                <!-- image 16 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/design_firms_open_for_business' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image"
+                                src="{{ '/img/jamus_marquette_design_firms_open_for_business_book_design.jpg' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Design Firms Open For Businesss</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 16 -->
+
+            </div>
+            <!--end row 2 -->
+
+
+            <!--row 3 -->
+            <div class="row d-flex align-items-center">
+
+
+                <!-- image 17 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/mtc_spring_gala/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_mtc_spring_gala_invite.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">MTC Gala</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 17 -->
+
+
+                <!-- image 18 -->
+                <div class="col-md-2">
+                    <div class="content">
+                        <a href="{{ '/project/motion_graphics/' | relative_url }}">
+
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ '/img/jamus_marquette_sva_motion_graphics_reel.gif' | relative_url }}">
+
+                            <div class="content-details">
+                                <h3 class="fs-5">Motion Graphics</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+                <!-- End image 18 -->
+
+
+            </div>
+            <!--end row 3 -->
+
+        </div>
+        <!------------------- end thumbnails ------------------->
+
+
+  
+
+</main>

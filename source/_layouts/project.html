@@ -1,0 +1,210 @@
+---
+layout: default
+---
+
+<main class="project-page">
+
+    <div id="stickycontainer">
+
+      {% if page.hero_type == "centered-image" %}
+
+<div class="container-fluid project-intro">
+
+    <div class="row" style="height:90vh">
+        <div class="col-16 d-flex justify-content-center align-items-center">
+
+            <img
+                src="{{ page.hero | relative_url }}"
+                alt="{{ page.title }}"
+                style="width:400px;" />
+
+        </div>
+    </div>
+
+</div>
+
+{% endif %}
+
+
+{% if page.hero_type == "full-image" %}
+
+<div class="container-fluid project-hero-full">
+
+    <img
+        class="full-width-img"
+        src="{{ page.hero | relative_url }}"
+        alt="{{ page.title }}" />
+
+</div>
+
+{% endif %}
+
+
+{% if page.hero_type == "split-image" %}
+
+<div class="container-fluid topmargin project-hero-split">
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <img
+                class="full-width-img"
+                src="{{ page.hero_left | relative_url }}"
+                alt="{{ page.title }}" />
+        </div>
+
+        <div class="col-md-8 hidemd">
+            <img
+                class="full-width-img"
+                src="{{ page.hero_right | relative_url }}"
+                alt="{{ page.title }}" />
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+
+{{ content }}
+
+
+ <!-- begin bottom menu -->
+        <div class="container-fluid" id="bottomMenu">
+            <div class="container-fluid bottomnav-gradient"></div>
+            <div class="row align-items-center" id="bottomNav" style="padding-top: 15px; padding-bottom: 15px; background-color:#fff;">
+
+
+                <!-- current project -->
+                <div class="fs-5 col d-flex align-items-center text-truncate" id="currentproject">More &nbsp;<span
+                        id="downarrow">↓</span>
+                    
+                </div>
+
+               <!-- next project (dynamic loop) -->
+{% assign projects = site.projects | sort: "order" %}
+
+{% assign next = nil %}
+{% assign found = false %}
+
+{% for project in projects %}
+  {% if found == true %}
+    {% assign next = project %}
+    {% break %}
+  {% endif %}
+
+  {% if project.url == page.url %}
+    {% assign found = true %}
+  {% endif %}
+{% endfor %}
+
+{%- comment -%}
+If we're on the last project, loop back to the first one
+{%- endcomment -%}
+
+{% if next == nil and projects.size > 0 %}
+  {% assign next = projects[0] %}
+{% endif %}
+
+
+{% if next %}
+<div class="col text-end black nextProject">
+
+    <a class="fs-5 d-flex align-items-center justify-content-end gap-3"
+       href="{{ next.url | relative_url }}">
+
+        <div class="title-ctn">
+            <div>
+                Next Project: {{ next.title }}
+            </div>
+        </div>
+
+        {% if next.thumbnail %}
+        <img
+            src="{{ next.thumbnail | relative_url }}"
+            alt="{{ next.title }}"
+            style="width:60px; height:auto; object-fit:cover;">
+        {% endif %}
+
+        <!--<div class="paging">
+            <div>→</div>
+        </div>-->
+
+    </a>
+
+</div>
+{% endif %}
+
+            </div>
+        </div>
+        <!-- end bottom menu -->
+
+        
+  
+
+        
+
+</div><!--end stickycontainer-->
+
+
+<div id="backup"></div>
+
+
+    <!-- top gradient/bottom section-->
+    <div id="topgradient">
+        <!--<div class="container-fluid gradientHideMenu hidemobile" id="footergradient"></div>-->
+
+
+
+        <!----------------- begin thumbnails ----------------->
+        <div class="container-fluid pb-6 pt-6" id="thumbnails">
+
+   {% assign projects = site.projects | sort: "order" %}
+
+<div class="row d-flex align-items-center">
+
+    {% for project in projects %}
+
+    {% unless project.url == page.url %}
+
+    <div class="col-md-2">
+
+        <div class="content">
+
+            <a href="{{ project.url | relative_url }}">
+
+                <div class="content-overlay"></div>
+
+                {% if project.thumbnail %}
+                <img
+                    class="content-image"
+                    src="{{ project.thumbnail | relative_url }}"
+                    alt="{{ project.title }}">
+                {% endif %}
+
+                <div class="content-details">
+                    <h3 class="fs-5">
+                        {{ project.page_label | default: project.title }}
+                    </h3>
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endunless %}
+
+    {% endfor %}
+
+</div>
+
+</div>
+        <!------------------- end thumbnails ------------------->
+
+
+  
+
+</main>

@@ -13413,8 +13413,7 @@ textarea.form-control-lg {
   padding-left: 0;
 }
 #credits #roles .collaborator {
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1rem;
 }
 #credits #roles .collaborator .role {
   font-size: 1rem;
@@ -13454,10 +13453,29 @@ textarea.form-control-lg {
 }
 
 /* Bottom Menu */
-#bottomMenu {
-  padding: 0;
-  width: 100%;
+#stickycontainer {
+  position: relative;
+  padding-bottom: 100px;
 }
+
+#bottomMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  z-index: 9999;
+  transition: none;
+}
+#bottomMenu.release {
+  position: absolute;
+}
+
+#backup {
+  position: relative;
+}
+
 .bottomnav-gradient {
   pointer-events: none;
   height: 30px;
@@ -13476,8 +13494,8 @@ textarea.form-control-lg {
 /* bottom Navigation links */
 #bottomNav {
   width: 100%;
-  padding-right: var(--bs-gutter-x, 1.75rem) !important;
-  padding-left: var(--bs-gutter-x, 1.75rem) !important;
+  padding-right: 0.125rem !important;
+  padding-left: 0.125rem !important;
   padding-top: 8px !important;
   padding-bottom: 12px !important;
   margin: 0;
@@ -13550,27 +13568,6 @@ textarea.form-control-lg {
     font-size: 1.5rem !important;
   }
 }
-/*#thumbnails {
-    // DOM element for triggering the intersection observer event
-    // you can use 'height' to determine when the event is triggered
-    height: 50rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: green;
-  }
-
-  body {
-    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Open Sans", "Arial", sans-serif;
-    background-color: #f3eee8;
-  }
-
-  .page {
-    padding: 6rem 0;
-    max-width: 600px;
-    margin: 0 auto;
-  }*/
 @media (max-width: 1170px) {
   .col-3.blur.nextProject,
 .col-3.blur.previousProject {
@@ -13737,6 +13734,23 @@ textarea.form-control-lg {
     -ms-interpolation-mode: bicubic;
   }
 }
+/* Caption for media rows */
+.caption-row {
+  margin-top: 5rem !important;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.caption-row h3, .caption-row .h3 {
+  font-family: "nimbus-sans", sans-serif !important;
+  /*font-weight: $font-weight !important;*/
+  color: #c7c7c7;
+}
+.caption-row p {
+  font-family: "nimbus-sans", sans-serif !important;
+  /*font-weight: $font-weight !important;*/
+  color: #c7c7c7;
+}
+
 body {
   background-color: #131313 !important;
   color: #c7c7c7 !important;
@@ -13927,6 +13941,7 @@ ul {
   padding-left: 135px;
   padding-top: 30px;
   padding-bottom: 4rem;
+  height: 100dvh !important;
 }
 #collapseCategoriesClose {
   position: fixed;
@@ -13976,6 +13991,10 @@ ul {
     padding-left: 20px;
   }
 }
+.filtered-category {
+  text-transform: lowercase;
+}
+
 /* Scroll arrow */
 .scrolldown {
   width: 2.5rem;
@@ -14083,7 +14102,6 @@ ul {
   overflow: hidden;
   padding: 0;
   margin-bottom: 20px;
-  background-color: #5b6264;
 }
 .content .video-content-video {
   display: block !important;
@@ -14131,6 +14149,7 @@ ul {
   -o-filter: blur(0);
   -ms-filter: blur(0);
   filter: blur(0);
+  /*border-radius: 10px;*/
   /*-webkit-transition: all .25s ease-in-out 0s;
   -moz-transition: all .25s ease-in-out 0s;
   transition: all .25s ease-in-out 0s;*/
@@ -14429,6 +14448,10 @@ video {
     display: none !important;
   }
 }
+.active-category {
+  color: black !important;
+}
+
 @media (max-width: 576px) {
   #info ul {
     display: flex;

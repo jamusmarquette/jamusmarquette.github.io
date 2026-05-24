@@ -1,0 +1,26 @@
+{% if include.item.image %}
+
+<img
+    class="full-width-img"
+    src="{{ include.item.image | relative_url }}"
+    alt="{{ include.item.alt | default: page.title }}" />
+
+{% endif %}
+
+
+{% if include.item.video %}
+
+<video
+    class="full-width-img"
+    autoplay
+    muted
+    loop
+    playsinline>
+
+    <source
+        src="{{ include.item.video | relative_url }}"
+        type="video/mp4">
+
+</video>
+
+{% endif %}

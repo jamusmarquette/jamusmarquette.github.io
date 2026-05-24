@@ -7,7 +7,7 @@
     - illustration
     - art-direction
   featured: true
-  order: 18
+  order: 1
 
 - title: "Confinement"
   slug: "confinement"
@@ -176,4 +176,4 @@
     - book-design
     - editorial
   featured: true
-  order: 1
+  order: 18

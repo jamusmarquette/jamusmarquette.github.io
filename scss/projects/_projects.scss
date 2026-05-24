@@ -211,8 +211,8 @@
         padding-left: 0;
 
         .collaborator {
-            padding-bottom: .5rem;
-            margin-bottom:.85rem;
+           
+            margin-bottom:1rem;
 
             .role {
                 //font-style: italic !important;
@@ -269,20 +269,37 @@
 }
 
 
+
+
 /* Bottom Menu */
 
-#bottomMenu {
-    padding: 0;
-    //padding-right: var(--bs-gutter-x, 1.75rem);
-    //padding-left: var(--bs-gutter-x, 1.75rem);
-    width: 100%;
-
-    .row {
-        //padding-right: var(--bs-gutter-x, 1.75rem);
-        //padding-left: var(--bs-gutter-x, 1.75rem);
-    }
-
+#stickycontainer {
+    position: relative;
+    padding-bottom: 100px;
 }
+
+#bottomMenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    z-index: 9999;
+    transition: none;
+
+
+&.release {
+    position: absolute;
+    
+    }
+}
+
+
+#backup {
+    position: relative;
+}
+
 
 
 
@@ -311,8 +328,8 @@
 /* bottom Navigation links */
 #bottomNav {
     width: 100%;
-    padding-right: var(--bs-gutter-x, 1.75rem) !important;
-    padding-left: var(--bs-gutter-x, 1.75rem) !important;
+    padding-right: .125rem !important;
+    padding-left: .125rem !important;
     padding-top: 8px !important;
     padding-bottom: 12px !important;
     margin: 0;
@@ -418,57 +435,11 @@
 
 
 
-/*#thumbnails {
-    // DOM element for triggering the intersection observer event
-    // you can use 'height' to determine when the event is triggered
-    height: 50rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: green;
-  }
-  
-  body {
-    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Open Sans", "Arial", sans-serif;
-    background-color: #f3eee8;
-  }
-  
-  .page {
-    padding: 6rem 0;
-    max-width: 600px;
-    margin: 0 auto;
-  }*/
-
-//#bottomnav {
-
-//position: -webkit-sticky;
-//position: sticky;
-//top: 2rem;
-//padding: 1rem;
-//line-height: 1.5;
-//box-decoration-break: clone;
-//z-index: 1;
-//transition: all 300ms;
-//will-change: color, background-color;
-
-//&.enabled {
-//color: white;
-//background-color: #A70267;
-
-//}
-//}
 
 
 
-
-
-
-//@media (max-width: 992px) {768 576
     @media (max-width: 1170px) {
-//@media (max-width: 768px) {
-//@media (max-width: 576px) {
-//@media (max-width: 664px) {
+
 
     .col-3.blur.nextProject,
     .col-3.blur.previousProject {
@@ -553,6 +524,7 @@
         //padding-left: var(--bs-gutter-x, 1.75rem);
         width: 100% !important;
         width: auto !important;
+        
     }
 }
 
@@ -735,3 +707,23 @@
 }
 
 
+
+/* Caption for media rows */
+
+.caption-row {
+    margin-top: 5rem !important;
+    margin-bottom: 1rem;
+    text-align: left;
+
+    h3 {
+        font-family: $font-stack !important;
+        /*font-weight: $font-weight !important;*/
+        color: $primary;
+    }
+
+    p {
+        font-family: $font-stack !important;
+        /*font-weight: $font-weight !important;*/
+        color: $primary;
+    }
+}

@@ -13927,6 +13927,7 @@ ul {
   padding-left: 135px;
   padding-top: 30px;
   padding-bottom: 4rem;
+  height: 100vh !important;
 }
 #collapseCategoriesClose {
   position: fixed;
@@ -14429,6 +14430,10 @@ video {
     display: none !important;
   }
 }
+.active-category {
+  color: black !important;
+}
+
 @media (max-width: 576px) {
   #info ul {
     display: flex;

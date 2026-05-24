@@ -186,29 +186,32 @@ $(document).ready(function () {
 
 
 
-/* Footer arrow / intersection observer */
+/* Footer arrow / bottom menu observer */
 
 const backupEl = document.querySelector('#backup');
+const bottomMenu = document.querySelector('#bottomMenu');
 
-const handler = (entries) => {
+if (backupEl && bottomMenu) {
 
-    console.log(entries);
+    const observer = new IntersectionObserver((entries) => {
 
-    if (!entries[0].isIntersecting) {
+        const entry = entries[0];
 
-        $("#downarrow").html('↓');
+        if (entry.boundingClientRect.top <= window.innerHeight) {
 
-    } else {
+            bottomMenu.classList.add('release');
 
-        $("#downarrow").html('<a class="blur" href="#top">↑</a>');
+            $("#downarrow").html('<a class="black" href="#top">↑</a>');
 
-    }
+        } else {
 
-};
+            bottomMenu.classList.remove('release');
 
-const observer = new window.IntersectionObserver(handler);
+            $("#downarrow").html('↓');
 
-if (backupEl) {
+        }
+
+    });
 
     observer.observe(backupEl);
 
@@ -341,3 +344,61 @@ if (track) {
     setInterval(advanceWords, 2400);
 
 }
+
+
+/* Project filtering -- change titles */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const projectCards = document.querySelectorAll(".project-card");
+    const filterLinks = document.querySelectorAll(".category-filter");
+    const projectTitle = document.getElementById("project-title");
+
+    function filterProjects(category) {
+
+        projectCards.forEach(card => {
+
+            const categories = card.dataset.category
+                ? card.dataset.category.split(" ")
+                : [];
+
+            if (category === "all" || categories.includes(category)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+        // Update title
+        const activeLink = document.querySelector(
+            `.category-filter[data-category="${category}"]`
+        );
+
+        if (activeLink && projectTitle) {
+            projectTitle.textContent = activeLink.textContent.trim();
+        } else {
+            projectTitle.textContent = "featured projects";
+        }
+    }
+
+    filterLinks.forEach(link => {
+
+        link.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            const category = this.dataset.category;
+
+            filterLinks.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            filterProjects(category);
+
+        });
+
+    });
+
+});
