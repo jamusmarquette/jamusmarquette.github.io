@@ -8,11 +8,13 @@
 
 {% endif %}
 
-<div class="row">
+<div class="{{ row.row_class | default: 'row' }}">
 
     {% for item in row.items %}
 
-    <div class="{{ item.col | default: 'col-md-16' }} mb-4">
+    <div
+        class="{{ item.col | default: 'col-md-16' }}{% unless item.col contains 'mb-' %} mb-4{% endunless %}"
+        {% if item.style %}style="{{ item.style }}"{% endif %}>
 
         {% include project/media-item.html item=item %}
 

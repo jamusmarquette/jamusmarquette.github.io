@@ -16,7 +16,7 @@ layout: default
             <img
                 src="{{ page.hero | relative_url }}"
                 alt="{{ page.title }}"
-                style="width:400px;" />
+                style="width:{{ page.hero_width | default: '400px' }};" />
 
         </div>
     </div>
@@ -61,6 +61,23 @@ layout: default
         </div>
 
     </div>
+
+</div>
+
+{% endif %}
+
+
+{% if page.hero_type == "media-rows" %}
+
+<div
+    class="{{ page.hero_container_class | default: 'container-fluid project-intro' }}"
+    {% if page.hero_container_style %}style="{{ page.hero_container_style }}"{% endif %}>
+
+    {% for row in page.hero_rows %}
+
+        {% include project/media-row.html row=row %}
+
+    {% endfor %}
 
 </div>
 

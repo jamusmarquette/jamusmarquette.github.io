@@ -1,9 +1,21 @@
+{% if include.item.media %}
+
+    {% for media in include.item.media %}
+
+        {% include project/media-item.html item=media %}
+
+    {% endfor %}
+
+{% endif %}
+
+
 {% if include.item.image %}
 
 <img
-    class="full-width-img"
+    class="{{ include.item.media_class | default: 'full-width-img' }}"
     src="{{ include.item.image | relative_url }}"
-    alt="{{ include.item.alt | default: page.title }}" />
+    alt="{{ include.item.alt | default: page.title }}"
+    {% if include.item.media_style %}style="{{ include.item.media_style }}"{% endif %} />
 
 {% endif %}
 
@@ -11,10 +23,13 @@
 {% if include.item.video %}
 
 <video
-    class="full-width-img"
-    autoplay
-    muted
-    loop
+    class="{{ include.item.media_class | default: 'full-width-img' }}"
+    {% if include.item.poster %}poster="{{ include.item.poster | relative_url }}"{% endif %}
+    {% if include.item.media_style %}style="{{ include.item.media_style }}"{% endif %}
+    {% unless include.item.autoplay == false %}autoplay{% endunless %}
+    {% unless include.item.muted == false %}muted{% endunless %}
+    {% unless include.item.loop == false %}loop{% endunless %}
+    {% if include.item.controls %}controls{% endif %}
     playsinline>
 
     <source
@@ -22,5 +37,12 @@
         type="video/mp4">
 
 </video>
+
+{% endif %}
+
+
+{% if include.item.text %}
+
+<p class="{{ include.item.text_class | default: 'mt-4' }}">{{ include.item.text }}</p>
 
 {% endif %}
