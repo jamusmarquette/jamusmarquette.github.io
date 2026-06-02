@@ -1,0 +1,204 @@
+<!----------------- begin header ----------------->
+<div class="fixed-top container-fluid full-width headercontainer">
+    <div class="container-fluid inner-container bg-light">
+        <div class="row d-flex" id="logocontainer">
+            <!--<div class="col col-md-11 me-auto" id="logo">-->
+            <div class="col col-md-8 me-auto" id="logo">
+                {% if page.url == "/" %}
+  <span class="logo">Jamus loves</span>
+{% else %}
+  <a href="{{ '/' | relative_url }}" class="logo">Jamus loves</a>
+{% endif %}
+                <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategories"
+                    aria-expanded="false" aria-controls="collapseCategories">
+
+
+                    <span id="project-title" class="love"
+      style="text-decoration: underline; white-space:nowrap;">
+  {{ page.page_label | default: "all projects" }}
+</span>
+
+<span class="home"
+      style="text-decoration: underline; white-space:nowrap;">
+  {{ page.home_text | default: "select projects" }}
+</span>
+                </button>
+
+            </div>
+
+            <!-- info -->
+<div class="col" id="info">
+    <ul>
+        <li>
+            <a
+                href="{{ '/information/' | relative_url }}"
+                class="black"
+            >
+                Info
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- end info -->
+
+        </div>
+        <!--end row-->
+
+
+        <!-- collapsed info -->
+        <div class="row collapse" id="collapseCategories">
+            <div class="col-md-8 me-auto" id="collapseCategoriesList">
+
+                <ul>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="all"
+        href="{{ '/?category=all#projects-section' | relative_url }}"
+    >
+        All Projects
+    </a>
+</li>
+
+
+                    <li class="category">
+    <a
+        class="black category category-filter"
+        data-category="theater"
+        href="{{ '/?category=theater#projects-section' | relative_url }}"
+    >
+        Theater Art
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="branding"
+        href="{{ '/?category=branding#projects-section' | relative_url }}"
+    >
+        Identity & Branding
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="book-covers"
+        href="{{ '/?category=book-covers#projects-section' | relative_url }}"
+    >
+        Covers
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="editorial"
+        href="{{ '/?category=editorial#projects-section' | relative_url }}"
+    >
+        Editorial & Publications
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="personal"
+        href="{{ '/?category=personal#projects-section' | relative_url }}"
+    >
+        Personal Projects
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="motion"
+        href="{{ '/?category=motion#projects-section' | relative_url }}"
+    >
+        Motion
+    </a>
+</li>
+
+<!-- NEW Categories -->
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="font-design"
+        href="{{ '/?category=font-design#projects-section' | relative_url }}"
+    >
+        Font Design
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="websites"
+        href="{{ '/?category=websites#projects-section' | relative_url }}"
+    >
+        Websites
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="tools"
+        href="{{ '/?category=tools#projects-section' | relative_url }}"
+    >
+        Interactive Tools
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="environmentals"
+        href="{{ '/?category=environmentals#projects-section' | relative_url }}"
+    >
+        Environmentals & Interactives
+    </a>
+</li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="illustration"
+        href="{{ '/?category=illustration#projects-section' | relative_url }}"
+    >
+        Illustration
+    </a>
+</li>
+
+
+                </ul>
+
+            </div>
+
+            <div class="col-md-1" id="collapseCategoriesClose">
+
+                <ul>
+                    <li class="category text-end"><a class="black" data-bs-toggle="collapse"
+                            href="#collapseCategories" role="button" aria-expanded="false"
+                            aria-controls="collapseCategories">
+                            ╳
+                        </a></li>
+                </ul>
+
+            </div>
+
+            <!--end col-->
+        </div>
+        <!--end row-->
+        <!-- end collaped info -->
+
+
+
+    </div><!-- end container -->
+    <div class="container-fluid nav-gradient"></div>
+</div>
+<!------------------ end header ----------------->

@@ -1,0 +1,93 @@
+---
+title: Home
+layout: default
+---
+
+    <!----------------- begin intro ----------------->
+    <div class="container-fluid mb-6 mb-md-0" id="intro">
+
+        <div class="row">
+            <div class="col-md-17 col-lg-15" id="intro-paragraph">
+             
+               <h1 class="lg-text" id="introText">Jamus creates 
+                <span class="keep-color">unique</span>
+                 artwork that communicates
+                  <span class="keep-color">unique</span>
+                 stories to 
+                 <span class="keep-color">unique</span>
+                    audiences to reach 
+                    <span class="keep-color">unique</span>
+                     goals for 
+                     <span class="keep-color">unique</span> 
+                     people.</h1>
+
+
+
+              
+            </div>
+
+        </div>
+        <!--Opening Paragraph-->
+
+
+         <!----------------- begin scrolling words -----------------
+    <div class="scrolling-words">
+  <div class="scrolling-track">
+    <span>Theater Posters,</span>
+    <span>Branding,</span>
+    <span>Interactives,</span>
+    <span>Environmentals,</span>
+    <span>Book Covers,</span>
+    <span>Invisible Sculpting,</span>
+    <span>Personal Projects,</span>
+    <span>Motion,</span>
+    <span>Font Design,</span>
+    <span>Bird Law,</span>
+    <span>Font Engineering,</span>
+    <span>Lion Taming,</span>
+    <span>Website Design,</span>
+    <span>Fog Manufacturing,</span>
+    <span>Interactive Tools,</span>
+    <span>Systems,</span>
+    <span>Illustratio,</span>
+    <span>Editorial & Publications,</span>
+
+    
+  </div>
+</div>
+!----------------- end scrolling words ----------------->
+
+    </div>
+    <!----------------- end intro ----------------->
+
+
+   
+
+
+<!----------------- begin work ----------------->
+<div id="projects-jump"></div>
+
+<section id="work">
+    
+</section>
+
+<section class="container-fluid infohide" id="projects-section"><!-- add class projectsgradient to show background gradient-->
+    <div class="row d-flex align-items-top">
+
+{% assign projects = site.projects | sort: "order" %}
+
+{% for project in projects %}
+
+    {% if project.featured == true %}
+
+        {% include project-card.html project=project %}
+
+    {% endif %}
+
+{% endfor %}
+
+    </div>
+
+</section>
+
+<!------------------- end work ------------------->
