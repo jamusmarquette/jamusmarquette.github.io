@@ -11,7 +11,8 @@ order: 6
 featured: true
 
 categories:
-  - branding
+  - Identity & Branding
+  - Websites
 
 thumbnail: /img/jamus_marquette_jonathan_childrens_trust.gif
 
@@ -22,9 +23,8 @@ hero_container_class: container-fluid project-intro
 hero_rows:
 
   - items:
-      - col: col-md-16 mb-4 d-flex justify-content-center align-items-center
-        image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_logo_animation.gif
-
+      - col: col-16
+        video: /project/jonathan_childrens_trust/video/jamus_marquette_jct_logo_animation_2026.mp4
 
 description:
   - >
@@ -54,6 +54,11 @@ media_rows:
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
         media_class: video-content-video
         poster: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_pattern_video_poster.jpg
+
+  - items:
+      - col: col-md-16 pb-4
+        video: /project/jonathan_childrens_trust/video/jamus_marquette_jct_website_2026.mp4
+        media_class: video-content-video
 
 
   - items:
