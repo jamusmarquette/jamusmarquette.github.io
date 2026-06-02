@@ -11,7 +11,8 @@ order: 15
 featured: true
 
 categories:
-  - album-art
+  - Book Covers
+  - Editorial & Publications
 
 thumbnail: /img/the_strokes_is_this_it_album_artwork.gif
 
@@ -30,7 +31,22 @@ media_rows:
 
   - items:
       - col: col-md-16
-        image: /project/the_strokes/img/the-strokes_poster_back_flat.jpg
+        image: /project/the_strokes/img/jamus_marquette_the_strokes_cover_stack_01.png
+
+  - items:
+      - col: col-md-16
+        image: /project/the_strokes/img/the-strokes_poster_back_flat_2026.jpg
+
+  - items:
+      - col: col-16
+        video: /project/the_strokes/img/the-strokes_apple_store.mp4
+        media_class: full-width-img
+
+  - items:
+      - col: col-16
+        image: /project/the_strokes/img/the-strokes_stickers_04.png
+        media_class: full-width-img
+
 
 
 ---
