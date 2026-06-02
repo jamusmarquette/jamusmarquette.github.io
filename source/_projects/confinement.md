@@ -11,9 +11,9 @@ order: 2
 featured: true
 
 categories:
-  - editorial
-  - book-design
-  - personal
+  - Book Covers
+  - Editorial & Publications
+  - Personal Projects
 
 thumbnail: /img/jamus_marquette_confinement_photo_book_lr.gif
 
@@ -42,14 +42,6 @@ credits:
 
 
 media_rows:
-
-  - items:
-      - image: /project/confinement/img/jamus_marquette_confinement_photo_book_coverb.jpg
-        col: col-16 col-md-8
-
-      - image: /project/confinement/img/jamus_marquette_confinement_photo_book_opening_page1.jpg
-        col: col-16 col-md-8 hidemd
-
 
   - items:
       - image: /project/confinement/img/00_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
