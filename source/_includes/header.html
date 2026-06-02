@@ -27,13 +27,19 @@
             </div>
 
             <!-- info -->
-            <div class="col" id="info">
-                <ul>
-                    <!-- <li><a href="mailto:jamusss@gmail.com" target="_blank" class="black">Contact</a></li> -->
-                    <li><button type="button" class="opennav black">Info</button></li>
-                </ul>
-            </div>
-            <!-- end info -->
+<div class="col" id="info">
+    <ul>
+        <li>
+            <a
+                href="{{ '/information/' | relative_url }}"
+                class="black"
+            >
+                Info
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- end info -->
 
         </div>
         <!--end row-->
@@ -49,7 +55,7 @@
     <a
         class="black category category-filter"
         data-category="all"
-        href="{{ '/' | relative_url }}"
+        href="{{ '/?category=all#projects-section' | relative_url }}"
     >
         All Projects
     </a>
@@ -60,9 +66,9 @@
     <a
         class="black category category-filter"
         data-category="theater"
-        href="{{ '/?category=theater' | relative_url }}"
+        href="{{ '/?category=theater#projects-section' | relative_url }}"
     >
-        Theater Posters
+        Theater Art
     </a>
 </li>
 
@@ -70,7 +76,7 @@
     <a
         class="black category category-filter"
         data-category="branding"
-        href="{{ '/?category=branding' | relative_url }}"
+        href="{{ '/?category=branding#projects-section' | relative_url }}"
     >
         Identity & Branding
     </a>
@@ -80,9 +86,9 @@
     <a
         class="black category category-filter"
         data-category="book-covers"
-        href="{{ '/?category=book-covers' | relative_url }}"
+        href="{{ '/?category=book-covers#projects-section' | relative_url }}"
     >
-        Book Covers
+        Covers
     </a>
 </li>
 
@@ -90,7 +96,7 @@
     <a
         class="black category category-filter"
         data-category="editorial"
-        href="{{ '/?category=editorial' | relative_url }}"
+        href="{{ '/?category=editorial#projects-section' | relative_url }}"
     >
         Editorial & Publications
     </a>
@@ -100,7 +106,7 @@
     <a
         class="black category category-filter"
         data-category="personal"
-        href="{{ '/?category=personal' | relative_url }}"
+        href="{{ '/?category=personal#projects-section' | relative_url }}"
     >
         Personal Projects
     </a>
@@ -110,7 +116,7 @@
     <a
         class="black category category-filter"
         data-category="motion"
-        href="{{ '/?category=motion' | relative_url }}"
+        href="{{ '/?category=motion#projects-section' | relative_url }}"
     >
         Motion
     </a>
@@ -122,7 +128,7 @@
     <a
         class="black category category-filter"
         data-category="font-design"
-        href="{{ '/?category=font-design' | relative_url }}"
+        href="{{ '/?category=font-design#projects-section' | relative_url }}"
     >
         Font Design
     </a>
@@ -132,7 +138,7 @@
     <a
         class="black category category-filter"
         data-category="websites"
-        href="{{ '/?category=websites' | relative_url }}"
+        href="{{ '/?category=websites#projects-section' | relative_url }}"
     >
         Websites
     </a>
@@ -142,7 +148,7 @@
     <a
         class="black category category-filter"
         data-category="tools"
-        href="{{ '/?category=tools' | relative_url }}"
+        href="{{ '/?category=tools#projects-section' | relative_url }}"
     >
         Interactive Tools
     </a>
@@ -152,11 +158,22 @@
     <a
         class="black category category-filter"
         data-category="environmentals"
-        href="{{ '/?category=environmentals' | relative_url }}"
+        href="{{ '/?category=environmentals#projects-section' | relative_url }}"
     >
         Environmentals & Interactives
     </a>
 </li>
+
+<li class="category">
+    <a
+        class="black category category-filter"
+        data-category="illustration"
+        href="{{ '/?category=illustration#projects-section' | relative_url }}"
+    >
+        Illustration
+    </a>
+</li>
+
 
                 </ul>
 

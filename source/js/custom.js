@@ -34,7 +34,7 @@
         $("#content").css("opacity", "0");
         $("#content").css("display", "none");
 
-        $("#work").css("display", "none");
+        $("#projects-section").css("display", "none");
         $("#project").css("display", "none");
         $(".infohide").css("display", "none");
         $("#topgradient").css("display", "none");
@@ -55,7 +55,7 @@
 
         $("#content").css("display", "block");
 
-        $("#work").css("display", "block");
+        $("#projects-section").css("display", "block");
         $("#project").css("display", "block");
         $(".infohide").css("display", "block");
         $("#topgradient").css("display", "block");
@@ -345,60 +345,3 @@ if (track) {
 
 }
 
-
-/* Project filtering -- change titles */
-document.addEventListener("DOMContentLoaded", function () {
-
-    const projectCards = document.querySelectorAll(".project-card");
-    const filterLinks = document.querySelectorAll(".category-filter");
-    const projectTitle = document.getElementById("project-title");
-
-    function filterProjects(category) {
-
-        projectCards.forEach(card => {
-
-            const categories = card.dataset.category
-                ? card.dataset.category.split(" ")
-                : [];
-
-            if (category === "all" || categories.includes(category)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-
-        });
-
-        // Update title
-        const activeLink = document.querySelector(
-            `.category-filter[data-category="${category}"]`
-        );
-
-        if (activeLink && projectTitle) {
-            projectTitle.textContent = activeLink.textContent.trim();
-        } else {
-            projectTitle.textContent = "featured projects";
-        }
-    }
-
-    filterLinks.forEach(link => {
-
-        link.addEventListener("click", function (e) {
-
-            e.preventDefault();
-
-            const category = this.dataset.category;
-
-            filterLinks.forEach(link => {
-                link.classList.remove("active");
-            });
-
-            this.classList.add("active");
-
-            filterProjects(category);
-
-        });
-
-    });
-
-});

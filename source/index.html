@@ -65,21 +65,29 @@ layout: default
 
 
 <!----------------- begin work ----------------->
+<div id="projects-jump"></div>
 
-<div class="container-fluid infohide" id="work"><!-- add class projectsgradient to show background gradient-->
-<div id="projects-start"></div>
+<section id="work">
+    
+</section>
+
+<section class="container-fluid infohide" id="projects-section"><!-- add class projectsgradient to show background gradient-->
     <div class="row d-flex align-items-top">
 
-        {% assign projects = site.data.projects | sort: "order" %}
+{% assign projects = site.projects | sort: "order" %}
 
-        {% for project in projects %}
+{% for project in projects %}
 
-            {% include project-card.html project=project %}
+    {% if project.featured == true %}
 
-        {% endfor %}
+        {% include project-card.html project=project %}
+
+    {% endif %}
+
+{% endfor %}
 
     </div>
 
-</div>
+</section>
 
 <!------------------- end work ------------------->

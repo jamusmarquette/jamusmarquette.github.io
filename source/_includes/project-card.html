@@ -1,11 +1,15 @@
 <div
     class="col-md-4 project-card"
-    data-category="{{ include.project.categories | join: ' ' }}"
+    data-category="{% for category in include.project.categories %}{% assign category_slug = category | slugify %}{% if category == 'Identity & Branding' %}{% assign category_slug = 'branding' %}{% elsif category == 'Editorial & Publications' %}{% assign category_slug = 'editorial' %}{% elsif category == 'Personal Projects' %}{% assign category_slug = 'personal' %}{% elsif category == 'Environmentals & Interactives' %}{% assign category_slug = 'environmentals' %}{% elsif category == 'Theater Art' %}{% assign category_slug = 'theater' %}{% endif %}{{ category_slug }}{% unless forloop.last %}{{ ' ' }}{% endunless %}{% endfor %}"
 >
 
     <div class="content">
 
-        <a href="{{ '/project/' | append: include.project.slug | append: '/' | relative_url }}">
+        <a
+            class="project-card-image-link"
+            href="{{ include.project.url | relative_url }}"
+            aria-label="{{ include.project.title }}"
+        >
 
             <div class="content-overlay"></div>
 
@@ -15,19 +19,42 @@
                 alt="{{ include.project.title }}"
             >
 
-            <div class="content-details">
-
-                <h3 class="rg-text">
-                    {{ include.project.title }}
-                </h3>
-
-                <p class="fs-5">
-                    {{ include.project.description }}
-                </p>
-
-            </div>
-
         </a>
+
+        <div class="content-details">
+
+            <h3 class="rg-text">
+                <a
+                    class="black project-card-title"
+                    href="{{ include.project.url | relative_url }}"
+                >
+                    {{ include.project.title }}
+                </a>
+            </h3>
+
+            <p class="fs-5 project-card-categories">
+                {% for category in include.project.categories %}
+                    {% assign category_slug = category | slugify %}
+                    {% if category == 'Identity & Branding' %}
+                        {% assign category_slug = 'branding' %}
+                    {% elsif category == 'Editorial & Publications' %}
+                        {% assign category_slug = 'editorial' %}
+                    {% elsif category == 'Personal Projects' %}
+                        {% assign category_slug = 'personal' %}
+                    {% elsif category == 'Environmentals & Interactives' %}
+                        {% assign category_slug = 'environmentals' %}
+                    {% elsif category == 'Theater Art' %}
+                        {% assign category_slug = 'theater' %}
+                    {% endif %}
+                    <a
+                        class="black category-filter project-card-category"
+                        data-category="{{ category_slug }}"
+                        href="{{ '/?category=' | append: category_slug | append: '#projects-jump' | relative_url }}"
+                    >{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+            </p>
+
+        </div>
 
     </div>
 
