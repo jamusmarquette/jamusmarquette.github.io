@@ -5,21 +5,21 @@
             <!--<div class="col col-md-11 me-auto" id="logo">-->
             <div class="col col-md-8 me-auto" id="logo">
                 {% if page.url == "/" %}
-  <span class="logo">Jamus loves</span>
+  <span class="logo">Jamus doesn't hate</span>
 {% else %}
-  <a href="{{ '/' | relative_url }}" class="logo">Jamus loves</a>
+  <a href="{{ '/' | relative_url }}" class="logo">Jamus doesn't hate</a>
 {% endif %}
                 <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategories"
                     aria-expanded="false" aria-controls="collapseCategories">
 
 
                     <span id="project-title" class="love"
-      style="text-decoration: underline; white-space:nowrap;">
+      style="text-decoration: underline; white-space:nowrap; text-decoration-thickness: 1px; text-underline-offset: 0.2em;">
   {{ page.page_label | default: "all projects" }}
 </span>
 
 <span class="home"
-      style="text-decoration: underline; white-space:nowrap;">
+      style="text-decoration: underline; white-space:nowrap; text-decoration-thickness: 1px; text-underline-offset: 0.2em;">
   {{ page.home_text | default: "select projects" }}
 </span>
                 </button>
