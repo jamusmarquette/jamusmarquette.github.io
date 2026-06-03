@@ -11,8 +11,8 @@ order: 14
 featured: true
 
 categories:
-  - branding
-  - motion
+  - Identity & Branding
+  - Motion
 
 thumbnail: /img/jamus_marquette_nflpa_ribbon_animation.gif
 

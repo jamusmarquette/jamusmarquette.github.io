@@ -11,7 +11,7 @@ order: 9
 featured: true
 
 categories:
-  - book-cover
+  - Book Covers
 
 thumbnail: /img/jamus_marquette_invasion_of_the_body_snatchers_by_jack_finn_book_cover_design.jpg
 

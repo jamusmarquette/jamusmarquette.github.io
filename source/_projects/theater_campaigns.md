@@ -11,9 +11,8 @@ order: 1
 featured: true
 
 categories:
-  - key-art
-  - illustration
-  - art-direction
+ - Theater Art
+ - Illustration
 
 thumbnail: /img/jamus_theater_posters.gif
 

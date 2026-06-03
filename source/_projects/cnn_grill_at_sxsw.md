@@ -6,14 +6,13 @@ page_label: CNN Grill at SXSW
 
 permalink: /project/cnn_grill_at_sxsw/
 
-order: 1
+order: 10
 
 featured: true
 
 categories:
-  - branding
-  - environmental
-  - event
+  - Identity & Branding
+  - Environmentals & Interactives
 
 thumbnail: /project/cnn_grill_at_sxsw/img/01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
 

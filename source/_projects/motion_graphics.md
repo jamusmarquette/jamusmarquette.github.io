@@ -11,7 +11,7 @@ order: 16
 featured: true
 
 categories:
-  - motion
+  - Motion
 
 thumbnail: /img/jamus_marquette_sva_motion_graphics_reel.gif
 

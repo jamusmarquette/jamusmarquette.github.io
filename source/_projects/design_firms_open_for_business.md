@@ -11,8 +11,8 @@ order: 18
 featured: true
 
 categories:
-  - book-design
-  - editorial
+  - Book Covers
+  - Editorial & Publications
 
 thumbnail: /img/jamus_marquette_design_firms_open_for_business_book_design.jpg
 
@@ -41,8 +41,11 @@ credits:
   - role: Authors
     name: "Steven Heller, Lita Talarico"
 
-  - role: Credit
-    name: "Art Direction Sam Eckersley, Stuart Rogers"
+  - role: Art Direction
+    name: Sam Eckersley, Stuart Rogers
+  
+  - role: Lead Design
+    name: Jamus Marquette
 
   - role: Design
     name: Laura Barlow

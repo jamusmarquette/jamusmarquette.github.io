@@ -11,7 +11,7 @@ order: 3
 featured: true
 
 categories:
-  - book-covers
+  - Book Covers
 
 thumbnail: /img/jamus_marquette_irvine_welsh_covers_animation.gif
 

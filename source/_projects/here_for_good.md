@@ -11,9 +11,8 @@ order: 4
 featured: true
 
 categories:
-  - branding
-  - environmental
-  - interactive
+  - Identity & Branding
+  - Environmentals & Interactives
 
 thumbnail: /img/jamus_marquette_laureate_summit_logo.png
 
@@ -75,7 +74,7 @@ media_rows:
 
   - items:
       - col: offset-lg-2 col-lg-12 col-md-16 mb-4 mb-lg-6
-        image: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_book.jpg
+        image: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_book_2026.png
 
 
   - items:

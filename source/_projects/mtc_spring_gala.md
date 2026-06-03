@@ -11,7 +11,8 @@ order: 13
 featured: true
 
 categories:
-  - events
+  - Editorial & Publications
+  - Environmentals & Interactives
 
 thumbnail: /img/jamus_marquette_mtc_spring_gala_invite.gif
 

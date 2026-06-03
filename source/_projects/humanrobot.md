@@ -11,8 +11,8 @@ order: 11
 featured: true
 
 categories:
-  - branding
-  - web
+  - Identity & Branding
+  - Websites
 
 thumbnail: /img/jamus_marquette_human_robot_animation.gif
 

@@ -11,9 +11,8 @@ order: 17
 featured: true
 
 categories:
-  - branding
-  - environmental
-  - interactive
+  - Identity & Branding
+  - Environmentals & Interactives
 
 thumbnail: /img/01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
 

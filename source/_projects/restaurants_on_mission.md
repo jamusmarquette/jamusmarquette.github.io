@@ -11,9 +11,9 @@ order: 7
 featured: true
 
 categories:
-  - branding
-  - motion
-  - digital
+  - Identity & Branding
+  - Motion
+  - Websites
 
 thumbnail: /img/jamus_marquette_restaurants-on-missions-animation.gif
 
