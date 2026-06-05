@@ -29,7 +29,7 @@
   --bs-dark: #212529;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: none;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
 
 *,
@@ -5216,7 +5216,7 @@ textarea.form-control-lg {
 }
 
 .progress-bar-striped {
-  background-image: none !important;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 1rem 1rem;
 }
 
@@ -8166,7 +8166,7 @@ textarea.form-control-lg {
 }
 
 .bg-gradient {
-  background-image: none !important;
+  background-image: var(--bs-gradient) !important;
 }
 
 .user-select-all {
@@ -13411,12 +13411,8 @@ textarea.form-control-lg {
   padding-left: 0;
 }
 #credits #roles .collaborator {
-  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
-#credits #roles .collaborator .role {
-  font-size: 1rem;
-}
-
 #topgradient {
   z-index: 1031;
 }
@@ -13439,7 +13435,9 @@ textarea.form-control-lg {
 }
 .gradientHideMenu {
   pointer-events: none;
-  background: transparent;
+  background: linear-gradient(to top, white 25%, rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(to top, white 25%, rgba(255, 255, 255, 0));
+  background: linear-gradient(to top, white 25%, rgba(255, 255, 255, 0));
   z-index: 1031;
   /* This is a very clean gradient */
   /*   background: linear-gradient(to top, white, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
@@ -13449,29 +13447,33 @@ textarea.form-control-lg {
 }
 
 /* Bottom Menu */
+/*
 #stickycontainer {
-  position: relative;
-  padding-bottom: 100px;
+    position: relative;
 }
 
 #bottomMenu {
-  position: fixed;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1032;
+
+    padding: 0;
+    width: 100%;
+
+    &.release {
+        position: relative;
+        left: 0;
+        bottom: 0;
+    }
+}*/
+#bottomMenu {
+  position: sticky;
   bottom: 0;
-  left: 0;
-  left: 0;
-  right: 0;
-  width: 100% !important;
-  z-index: 9999;
-  transition: none;
+  z-index: 1029;
+  padding: 0;
+  width: 100%;
 }
-#bottomMenu.release {
-  position: absolute;
-}
-
-#backup {
-  position: relative;
-}
-
 .bottomnav-gradient {
   pointer-events: none;
   height: 30px;
@@ -13488,12 +13490,12 @@ textarea.form-control-lg {
 /* bottom Navigation links */
 #bottomNav {
   width: 100%;
-  padding-right: 0.125rem !important;
-  padding-left: 0.125rem !important;
   padding-top: 8px !important;
   padding-bottom: 12px !important;
   margin: 0;
-  background-color: #131313 !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #131313;
 }
 #bottomNav a {
   color: #c7c7c7;
@@ -13562,6 +13564,31 @@ textarea.form-control-lg {
     font-size: 1.5rem !important;
   }
 }
+/*#thumbnails {
+    // DOM element for triggering the intersection observer event
+    // you can use 'height' to determine when the event is triggered
+    height: 50rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: green;
+  }
+
+  body {
+    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Open Sans", "Arial", sans-serif;
+    background-color: #f3eee8;
+  }
+
+  .page {
+    padding: 6rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }*/
+.title-mobile {
+  display: none;
+}
+
 @media (max-width: 1170px) {
   .col-3.blur.nextProject,
 .col-3.blur.previousProject {
@@ -13570,6 +13597,11 @@ textarea.form-control-lg {
 
   .title-ctn {
     display: none;
+  }
+
+  .title-mobile {
+    display: block;
+    margin-right: 0.5rem;
   }
 }
 /* bottom Navigation: Previous Project */
@@ -13728,23 +13760,6 @@ textarea.form-control-lg {
     -ms-interpolation-mode: bicubic;
   }
 }
-/* Caption for media rows */
-.caption-row {
-  margin-top: 5rem !important;
-  margin-bottom: 1rem;
-  text-align: left;
-}
-.caption-row h3, .caption-row .h3 {
-  font-family: "nimbus-sans", sans-serif !important;
-  /*font-weight: $font-weight !important;*/
-  color: #c7c7c7;
-}
-.caption-row p {
-  font-family: "nimbus-sans", sans-serif !important;
-  /*font-weight: $font-weight !important;*/
-  color: #c7c7c7;
-}
-
 body {
   background-color: #131313 !important;
   color: #c7c7c7 !important;
@@ -13867,7 +13882,9 @@ ul {
   pointer-events: none;
   height: 30px;
   position: relative;
-  background: transparent;
+  background: linear-gradient(to bottom, #131313, rgba(19, 19, 19, 0.945) 7.9%, rgba(19, 19, 19, 0.883) 15.3%, rgba(19, 19, 19, 0.815) 22.2%, rgba(19, 19, 19, 0.743) 28.7%, rgba(19, 19, 19, 0.667) 34.8%, rgba(19, 19, 19, 0.589) 40.6%, rgba(19, 19, 19, 0.509) 46.2%, rgba(19, 19, 19, 0.429) 51.7%, rgba(19, 19, 19, 0.348) 57.2%, rgba(19, 19, 19, 0.269) 62.8%, rgba(19, 19, 19, 0.193) 68.7%, rgba(19, 19, 19, 0.121) 75.2%, rgba(19, 19, 19, 0.059) 82.6%, rgba(19, 19, 19, 0.015) 91.2%, rgba(19, 19, 19, 0));
+  background: -webkit-linear-gradient(to bottom, #131313, rgba(19, 19, 19, 0.945) 7.9%, rgba(19, 19, 19, 0.883) 15.3%, rgba(19, 19, 19, 0.815) 22.2%, rgba(19, 19, 19, 0.743) 28.7%, rgba(19, 19, 19, 0.667) 34.8%, rgba(19, 19, 19, 0.589) 40.6%, rgba(19, 19, 19, 0.509) 46.2%, rgba(19, 19, 19, 0.429) 51.7%, rgba(19, 19, 19, 0.348) 57.2%, rgba(19, 19, 19, 0.269) 62.8%, rgba(19, 19, 19, 0.193) 68.7%, rgba(19, 19, 19, 0.121) 75.2%, rgba(19, 19, 19, 0.059) 82.6%, rgba(19, 19, 19, 0.015) 91.2%, rgba(19, 19, 19, 0));
+  background: linear-gradient(to bottom, #131313, rgba(19, 19, 19, 0.945) 7.9%, rgba(19, 19, 19, 0.883) 15.3%, rgba(19, 19, 19, 0.815) 22.2%, rgba(19, 19, 19, 0.743) 28.7%, rgba(19, 19, 19, 0.667) 34.8%, rgba(19, 19, 19, 0.589) 40.6%, rgba(19, 19, 19, 0.509) 46.2%, rgba(19, 19, 19, 0.429) 51.7%, rgba(19, 19, 19, 0.348) 57.2%, rgba(19, 19, 19, 0.269) 62.8%, rgba(19, 19, 19, 0.193) 68.7%, rgba(19, 19, 19, 0.121) 75.2%, rgba(19, 19, 19, 0.059) 82.6%, rgba(19, 19, 19, 0.015) 91.2%, rgba(19, 19, 19, 0));
 }
 
 /* header contact/info section (right) */
@@ -13879,11 +13896,45 @@ ul {
   color: #c7c7c7;
   text-decoration: none;
 }
-
-#aboutcontent h3, #aboutcontent .h3 {
-  text-decoration: underline !important;
+#info.collapsed-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#info ul {
+  margin-bottom: 0;
+}
+#info ul li {
+  display: inline;
+}
+#info ul li a {
+  color: #c7c7c7;
+  text-decoration: none;
+  margin-right: 30px;
+}
+#info ul li:last-child {
+  margin-right: none;
 }
 
+#info a {
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  padding: 0.15rem 0.4rem 0.15rem 0.5rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+@-webkit-keyframes image_blur {
+  0% {
+    -webkit-filter: blur(0px);
+  }
+  50% {
+    -webkit-filter: blur(3px);
+  }
+  100% {
+    -webkit-filter: blur(0px);
+  }
+}
 /* header contact/info section stack */
 @media (max-width: 854px) {
   #info ul li {
@@ -14062,10 +14113,6 @@ ul {
   padding-top: 90vh;
 }
 
-#projects-section {
-  scroll-margin-top: 120px;
-}
-
 .content {
   position: relative;
   margin: auto;
@@ -14088,7 +14135,6 @@ ul {
 }
 .content:hover {
   z-index: 2;
-  /*background-color: rgb(91, 98, 100) !important;*/
 }
 .content:hover .content-overlay {
   opacity: 1;
@@ -14102,7 +14148,6 @@ ul {
 .content:hover .content-details h3,
 .content:hover .content-details .h3 {
   /*color:#000000;*/
-  /*enable this for black hover on thumbnail details*/
 }
 .content:hover .content-image {
   display: block !important;
@@ -14128,10 +14173,6 @@ ul {
   will-change: transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /*border-radius: 10px;*/
-  /*-webkit-transition: all .25s ease-in-out 0s;
-  -moz-transition: all .25s ease-in-out 0s;
-  transition: all .25s ease-in-out 0s;*/
 }
 @media (hover: hover) and (pointer: fine) {
   .content:hover .content-image {
@@ -14147,20 +14188,6 @@ ul {
 .content-details h3, .content-details .h3 {
   margin-bottom: 0.125rem;
 }
-.content-details a {
-  color: inherit;
-  text-decoration: none;
-}
-.content-details .project-card-title,
-.content-details .project-card-category {
-  transition: color 0.1s ease-in-out;
-}
-.content-details .project-card-title:hover, .content-details .project-card-title:focus,
-.content-details .project-card-category:hover,
-.content-details .project-card-category:focus {
-  color: #000 !important;
-}
-
 /* info section */
 #about {
   position: absolute;
@@ -14268,9 +14295,6 @@ button {
 #contact {
   font-weight: 200;
   background-color: #131313 !important;
-  /*p {
-      font-size: 1.25rem !important;
-  }*/
 }
 
 /* Footer categories */
@@ -14308,7 +14332,9 @@ button {
 }
 .upgradient {
   pointer-events: none;
-  background: transparent;
+  background: linear-gradient(to top, #131313 25%, rgba(19, 19, 19, 0.75));
+  background: -webkit-linear-gradient(to top, #131313 25%, rgba(19, 19, 19, 0.75));
+  background: linear-gradient(to top, #131313 25%, rgba(19, 19, 19, 0.75));
   /* This is a very clean gradient */
   /*   background: linear-gradient(to top, white, rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
       background: -webkit-linear-gradient(to top, white,  rgb(255, 255, 255), rgba(255, 255, 255, 0.945) 7.9%, rgba(255, 255, 255, 0.883) 15.3%, rgba(255, 255, 255, 0.815) 22.2%, rgba(255, 255, 255, 0.743) 28.7%, rgba(255, 255, 255, 0.667) 34.8%, rgba(255, 255, 255, 0.589) 40.6%, rgba(255, 255, 255, 0.509) 46.2%, rgba(255, 255, 255, 0.429) 51.7%, rgba(255, 255, 255, 0.348) 57.2%, rgba(255, 255, 255, 0.269) 62.8%, rgba(255, 255, 255, 0.193) 68.7%, rgba(255, 255, 255, 0.121) 75.2%, rgba(255, 255, 255, 0.059) 82.6%, rgba(255, 255, 255, 0.015) 91.2%, rgba(255, 255, 255, 0));
@@ -14317,7 +14343,8 @@ button {
 }
 
 .projectsgradient {
-  background: transparent;
+  background: linear-gradient(to top, rgba(19, 19, 19, 0.75) 50%, rgba(19, 19, 19, 0));
+  background: -webkit-linear-gradient(to top, rgba(19, 19, 19, 0.75) 50%, rgba(19, 19, 19, 0));
   /*    background: linear-gradient(to top,rgba(255, 255, 255, 0.21875) 7.9%, rgba(255, 255, 255, 0.203125) 15.3%, rgba(255, 255, 255, 0.1875) 22.2%, rgba(255, 255, 255, 0.171875) 28.7%, rgba(255, 255, 255, 0.15625) 34.8%, rgba(255, 255, 255, 0.140625) 40.6%, rgba(255, 255, 255, 0.125) 46.2%, rgba(255, 255, 255, 0.109275) 51.7%, rgba(255, 255, 255, 0.09375) 57.2%, rgba(255, 255, 255, 0.078125) 62.8%, rgba(255, 255, 255, 0.0625) 68.7%, rgba(255, 255, 255, 0.046875) 75.2%, rgba(255, 255, 255, 0.03125) 82.6%, rgba(255, 255, 255, 0.015625) 91.2%, rgba(255, 255, 255, 0));
       background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0.21875) 7.9%, rgba(255, 255, 255, 0.203125) 15.3%, rgba(255, 255, 255, 0.1875) 22.2%, rgba(255, 255, 255, 0.171875) 28.7%, rgba(255, 255, 255, 0.15625) 34.8%, rgba(255, 255, 255, 0.140625) 40.6%, rgba(255, 255, 255, 0.125) 46.2%, rgba(255, 255, 255, 0.109275) 51.7%, rgba(255, 255, 255, 0.09375) 57.2%, rgba(255, 255, 255, 0.078125) 62.8%, rgba(255, 255, 255, 0.0625) 68.7%, rgba(255, 255, 255, 0.046875) 75.2%, rgba(255, 255, 255, 0.03125) 82.6%, rgba(255, 255, 255, 0.015625) 91.2%, rgba(255, 255, 255, 0));
       background: linear-gradient(to top, rgba(255, 255, 255, 0.21875) 7.9%, rgba(255, 255, 255, 0.203125) 15.3%, rgba(255, 255, 255, 0.1875) 22.2%, rgba(255, 255, 255, 0.171875) 28.7%, rgba(255, 255, 255, 0.15625) 34.8%, rgba(255, 255, 255, 0.140625) 40.6%, rgba(255, 255, 255, 0.125) 46.2%, rgba(255, 255, 255, 0.109275) 51.7%, rgba(255, 255, 255, 0.09375) 57.2%, rgba(255, 255, 255, 0.078125) 62.8%, rgba(255, 255, 255, 0.0625) 68.7%, rgba(255, 255, 255, 0.046875) 75.2%, rgba(255, 255, 255, 0.03125) 82.6%, rgba(255, 255, 255, 0.015625) 91.2%, rgba(255, 255, 255, 0));

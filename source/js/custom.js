@@ -186,38 +186,63 @@ $(document).ready(function () {
 
 
 
-/* Footer arrow / bottom menu observer */
+/* Footer arrow / bottom menu observer 
 
-const backupEl = document.querySelector('#backup');
 const bottomMenu = document.querySelector('#bottomMenu');
+const thumbnails = document.querySelector('#thumbnails');
 
-if (backupEl && bottomMenu) {
+if (bottomMenu && thumbnails) {
+    let released = false;
+    const buffer = 40;
 
-    const observer = new IntersectionObserver((entries) => {
+    function updateBottomMenu() {
+        const thumbnailsTop =
+            thumbnails.getBoundingClientRect().top + window.scrollY;
 
-        const entry = entries[0];
+        const viewportBottom =
+            window.scrollY + window.innerHeight;
 
-        if (entry.boundingClientRect.top <= window.innerHeight) {
-
+        if (!released && viewportBottom >= thumbnailsTop - buffer) {
+            released = true;
             bottomMenu.classList.add('release');
-
             $("#downarrow").html('<a class="black" href="#top">↑</a>');
-
-        } else {
-
-            bottomMenu.classList.remove('release');
-
-            $("#downarrow").html('↓');
-
         }
 
-    });
+        if (released && viewportBottom < thumbnailsTop - buffer * 2) {
+            released = false;
+            bottomMenu.classList.remove('release');
+            $("#downarrow").html('↓');
+        }
+    }
 
-    observer.observe(backupEl);
+    window.addEventListener('scroll', updateBottomMenu, { passive: true });
+    window.addEventListener('resize', updateBottomMenu);
 
+    updateBottomMenu();
 }
 
+*/
 
+/* Footer arrow / bottom menu arrow observer */
+
+const thumbnails = document.querySelector('#thumbnails');
+
+if (thumbnails) {
+    function updateBottomArrow() {
+        const thumbnailsTop = thumbnails.getBoundingClientRect().top;
+
+        if (thumbnailsTop <= window.innerHeight) {
+            $("#downarrow").html('<a class="black" href="#top">↑</a>');
+        } else {
+            $("#downarrow").html('↓');
+        }
+    }
+
+    window.addEventListener('scroll', updateBottomArrow, { passive: true });
+    window.addEventListener('resize', updateBottomArrow);
+
+    updateBottomArrow();
+}
 
 
 

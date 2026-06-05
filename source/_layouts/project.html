@@ -88,9 +88,11 @@ layout: default
 
 
  <!-- begin bottom menu -->
-        <div class="container-fluid" id="bottomMenu">
-            <div class="container-fluid bottomnav-gradient"></div>
-            <div class="row align-items-center" id="bottomNav" style="padding-top: 15px; padding-bottom: 15px; background-color:#fff;">
+        <div id="bottomMenu">
+    <div class="container-fluid bottomnav-gradient"></div>
+
+    <div class="container-fluid">
+        <div class="row align-items-center" id="bottomNav">
 
 
                 <!-- current project -->
@@ -132,10 +134,14 @@ If we're on the last project, loop back to the first one
        href="{{ next.url | relative_url }}">
 
         <div class="title-ctn">
-            <div>
-                Next Project: {{ next.title }}
-            </div>
-        </div>
+    <div>
+        Next Project: {{ next.title }}
+    </div>
+</div>
+
+<div class="title-mobile">
+    Next Project
+</div>
 
         {% if next.thumbnail %}
         <img
@@ -155,6 +161,9 @@ If we're on the last project, loop back to the first one
 
             </div>
         </div>
+    </div>
+</div>
+<!-- end bottom menu -->
         <!-- end bottom menu -->
 
         
