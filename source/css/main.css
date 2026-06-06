@@ -13672,12 +13672,12 @@ textarea.form-control-lg {
 #logo button .love {
   display: inline;
   color: #c7c7c7 !important;
-}
-#logo button .love:after {
-  content: ".";
-  display: inline-block;
-  position: relative;
-  text-decoration: none !important;
+  /*&:after {
+    content: '.';
+    display: inline-block;
+    position: relative;
+    text-decoration: none !important;
+  }*/
 }
 #logo button .home {
   display: none;

@@ -17,29 +17,14 @@
           aria-expanded="false"
           aria-controls="collapseCategories"
         >
-          <span
-            id="project-title"
-            class="love"
-            style="
-              text-decoration: underline;
-              white-space: nowrap;
-              text-decoration-thickness: 1px;
-              text-underline-offset: 0.2em;
-            "
-          >
-            {{ page.page_label | default: "all projects" }}
+          <span id="project-title" class="love">
+            <span class="header-label-text">{{- page.page_label | default: "all projects" | strip -}}</span>
+            .
           </span>
 
-          <span
-            class="home"
-            style="
-              text-decoration: underline;
-              white-space: nowrap;
-              text-decoration-thickness: 1px;
-              text-underline-offset: 0.2em;
-            "
-          >
-            {{ page.home_text | default: "select projects" }}
+          <span class="home">
+            <span class="header-label-text">{{- page.home_text | default: "select projects" | strip -}}</span>
+            .
           </span>
         </button>
       </div>
