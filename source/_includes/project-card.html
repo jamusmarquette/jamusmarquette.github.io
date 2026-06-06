@@ -24,8 +24,7 @@
         <div class="content-details">
 
             <h3 class="rg-text">
-                <a
-                    class="black project-card-title"
+                <a project-card-title"
                     href="{{ include.project.url | relative_url }}"
                 >
                     {{ include.project.title }}
@@ -47,7 +46,7 @@
                         {% assign category_slug = 'theater' %}
                     {% endif %}
                     <a
-                        class="black category-filter project-card-category"
+                        class="category-filter project-card-category"
                         data-category="{{ category_slug }}"
                         href="{{ '/?category=' | append: category_slug | append: '#projects-jump' | relative_url }}"
                     >{{ category }}</a>{% unless forloop.last %}, {% endunless %}

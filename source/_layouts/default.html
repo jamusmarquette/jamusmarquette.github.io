@@ -1,36 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  {% include head.html %}
 
-{% include head.html %}
+  <body id="top">
+    {% include header.html %}
 
-<body id="top">
+    <main id="content">{{ content }}</main>
 
-  {% include header.html %}
+    {% include footer.html %}
 
-<main id="content">
-  {{ content }}
-</main>
+    <!-- Begin Scripts -->
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
 
-{% include about.html %}
-{% include footer.html %}
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script src="{{ '/js/custom.js' | relative_url }}"></script>
 
-<!-- Begin Scripts -->
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-</script>
+    <script src="{{ '/js/project-filter.js' | relative_url }}"></script>
 
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<script src="{{ '/js/custom.js' | relative_url }}"></script>
-
-
-<script src="{{ '/js/project-filter.js' | relative_url }}"></script>
-
-
-<!-- End scripts -->
-
-</body>
+    <!-- End scripts -->
+  </body>
 </html>
