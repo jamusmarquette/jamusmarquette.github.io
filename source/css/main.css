@@ -13772,21 +13772,31 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body, body * {
+body,
+body * {
   font-weight: 200 !important;
 }
 
-#introText, #introText * {
+a {
+  color: #c7c7c7;
+  text-decoration: none;
+}
+a:hover {
+  color: #000000;
+}
+
+#introText,
+#introText * {
   font-weight: unset !important;
 }
 
 *::selection {
-  background: #b6b9b9;
+  background: #2e432e;
   /* WebKit/Blink Browsers */
 }
 
 *::-moz-selection {
-  background: #b6b9b9;
+  background: #2e432e;
   /* Gecko Browsers */
 }
 
@@ -13865,7 +13875,7 @@ ul {
 
 .inner-container {
   /*padding-top: 15px;
-  padding-bottom: 15px;*/
+    padding-bottom: 15px;*/
   padding-top: 12px;
   padding-bottom: 12px;
 }
@@ -13900,7 +13910,6 @@ ul {
 #info ul li a {
   color: #c7c7c7;
   text-decoration: none;
-  margin-right: 30px;
 }
 #info ul li:last-child {
   margin-right: none;
@@ -13912,6 +13921,18 @@ ul {
   padding: 0.15rem 0.4rem 0.15rem 0.5rem;
   display: inline-block;
   line-height: 1;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+#info a:hover,
+#info a.info-active {
+  color: #000000;
+  border-color: #000000;
+}
+
+#info a.info-active {
+  pointer-events: none;
+  cursor: default;
 }
 
 @-webkit-keyframes image_blur {
@@ -14193,8 +14214,8 @@ ul {
   padding-top: 5rem;
   padding-bottom: 1.5rem;
   /*.row {
-      --bs-gutter-x: 0 !important;
-  }*/
+        --bs-gutter-x: 0 !important;
+    }*/
 }
 #aboutheader {
   position: fixed;
