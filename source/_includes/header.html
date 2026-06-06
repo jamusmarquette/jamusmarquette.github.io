@@ -5,9 +5,9 @@
       <!--<div class="col col-md-11 me-auto" id="logo">-->
       <div class="col col-md-8 me-auto" id="logo">
         {% if page.url == "/" %}
-        <span class="logo">Jamus doesn't hate</span>
+        <span class="logo">Jamus creates</span>
         {% else %}
-        <a href="{{ '/' | relative_url }}" class="logo">Jamus doesn't hate</a>
+        <a href="{{ '/' | relative_url }}" class="logo">Jamus creates</a>
         {% endif %}
         <button
           class=""
@@ -17,15 +17,11 @@
           aria-expanded="false"
           aria-controls="collapseCategories"
         >
-          <span id="project-title" class="love">
-            <span class="header-label-text">{{- page.page_label | default: "all projects" | strip -}}</span>
-            .
-          </span>
+          <!-- prettier-ignore -->
+          <span id="project-title" class="love header-label"><span class="header-label-text">{{- page.page_label | default: "all projects" | strip -}}</span><span class="header-label-period">.</span></span>
 
-          <span class="home">
-            <span class="header-label-text">{{- page.home_text | default: "select projects" | strip -}}</span>
-            .
-          </span>
+          <!-- prettier-ignore -->
+          <span class="home header-label"><span class="header-label-text">{{- page.home_text | default: "select projects" | strip -}}</span><span class="header-label-period">.</span></span>
         </button>
       </div>
 

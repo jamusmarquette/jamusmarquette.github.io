@@ -13682,12 +13682,12 @@ textarea.form-control-lg {
 #logo button .home {
   display: none;
   color: #c7c7c7 !important;
-}
-#logo button .home:after {
-  content: ".";
-  display: inline-block;
-  position: relative;
-  text-decoration: none !important;
+  /*&:after {
+    content: '.';
+    display: inline-block;
+    position: relative;
+    text-decoration: none !important;
+  }*/
 }
 #logo button:hover > .home {
   display: inline;
@@ -13696,6 +13696,39 @@ textarea.form-control-lg {
 #logo button:hover > .love {
   display: none;
   color: #c7c7c7 !important;
+}
+
+#logo button .header-label {
+  align-items: baseline;
+  gap: 0;
+  white-space: nowrap;
+  color: #c7c7c7 !important;
+}
+
+#logo button .love {
+  display: inline-flex;
+}
+
+#logo button .home {
+  display: none;
+}
+
+#logo button:hover > .home {
+  display: inline-flex;
+}
+
+#logo button:hover > .love {
+  display: none;
+}
+
+.header-label-text {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.header-label-period {
+  text-decoration: none !important;
 }
 
 /* Pagination */
