@@ -53,7 +53,7 @@ function applyCategoryFilter(category) {
 
   if (loveText) {
     if (category === 'all') {
-      setHeaderLabel(loveText, 'featured projects');
+      setHeaderLabel(loveText, 'projects');
       loveText.classList.remove('filtered-category');
     } else {
       setHeaderLabel(loveText, activeLink ? activeLink.textContent.trim() : category.replace(/-/g, ' '));

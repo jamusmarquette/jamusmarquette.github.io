@@ -246,7 +246,7 @@ ul {
 
   &List {
     max-width: 80%;
-    padding-left: 135px;
+    padding-left: 155px;
     padding-top: 30px;
     padding-bottom: 4rem;
     height: 100dvh !important;
@@ -302,7 +302,7 @@ ul {
 
 @media (max-width: 712px) {
   #collapseCategoriesList {
-    padding-left: 20px;
+    padding-left: 0px;
   }
 }
 
@@ -512,6 +512,20 @@ ul {
       .content-image {
         transform: rotateX(-12deg);
       }
+    }
+  }
+
+  &.is-clicking {
+    .content-image {
+      transform: rotateX(-50deg) !important;
+      transition: transform 120ms ease-out;
+    }
+  }
+
+  &.is-releasing {
+    .content-image {
+      transform: rotateX(0deg) !important;
+      transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
     }
   }
 
