@@ -300,6 +300,23 @@ ul {
   }
 }
 
+/*add borders to category filter
+#collapseCategoriesList {
+  max-width: none;
+  width: 100%;
+}
+
+#collapseCategoriesList li.category {
+  border-bottom: 1px solid $primary;
+}
+
+#collapseCategoriesList .category-filter {
+  display: block;
+  padding: 8px 0;
+  border-bottom: none;
+}
+End borders to category filter*/
+
 @media (max-width: 712px) {
   #collapseCategoriesList {
     padding-left: 0px;

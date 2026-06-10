@@ -21,7 +21,6 @@ hero_type: media-rows
 hero_container_class: container-fluid project-intro
 
 hero_rows:
-
   - items:
       - col: col-16
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jct_logo_animation_2026.mp4
@@ -36,19 +35,16 @@ description:
   - >
     Also featured is a unique pattern composed of love and new opportunities to expand the brand, intended for use with uplifting media highlighting the children and families whose lives are being redirected through love.
 
-
 credits_title: Collaborators
 
 credits:
   - role: Art Direction
     name: Adriana Marquette
 
-  - role: "Photography, Video"
+  - role: 'Photography, Video'
     name: Rudo Mudzi
 
-
 media_rows:
-
   - items:
       - col: col-md-16 pb-4
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
@@ -57,35 +53,28 @@ media_rows:
 
   - items:
       - col: col-md-16 pb-4
-        video: /project/jonathan_childrens_trust/video/jamus_marquette_jct_website_2026.mp4
+        video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust.mp4
         media_class: video-content-video
-
 
   - items:
       - col: col-md-16 pb-4
-        image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust.jpg
-
+        image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_diagram.jpg
 
   - items:
       - col: col-md-16 mb-4
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust2.jpg
 
-
   - items:
       - col: col-md-16 mb-4
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust6.jpg
-
 
   - items:
       - col: col-md-16 mb-4
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust4.jpg
 
-
   - items:
       - col: col-md-16
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust5.jpg
-
-
 ---
 
 {% include project/project-info.html %}
