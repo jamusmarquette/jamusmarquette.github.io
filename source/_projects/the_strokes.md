@@ -26,12 +26,10 @@ description:
   - >
     CD packaging for the album <em>Is this it?</em>, by The Strokes. It is packaged in a 45 record jacket, referencing the albums similarity to pre-1977 rock.<br><br> Contained inside is the CD and a poster featuring the lyrics jotted down in a notebook as though originally composed in the midst of journaling about life and relationships. Its gritty style references the albums sound which is similar to the works of 1970s garage rock bands, and its repetitive layout references its simple metronomic rhythm.
 
-
 media_rows:
-
   - items:
       - col: col-md-16
-        image: /project/the_strokes/img/jamus_marquette_the_strokes_cover_stack_01.png
+        image: /project/the_strokes/img/the_strokes_package_animation.gif
 
   - items:
       - col: col-md-16
@@ -46,9 +44,6 @@ media_rows:
       - col: col-16
         image: /project/the_strokes/img/the-strokes_stickers_04.png
         media_class: full-width-img
-
-
-
 ---
 
 {% include project/project-info.html %}
