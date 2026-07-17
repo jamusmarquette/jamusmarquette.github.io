@@ -13588,6 +13588,33 @@ textarea.form-control-lg {
   display: none;
 }
 
+/* Development-only section fixtures. Real project presentation remains unchanged. */
+.prototype-notice {
+  border-bottom: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  margin-bottom: 4rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.prototype-project-section {
+  margin-bottom: 6rem;
+  scroll-margin-top: 2rem;
+}
+
+.prototype-project-section h2, .prototype-project-section .h2 {
+  border-bottom: 1px solid currentColor;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+}
+
+.prototype-text-card {
+  border: 1px solid currentColor;
+  min-height: 100%;
+  padding: 1.5rem;
+  white-space: pre-line;
+}
+
 @media (max-width: 1170px) {
   .col-3.blur.nextProject,
 .col-3.blur.previousProject {
@@ -13790,6 +13817,123 @@ textarea.form-control-lg {
     max-width: 200% !important;
     width: auto\9 ;
     -ms-interpolation-mode: bicubic;
+  }
+}
+@font-face {
+  font-family: "Inter Prototype Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/project/prototype-font-design/font/Inter-Variable-opsz-wght.ttf") format("truetype-variations");
+}
+.font-prototype-specimen {
+  border: 1px solid currentColor;
+  margin-top: 1rem;
+  padding: 1.5rem;
+}
+
+.font-prototype-specimen__header {
+  align-items: start;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.font-prototype-specimen__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem !important;
+  text-transform: uppercase;
+}
+
+.font-prototype-reset,
+.font-prototype-presets button {
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  padding: 0.4rem 0.8rem;
+}
+
+.font-prototype-presets {
+  border: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.font-prototype-presets legend {
+  float: none;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.font-prototype-presets button[aria-pressed=true] {
+  background: #c7c7c7;
+  color: #131313;
+}
+
+.font-prototype-controls {
+  display: grid;
+  gap: 1rem 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.font-prototype-controls label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.font-prototype-controls label > span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.font-prototype-controls input[type=range] {
+  width: 100%;
+}
+
+.font-prototype-color-control input {
+  height: 2.5rem;
+  width: 100%;
+}
+
+.font-prototype-stage {
+  align-items: center;
+  background: #f2f0e8;
+  color: #111827;
+  display: flex;
+  font-family: "Inter Prototype Variable", sans-serif;
+  font-size: 72px;
+  font-variation-settings: "wght" 450, "opsz" 20;
+  line-height: 1.05;
+  min-height: 45vh;
+  overflow-wrap: anywhere;
+  padding: clamp(1.25rem, 4vw, 4rem);
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.font-prototype-stage p {
+  margin: 0 !important;
+}
+
+.font-prototype-support,
+.font-prototype-attribution {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 767px) {
+  .font-prototype-specimen__header,
+.font-prototype-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .font-prototype-stage {
+    min-height: 18rem;
   }
 }
 body {

@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="font-prototype-specimen" data-font-specimen>
+    <div class="font-prototype-specimen__header">
+      <div>
+        <p class="font-prototype-specimen__eyebrow">Technical stand-in</p>
+        <h3>Interactive specimen interface</h3>
+        <p>
+          Inter Variable is used only to test this portfolio interface. It is not presented as original portfolio
+          work or as the fictional typeface documented elsewhere on this page.
+        </p>
+      </div>
+      <button type="button" class="font-prototype-reset" data-font-reset>Reset</button>
+    </div>
+
+    <fieldset class="font-prototype-presets">
+      <legend>Preset specimen</legend>
+      <button type="button" data-font-preset="display" aria-pressed="true">Display</button>
+      <button type="button" data-font-preset="paragraph" aria-pressed="false">Paragraph</button>
+      <button type="button" data-font-preset="numerals" aria-pressed="false">Numerals</button>
+      <button type="button" data-font-preset="interface" aria-pressed="false">Interface</button>
+      <button type="button" data-font-preset="alternates" aria-pressed="false">Alternates</button>
+    </fieldset>
+
+    <div class="font-prototype-controls">
+      <label>
+        <span>Weight <output data-font-output="weight">450</output></span>
+        <input type="range" min="100" max="900" step="1" value="450" data-font-control="weight" />
+      </label>
+      <label>
+        <span>Optical Size <output data-font-output="opticalSize">20</output></span>
+        <input type="range" min="14" max="32" step="0.1" value="20" data-font-control="opticalSize" />
+      </label>
+      <label>
+        <span>Font Size <output data-font-output="fontSize">72px</output></span>
+        <input type="range" min="18" max="160" step="1" value="72" data-font-control="fontSize" />
+      </label>
+      <label>
+        <span>Tracking <output data-font-output="tracking">0em</output></span>
+        <input type="range" min="-5" max="20" step="1" value="0" data-font-control="tracking" />
+      </label>
+      <label class="font-prototype-color-control">
+        <span>Foreground <output data-font-output="foreground">#111827</output></span>
+        <input type="color" value="#111827" data-font-control="foreground" />
+      </label>
+      <label class="font-prototype-color-control">
+        <span>Background <output data-font-output="background">#f2f0e8</output></span>
+        <input type="color" value="#f2f0e8" data-font-control="background" />
+      </label>
+    </div>
+
+    <div class="font-prototype-stage" data-font-stage aria-live="polite">
+      <p data-font-text>Shape language into useful form.</p>
+    </div>
+
+    <p class="font-prototype-support" data-font-support>
+      If variable-font axes are unavailable, this specimen falls back to the locally hosted Inter font at a static
+      browser-selected instance.
+    </p>
+
+    <p class="font-prototype-attribution">
+      Specimen-testing font: Inter Variable, Copyright 2020 The Inter Project Authors. Licensed under the
+      <a href="{{ '/project/prototype-font-design/font/OFL.txt' | relative_url }}">SIL Open Font License 1.1</a>.
+      Source: <a href="https://github.com/google/fonts/tree/main/ofl/inter">Google Fonts Inter repository</a>.
+    </p>
+  </div>
+</div>

@@ -49,8 +49,9 @@
 
       {% if is_browser %}
       <section class="portfolio-browser-tools" data-browser-tools aria-label="Project filters">
+        {% assign browser_projects = site.projects | where: 'featured', true | where_exp: 'project', 'project.prototype != true' %}
         <div class="portfolio-project-count" aria-live="polite" data-project-count>
-          {{ site.projects | where: 'featured', true | size }} projects
+          {{ browser_projects | size }} projects
         </div>
 
         <div class="portfolio-category-filters">

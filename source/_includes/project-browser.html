@@ -5,7 +5,7 @@
 
   <div class="portfolio-project-grid" data-project-grid>
     {% for project in projects %}
-      {% if project.featured == true %}
+      {% if project.featured == true and project.prototype != true %}
         {% include project-card.html project=project %}
       {% endif %}
     {% endfor %}

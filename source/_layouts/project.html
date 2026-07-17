@@ -62,7 +62,7 @@ layout: portfolio
           </div>
 
           <!-- next project (dynamic loop) -->
-          {% assign projects = site.projects | sort: "order" %} {% assign next = nil %} {% assign found = false %} {%
+          {% assign projects = site.projects | where_exp: "project", "project.prototype != true" | sort: "order" %} {% assign next = nil %} {% assign found = false %} {%
           for project in projects %} {% if found == true %} {% assign next = project %} {% break %} {% endif %} {% if
           project.url == page.url %} {% assign found = true %} {% endif %} {% endfor %} {%- comment -%} If we're on the
           last project, loop back to the first one {%- endcomment -%} {% if next == nil and projects.size > 0 %} {%
@@ -102,7 +102,7 @@ layout: portfolio
   <div id="topgradient">
     <!----------------- begin thumbnails ----------------->
     <div class="container-fluid pb-6 pt-6" id="thumbnails">
-      {% assign projects = site.projects | sort: "order" %}
+      {% assign projects = site.projects | where_exp: "project", "project.prototype != true" | sort: "order" %}
 
       <div class="row d-flex align-items-center">
         {% for project in projects %} {% unless project.url == page.url %}

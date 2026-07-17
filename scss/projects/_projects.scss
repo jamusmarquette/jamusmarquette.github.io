@@ -406,6 +406,33 @@
   display: none;
 }
 
+/* Development-only section fixtures. Real project presentation remains unchanged. */
+.prototype-notice {
+  border-bottom: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  margin-bottom: 4rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.prototype-project-section {
+  margin-bottom: 6rem;
+  scroll-margin-top: 2rem;
+}
+
+.prototype-project-section h2 {
+  border-bottom: 1px solid currentColor;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+}
+
+.prototype-text-card {
+  border: 1px solid currentColor;
+  min-height: 100%;
+  padding: 1.5rem;
+  white-space: pre-line;
+}
+
 //@media (max-width: 992px) {768 576
 @media (max-width: 1170px) {
   //@media (max-width: 768px) {

@@ -1,0 +1,30 @@
+{% if page.sections %}
+  {% for section in page.sections %}
+    <section
+      class="prototype-project-section"
+      id="section-{{ section.id }}"
+      data-project-section="{{ section.id }}"
+      aria-labelledby="section-title-{{ section.id }}"
+    >
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-16">
+            <h2 id="section-title-{{ section.id }}">{{ section.label }}</h2>
+          </div>
+        </div>
+      </div>
+
+      {% for row in page.media_rows %}
+        {% if row.section == section.id %}
+          <div class="container-fluid">
+            {% include project/media-row.html row=row %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% if section.component == 'font-specimen' %}
+        {% include project/font-specimen.html %}
+      {% endif %}
+    </section>
+  {% endfor %}
+{% endif %}
