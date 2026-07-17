@@ -420,6 +420,10 @@
   scroll-margin-top: 2rem;
 }
 
+.prototype-project-section[hidden] {
+  display: none;
+}
+
 .prototype-project-section h2 {
   border-bottom: 1px solid currentColor;
   margin-bottom: 2rem;

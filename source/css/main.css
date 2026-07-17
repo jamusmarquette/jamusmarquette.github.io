@@ -13602,6 +13602,10 @@ textarea.form-control-lg {
   scroll-margin-top: 2rem;
 }
 
+.prototype-project-section[hidden] {
+  display: none;
+}
+
 .prototype-project-section h2, .prototype-project-section .h2 {
   border-bottom: 1px solid currentColor;
   margin-bottom: 2rem;
@@ -14812,6 +14816,40 @@ video {
   width: 1.5rem;
 }
 
+.portfolio-section-navigation {
+  border-top: 1px solid rgba(199, 199, 199, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 2.5rem;
+  padding-top: 1rem;
+}
+
+.portfolio-section-navigation h2, .portfolio-section-navigation .h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.portfolio-section-control {
+  background: transparent;
+  border: 0;
+  color: #c7c7c7;
+  padding: 0.15rem 0;
+  text-align: left;
+}
+
+.portfolio-section-control::before {
+  content: "○";
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.portfolio-section-control.is-active::before {
+  content: "●";
+}
+
 .portfolio-browser-tools[hidden],
 .portfolio-introduction-copy[hidden] {
   display: none;
@@ -14868,6 +14906,7 @@ video {
 .is-sidebar-collapsed .portfolio-introduction-copy,
 .is-sidebar-collapsed .portfolio-nav-label,
 .is-sidebar-collapsed .portfolio-browser-tools,
+.is-sidebar-collapsed .portfolio-section-navigation,
 .is-sidebar-collapsed .portfolio-sidebar__toggle-label {
   display: none;
 }
@@ -14971,6 +15010,10 @@ video {
 
   .is-sidebar-collapsed .portfolio-browser-tools {
     display: block;
+  }
+
+  .is-sidebar-collapsed .portfolio-section-navigation {
+    display: flex;
   }
 
   .is-sidebar-collapsed .portfolio-nav-link,

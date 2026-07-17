@@ -47,6 +47,27 @@
         </a>
       </nav>
 
+      {% if page.sections and page.sections.size > 1 %}
+      <nav
+        class="portfolio-section-navigation"
+        aria-labelledby="portfolio-section-navigation-title"
+        data-section-navigation
+      >
+        <h2 id="portfolio-section-navigation-title">Project sections</h2>
+        <button type="button" class="portfolio-section-control is-active" data-section-control="all" aria-pressed="true">
+          All
+        </button>
+        {% for section in page.sections %}
+        <button
+          type="button"
+          class="portfolio-section-control"
+          data-section-control="{{ section.id }}"
+          aria-pressed="false"
+        >{{ section.label }}</button>
+        {% endfor %}
+      </nav>
+      {% endif %}
+
       {% if is_browser %}
       <section class="portfolio-browser-tools" data-browser-tools aria-label="Project filters">
         {% assign browser_projects = site.projects | where: 'featured', true | where_exp: 'project', 'project.prototype != true' %}
