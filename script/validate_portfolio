@@ -1,0 +1,33 @@
+#!/bin/sh
+set -eu
+
+repository_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+validation_root=$(mktemp -d "${TMPDIR:-/tmp}/portfolio-tool-validation.XXXXXX")
+
+cleanup() {
+  rm -rf "$validation_root"
+}
+trap cleanup EXIT HUP INT TERM
+
+cd "$repository_root"
+
+branch=$(git branch --show-current)
+if [ "$branch" != "portfolio-tool" ]; then
+  echo "ERROR: validation must run on portfolio-tool (current: $branch)" >&2
+  exit 1
+fi
+
+echo "== Collection and media validation =="
+collection_status=0
+ruby script/validate_portfolio.rb || collection_status=$?
+
+echo "== Jekyll build =="
+build_status=0
+bundle exec jekyll build --destination "$validation_root/site" || build_status=$?
+
+if [ "$collection_status" -ne 0 ] || [ "$build_status" -ne 0 ]; then
+  echo "FAIL: portfolio-tool validation found blocking issues" >&2
+  exit 1
+fi
+
+echo "PASS: portfolio-tool validation completed"
