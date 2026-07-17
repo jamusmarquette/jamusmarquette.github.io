@@ -1,0 +1,15 @@
+{% assign projects = site.projects | sort: 'order' %}
+
+<section class="portfolio-browser" id="projects" aria-labelledby="portfolio-browser-title" data-project-browser>
+  <h1 class="visually-hidden" id="portfolio-browser-title">Projects</h1>
+
+  <div class="portfolio-project-grid" data-project-grid>
+    {% for project in projects %}
+      {% if project.featured == true %}
+        {% include project-card.html project=project %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <p class="portfolio-empty-state" data-empty-state hidden>No projects match this category.</p>
+</section>

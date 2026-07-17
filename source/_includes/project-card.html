@@ -1,6 +1,6 @@
-<div
-    class="col-md-4 project-card"
-    data-category="{% for category in include.project.categories %}{% assign category_slug = category | slugify %}{% if category == 'Identity & Branding' %}{% assign category_slug = 'branding' %}{% elsif category == 'Editorial & Publications' %}{% assign category_slug = 'editorial' %}{% elsif category == 'Personal Projects' %}{% assign category_slug = 'personal' %}{% elsif category == 'Environmentals & Interactives' %}{% assign category_slug = 'environmentals' %}{% elsif category == 'Theater Art' %}{% assign category_slug = 'theater' %}{% endif %}{{ category_slug }}{% unless forloop.last %}{{ ' ' }}{% endunless %}{% endfor %}"
+<article
+    class="project-card"
+    data-category="{% for project_category in include.project.categories %}{% for category in site.data.portfolio_categories %}{% if category.label == project_category %}{{ category.id }} {% endif %}{% endfor %}{% endfor %}"
 >
 
     <div class="content">
@@ -24,7 +24,7 @@
         <div class="content-details">
 
             <h3 class="rg-text">
-                <a project-card-title"
+                <a class="project-card-title"
                     href="{{ include.project.url | relative_url }}"
                 >
                     {{ include.project.title }}
@@ -34,21 +34,13 @@
             <p class="fs-5 project-card-categories">
                 {% for category in include.project.categories %}
                     {% assign category_slug = category | slugify %}
-                    {% if category == 'Identity & Branding' %}
-                        {% assign category_slug = 'branding' %}
-                    {% elsif category == 'Editorial & Publications' %}
-                        {% assign category_slug = 'editorial' %}
-                    {% elsif category == 'Personal Projects' %}
-                        {% assign category_slug = 'personal' %}
-                    {% elsif category == 'Environmentals & Interactives' %}
-                        {% assign category_slug = 'environmentals' %}
-                    {% elsif category == 'Theater Art' %}
-                        {% assign category_slug = 'theater' %}
-                    {% endif %}
+                    {% for registered_category in site.data.portfolio_categories %}
+                        {% if registered_category.label == category %}{% assign category_slug = registered_category.id %}{% endif %}
+                    {% endfor %}
                     <a
-                        class="category-filter project-card-category"
+                        class="portfolio-card-category"
                         data-category="{{ category_slug }}"
-                        href="{{ '/?category=' | append: category_slug | append: '#projects-jump' | relative_url }}"
+                        href="{{ '/?category=' | append: category_slug | relative_url }}"
                     >{{ category }}</a>{% unless forloop.last %}, {% endunless %}
                 {% endfor %}
             </p>
@@ -57,4 +49,4 @@
 
     </div>
 
-</div>
+</article>

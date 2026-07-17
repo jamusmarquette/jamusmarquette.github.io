@@ -3,11 +3,7 @@
   {% include head.html %}
 
   <body id="top">
-    {% include header.html %}
-
-    <main id="content">{{ content }}</main>
-
-    {% include footer.html %}
+    {{ content }}
 
     <!-- Begin Scripts -->
     <!-- JavaScript Bundle with Popper -->
@@ -23,6 +19,8 @@
     <script src="{{ '/js/custom.js' | relative_url }}"></script>
 
     <script src="{{ '/js/project-filter.js' | relative_url }}"></script>
+
+    <script src="{{ '/js/portfolio-browser.js' | relative_url }}"></script>
 
     <!-- End scripts -->
   </body>

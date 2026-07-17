@@ -1,0 +1,104 @@
+{% assign is_browser = false %}
+{% if page.url == '/' %}{% assign is_browser = true %}{% endif %}
+
+<div class="portfolio-shell{% if is_browser %} is-browser{% endif %}" data-portfolio-shell>
+  <aside class="portfolio-sidebar" id="portfolio-sidebar" aria-label="Portfolio navigation">
+    <div class="portfolio-sidebar__body">
+      <p class="portfolio-introduction-block">
+        <a
+          class="portfolio-home-control"
+          href="{{ '/?home=1' | relative_url }}"
+          data-home-control
+          aria-label="JAMUS — Home"
+          title="Home"
+        >JAMUS</a><span class="portfolio-introduction-copy" data-portfolio-intro hidden> creates unique artwork that communicates unique stories to unique audiences to reach unique goals for unique people.</span>
+      </p>
+
+      <nav class="portfolio-primary-nav" aria-label="Primary">
+        <a
+          href="{{ '/' | relative_url }}"
+          class="portfolio-nav-link{% if is_browser %} is-active{% endif %}"
+          data-projects-control
+          aria-label="Projects"
+          title="Projects"
+          {% if is_browser %}aria-current="page"{% endif %}
+        >
+          <svg class="portfolio-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+          </svg>
+          <span class="portfolio-nav-label">Projects</span>
+        </a>
+        <a
+          href="{{ '/information/' | relative_url }}"
+          class="portfolio-nav-link{% if page.url == '/information/' %} is-active{% endif %}"
+          aria-label="Info"
+          title="Info"
+          {% if page.url == '/information/' %}aria-current="page"{% endif %}
+        >
+          <svg class="portfolio-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 10.5v6"></path>
+            <circle cx="12" cy="7.5" r="0.75" class="portfolio-nav-icon__dot"></circle>
+          </svg>
+          <span class="portfolio-nav-label">Info</span>
+        </a>
+      </nav>
+
+      {% if is_browser %}
+      <section class="portfolio-browser-tools" data-browser-tools aria-label="Project filters">
+        <div class="portfolio-project-count" aria-live="polite" data-project-count>
+          {{ site.projects | where: 'featured', true | size }} projects
+        </div>
+
+        <div class="portfolio-category-filters">
+          <button class="portfolio-category-filter is-active" type="button" data-category="all" aria-pressed="true">
+            All projects
+          </button>
+          {% assign categories = site.data.portfolio_categories | sort: 'order' %}
+          {% for category in categories %}
+          <button
+            class="portfolio-category-filter"
+            type="button"
+            data-category="{{ category.id }}"
+            aria-pressed="false"
+          >{{ category.label }}</button>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      <button
+        class="portfolio-sidebar__toggle"
+        type="button"
+        aria-controls="portfolio-sidebar"
+        aria-expanded="true"
+        data-sidebar-toggle
+        title="Collapse sidebar"
+      >
+        <span aria-hidden="true" data-sidebar-toggle-icon>←</span>
+        <span class="portfolio-sidebar__toggle-label">Collapse</span>
+      </button>
+    </div>
+  </aside>
+
+  <button
+    class="portfolio-mobile-toggle"
+    type="button"
+    aria-controls="portfolio-sidebar"
+    aria-expanded="false"
+    data-mobile-sidebar-toggle
+  >
+    <span aria-hidden="true">☰</span>
+    <span class="visually-hidden">Open portfolio navigation</span>
+  </button>
+
+  <button class="portfolio-sidebar-backdrop" type="button" data-sidebar-backdrop aria-label="Close navigation"></button>
+
+  <main class="portfolio-presentation" id="content">
+    {{ content }}
+    {% include footer.html %}
+  </main>
+</div>
