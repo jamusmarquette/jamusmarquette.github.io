@@ -12,34 +12,9 @@
 
         </div>
 
-        <!-- credits -->
-        {% if page.credits %}
-
-        <div class="{{ page.credits_col | default: 'offset-lg-3 col-lg-5 offset-md-2 col-md-6 fs-5 pb-3' }}" id="credits">
-
-            {% if page.credits_title %}
-                <p><span class="bodyul">{{ page.credits_title }}</span></p>
-            {% endif %}
-
-            <ul id="roles">
-
-                {% for item in page.credits %}
-
-                <li class="collaborator fs-5">
-
-                    <span class="role">{{ item.role }}</span><br />
-
-                    {{ item.name }}
-
-                </li>
-
-                {% endfor %}
-
-            </ul>
-
-        </div>
-
-        {% endif %}
+        {% unless include.hide_credits %}
+          {% include project/credits.html %}
+        {% endunless %}
 
     </div>
 

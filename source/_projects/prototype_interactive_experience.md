@@ -139,12 +139,6 @@ media_rows:
         text_class: prototype-text-card
 ---
 
-{% include project/project-info.html %}
-
-<div class="prototype-notice container-fluid" role="note">
-  DEVELOPMENT PROTOTYPE — FICTIONAL CONTENT — NOT PORTFOLIO WORK
-</div>
-
 <div id="project" class="prototype-project mb-5">
   {% include project/sectioned-media.html %}
 </div>

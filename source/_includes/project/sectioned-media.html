@@ -6,6 +6,16 @@
       data-project-section="{{ section.id }}"
       aria-labelledby="section-title-{{ section.id }}"
     >
+      {% if section.id == 'overview' %}
+        {% include project/hero.html %}
+        {% include project/project-info.html hide_credits=true %}
+        {% if page.prototype %}
+          <div class="prototype-notice container-fluid" role="note">
+            DEVELOPMENT PROTOTYPE — FICTIONAL CONTENT — NOT PORTFOLIO WORK
+          </div>
+        {% endif %}
+      {% endif %}
+
       <div class="container-fluid">
         <div class="row">
           <div class="col-16">
@@ -24,6 +34,14 @@
 
       {% if section.component == 'font-specimen' %}
         {% include project/font-specimen.html %}
+      {% endif %}
+
+      {% if section.id == 'collaborators' %}
+        <div class="container-fluid project-credits-section">
+          <div class="row">
+            {% include project/credits.html %}
+          </div>
+        </div>
       {% endif %}
     </section>
   {% endfor %}

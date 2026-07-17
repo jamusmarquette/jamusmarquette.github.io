@@ -1,0 +1,39 @@
+{% if page.hero_type == "centered-image" %}
+<div class="container-fluid project-intro">
+  <div class="row" style="height: 90vh">
+    <div class="col-16 d-flex justify-content-center align-items-center">
+      <img class="centered-hero-img" src="{{ page.hero | relative_url }}" alt="{{ page.title }}" />
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if page.hero_type == "full-image" %}
+<div class="container-fluid project-hero-full">
+  <img class="full-width-img" src="{{ page.hero | relative_url }}" alt="{{ page.title }}" />
+</div>
+{% endif %}
+
+{% if page.hero_type == "split-image" %}
+<div class="container-fluid topmargin project-hero-split">
+  <div class="row">
+    <div class="col-md-8">
+      <img class="full-width-img" src="{{ page.hero_left | relative_url }}" alt="{{ page.title }}" />
+    </div>
+    <div class="col-md-8 hidemd">
+      <img class="full-width-img" src="{{ page.hero_right | relative_url }}" alt="{{ page.title }}" />
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if page.hero_type == "media-rows" %}
+<div
+  class="{{ page.hero_container_class | default: 'container-fluid project-intro' }}"
+  {% if page.hero_container_style %}style="{{ page.hero_container_style }}"{% endif %}
+>
+  {% for row in page.hero_rows %}
+    {% include project/media-row.html row=row %}
+  {% endfor %}
+</div>
+{% endif %}

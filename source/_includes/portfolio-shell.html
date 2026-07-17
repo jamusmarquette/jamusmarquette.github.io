@@ -7,7 +7,7 @@
       <p class="portfolio-introduction-block">
         <a
           class="portfolio-home-control"
-          href="{{ '/?home=1' | relative_url }}"
+          href="{{ '/' | relative_url }}"
           data-home-control
           aria-label="JAMUS — Home"
           title="Home"
@@ -15,12 +15,13 @@
       </p>
 
       <nav class="portfolio-primary-nav" aria-label="Primary">
+        <div class="portfolio-work-group">
         <a
-          href="{{ '/' | relative_url }}"
+          href="{{ '/?view=all' | relative_url }}"
           class="portfolio-nav-link{% if is_browser %} is-active{% endif %}"
           data-projects-control
-          aria-label="Projects"
-          title="Projects"
+          aria-label="Work"
+          title="Work"
           {% if is_browser %}aria-current="page"{% endif %}
         >
           <svg class="portfolio-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -29,8 +30,29 @@
             <rect x="3" y="14" width="7" height="7"></rect>
             <rect x="14" y="14" width="7" height="7"></rect>
           </svg>
-          <span class="portfolio-nav-label">Projects</span>
+          <span class="portfolio-nav-label">Work <span data-work-count>(18/18)</span></span>
         </a>
+
+        {% if is_browser %}
+        <section class="portfolio-browser-tools" data-browser-tools aria-label="Work filters">
+          <div class="portfolio-category-filters">
+            <button class="portfolio-category-filter" type="button" data-browser-view="all" aria-pressed="false">
+              All Projects
+            </button>
+            {% assign categories = site.data.portfolio_categories | sort: 'order' %}
+            {% for category in categories %}
+            <button
+              class="portfolio-category-filter"
+              type="button"
+              data-category="{{ category.id }}"
+              aria-pressed="false"
+            >{{ category.label }}</button>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+        </div>
+
         <a
           href="{{ '/information/' | relative_url }}"
           class="portfolio-nav-link{% if page.url == '/information/' %} is-active{% endif %}"
@@ -53,7 +75,8 @@
         aria-labelledby="portfolio-section-navigation-title"
         data-section-navigation
       >
-        <h2 id="portfolio-section-navigation-title">Project sections</h2>
+        <p class="portfolio-current-project-title">{{ page.title }}</p>
+        <h2 id="portfolio-section-navigation-title">Filter by section</h2>
         <button type="button" class="portfolio-section-control is-active" data-section-control="all" aria-pressed="true">
           All
         </button>
@@ -69,27 +92,22 @@
       {% endif %}
 
       {% if is_browser %}
-      <section class="portfolio-browser-tools" data-browser-tools aria-label="Project filters">
-        {% assign browser_projects = site.projects | where: 'featured', true | where_exp: 'project', 'project.prototype != true' %}
-        <div class="portfolio-project-count" aria-live="polite" data-project-count>
-          {{ browser_projects | size }} projects
-        </div>
-
-        <div class="portfolio-category-filters">
-          <button class="portfolio-category-filter is-active" type="button" data-category="all" aria-pressed="true">
-            All projects
-          </button>
-          {% assign categories = site.data.portfolio_categories | sort: 'order' %}
-          {% for category in categories %}
-          <button
-            class="portfolio-category-filter"
-            type="button"
-            data-category="{{ category.id }}"
-            aria-pressed="false"
-          >{{ category.label }}</button>
-          {% endfor %}
-        </div>
-      </section>
+      <div class="portfolio-thumbnail-columns" data-thumbnail-columns-control>
+        <label for="portfolio-thumbnail-columns">
+          <span>Columns</span>
+          <output for="portfolio-thumbnail-columns" data-thumbnail-columns-output>3</output>
+        </label>
+        <input
+          id="portfolio-thumbnail-columns"
+          type="range"
+          min="2"
+          max="6"
+          step="1"
+          value="3"
+          aria-label="Number of project columns"
+          data-thumbnail-columns
+        />
+      </div>
       {% endif %}
 
       <button
