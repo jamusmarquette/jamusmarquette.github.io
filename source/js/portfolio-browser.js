@@ -3,17 +3,14 @@
   if (!shell) return;
 
   const storageKey = 'portfolio-sidebar-collapsed';
-  const homeColumns = 3;
-  const workColumns = 6;
+  const defaultColumns = 5;
   const sidebarToggle = shell.querySelector('[data-sidebar-toggle]');
+  const sidebarToggleLabel = shell.querySelector('[data-sidebar-toggle-label]');
   const mobileToggle = shell.querySelector('[data-mobile-sidebar-toggle]');
   const backdrop = shell.querySelector('[data-sidebar-backdrop]');
-  const homeControls = Array.from(shell.querySelectorAll('[data-home-control]'));
-  const workControl = shell.querySelector('[data-projects-control]');
-  const workCount = shell.querySelector('[data-work-count]');
-  const intro = shell.querySelector('[data-portfolio-intro]');
-  const browserTools = shell.querySelector('[data-browser-tools]');
   const browser = shell.querySelector('[data-project-browser]');
+  const workControl = shell.querySelector('.portfolio-work-group > .portfolio-nav-link');
+  const workCount = shell.querySelector('[data-work-count]');
   const emptyState = shell.querySelector('[data-empty-state]');
   const allProjectsControl = shell.querySelector('[data-browser-view="all"]');
   const categoryControls = Array.from(shell.querySelectorAll('.portfolio-category-filter[data-category]'));
@@ -25,9 +22,9 @@
   function setCollapsed(collapsed) {
     shell.classList.toggle('is-sidebar-collapsed', collapsed);
     sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
-    sidebarToggle.querySelector('.portfolio-sidebar__toggle-label').textContent = collapsed ? 'Expand' : 'Collapse';
-    sidebarToggle.querySelector('[data-sidebar-toggle-icon]').textContent = collapsed ? '→' : '←';
+    sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
     sidebarToggle.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+    sidebarToggleLabel.textContent = collapsed ? 'Expand' : 'Collapse';
     localStorage.setItem(storageKey, String(collapsed));
   }
 
@@ -37,39 +34,32 @@
     document.body.classList.toggle('portfolio-drawer-open', open);
   }
 
-  function validColumns(value, fallback) {
+  function validColumns(value) {
     const columns = Number(value);
-    return Number.isInteger(columns) && columns >= 2 && columns <= 6 ? columns : fallback;
+    return Number.isInteger(columns) && columns >= 2 && columns <= 6 ? columns : defaultColumns;
   }
 
   function stateFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const category = params.get('category');
     const validCategory = categoryControls.some((control) => control.dataset.category === category);
-    const type = validCategory ? 'category' : params.get('view') === 'all' ? 'all' : 'home';
-    const fallbackColumns = type === 'home' ? homeColumns : workColumns;
-    return { type, category: validCategory ? category : null, columns: validColumns(params.get('columns'), fallbackColumns) };
-  }
-
-  function defaultColumns(state) {
-    return state.type === 'home' ? homeColumns : workColumns;
+    return { category: validCategory ? category : null, columns: validColumns(params.get('columns')) };
   }
 
   function writeUrl(state, replace) {
     const url = new URL(window.location.href);
     url.searchParams.delete('home');
     url.searchParams.delete('view');
-    url.searchParams.delete('category');
     url.searchParams.delete('scale');
+    url.searchParams.delete('category');
     url.searchParams.delete('columns');
-    if (state.type === 'all') url.searchParams.set('view', 'all');
-    if (state.type === 'category') url.searchParams.set('category', state.category);
-    if (state.columns !== defaultColumns(state)) url.searchParams.set('columns', state.columns);
+    if (state.category) url.searchParams.set('category', state.category);
+    if (state.columns !== defaultColumns) url.searchParams.set('columns', state.columns);
     history[replace ? 'replaceState' : 'pushState']({}, '', url);
   }
 
   function setColumns(columns) {
-    const value = validColumns(columns, workColumns);
+    const value = validColumns(columns);
     columnsControl.value = value;
     columnsOutput.textContent = value;
     browser.style.setProperty('--portfolio-selected-columns', value);
@@ -77,8 +67,7 @@
 
   function renderState(state, updateHistory) {
     if (!browser) return;
-    const home = state.type === 'home';
-    const visibleCards = state.type === 'category'
+    const visibleCards = state.category
       ? cards.filter((card) => card.dataset.category.trim().split(/\s+/).includes(state.category))
       : cards;
     const visibleSet = new Set(visibleCards);
@@ -86,17 +75,11 @@
     cards.forEach((card) => { card.hidden = !visibleSet.has(card); });
     setColumns(state.columns);
 
-    intro.hidden = !home;
-    browserTools.hidden = home;
-    shell.classList.toggle('is-home-state', home);
-    workControl.classList.toggle('is-active', !home);
-    if (home && shell.classList.contains('is-sidebar-collapsed')) setCollapsed(false);
-
-    const allActive = state.type === 'all';
+    const allActive = !state.category;
     allProjectsControl.classList.toggle('is-active', allActive);
     allProjectsControl.setAttribute('aria-pressed', String(allActive));
     categoryControls.forEach((control) => {
-      const active = state.type === 'category' && control.dataset.category === state.category;
+      const active = control.dataset.category === state.category;
       control.classList.toggle('is-active', active);
       control.setAttribute('aria-pressed', String(active));
     });
@@ -116,30 +99,19 @@
   backdrop.addEventListener('click', function () { setMobileOpen(false); });
 
   if (browser) {
-    homeControls.forEach((homeControl) => {
-      homeControl.addEventListener('click', function (event) {
-        event.preventDefault();
-        renderState({ type: 'home', category: null, columns: homeColumns }, true);
-      });
-    });
     cardCategoryLinks.forEach((link) => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        renderState({ type: 'category', category: link.dataset.category, columns: Number(columnsControl.value) }, true);
+        renderState({ category: link.dataset.category, columns: Number(columnsControl.value) }, true);
       });
     });
-    workControl.addEventListener('click', function (event) {
-      event.preventDefault();
-      renderState({ type: 'all', category: null, columns: workColumns }, true);
-      setMobileOpen(false);
-    });
     allProjectsControl.addEventListener('click', function () {
-      renderState({ type: 'all', category: null, columns: workColumns }, true);
+      renderState({ category: null, columns: Number(columnsControl.value) }, true);
       setMobileOpen(false);
     });
     categoryControls.forEach((control) => {
       control.addEventListener('click', function () {
-        renderState({ type: 'category', category: control.dataset.category, columns: Number(columnsControl.value) }, true);
+        renderState({ category: control.dataset.category, columns: Number(columnsControl.value) }, true);
         setMobileOpen(false);
       });
     });
@@ -154,7 +126,9 @@
   window.addEventListener('popstate', function () { renderState(stateFromUrl(), false); });
 
   setCollapsed(localStorage.getItem(storageKey) === 'true');
-  const initialState = stateFromUrl();
-  renderState(initialState, false);
-  if (browser) writeUrl(initialState, true);
+  if (browser) {
+    const initialState = stateFromUrl();
+    renderState(initialState, false);
+    writeUrl(initialState, true);
+  }
 })();
