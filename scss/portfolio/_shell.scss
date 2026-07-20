@@ -2,9 +2,9 @@ $portfolio-sidebar-width: 22rem;
 $portfolio-rail-width: 8rem;
 $portfolio-sidebar-padding-x: 1.25rem;
 $portfolio-sidebar-padding-y: 1.75rem;
-$portfolio-sidebar-row-size: 1.25rem;
+$portfolio-sidebar-row-size: 1.125rem;
 $portfolio-sidebar-supporting-size: 0.82rem;
-$portfolio-sidebar-icon-size: 1.45rem;
+$portfolio-sidebar-icon-size: 1.5rem;
 $portfolio-sidebar-icon-gap: 0.8rem;
 $portfolio-sidebar-row-padding-x: 0.6rem;
 $portfolio-sidebar-filter-indent: $portfolio-sidebar-icon-size + $portfolio-sidebar-icon-gap;
@@ -43,15 +43,15 @@ $portfolio-sidebar-radius: 1rem;
 }
 
 .portfolio-introduction-block {
-  font-size: 1.25rem;
-  line-height: 1.3;
+  font-size: 1.125rem;
+  line-height: 1.4;
   margin-bottom: 2.25rem !important;
 }
 
 .portfolio-primary-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.125rem;
   margin-bottom: 2.5rem;
 }
 
@@ -70,9 +70,10 @@ $portfolio-sidebar-radius: 1rem;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
   color: $primary;
-  display: flex;
+  column-gap: $portfolio-sidebar-icon-gap;
+  display: grid;
   font-size: $portfolio-sidebar-row-size;
-  gap: $portfolio-sidebar-icon-gap;
+  grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
   line-height: 1.2;
   min-height: 2.75rem;
   padding: 0.45rem $portfolio-sidebar-row-padding-x;
@@ -107,14 +108,25 @@ $portfolio-sidebar-radius: 1rem;
   margin-left: auto;
 }
 
-.portfolio-nav-icon,
-.portfolio-sidebar__toggle-icon {
-  fill: none;
-  flex: 0 0 $portfolio-sidebar-icon-size;
-  height: $portfolio-sidebar-icon-size;
-  stroke: currentColor;
-  stroke-width: 1.35;
-  width: $portfolio-sidebar-icon-size;
+.portfolio-nav-icon {
+  color: currentColor;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.portfolio-nav-icon--work {
+  height: 1.1875rem;
+  width: 1.1875rem;
+}
+
+.portfolio-nav-icon--info {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.portfolio-nav-icon--collapse {
+  height: 1.125rem;
+  width: 1.375rem;
 }
 
 .portfolio-category-filters,
@@ -186,9 +198,10 @@ $portfolio-sidebar-radius: 1rem;
   border: 0;
   bottom: 0;
   color: $primary;
-  display: flex;
+  column-gap: $portfolio-sidebar-icon-gap;
+  display: grid;
   font-size: $portfolio-sidebar-row-size;
-  gap: $portfolio-sidebar-icon-gap;
+  grid-template-columns: $portfolio-sidebar-icon-size auto;
   left: $portfolio-sidebar-padding-x;
   line-height: 1.2;
   height: $portfolio-utility-row-height;
@@ -253,7 +266,8 @@ $portfolio-sidebar-radius: 1rem;
 }
 
 .portfolio-project-grid .content-details h3 {
-  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
 }
 
 .portfolio-project-grid .content-image {
@@ -271,6 +285,7 @@ $portfolio-sidebar-radius: 1rem;
 }
 
 .portfolio-project-grid .project-card-categories {
+  font-size: 1rem !important;
   margin-bottom: 0 !important;
 }
 

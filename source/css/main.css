@@ -13159,6 +13159,20 @@ textarea.form-control-lg {
   }
 }
 /*$secondary-color: rgba(255, 255, 255);*/
+/*@font-face {
+  font-family: 'Frankly';
+  src: url('/fonts/frankly/Frankly-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 50;
+  font-display: swap;
+}*/
+@font-face {
+  font-family: "inter";
+  src: url("/fonts/inter/Inter-VariableFont_opsz,wght.ttf") format("ttf");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
 .rg-text {
   font-size: 1.5rem;
   line-height: 1.3;
@@ -13179,7 +13193,12 @@ textarea.form-control-lg {
 }
 
 @media (max-width: 576px) {
-  .xs-text, .sm-text, .rg-text, .md-text, .lg-text, .h3-ul {
+  .xs-text,
+.sm-text,
+.rg-text,
+.md-text,
+.lg-text,
+.h3-ul {
     font-weight: 400 !important;
     font-style: normal;
     font-size: 1.5rem !important;
@@ -13397,8 +13416,8 @@ textarea.form-control-lg {
 }
 .video-content-details h3, .video-content-details .h3 {
   color: #c7c7c7;
-  font-family: "nimbus-sans", sans-serif !important;
-  font-weight: 400 !important;
+  font-family: "inter", sans-serif !important;
+  font-weight: 100 !important;
   margin-right: 10px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -13943,8 +13962,8 @@ textarea.form-control-lg {
 body {
   background-color: #131313 !important;
   color: #c7c7c7 !important;
-  font-family: "nimbus-sans", sans-serif !important;
-  font-weight: 400 !important;
+  font-family: "inter", sans-serif !important;
+  font-weight: 100 !important;
   font-style: normal;
   /*This is the default h3 font size/line-height*/
   font-size: 1.5rem;
@@ -13955,7 +13974,7 @@ body {
 
 body,
 body * {
-  font-weight: 200 !important;
+  font-weight: 300 !important;
 }
 
 a {
@@ -14765,15 +14784,15 @@ video {
 }
 
 .portfolio-introduction-block {
-  font-size: 1.25rem;
-  line-height: 1.3;
+  font-size: 1.125rem;
+  line-height: 1.4;
   margin-bottom: 2.25rem !important;
 }
 
 .portfolio-primary-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.125rem;
   margin-bottom: 2.5rem;
 }
 
@@ -14783,7 +14802,7 @@ video {
 }
 
 .portfolio-work-group .portfolio-browser-tools {
-  margin: 0.4rem 0 0 2.25rem;
+  margin: 0.4rem 0 0 2.3rem;
 }
 
 .portfolio-nav-link {
@@ -14792,9 +14811,10 @@ video {
   border: 0;
   border-radius: 1rem;
   color: #c7c7c7;
-  display: flex;
-  font-size: 1.25rem;
-  gap: 0.8rem;
+  column-gap: 0.8rem;
+  display: grid;
+  font-size: 1.125rem;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
   line-height: 1.2;
   min-height: 2.75rem;
   padding: 0.45rem 0.6rem;
@@ -14829,14 +14849,25 @@ video {
   margin-left: auto;
 }
 
-.portfolio-nav-icon,
-.portfolio-sidebar__toggle-icon {
-  fill: none;
-  flex: 0 0 1.45rem;
-  height: 1.45rem;
-  stroke: currentColor;
-  stroke-width: 1.35;
-  width: 1.45rem;
+.portfolio-nav-icon {
+  color: currentColor;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.portfolio-nav-icon--work {
+  height: 1.1875rem;
+  width: 1.1875rem;
+}
+
+.portfolio-nav-icon--info {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.portfolio-nav-icon--collapse {
+  height: 1.125rem;
+  width: 1.375rem;
 }
 
 .portfolio-category-filters,
@@ -14853,7 +14884,7 @@ video {
   border-radius: 1rem;
   color: #c7c7c7;
   display: block;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.25;
   padding: 0.45rem 0.6rem;
   text-align: left;
@@ -14880,7 +14911,7 @@ video {
 
 .portfolio-section-navigation {
   border: 0;
-  margin-left: 2.25rem;
+  margin-left: 2.3rem;
   margin-bottom: 2rem;
   padding-top: 0;
 }
@@ -14899,7 +14930,7 @@ video {
 }
 
 .portfolio-section-control {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .portfolio-sidebar__toggle {
@@ -14908,9 +14939,10 @@ video {
   border: 0;
   bottom: 0;
   color: #c7c7c7;
-  display: flex;
-  font-size: 1.25rem;
-  gap: 0.8rem;
+  column-gap: 0.8rem;
+  display: grid;
+  font-size: 1.125rem;
+  grid-template-columns: 1.5rem auto;
   left: 1.25rem;
   line-height: 1.2;
   height: 4rem;
@@ -14939,7 +14971,7 @@ video {
 
 .is-sidebar-collapsed .portfolio-nav-link,
 .is-sidebar-collapsed .portfolio-sidebar__toggle {
-  width: 1.45rem;
+  width: 1.5rem;
 }
 
 .portfolio-mobile-toggle,
@@ -14975,7 +15007,8 @@ video {
 }
 
 .portfolio-project-grid .content-details h3, .portfolio-project-grid .content-details .h3 {
-  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
 }
 
 .portfolio-project-grid .content-image {
@@ -14993,6 +15026,7 @@ video {
 }
 
 .portfolio-project-grid .project-card-categories {
+  font-size: 1rem !important;
   margin-bottom: 0 !important;
 }
 
@@ -15012,14 +15046,14 @@ video {
 }
 
 .portfolio-thumbnail-columns label {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.2;
   margin: 0;
   white-space: nowrap;
 }
 
 .portfolio-thumbnail-columns output {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.2;
 }
 
