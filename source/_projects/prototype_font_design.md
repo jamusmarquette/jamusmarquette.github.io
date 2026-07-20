@@ -1,7 +1,7 @@
 ---
 layout: project
-title: "DEVELOPMENT PROTOTYPE — Meridian Variable Typeface"
-page_label: "Prototype: Font Design"
+title: 'Development Prototype Meridian Variable Typeface'
+page_label: 'Prototype: Font Design'
 permalink: /project/prototype-font-design/
 order: 903
 featured: false
@@ -14,144 +14,135 @@ thumbnail: /project/prototype-font-design/img/thumbnail.svg
 hero_type: full-image
 hero: /project/prototype-font-design/img/hero.svg
 description:
-  - "Development-only fictional variable-font case study for testing a future project-section system and curated specimen interface. This is not real portfolio work."
-  - "Meridian is a fictional type family imagined for editorial systems, cultural institutions, interfaces, and public information environments."
-credits_title: Prototype status
-credits:
-  - role: Fictional typeface content and artwork
-    name: Development placeholders for portfolio interface testing only
-  - role: Interactive specimen technical stand-in
-    name: "Inter Variable — Copyright 2020 The Inter Project Authors — SIL Open Font License 1.1"
+  - 'Meridian is a fictional variable type family for editorial systems, public information, interfaces, and cultural institutions.'
+project_facts:
+  - label: Role
+    value: Fictional type design, spacing, masters, and specimen direction
+  - label: Status
+    value: Development prototype — not portfolio work
+  - label: Intended axes
+    value: Weight and optical size
+  - label: Technical stand-in
+    value: Inter Variable is used only to test this specimen interface; it is not a JAMUS typeface.
+  - label: Attribution
+    value: Inter Project Authors — SIL Open Font License 1.1
 sections:
   - id: overview
     label: Overview
-  - id: development
-    label: Development
+  - id: context
+    label: Context
+  - id: concept
+    label: Concept
+  - id: structure
+    label: Structure
   - id: system
     label: System
-  - id: interactive-specimen
-    label: Interactive Specimen
+  - id: in-use
+    label: In Use
     component: font-specimen
-  - id: system-in-use
-    label: System in Use
-  - id: collaborators
-    label: Collaborators
 media_rows:
   - section: overview
     caption:
-      title: Project Summary, Purpose, and Intended Use
-      text: "A fictional variable family designed to test how a type-design case study could explain intent, scope, and use before revealing process and system detail."
+      title: A variable family for public language
+      text: 'This fictional type-design case study tests how a family can explain its purpose, formal logic, and practical range before presenting specimens.'
     items:
       - image: /project/prototype-font-design/img/overview.svg
-        alt: "Fictional variable typeface purpose and intended use placeholder"
+        alt: Fictional Meridian variable typeface overview
         col: col-16
-  - section: overview
-    items:
-      - text: "Purpose: support expressive headlines and durable reading across editorial, interface, and environmental contexts."
-        col: col-md-8
-        text_class: prototype-text-card
-      - text: "Role and scope: concept, drawing, spacing, masters, interpolation planning, feature definition, testing, and specimen design."
-        col: col-md-8
-        text_class: prototype-text-card
-  - section: development
+  - section: context
     caption:
-      title: References and Sketching
-      text: "Reference material and early drawing placeholders establish historical context, intended tone, and candidate construction ideas."
+      title: One voice across unlike reading conditions
+      text: 'Editorial headlines, public information, interfaces, and environmental graphics require different optical conditions but often need to feel like one institution is speaking. Meridian is imagined for that tension between expression and durable reading.'
     items:
       - image: /project/prototype-font-design/img/references.svg
-        alt: "Typeface references placeholder"
+        alt: Fictional typographic context and references
         col: col-md-8
       - image: /project/prototype-font-design/img/sketching.svg
-        alt: "Early character sketching placeholder"
+        alt: Fictional early typographic studies
         col: col-md-8
-  - section: development
+  - section: concept
     caption:
-      title: Construction, Proportions, and Early Characters
-      text: "Three portrait studies compare stem logic, curves, proportions, and early character development."
+      title: Concept — measured warmth
+      text: 'Meridian balances civic clarity with a human, slightly expansive rhythm. Its forms are designed to carry public information without becoming bureaucratic or anonymous.'
+    items:
+      - text: 'A public voice can be precise without becoming impersonal.'
+        col: col-16
+        text_class: case-study-concept-statement
+  - section: structure
+    caption:
+      title: Glyph architecture follows the reading task
+      text: 'Skeletons, proportions, contrast, terminals, and width relationships are selected because they support measured warmth at display and reading sizes—not as a chronological drawing archive.'
     items:
       - image: /project/prototype-font-design/img/construction-1.svg
-        alt: "Character construction study placeholder"
+        alt: Fictional letter construction study
         col: col-md-5
       - image: /project/prototype-font-design/img/construction-2.svg
-        alt: "Typeface proportion study placeholder"
+        alt: Fictional proportion study
         col: col-md-6
       - image: /project/prototype-font-design/img/construction-3.svg
-        alt: "Early character development placeholder"
+        alt: Fictional glyph architecture study
         col: col-md-5
-  - section: development
+  - section: structure
     caption:
-      title: Master Planning, Interpolation, Testing, and Refinement
-      text: "A full-width development diagram represents weight and optical-size masters, interpolation checks, proofing, and iterative refinement."
+      title: Masters as a structural plan
+      text: 'Weight and optical-size masters are planned around transitions in reading conditions, so interpolation reinforces the family’s formal logic instead of merely filling a numerical range.'
     items:
       - image: /project/prototype-font-design/img/master-planning.svg
-        alt: "Variable font master and interpolation planning placeholder"
+        alt: Fictional variable font master plan
         col: col-16
   - section: system
     caption:
-      title: Character Construction, Proportions, and Spacing
-      text: "Two system panels document fictional character logic and spacing relationships."
+      title: A family of repeatable rules
+      text: 'Character construction, spacing, and metrics establish how Meridian repeats coherently across styles and languages.'
     items:
       - image: /project/prototype-font-design/img/character-system.svg
-        alt: "Character construction and proportion system placeholder"
+        alt: Fictional character system
         col: col-md-8
       - image: /project/prototype-font-design/img/spacing-system.svg
-        alt: "Typeface spacing system placeholder"
+        alt: Fictional spacing system
         col: col-md-8
   - section: system
     caption:
-      title: Weight and Optical-Size Logic
-      text: "The axis map documents the fictional family’s intended variable-font architecture."
+      title: Axes, features, and instances
+      text: 'The family architecture documents weight and optical-size logic alongside numerals, punctuation, alternates, naming, and OpenType behavior.'
     items:
       - image: /project/prototype-font-design/img/axis-system.svg
-        alt: "Weight and optical size axis architecture placeholder"
+        alt: Fictional axis architecture
         col: col-16
-  - section: system
-    caption:
-      title: Numerals, Punctuation, and OpenType Features
-      text: "Three modules represent numeral sets, punctuation, and selected contextual or stylistic features."
-    items:
       - image: /project/prototype-font-design/img/numerals.svg
-        alt: "Numeral system placeholder"
+        alt: Fictional numeral system
         col: col-md-5
       - image: /project/prototype-font-design/img/punctuation.svg
-        alt: "Punctuation system placeholder"
+        alt: Fictional punctuation system
         col: col-md-6
       - image: /project/prototype-font-design/img/opentype.svg
-        alt: "Selected OpenType features placeholder"
+        alt: Fictional OpenType feature system
         col: col-md-5
-  - section: system-in-use
+  - section: in-use
     caption:
-      title: Editorial and Interface Applications
-      text: "Two contrasting applications test long-form hierarchy and compact interface language."
+      title: Interactive specimen — technical stand-in
+      text: 'Inter Variable is loaded locally only to test the portfolio’s specimen controls. The fictional Meridian family described here has not been drawn; this interface does not claim Inter as JAMUS work.'
     items:
       - image: /project/prototype-font-design/img/use-editorial.svg
-        alt: "Editorial type application placeholder"
+        alt: Fictional editorial type application
         col: col-md-8
       - image: /project/prototype-font-design/img/use-interface.svg
-        alt: "Interface type application placeholder"
+        alt: Fictional interface type application
         col: col-md-8
-  - section: system-in-use
+  - section: in-use
     caption:
-      title: Display, Signage, and Responsive Motion
-      text: "Three applications test poster scale, environmental context, and a responsive or motion-oriented specimen."
+      title: A family in varied conditions
+      text: 'Display, signage, responsive, and editorial examples show the kind of practical contexts a finished family would need to support.'
     items:
       - image: /project/prototype-font-design/img/use-poster.svg
-        alt: "Poster and display application placeholder"
+        alt: Fictional display typography application
         col: col-md-5
       - image: /project/prototype-font-design/img/use-signage.svg
-        alt: "Signage application placeholder"
+        alt: Fictional signage application
         col: col-md-6
       - image: /project/prototype-font-design/img/use-responsive.svg
-        alt: "Responsive motion specimen placeholder"
+        alt: Fictional responsive typography application
         col: col-md-5
-  - section: collaborators
-    caption:
-      title: Fictional Project Credits and Inter Attribution
-      text: "The fictional design credits are separated from the real technical font attribution used by the specimen interface."
-    items:
-      - text: "Fictional Type Design — Prototype Type Team\n\nFictional Engineering — Prototype Font Technology Team\n\nFictional Specimen Design — Prototype Editorial Team\n\nTechnical Stand-In — Inter Variable, Copyright 2020 The Inter Project Authors, licensed under the SIL Open Font License 1.1."
-        col: col-md-12
-        text_class: prototype-text-card
 ---
 
 <div id="project" class="prototype-project font-prototype mb-5">

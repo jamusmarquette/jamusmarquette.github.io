@@ -12,6 +12,19 @@
 
         </div>
 
+        {% if page.project_facts %}
+        <div class="col-md-8 col-lg-7 pb-3">
+            <dl class="project-facts">
+                {% for fact in page.project_facts %}
+                <div class="project-facts__item">
+                    <dt>{{ fact.label }}</dt>
+                    <dd>{{ fact.value }}</dd>
+                </div>
+                {% endfor %}
+            </dl>
+        </div>
+        {% endif %}
+
         {% unless include.hide_credits %}
           {% include project/credits.html %}
         {% endunless %}

@@ -1,7 +1,7 @@
 ---
 layout: project
-title: "DEVELOPMENT PROTOTYPE — Fieldguide Interactive Experience"
-page_label: "Prototype: Interactive Experience"
+title: 'Development Prototype Fieldguide Interactive Experience'
+page_label: 'Prototype: Interactive Experience'
 permalink: /project/prototype-interactive-experience/
 order: 902
 featured: false
@@ -13,130 +13,125 @@ thumbnail: /project/prototype-interactive-experience/img/thumbnail.svg
 hero_type: full-image
 hero: /project/prototype-interactive-experience/img/hero.svg
 description:
-  - "Development-only fictional interactive case study for testing a future project-section system. This is not real portfolio work."
-  - "Fieldguide is a fictional museum experience that helps visitors explore objects, stories, and routes before and during a visit."
-credits_title: Prototype status
-credits:
-  - role: Content and artwork
-    name: Fictional placeholders for interface development only
+  - 'Fieldguide is a fictional museum companion that helps visitors choose, understand, and remember routes through a changing collection.'
+project_facts:
+  - label: Product owner
+    value: Fieldguide Museum (fictional)
+  - label: Role
+    value: Product strategy, IA, interaction, and interface design
+  - label: Duration
+    value: Development example, 12 weeks
+  - label: Technologies
+    value: Responsive web, shared display, prototype motion
+  - label: Status
+    value: Development prototype — not portfolio work
 sections:
   - id: overview
     label: Overview
-  - id: development
-    label: Development
+  - id: context
+    label: Context
+  - id: concept
+    label: Concept
+  - id: structure
+    label: Structure
   - id: system
     label: System
-  - id: system-in-use
-    label: System in Use
-  - id: collaborators
-    label: Collaborators
+  - id: in-use
+    label: In Use
 media_rows:
   - section: overview
     caption:
-      title: Purpose, Audience, and Setting
-      text: "A fictional responsive guide for first-time visitors, families, educators, and onsite staff across personal devices and shared displays."
+      title: A guide for a changing visit
+      text: 'A fictional responsive product for first-time visitors, families, educators, and onsite staff across personal devices and shared displays.'
     items:
       - image: /project/prototype-interactive-experience/img/overview.svg
-        alt: "Interactive project overview placeholder"
+        alt: Fictional Fieldguide product overview
         col: col-16
-  - section: overview
-    items:
-      - text: "Role: product strategy, information architecture, interaction design, interface system, and prototyping."
-        col: col-md-8
-        text_class: prototype-text-card
-      - text: "Constraints: changing exhibits, shared devices, limited connectivity, multiple languages, and short visitor attention."
-        col: col-md-8
-        text_class: prototype-text-card
-  - section: development
+  - section: context
     caption:
-      title: Research and Requirements
-      text: "Landscape and portrait artifacts represent interviews, observation, content inventory, and prioritized requirements."
+      title: Visitors arrive with different questions
+      text: 'A changing exhibition schedule, limited connectivity, multilingual content, and short attention windows made a single linear guide ineffective. Visitors needed confidence to choose a route before they needed more content.'
     items:
       - image: /project/prototype-interactive-experience/img/research.svg
-        alt: "Research findings placeholder"
+        alt: Fictional visitor needs and research synthesis
         col: col-md-10
       - image: /project/prototype-interactive-experience/img/requirements.svg
-        alt: "Requirements list placeholder"
+        alt: Fictional product constraints and requirements
         col: col-md-6
-  - section: development
+  - section: concept
     caption:
-      title: Information Architecture
-      text: "A labeled hierarchy tests a full-width diagram section."
+      title: Concept — give every visitor a useful next step
+      text: 'Fieldguide turns a large collection into a sequence of confident choices. Instead of asking visitors to understand the whole museum, each moment offers a meaningful next destination, object, or story.'
+    items:
+      - text: 'Orientation is not a map of everything; it is confidence about what to do next.'
+        col: col-16
+        text_class: case-study-concept-statement
+  - section: structure
+    caption:
+      title: A collection organized around decisions
+      text: 'The information architecture groups collection content around routes, objects, and saved moments. Its hierarchy follows the concept: choose a direction, understand a place, then keep a thread for later.'
     items:
       - image: /project/prototype-interactive-experience/img/information-architecture.svg
-        alt: "Information architecture diagram placeholder"
+        alt: Fictional Fieldguide information architecture
         col: col-16
-  - section: development
+  - section: structure
     caption:
-      title: Primary User Flow
-      text: "The diagram follows a visitor from arrival through route selection, object discovery, saving, and sharing."
+      title: The primary route sequence
+      text: 'The core flow moves from arrival to route selection, object discovery, saving, and sharing. These wireframes show the structural decisions that make each next step visible.'
     items:
       - image: /project/prototype-interactive-experience/img/user-flow.svg
-        alt: "User flow diagram placeholder"
+        alt: Fictional primary visitor flow
         col: col-16
-  - section: development
-    caption:
-      title: Low-Fidelity Wireframes and Prototypes
-      text: "Three portrait screens test early navigation, object detail, saved-route concepts, and prototype refinement."
-    items:
       - image: /project/prototype-interactive-experience/img/wireframe-1.svg
-        alt: "Low fidelity navigation wireframe"
+        alt: Fictional route-selection wireframe
         col: col-md-5
       - image: /project/prototype-interactive-experience/img/wireframe-2.svg
-        alt: "Low fidelity object detail wireframe"
+        alt: Fictional object-detail wireframe
         col: col-md-6
       - image: /project/prototype-interactive-experience/img/wireframe-3.svg
-        alt: "Low fidelity saved route wireframe"
+        alt: Fictional saved-route wireframe
         col: col-md-5
   - section: system
     caption:
-      title: Components, Navigation, Typography, and Color
-      text: "Two documentation panels test component anatomy, navigation behavior, interaction rules, and visual tokens."
+      title: Components that preserve orientation
+      text: 'Component anatomy, navigation states, typography, and tokens make the same decision model repeat across routes, object pages, and shared-display contexts.'
     items:
       - image: /project/prototype-interactive-experience/img/components.svg
-        alt: "Interface components placeholder"
+        alt: Fictional interface component system
         col: col-md-8
       - image: /project/prototype-interactive-experience/img/interface-tokens.svg
-        alt: "Interface typography and color tokens placeholder"
+        alt: Fictional interface tokens
         col: col-md-8
   - section: system
     caption:
-      title: Accessibility and Responsive Behavior
-      text: "A full-width comparison represents focus order, contrast, touch targets, reduced motion, and responsive layouts."
+      title: Accessible, responsive behavior
+      text: 'Focus order, contrast, touch targets, reduced motion, and responsive states keep the next step legible across devices and visitor abilities.'
     items:
       - image: /project/prototype-interactive-experience/img/accessibility-responsive.svg
-        alt: "Accessibility and responsive considerations placeholder"
+        alt: Fictional accessibility and responsive system
         col: col-16
-  - section: system-in-use
+  - section: in-use
     caption:
-      title: Final Interface Screens and Interaction Sequences
-      text: "Three polished fictional screens test a presentation row with varied interface states and a controlled interaction sequence."
+      title: The guide during a visit
+      text: 'The final interface demonstrates realistic route decisions, object discovery, and saved moments rather than isolated screens.'
     items:
       - image: /project/prototype-interactive-experience/img/final-screen-1.svg
-        alt: "Final home interface placeholder"
+        alt: Fictional final home screen
         col: col-md-5
       - image: /project/prototype-interactive-experience/img/final-screen-2.svg
-        alt: "Final route interface placeholder"
+        alt: Fictional final route screen
         col: col-md-6
       - image: /project/prototype-interactive-experience/img/final-screen-3.svg
-        alt: "Final object interface placeholder"
+        alt: Fictional final object screen
         col: col-md-5
-  - section: system-in-use
+  - section: in-use
     caption:
-      title: Prototype and Installation Context
-      text: "A landscape scene represents the interface operating across a personal phone and an onsite interactive display."
+      title: Personal and shared contexts
+      text: 'The experience moves between a visitor’s phone and an onsite shared display without losing the route or the next useful action.'
     items:
       - image: /project/prototype-interactive-experience/img/installation.svg
-        alt: "Prototype installation context placeholder"
+        alt: Fictional Fieldguide installation context
         col: col-16
-  - section: collaborators
-    caption:
-      title: Collaborator Credits
-      text: "All names and roles below are fictional placeholders."
-    items:
-      - text: "Research — Prototype Experience Team\n\nContent — Prototype Museum Team\n\nProduct Design — Prototype Interface Team\n\nDevelopment — Prototype Technology Team"
-        col: col-md-10
-        text_class: prototype-text-card
 ---
 
 <div id="project" class="prototype-project mb-5">

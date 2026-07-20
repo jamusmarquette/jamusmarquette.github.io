@@ -5,9 +5,16 @@ $portfolio-sidebar-padding-y: 1.75rem;
 $portfolio-sidebar-row-size: 1.125rem;
 $portfolio-sidebar-supporting-size: 0.82rem;
 $portfolio-sidebar-icon-size: 1.5rem;
-$portfolio-sidebar-icon-gap: 0.8rem;
+$portfolio-sidebar-icon-gap: 1rem;
 $portfolio-sidebar-row-padding-x: 0.6rem;
-$portfolio-sidebar-filter-indent: $portfolio-sidebar-icon-size + $portfolio-sidebar-icon-gap;
+$portfolio-sidebar-icon-row-offset: -$portfolio-sidebar-row-padding-x;
+$portfolio-sidebar-icon-row-gap: $portfolio-sidebar-icon-gap;
+$portfolio-sidebar-active-bleed: 0.5rem;
+$portfolio-sidebar-filter-indent: $portfolio-sidebar-icon-size + $portfolio-sidebar-icon-row-gap - $portfolio-sidebar-row-padding-x;
+$portfolio-sidebar-filter-padding-y: 0.45rem;
+$portfolio-sidebar-filter-padding-x: 0.6rem;
+$portfolio-sidebar-filter-min-height: 2.75rem;
+$portfolio-sidebar-heading-filter-gap: 0.25rem;
 $portfolio-utility-row-height: 4rem;
 $portfolio-sidebar-active: rgba($primary, 0.055);
 $portfolio-sidebar-radius: 1rem;
@@ -61,7 +68,7 @@ $portfolio-sidebar-radius: 1rem;
 }
 
 .portfolio-work-group .portfolio-browser-tools {
-  margin: 0.4rem 0 0 $portfolio-sidebar-filter-indent;
+  margin: $portfolio-sidebar-heading-filter-gap 0 0 $portfolio-sidebar-filter-indent;
 }
 
 .portfolio-nav-link {
@@ -70,15 +77,16 @@ $portfolio-sidebar-radius: 1rem;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
   color: $primary;
-  column-gap: $portfolio-sidebar-icon-gap;
+  column-gap: $portfolio-sidebar-icon-row-gap;
   display: grid;
   font-size: $portfolio-sidebar-row-size;
   grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
   line-height: 1.2;
+  margin-left: $portfolio-sidebar-icon-row-offset;
   min-height: 2.75rem;
   padding: 0.45rem $portfolio-sidebar-row-padding-x;
   text-decoration: none;
-  width: 100%;
+  width: calc(100% + #{$portfolio-sidebar-row-padding-x});
 }
 
 .portfolio-nav-link:hover {
@@ -94,7 +102,12 @@ $portfolio-sidebar-radius: 1rem;
 
 .portfolio-work-group > .portfolio-nav-link.is-active {
   background: transparent;
+  color: $primary;
   font-weight: 400 !important;
+}
+
+.portfolio-shell.is-browser .portfolio-work-group > .portfolio-nav-link.is-active {
+  color: $white;
 }
 
 .portfolio-work-group > .portfolio-nav-link .portfolio-nav-label {
@@ -145,9 +158,18 @@ $portfolio-sidebar-radius: 1rem;
   display: block;
   font-size: $portfolio-sidebar-row-size;
   line-height: 1.25;
-  padding: 0.45rem $portfolio-sidebar-row-padding-x;
+  margin-left: -$portfolio-sidebar-active-bleed;
+  min-height: $portfolio-sidebar-filter-min-height;
+  padding: $portfolio-sidebar-filter-padding-y $portfolio-sidebar-filter-padding-x $portfolio-sidebar-filter-padding-y
+    ($portfolio-sidebar-filter-padding-x + $portfolio-sidebar-active-bleed);
   text-align: left;
-  width: 100%;
+  width: calc(100% + #{$portfolio-sidebar-active-bleed});
+}
+
+.portfolio-nav-link.is-active,
+.portfolio-category-filter.is-active,
+.portfolio-section-control.is-active {
+  color: $white;
 }
 
 .portfolio-category-filter:hover,
@@ -171,25 +193,32 @@ $portfolio-sidebar-radius: 1rem;
 .portfolio-section-navigation {
   border: 0;
   margin-left: $portfolio-sidebar-filter-indent;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   padding-top: 0;
 }
 
 .portfolio-current-project-title {
-  font-size: 1.05rem;
-  line-height: 1.25;
-  margin: 0 0 1.25rem !important;
-}
-
-.portfolio-section-navigation h2 {
-  font-size: $portfolio-sidebar-supporting-size;
-  letter-spacing: 0.08em;
-  margin: 0 0 0.65rem;
-  text-transform: uppercase;
+  align-items: start;
+  color: $white;
+  column-gap: $portfolio-sidebar-icon-row-gap;
+  display: grid;
+  font-size: $portfolio-sidebar-row-size;
+  grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
+  line-height: 1.2;
+  margin: 0 0 $portfolio-sidebar-heading-filter-gap (-$portfolio-sidebar-filter-indent - $portfolio-sidebar-row-padding-x) !important;
+  min-height: 2.75rem;
+  padding: 0.45rem $portfolio-sidebar-row-padding-x;
+  width: calc(100% + #{$portfolio-sidebar-filter-indent + $portfolio-sidebar-row-padding-x});
 }
 
 .portfolio-section-control {
   font-size: $portfolio-sidebar-row-size;
+}
+
+.portfolio-nav-icon--project-marker {
+  height: 1.1875rem;
+  margin-top: 0.08rem;
+  width: 1.1875rem;
 }
 
 .portfolio-sidebar__toggle {
@@ -198,11 +227,11 @@ $portfolio-sidebar-radius: 1rem;
   border: 0;
   bottom: 0;
   color: $primary;
-  column-gap: $portfolio-sidebar-icon-gap;
+  column-gap: $portfolio-sidebar-icon-row-gap;
   display: grid;
   font-size: $portfolio-sidebar-row-size;
   grid-template-columns: $portfolio-sidebar-icon-size auto;
-  left: $portfolio-sidebar-padding-x;
+  left: $portfolio-sidebar-padding-x + $portfolio-sidebar-icon-row-offset;
   line-height: 1.2;
   height: $portfolio-utility-row-height;
   padding: 0 $portfolio-sidebar-row-padding-x;
@@ -221,14 +250,17 @@ $portfolio-sidebar-radius: 1rem;
 }
 
 .is-sidebar-collapsed .portfolio-introduction-copy,
-.is-sidebar-collapsed .portfolio-nav-label,
 .is-sidebar-collapsed .portfolio-browser-tools,
 .is-sidebar-collapsed .portfolio-section-navigation,
+.is-sidebar-collapsed [data-work-count],
 .is-sidebar-collapsed [data-sidebar-toggle-label] {
   display: none;
 }
 
-.is-sidebar-collapsed .portfolio-nav-link,
+.is-sidebar-collapsed .portfolio-nav-link {
+  width: calc(100% + #{$portfolio-sidebar-row-padding-x});
+}
+
 .is-sidebar-collapsed .portfolio-sidebar__toggle {
   width: $portfolio-sidebar-icon-size;
 }

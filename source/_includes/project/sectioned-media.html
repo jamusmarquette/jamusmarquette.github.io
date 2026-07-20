@@ -1,48 +1,36 @@
-{% if page.sections %}
-  {% for section in page.sections %}
-    <section
-      class="prototype-project-section"
-      id="section-{{ section.id }}"
-      data-project-section="{{ section.id }}"
-      aria-labelledby="section-title-{{ section.id }}"
-    >
-      {% if section.id == 'overview' %}
-        {% include project/hero.html %}
-        {% include project/project-info.html hide_credits=true %}
-        {% if page.prototype %}
-          <div class="prototype-notice container-fluid" role="note">
-            DEVELOPMENT PROTOTYPE — FICTIONAL CONTENT — NOT PORTFOLIO WORK
-          </div>
-        {% endif %}
-      {% endif %}
+{% if page.sections %} {% for section in page.sections %}
+<section
+  class="prototype-project-section"
+  id="section-{{ section.id }}"
+  data-project-section="{{ section.id }}"
+  aria-labelledby="section-title-{{ section.id }}"
+>
+  {% if section.id == 'overview' %} {% include project/hero.html %} {% include project/project-info.html
+  hide_credits=true %} {% if page.prototype %}
+  <div class="prototype-notice container-fluid" role="note">
+    Development Prototype — Fictional Content — Not Portfolio Work
+  </div>
+  {% endif %} {% endif %}
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-16">
-            <h2 id="section-title-{{ section.id }}">{{ section.label }}</h2>
-          </div>
-        </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-16">
+        <h2 id="section-title-{{ section.id }}">{{ section.label }}</h2>
       </div>
+    </div>
+  </div>
 
-      {% for row in page.media_rows %}
-        {% if row.section == section.id %}
-          <div class="container-fluid">
-            {% include project/media-row.html row=row %}
-          </div>
-        {% endif %}
-      {% endfor %}
-
-      {% if section.component == 'font-specimen' %}
-        {% include project/font-specimen.html %}
-      {% endif %}
-
-      {% if section.id == 'collaborators' %}
-        <div class="container-fluid project-credits-section">
-          <div class="row">
-            {% include project/credits.html %}
-          </div>
-        </div>
-      {% endif %}
-    </section>
-  {% endfor %}
-{% endif %}
+  {% for row in page.media_rows %} {% if row.section == section.id %}
+  <div class="container-fluid">{% include project/media-row.html row=row %}</div>
+  {% endif %} {% endfor %} {% if section.guidance %}
+  <div class="container-fluid case-study-guidance">
+    {% for block in section.guidance %}
+    <div class="case-study-guidance__{{ block.type | default: 'examples' }}">
+      <h3>{{ block.label }}</h3>
+      <p>{{ block.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %} {% if section.component == 'font-specimen' %} {% include project/font-specimen.html %} {% endif %}
+</section>
+{% endfor %} {% endif %}

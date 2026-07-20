@@ -5,11 +5,9 @@
     <div class="portfolio-sidebar__body">
       <p class="portfolio-introduction-block">
         <span class="portfolio-wordmark">JAMUS</span>
-        {% if is_browser %}
         <span class="portfolio-introduction-copy">
           creates unique, concept-driven systems, products, and experiences built to communicate, connect, and grow.
         </span>
-        {% endif %}
       </p>
 
       <nav class="portfolio-primary-nav" aria-label="Primary">
@@ -75,6 +73,45 @@
           </section>
           {% endif %}
         </div>
+
+        {% if page.sections and page.sections.size > 1 %}
+      <section
+        class="portfolio-section-navigation"
+        aria-labelledby="portfolio-section-navigation-title"
+        data-section-navigation
+      >
+        <p class="portfolio-current-project-title" id="portfolio-section-navigation-title">
+          <svg
+            class="portfolio-nav-icon portfolio-nav-icon--project-marker"
+            viewBox="0 0 19 19"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M0.375 9.5H18.625" stroke="currentColor" stroke-width="0.75" />
+          </svg>
+          <span>{{ page.title }}</span>
+        </p>
+        <button
+          type="button"
+          class="portfolio-section-control is-active"
+          data-section-control="all"
+          aria-pressed="true"
+        >
+          All Sections
+        </button>
+        {% for section in page.sections %}
+        <button
+          type="button"
+          class="portfolio-section-control"
+          data-section-control="{{ section.id }}"
+          aria-pressed="false"
+        >
+          {{ section.label }}
+        </button>
+        {% endfor %}
+      </section>
+        {% endif %}
         <!-- prettier-ignore -->
         <a
           href="{{ '/information/' | relative_url }}"
@@ -107,35 +144,6 @@
           <span class="portfolio-nav-label">Info</span>
         </a>
       </nav>
-
-      {% if page.sections and page.sections.size > 1 %}
-      <nav
-        class="portfolio-section-navigation"
-        aria-labelledby="portfolio-section-navigation-title"
-        data-section-navigation
-      >
-        <p class="portfolio-current-project-title">{{ page.title }}</p>
-        <h2 id="portfolio-section-navigation-title">Filter by section</h2>
-        <button
-          type="button"
-          class="portfolio-section-control is-active"
-          data-section-control="all"
-          aria-pressed="true"
-        >
-          All
-        </button>
-        {% for section in page.sections %}
-        <button
-          type="button"
-          class="portfolio-section-control"
-          data-section-control="{{ section.id }}"
-          aria-pressed="false"
-        >
-          {{ section.label }}
-        </button>
-        {% endfor %}
-      </nav>
-      {% endif %}
     </div>
     <button
       class="portfolio-sidebar__toggle"

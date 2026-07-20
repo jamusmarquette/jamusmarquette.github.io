@@ -1,7 +1,7 @@
 ---
 layout: project
-title: "DEVELOPMENT PROTOTYPE — Northstar Identity System"
-page_label: "Prototype: Brand System"
+title: 'Development Prototype Northstar Identity System'
+page_label: 'Prototype: Brand System'
 permalink: /project/prototype-brand-system/
 order: 901
 featured: false
@@ -13,114 +13,114 @@ thumbnail: /project/prototype-brand-system/img/thumbnail.svg
 hero_type: full-image
 hero: /project/prototype-brand-system/img/hero.svg
 description:
-  - "Development-only fictional branding case study for testing a future project-section system. This is not real portfolio work."
-  - "Northstar is a fictional cultural organization used to represent a complete identity-system narrative from research through application."
-credits_title: Prototype status
-credits:
-  - role: Content and artwork
-    name: Fictional placeholders for interface development only
+  - 'Northstar is a fictional identity system for a regional cultural organization connecting public programs, publications, and digital services.'
+project_facts:
+  - label: Client
+    value: Northstar Cultural Network (fictional)
+  - label: Role
+    value: Strategy, identity, typography, and applications
+  - label: Year
+    value: Development example, 2026
+  - label: Team
+    value: Fictional identity, editorial, and production collaborators
+  - label: Status
+    value: Development prototype — not portfolio work
 sections:
   - id: overview
     label: Overview
-  - id: development
-    label: Development
+  - id: context
+    label: Context
+  - id: concept
+    label: Concept
+  - id: structure
+    label: Structure
   - id: system
     label: System
-  - id: system-in-use
-    label: System in Use
-  - id: collaborators
-    label: Collaborators
+  - id: in-use
+    label: In Use
 media_rows:
   - section: overview
     caption:
-      title: Project Summary
-      text: "A fictional identity refresh designed to help a regional cultural organization communicate with clarity across public programs, publications, and digital services."
+      title: A cultural network with one public voice
+      text: 'This fictional case study tests a concise orientation: what Northstar is, who the system serves, and the role of a shared identity across many programs.'
     items:
       - image: /project/prototype-brand-system/img/overview-summary.svg
-        alt: "Placeholder summarizing the fictional brand challenge, role, and scope"
+        alt: Fictional Northstar identity project summary
         col: col-16
-  - section: overview
-    items:
-      - text: "Challenge: unify an inconsistent family of programs without erasing their individual character."
-        col: col-md-8
-        text_class: prototype-text-card
-      - text: "Role and scope: strategy, identity, typography, color, layout, applications, and implementation guidance."
-        col: col-md-8
-        text_class: prototype-text-card
-  - section: development
+  - section: context
     caption:
-      title: Background, Research, Visual References, and Moodboards
-      text: "Landscape placeholders represent archival research, stakeholder language, visual references, category observations, and moodboard directions."
+      title: A fragmented public experience
+      text: 'Northstar’s venues, classes, and publications had accumulated distinct visual habits. Visitors could recognize individual events but not the network that connected them. The identity needed to make a broad offer legible without flattening local character.'
     items:
       - image: /project/prototype-brand-system/img/research-a.svg
-        alt: "Research and reference board placeholder"
+        alt: Fictional audience and communications research board
         col: col-md-8
       - image: /project/prototype-brand-system/img/research-b.svg
-        alt: "Historical material placeholder"
+        alt: Fictional archival and competitive context board
         col: col-md-8
-  - section: development
+  - section: concept
     caption:
-      title: Sketches, Early Concepts, and Alternate Directions
-      text: "Three portrait studies test symbol construction, wordmark rhythm, early concepts, and alternate graphic directions."
+      title: Concept — a constellation, not a monolith
+      text: 'The system treats every program as a visible point in a larger cultural field. A shared directional logic makes relationships apparent while allowing each program to retain its own tone.'
+    items:
+      - text: 'A recognizable center is useful only when it helps people find the many things around it.'
+        col: col-16
+        text_class: case-study-concept-statement
+  - section: structure
+    caption:
+      title: Hierarchy follows proximity
+      text: 'The mark, naming hierarchy, and layouts organize information as linked coordinates: the network leads, a program identifies itself, and a specific event becomes easy to locate. The sketches show only the choices that established this relationship.'
     items:
       - image: /project/prototype-brand-system/img/sketch-1.svg
-        alt: "Early logo sketch placeholder one"
+        alt: Fictional identity hierarchy sketch
         col: col-md-5
       - image: /project/prototype-brand-system/img/sketch-2.svg
-        alt: "Early logo sketch placeholder two"
+        alt: Fictional logo construction study
         col: col-md-6
       - image: /project/prototype-brand-system/img/sketch-3.svg
-        alt: "Early logo sketch placeholder three"
+        alt: Fictional layout composition study
         col: col-md-5
-  - section: system
+  - section: structure
     caption:
-      title: Logo System
-      text: "A flexible fictional mark shown as a primary signature, compact symbol, and responsive lockup."
+      title: A responsive identity hierarchy
+      text: 'The logo system is structured to move from a full network signature to compact program and event lockups without losing the relationship between them.'
     items:
       - image: /project/prototype-brand-system/img/logo-system.svg
-        alt: "Logo system placeholder"
+        alt: Fictional responsive logo hierarchy
         col: col-16
   - section: system
     caption:
-      title: Typography and Color
-      text: "Two equal modules test side-by-side system documentation."
+      title: Repeatable visual rules
+      text: 'Typography, color, image behavior, and graphic elements turn the structural idea into a usable language. The rules make consistency possible across teams while leaving room for program-specific expression.'
     items:
       - image: /project/prototype-brand-system/img/type-system.svg
-        alt: "Typography system placeholder"
+        alt: Fictional typography system
         col: col-md-8
       - image: /project/prototype-brand-system/img/color-system.svg
-        alt: "Color palette placeholder"
+        alt: Fictional color system
         col: col-md-8
   - section: system
     caption:
-      title: Graphic Elements and Layout Principles
-      text: "A full-width rules diagram demonstrates grid, spacing, image behavior, and supporting graphic elements."
+      title: Layout as a shared behavior
+      text: 'The grid, spacing, and image rules define how the system scales from a single announcement to a full season of communication.'
     items:
       - image: /project/prototype-brand-system/img/layout-system.svg
-        alt: "Graphic elements and layout principles placeholder"
+        alt: Fictional identity layout rules
         col: col-16
-  - section: system-in-use
+  - section: in-use
     caption:
-      title: Print, Digital, and Environmental Applications
-      text: "Three application families test a mixed three-column row."
+      title: The network operating in public
+      text: 'The same hierarchy performs differently in print, digital scheduling, and environmental wayfinding while retaining the sense that every touchpoint belongs to one connected cultural field.'
     items:
       - image: /project/prototype-brand-system/img/application-print.svg
-        alt: "Print application placeholder"
+        alt: Fictional print application
         col: col-md-5
       - image: /project/prototype-brand-system/img/application-digital.svg
-        alt: "Digital application placeholder"
+        alt: Fictional digital application
         col: col-md-6
       - image: /project/prototype-brand-system/img/application-environment.svg
-        alt: "Environmental application placeholder"
+        alt: Fictional environmental application
         col: col-md-5
-  - section: collaborators
-    caption:
-      title: Collaborator Credits
-      text: "All names and roles below are fictional placeholders."
-    items:
-      - text: "Strategy — Prototype Research Team\n\nDesign — Prototype Identity Team\n\nWriting — Prototype Editorial Team\n\nProduction — Prototype Applications Team"
-        col: col-md-10
-        text_class: prototype-text-card
 ---
 
 <div id="project" class="prototype-project mb-5">
