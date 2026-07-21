@@ -10,7 +10,8 @@ $portfolio-sidebar-row-padding-x: 0.6rem;
 $portfolio-sidebar-icon-row-offset: -$portfolio-sidebar-row-padding-x;
 $portfolio-sidebar-icon-row-gap: $portfolio-sidebar-icon-gap;
 $portfolio-sidebar-active-bleed: 0.5rem;
-$portfolio-sidebar-filter-indent: $portfolio-sidebar-icon-size + $portfolio-sidebar-icon-row-gap - $portfolio-sidebar-row-padding-x;
+$portfolio-sidebar-filter-indent: $portfolio-sidebar-icon-size + $portfolio-sidebar-icon-row-gap -
+  $portfolio-sidebar-row-padding-x;
 $portfolio-sidebar-filter-padding-y: 0.45rem;
 $portfolio-sidebar-filter-padding-x: 0.6rem;
 $portfolio-sidebar-filter-min-height: 2.75rem;
@@ -204,8 +205,9 @@ $portfolio-sidebar-radius: 1rem;
   display: grid;
   font-size: $portfolio-sidebar-row-size;
   grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
-  line-height: 1.2;
-  margin: 0 0 $portfolio-sidebar-heading-filter-gap (-$portfolio-sidebar-filter-indent - $portfolio-sidebar-row-padding-x) !important;
+  line-height: 1.5;
+  margin: 0 0 $portfolio-sidebar-heading-filter-gap
+    (-$portfolio-sidebar-filter-indent - $portfolio-sidebar-row-padding-x) !important;
   min-height: 2.75rem;
   padding: 0.45rem $portfolio-sidebar-row-padding-x;
   width: calc(100% + #{$portfolio-sidebar-filter-indent + $portfolio-sidebar-row-padding-x});

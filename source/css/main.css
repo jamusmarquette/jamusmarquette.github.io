@@ -14986,7 +14986,7 @@ video {
   display: grid;
   font-size: 1.125rem;
   grid-template-columns: 1.5rem minmax(0, 1fr);
-  line-height: 1.2;
+  line-height: 1.5;
   margin: 0 0 0.25rem -2.5rem !important;
   min-height: 2.75rem;
   padding: 0.45rem 0.6rem;
