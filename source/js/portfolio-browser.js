@@ -5,7 +5,6 @@
   const storageKey = 'portfolio-sidebar-collapsed';
   const defaultColumns = 5;
   const sidebarToggle = shell.querySelector('[data-sidebar-toggle]');
-  const sidebarToggleLabel = shell.querySelector('[data-sidebar-toggle-label]');
   const mobileToggle = shell.querySelector('[data-mobile-sidebar-toggle]');
   const backdrop = shell.querySelector('[data-sidebar-backdrop]');
   const browser = shell.querySelector('[data-project-browser]');
@@ -24,7 +23,6 @@
     sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
     sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
     sidebarToggle.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
-    sidebarToggleLabel.textContent = collapsed ? 'Expand' : 'Collapse';
     localStorage.setItem(storageKey, String(collapsed));
   }
 

@@ -14821,28 +14821,40 @@ video {
 }
 
 .portfolio-sidebar__body {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   min-width: 0;
   overflow: auto;
-  padding: 1.75rem 1.25rem 5.75rem;
-  width: 22rem;
+  padding: 1.75rem 1.25rem 0.625rem;
+  width: var(--portfolio-sidebar-width);
 }
 
 .portfolio-wordmark {
   font-weight: 700 !important;
 }
 
+.portfolio-sidebar__identity {
+  align-items: start;
+  column-gap: 0.4rem;
+  display: grid;
+  grid-template-columns: 2.7rem minmax(0, 1fr);
+  margin: 0 0 2.25rem -0.6rem;
+  min-height: 4.725rem;
+}
+
 .portfolio-introduction-block {
   font-size: 1.125rem;
   line-height: 1.4;
-  margin-bottom: 2.25rem !important;
+  margin: 0 !important;
+  max-width: 14rem;
 }
 
 .portfolio-primary-nav {
   display: flex;
   flex-direction: column;
   gap: 1.125rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
 }
 
 .portfolio-work-group {
@@ -14870,6 +14882,16 @@ video {
   padding: 0.45rem 0.6rem;
   text-decoration: none;
   width: calc(100% + 0.6rem);
+}
+
+.portfolio-nav-link--instagram {
+  margin-top: auto;
+  opacity: 0.72;
+}
+
+.portfolio-nav-link--instagram:hover,
+.portfolio-nav-link--instagram:focus-visible {
+  opacity: 1;
 }
 
 .portfolio-nav-link:hover {
@@ -14923,6 +14945,12 @@ video {
 .portfolio-nav-icon--collapse {
   height: 1.125rem;
   width: 1.375rem;
+}
+
+.portfolio-nav-icon--instagram {
+  height: 1.5625rem;
+  margin-top: 0.08rem;
+  width: 1.5625rem;
 }
 
 .portfolio-category-filters,
@@ -15007,18 +15035,13 @@ video {
   align-items: center;
   background: transparent;
   border: 0;
-  bottom: 0;
   color: #c7c7c7;
-  column-gap: 1rem;
+  cursor: pointer;
   display: grid;
-  font-size: 1.125rem;
-  grid-template-columns: 1.5rem auto;
-  left: 0.65rem;
-  line-height: 1.2;
-  height: 4rem;
-  padding: 0 0.6rem;
-  position: absolute;
-  white-space: nowrap;
+  height: 2.7rem;
+  padding: 0.225rem 0 0;
+  place-items: start center;
+  width: 2.7rem;
 }
 
 .portfolio-presentation {
@@ -15028,23 +15051,62 @@ video {
 }
 
 .portfolio-shell.is-sidebar-collapsed {
-  --portfolio-sidebar-width: 8rem;
+  --portfolio-sidebar-width: 4rem;
 }
 
-.is-sidebar-collapsed .portfolio-introduction-copy,
+.is-sidebar-collapsed .portfolio-nav-link .portfolio-nav-label,
 .is-sidebar-collapsed .portfolio-browser-tools,
 .is-sidebar-collapsed .portfolio-section-navigation,
-.is-sidebar-collapsed [data-work-count],
-.is-sidebar-collapsed [data-sidebar-toggle-label] {
+.is-sidebar-collapsed [data-work-count] {
   display: none;
 }
 
+.is-sidebar-collapsed .portfolio-introduction-block {
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
+}
+
 .is-sidebar-collapsed .portfolio-nav-link {
-  width: calc(100% + 0.6rem);
+  align-items: center;
+  display: grid;
+  height: 2.7rem;
+  margin: 0 auto;
+  min-height: 0;
+  padding: 0;
+  place-items: center;
+  grid-template-columns: 1fr;
+  width: 2.7rem;
+}
+
+.is-sidebar-collapsed .portfolio-sidebar__body {
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.is-sidebar-collapsed .portfolio-sidebar__identity {
+  display: grid;
+  margin: 0 0 2.25rem 0.65rem;
+  min-height: 4.725rem;
+  text-align: left;
+  width: calc( 22rem - (2 * 1.25rem) + 0.6rem );
 }
 
 .is-sidebar-collapsed .portfolio-sidebar__toggle {
-  width: 1.5rem;
+  margin: 0 auto;
+}
+
+.is-sidebar-collapsed .portfolio-primary-nav {
+  gap: 0.4rem;
+}
+
+.is-sidebar-collapsed .portfolio-nav-link--instagram {
+  margin-top: auto;
+}
+
+.is-sidebar-collapsed .portfolio-nav-link.is-active {
+  background: transparent;
 }
 
 .portfolio-mobile-toggle,
@@ -15196,23 +15258,12 @@ video {
     width: 22rem;
   }
 
-  .is-sidebar-collapsed .portfolio-introduction-copy,
-.is-sidebar-collapsed .portfolio-nav-label,
-.is-sidebar-collapsed [data-sidebar-toggle-label] {
-    display: inline;
+  .portfolio-sidebar__body {
+    width: 22rem;
   }
 
-  .is-sidebar-collapsed .portfolio-browser-tools {
-    display: block;
-  }
-
-  .is-sidebar-collapsed .portfolio-section-navigation {
-    display: flex;
-  }
-
-  .is-sidebar-collapsed .portfolio-nav-link,
-.is-sidebar-collapsed .portfolio-sidebar__toggle {
-    width: auto;
+  .is-sidebar-collapsed .portfolio-sidebar__body {
+    width: 4rem;
   }
 
   .portfolio-presentation {
