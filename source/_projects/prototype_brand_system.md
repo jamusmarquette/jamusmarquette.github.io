@@ -26,8 +26,6 @@ project_facts:
   - label: Status
     value: Development prototype — not portfolio work
 sections:
-  - id: overview
-    label: Overview
   - id: context
     label: Context
   - id: concept
@@ -38,15 +36,15 @@ sections:
     label: System
   - id: in-use
     label: In Use
-media_rows:
-  - section: overview
-    caption:
+introduction_rows:
+  - caption:
       title: A cultural network with one public voice
       text: 'This fictional case study tests a concise orientation: what Northstar is, who the system serves, and the role of a shared identity across many programs.'
     items:
       - image: /project/prototype-brand-system/img/overview-summary.svg
         alt: Fictional Northstar identity project summary
         col: col-16
+media_rows:
   - section: context
     caption:
       title: A fragmented public experience

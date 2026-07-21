@@ -26,8 +26,6 @@ project_facts:
   - label: Status
     value: Development prototype — not portfolio work
 sections:
-  - id: overview
-    label: Overview
   - id: context
     label: Context
   - id: concept
@@ -38,15 +36,15 @@ sections:
     label: System
   - id: in-use
     label: In Use
-media_rows:
-  - section: overview
-    caption:
+introduction_rows:
+  - caption:
       title: A guide for a changing visit
       text: 'A fictional responsive product for first-time visitors, families, educators, and onsite staff across personal devices and shared displays.'
     items:
       - image: /project/prototype-interactive-experience/img/overview.svg
         alt: Fictional Fieldguide product overview
         col: col-16
+media_rows:
   - section: context
     caption:
       title: Visitors arrive with different questions

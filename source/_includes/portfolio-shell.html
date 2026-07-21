@@ -27,7 +27,7 @@
         <p class="portfolio-introduction-block">
           <span class="portfolio-wordmark">JAMUS</span>
           <span class="portfolio-introduction-copy">
-            creates concept-driven systems, products, and experiences.
+            creates scalable concept-driven systems, products, and experiences.
           </span>
         </p>
       </div>
@@ -97,42 +97,42 @@
         </div>
 
         {% if page.sections and page.sections.size > 1 %}
-      <section
-        class="portfolio-section-navigation"
-        aria-labelledby="portfolio-section-navigation-title"
-        data-section-navigation
-      >
-        <p class="portfolio-current-project-title" id="portfolio-section-navigation-title">
-          <svg
-            class="portfolio-nav-icon portfolio-nav-icon--project-marker"
-            viewBox="0 0 19 19"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
+        <section
+          class="portfolio-section-navigation"
+          aria-labelledby="portfolio-section-navigation-title"
+          data-section-navigation
+        >
+          <p class="portfolio-current-project-title" id="portfolio-section-navigation-title">
+            <svg
+              class="portfolio-nav-icon portfolio-nav-icon--project-marker"
+              viewBox="0 0 19 19"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M0.375 9.5H18.625" stroke="currentColor" stroke-width="0.75" />
+            </svg>
+            <span>{{ page.title }}</span>
+          </p>
+          <button
+            type="button"
+            class="portfolio-section-control is-active"
+            data-section-control="all"
+            aria-pressed="true"
           >
-            <path d="M0.375 9.5H18.625" stroke="currentColor" stroke-width="0.75" />
-          </svg>
-          <span>{{ page.title }}</span>
-        </p>
-        <button
-          type="button"
-          class="portfolio-section-control is-active"
-          data-section-control="all"
-          aria-pressed="true"
-        >
-          All Sections
-        </button>
-        {% for section in page.sections %}
-        <button
-          type="button"
-          class="portfolio-section-control"
-          data-section-control="{{ section.id }}"
-          aria-pressed="false"
-        >
-          {{ section.label }}
-        </button>
-        {% endfor %}
-      </section>
+            Overview
+          </button>
+          {% for section in page.sections %}
+          <button
+            type="button"
+            class="portfolio-section-control"
+            data-section-control="{{ section.id }}"
+            aria-pressed="false"
+          >
+            {{ section.label }}
+          </button>
+          {% endfor %}
+        </section>
         {% endif %}
         <!-- prettier-ignore -->
         <a
@@ -181,9 +181,21 @@
           aria-hidden="true"
           focusable="false"
         >
-          <path d="M12.5264 1.83008C15.8895 1.83008 16.2832 1.84297 17.6025 1.90332C18.7907 1.95797 19.4178 2.15398 19.8252 2.31152L19.8311 2.31445C20.3251 2.49618 20.7743 2.78741 21.1416 3.16602L21.1494 3.17383C21.5284 3.54145 21.8204 3.98884 22.002 4.48438L22.0039 4.49023C22.1614 4.89753 22.3584 5.52636 22.4131 6.71289C22.4735 8.03266 22.4863 8.42628 22.4863 11.79C22.4863 15.1532 22.4734 15.5469 22.4131 16.8662C22.3584 18.0546 22.1615 18.6815 22.0039 19.0889V19.0898C21.6189 20.0906 20.8272 20.8802 19.8252 21.2676C19.4688 21.4054 18.9431 21.573 18.0225 21.6494L17.6025 21.6768C16.2832 21.7371 15.8895 21.75 12.5264 21.75C9.1626 21.75 8.76899 21.7371 7.44922 21.6768C6.26068 21.6221 5.63394 21.4251 5.22656 21.2676L5.2207 21.2656L5.03809 21.1924C4.61603 21.0096 4.23163 20.7445 3.91016 20.4131H3.91113L3.90234 20.4053C3.5235 20.0377 3.23233 19.5911 3.05078 19.0957L3.04785 19.0889C2.91003 18.7325 2.74241 18.2066 2.66602 17.2861L2.63965 16.8662C2.5793 15.5469 2.56641 15.1532 2.56641 11.79C2.56641 8.42628 2.57928 8.03266 2.63965 6.71289C2.69433 5.52436 2.89028 4.89761 3.04785 4.49023L3.05078 4.48438C3.23248 3.99053 3.52295 3.54101 3.90137 3.17383L3.90234 3.1748L3.91016 3.16602C4.27777 2.78703 4.72517 2.49602 5.2207 2.31445L5.22656 2.31152C5.63386 2.15399 6.2627 1.95801 7.44922 1.90332C8.76899 1.84295 9.1626 1.83008 12.5264 1.83008Z" stroke="currentColor" stroke-width="0.75" />
-          <path d="M12.1621 7.68359C14.6341 7.68379 16.6357 9.68761 16.6357 12.1602C16.6355 14.6067 14.6731 16.5927 12.2363 16.6338H12.1592C9.68707 16.6337 7.68555 14.6298 7.68555 12.1572C7.68563 9.68512 9.6895 7.68359 12.1621 7.68359Z" stroke="currentColor" stroke-width="0.75" />
-          <path d="M18.5 4.5332C19.1218 4.5332 19.625 5.03636 19.625 5.6582C19.625 6.28004 19.1218 6.7832 18.5 6.7832C17.8782 6.7832 17.375 6.28004 17.375 5.6582C17.375 5.03636 17.8782 4.5332 18.5 4.5332Z" stroke="currentColor" stroke-width="0.75" />
+          <path
+            d="M12.5264 1.83008C15.8895 1.83008 16.2832 1.84297 17.6025 1.90332C18.7907 1.95797 19.4178 2.15398 19.8252 2.31152L19.8311 2.31445C20.3251 2.49618 20.7743 2.78741 21.1416 3.16602L21.1494 3.17383C21.5284 3.54145 21.8204 3.98884 22.002 4.48438L22.0039 4.49023C22.1614 4.89753 22.3584 5.52636 22.4131 6.71289C22.4735 8.03266 22.4863 8.42628 22.4863 11.79C22.4863 15.1532 22.4734 15.5469 22.4131 16.8662C22.3584 18.0546 22.1615 18.6815 22.0039 19.0889V19.0898C21.6189 20.0906 20.8272 20.8802 19.8252 21.2676C19.4688 21.4054 18.9431 21.573 18.0225 21.6494L17.6025 21.6768C16.2832 21.7371 15.8895 21.75 12.5264 21.75C9.1626 21.75 8.76899 21.7371 7.44922 21.6768C6.26068 21.6221 5.63394 21.4251 5.22656 21.2676L5.2207 21.2656L5.03809 21.1924C4.61603 21.0096 4.23163 20.7445 3.91016 20.4131H3.91113L3.90234 20.4053C3.5235 20.0377 3.23233 19.5911 3.05078 19.0957L3.04785 19.0889C2.91003 18.7325 2.74241 18.2066 2.66602 17.2861L2.63965 16.8662C2.5793 15.5469 2.56641 15.1532 2.56641 11.79C2.56641 8.42628 2.57928 8.03266 2.63965 6.71289C2.69433 5.52436 2.89028 4.89761 3.04785 4.49023L3.05078 4.48438C3.23248 3.99053 3.52295 3.54101 3.90137 3.17383L3.90234 3.1748L3.91016 3.16602C4.27777 2.78703 4.72517 2.49602 5.2207 2.31445L5.22656 2.31152C5.63386 2.15399 6.2627 1.95801 7.44922 1.90332C8.76899 1.84295 9.1626 1.83008 12.5264 1.83008Z"
+            stroke="currentColor"
+            stroke-width="0.75"
+          />
+          <path
+            d="M12.1621 7.68359C14.6341 7.68379 16.6357 9.68761 16.6357 12.1602C16.6355 14.6067 14.6731 16.5927 12.2363 16.6338H12.1592C9.68707 16.6337 7.68555 14.6298 7.68555 12.1572C7.68563 9.68512 9.6895 7.68359 12.1621 7.68359Z"
+            stroke="currentColor"
+            stroke-width="0.75"
+          />
+          <path
+            d="M18.5 4.5332C19.1218 4.5332 19.625 5.03636 19.625 5.6582C19.625 6.28004 19.1218 6.7832 18.5 6.7832C17.8782 6.7832 17.375 6.28004 17.375 5.6582C17.375 5.03636 17.8782 4.5332 18.5 4.5332Z"
+            stroke="currentColor"
+            stroke-width="0.75"
+          />
         </svg>
         <span class="portfolio-nav-label">@jamusmarquette</span>
       </a>

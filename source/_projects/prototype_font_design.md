@@ -27,8 +27,6 @@ project_facts:
   - label: Attribution
     value: Inter Project Authors — SIL Open Font License 1.1
 sections:
-  - id: overview
-    label: Overview
   - id: context
     label: Context
   - id: concept
@@ -40,15 +38,15 @@ sections:
   - id: in-use
     label: In Use
     component: font-specimen
-media_rows:
-  - section: overview
-    caption:
+introduction_rows:
+  - caption:
       title: A variable family for public language
       text: 'This fictional type-design case study tests how a family can explain its purpose, formal logic, and practical range before presenting specimens.'
     items:
       - image: /project/prototype-font-design/img/overview.svg
         alt: Fictional Meridian variable typeface overview
         col: col-16
+media_rows:
   - section: context
     caption:
       title: One voice across unlike reading conditions

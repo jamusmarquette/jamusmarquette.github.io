@@ -1,17 +1,37 @@
-{% if page.sections %} {% for section in page.sections %}
+{% if page.sections %}
+<div class="project-introduction" data-project-introduction>
+  {% include project/hero.html %}
+  {% include project/project-info.html hide_credits=true %}
+
+  {% if page.prototype %}
+  <div class="prototype-notice container-fluid" role="note">
+    Development Prototype — Fictional Content — Not Portfolio Work
+  </div>
+  {% endif %}
+
+  {% for row in page.introduction_rows %}
+  <div class="container-fluid">{% include project/media-row.html row=row %}</div>
+  {% endfor %}
+
+  {% if page.introduction_guidance %}
+  <div class="container-fluid case-study-guidance">
+    {% for block in page.introduction_guidance %}
+    <div class="case-study-guidance__{{ block.type | default: 'examples' }}">
+      <h3>{{ block.label }}</h3>
+      <p>{{ block.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+{% for section in page.sections %}
 <section
   class="prototype-project-section"
   id="section-{{ section.id }}"
   data-project-section="{{ section.id }}"
   aria-labelledby="section-title-{{ section.id }}"
 >
-  {% if section.id == 'overview' %} {% include project/hero.html %} {% include project/project-info.html
-  hide_credits=true %} {% if page.prototype %}
-  <div class="prototype-notice container-fluid" role="note">
-    Development Prototype — Fictional Content — Not Portfolio Work
-  </div>
-  {% endif %} {% endif %}
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-16">
@@ -33,4 +53,5 @@
   </div>
   {% endif %} {% if section.component == 'font-specimen' %} {% include project/font-specimen.html %} {% endif %}
 </section>
-{% endfor %} {% endif %}
+{% endfor %}
+{% endif %}

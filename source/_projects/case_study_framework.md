@@ -9,35 +9,33 @@ prototype: true
 section_default: all
 thumbnail: /project/case-study-framework/img/thumbnail.svg
 description:
-  - "A reference page showing what belongs in each section of a JAMUS project case study. This is a development reference, not client work or a portfolio project."
+  - "A reference page showing what belongs in a JAMUS project introduction and each conceptual section. This is a development reference, not client work or a portfolio project."
 project_facts:
   - label: Purpose
     value: Authoring reference for future case studies
   - label: Method
-    value: Overview → Context → Concept → Structure → System → In Use
+    value: Project introduction → Context → Concept → Structure → System → In Use
   - label: Status
     value: Development reference — not portfolio work
   - label: Central logic
     value: Ideas become structures. Structures become systems. Systems become experiences.
+introduction_guidance:
+  - type: purpose
+    label: Purpose
+    text: "Orient the visitor before the conceptual narrative begins. The introduction answers: What is this project? Treat it like the cover of a book, not a selectable chapter."
+  - type: questions
+    label: Questions to answer
+    text: "What is it? Who is it for? What was the role, year, team, status, and relevant scope?"
+  - type: examples
+    label: Content that belongs here
+    text: "Hero, concise summary, client, role, team, tools, technologies, links, and compact credit information."
+  - type: avoid
+    label: Does not belong here
+    text: "A conceptual essay, a process chronology, or a gallery of final applications."
+  - type: review-question
+    label: Review question
+    text: "Could a visitor identify the project before choosing a section?"
 sections:
-  - id: overview
-    label: Overview
-    guidance:
-      - type: purpose
-        label: Purpose
-        text: "Orient the visitor. Overview answers: What is this project? Treat it like the cover of a book, not its first chapter."
-      - type: questions
-        label: Questions to answer
-        text: "What is it? Who is it for? What was the role, year, team, status, and relevant scope?"
-      - type: examples
-        label: Content that belongs here
-        text: "Hero, concise summary, client, role, team, tools, technologies, links, and compact credit information."
-      - type: avoid
-        label: Does not belong here
-        text: "A conceptual essay, a process chronology, or a gallery of final applications."
-      - type: review-question
-        label: Review question
-        text: "Could a visitor identify the project before reading another section?"
   - id: context
     label: Context
     guidance:
@@ -128,13 +126,12 @@ sections:
       - type: review-question
         label: Review question
         text: "Can a visitor understand how the system performs rather than merely how it looks?"
-media_rows:
-  - section: overview
-    caption:
-      title: A methodology for examining ideas in use
-      text: "Overview → Context → Concept → Structure → System → In Use. The portfolio is an environment for examining how ideas become structures, systems, and experiences."
+introduction_rows:
+  - caption:
+      title: A factual introduction before the conceptual narrative
+      text: "Project introduction → Context → Concept → Structure → System → In Use. The introduction is always part of All Sections, but it is not a selectable section."
     items:
-      - text: "This project was not designed this way because it looked good. It was designed this way because the concept demanded it."
+      - text: "Ideas become structures. Structures become systems. Systems become experiences. This project was not designed this way because it looked good. It was designed this way because the concept demanded it."
         col: col-16
         text_class: case-study-concept-statement
 ---

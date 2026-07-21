@@ -4,6 +4,7 @@
 
   const controls = Array.from(navigation.querySelectorAll('[data-section-control]'));
   const sections = Array.from(document.querySelectorAll('[data-project-section]'));
+  const introductions = Array.from(document.querySelectorAll('[data-project-introduction]'));
   const validSections = new Set(controls.map((control) => control.dataset.sectionControl));
 
   function selectedFromUrl() {
@@ -16,6 +17,10 @@
 
     sections.forEach((section) => {
       section.hidden = selected !== 'all' && section.dataset.projectSection !== selected;
+    });
+
+    introductions.forEach((introduction) => {
+      introduction.hidden = selected !== 'all';
     });
 
     controls.forEach((control) => {
