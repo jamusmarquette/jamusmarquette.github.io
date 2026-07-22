@@ -182,27 +182,6 @@ if (bottomMenu && thumbnails) {
 
 */
 
-/* Footer arrow / bottom menu arrow observer */
-
-const thumbnails = document.querySelector('#thumbnails');
-
-if (thumbnails) {
-  function updateBottomArrow() {
-    const thumbnailsTop = thumbnails.getBoundingClientRect().top;
-
-    if (thumbnailsTop <= window.innerHeight) {
-      $('#downarrow').html('<a class="black" href="#top">↑</a>');
-    } else {
-      $('#downarrow').html('↓');
-    }
-  }
-
-  window.addEventListener('scroll', updateBottomArrow, { passive: true });
-  window.addEventListener('resize', updateBottomArrow);
-
-  updateBottomArrow();
-}
-
 /* Intro scroll fade */
 
 const text = document.querySelector('#introText');

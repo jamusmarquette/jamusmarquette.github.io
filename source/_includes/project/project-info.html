@@ -14,7 +14,24 @@
 
         </div>
 
-        {% if page.project_facts %}
+        {% if page.collaborators %}
+        <div class="col-md-8 col-lg-7 pb-3 project-collaborators">
+            <h2>Collaborators</h2>
+            <dl>
+                {% for collaborator in page.collaborators %}
+                {% assign collaborator_names = collaborator.people | default: collaborator.names %}
+                {% if collaborator.role and collaborator_names and collaborator_names.size > 0 %}
+                <div class="project-collaborators__group">
+                    <dt>{{ collaborator.role }}</dt>
+                    {% for name in collaborator_names %}
+                    <dd>{{ name }}</dd>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endfor %}
+            </dl>
+        </div>
+        {% elsif page.project_facts %}
         <div class="col-md-8 col-lg-7 pb-3">
             <dl class="project-facts">
                 {% for fact in page.project_facts %}

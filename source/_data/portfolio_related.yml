@@ -1,0 +1,4 @@
+# Temporary migration/design-preview fallback. Disable once curated relationships
+# have been authored for the projects that should show related work.
+show_random_related_fallback: true
+related_projects_limit: 5

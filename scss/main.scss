@@ -663,35 +663,6 @@ button {
   padding: 0;
 }
 
-#moreprojects {
-  line-height: $portfolio-line-height-default;
-}
-
-#contactSection {
-  z-index: 999999;
-  padding-bottom: 0.5rem;
-  position: relative;
-}
-
-#footerSection {
-  padding-bottom: 0.5rem;
-  z-index: 1031;
-  background-color: $secondary-color;
-  position: relative;
-}
-
-#footergradient {
-  height: 100px;
-  position: relative;
-  //display: none;
-}
-
-#contact {
-  //padding-top: 200px;
-  font-weight: 200;
-  background-color: $secondary-color !important;
-}
-
 /* Footer categories */
 #categories {
   ul {

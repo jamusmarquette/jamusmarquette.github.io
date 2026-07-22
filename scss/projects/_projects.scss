@@ -73,23 +73,6 @@
   margin-bottom: 0px !important;
 }
 
-/* Footer Navigation  */
-
-#footernav {
-  padding-left: 0;
-}
-
-@media (min-width: 768px) {
-  #footernav li {
-    display: inline;
-    margin-right: 30px;
-
-    &:last-child {
-      margin-right: 0px;
-    }
-  }
-}
-
 //extended bottom margin
 /*.pb-6 {
     padding-bottom: 100px;
@@ -238,174 +221,6 @@
     }
 }*/
 
-#bottomMenu {
-  position: sticky;
-  bottom: 0;
-  z-index: 1029;
-
-  padding: 0;
-  width: 100%;
-
-  .row {
-    //padding-right: var(--bs-gutter-x, 1.75rem);
-    //padding-left: var(--bs-gutter-x, 1.75rem);
-  }
-}
-
-/*.bottomnav-gradient {
-    pointer-events: none;
-    height: 30px;
-    position: relative;
-    padding-right: var(--bs-gutter-x, 1.75rem);
-    padding-left: var(--bs-gutter-x, 1.75rem);
-    background: transparent;
-}*/
-
-#downarrow {
-  -webkit-animation: blink 1s infinite alternate;
-}
-
-/* bottom Navigation links */
-#bottomNav {
-  width: 100%;
-  padding-top: 8px !important;
-  padding-bottom: 12px !important;
-  margin: 0;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: $secondary-color;
-
-  a {
-    color: $primary;
-    text-decoration: none;
-  }
-
-  ul {
-    margin-bottom: 0;
-
-    li {
-      display: inline;
-
-      a {
-        color: $primary;
-        text-decoration: none;
-        margin-right: 30px;
-      }
-
-      &:last-child {
-        margin-right: none;
-      }
-    }
-  }
-}
-
-#currentproject {
-  //padding: 0 !important;
-  padding-left: 0 !important;
-}
-
-/* bottom Navigation: Next Project */
-.nextProject {
-  //padding: 0 !important;
-  overflow: hidden;
-  padding-right: 0 !important;
-
-  a {
-    position: relative;
-    text-decoration: none;
-  }
-
-  .title-ctn {
-    float: left;
-    //width: 90%;
-    width: 88.392%;
-    overflow: hidden;
-
-    div {
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-
-      margin-left: 0px;
-      text-align: right;
-    }
-  }
-
-  .paging {
-    float: right;
-    width: auto;
-    //width: 11.607%;
-    text-align: right;
-    //padding-top: 6px;
-    //height: 71px;
-
-    div {
-      display: block;
-    }
-  }
-}
-
-/* Increase footer font size on mobile */
-@media (max-width: 576px) {
-  #bottomNav .fs-5,
-  #currentproject #downarrow a,
-  .previousProject a,
-  .nextProject a {
-    font-size: $portfolio-font-size-default !important;
-    line-height: $portfolio-line-height-default;
-  }
-}
-
-/*#thumbnails {
-    // DOM element for triggering the intersection observer event
-    // you can use 'height' to determine when the event is triggered
-    height: 50rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: green;
-  }
-  
-  body {
-    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Open Sans", "Arial", sans-serif;
-    background-color: #f3eee8;
-  }
-  
-  .page {
-    padding: 6rem 0;
-    max-width: 600px;
-    margin: 0 auto;
-  }*/
-
-//#bottomnav {
-
-//position: -webkit-sticky;
-//position: sticky;
-//top: 2rem;
-//padding: 1rem;
-//line-height: 1.5;
-//box-decoration-break: clone;
-//z-index: 1;
-//transition: all 300ms;
-//will-change: color, background-color;
-
-//&.enabled {
-//color: white;
-//background-color: #A70267;
-
-//}
-//}
-
-.title-mobile {
-  display: none;
-}
-
 /* Development-only section fixtures. Real project presentation remains unchanged. */
 .prototype-notice {
   border-bottom: 1px solid currentColor;
@@ -457,6 +272,27 @@
   margin: 0;
 }
 
+.project-collaborators h2 {
+  margin-bottom: 0.5rem;
+}
+
+.project-collaborators dl {
+  margin: 0;
+}
+
+.project-collaborators__group {
+  margin-bottom: 0.75rem;
+}
+
+.project-collaborators__group:last-child {
+  margin-bottom: 0;
+}
+
+.project-collaborators dt,
+.project-collaborators dd {
+  margin: 0;
+}
+
 .case-study-guidance {
   display: grid;
   gap: 1rem;
@@ -493,106 +329,6 @@ figcaption,
 .media-caption {
   font-size: $portfolio-font-size-small !important;
   line-height: $portfolio-line-height-small;
-}
-
-//@media (max-width: 992px) {768 576
-@media (max-width: 1170px) {
-  //@media (max-width: 768px) {
-  //@media (max-width: 576px) {
-  //@media (max-width: 664px) {
-
-  .col-3.blur.nextProject,
-  .col-3.blur.previousProject {
-    width: auto;
-  }
-
-  .title-ctn {
-    display: none;
-  }
-
-  .title-mobile {
-    display: block;
-    margin-right: 0.5rem;
-  }
-}
-
-/* bottom Navigation: Previous Project */
-.previousProject {
-  overflow: hidden;
-  //padding-left: 0 !important;
-  padding-right: 0;
-
-  a {
-    position: relative;
-    text-decoration: none;
-  }
-
-  .title-ctn {
-    float: right;
-    width: 88.392%;
-    //width: 90%;
-    overflow: hidden;
-    //padding-left: 1rem;
-
-    div {
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-
-      margin-right: 0px;
-    }
-  }
-
-  .paging {
-    float: left;
-    //width: 11.607%;
-    width: auto;
-    text-align: left;
-
-    div {
-      display: block;
-    }
-  }
-}
-
-/* Adjust arrows if they are used on the right mobile */
-@media (max-width: 576px) {
-  //@media (max-width: 768px) {
-  .nextProject {
-    //padding-right: 30px !important;
-    width: auto !important;
-  }
-
-  .previousProject {
-    padding: 0 !important;
-    margin: 0 !important;
-    width: auto !important;
-  }
-
-  #bottomMenu {
-    //padding: 0 !important;
-    //padding-right: var(--bs-gutter-x, 1.75rem);
-    //padding-left: var(--bs-gutter-x, 1.75rem);
-    width: 100% !important;
-    width: auto !important;
-  }
-}
-
-//@media (max-width: 939px) {
-@media (max-width: 1050px) {
-  .nextProject,
-  .previousProject {
-    .title-ctn {
-      //width: 80%
-      //width: 80%
-      width: 75%;
-    }
-  }
 }
 
 //Swap page title description for 'all projects'

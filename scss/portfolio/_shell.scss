@@ -390,6 +390,67 @@ $portfolio-mobile-breakpoint: 767px;
   margin-bottom: 0 !important;
 }
 
+.portfolio-related-projects {
+  margin-top: 6rem;
+  padding-bottom: $portfolio-edge-space;
+}
+
+.portfolio-related-projects[hidden] {
+  display: none;
+}
+
+.portfolio-related-projects h2 {
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-related-project-grid {
+  --portfolio-related-project-gap: 1rem;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--portfolio-related-project-gap);
+}
+
+.portfolio-related-project-grid .project-card {
+  flex: 0 0 calc((100% - (4 * var(--portfolio-related-project-gap))) / 5);
+  min-width: 11rem;
+}
+
+.portfolio-related-project-grid .content-details {
+  opacity: 1;
+  padding-top: 0.75rem;
+  position: static;
+  transform: none;
+}
+
+.portfolio-related-project-grid .content-image {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-height: 80vh;
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
+.portfolio-related-project-grid .content-overlay {
+  display: none;
+}
+
+.portfolio-related-project-grid .project-card-categories,
+.portfolio-info-copyright {
+  font-size: $portfolio-font-size-small !important;
+  line-height: $portfolio-line-height-small;
+}
+
+.portfolio-related-project-grid .project-card-categories {
+  margin-bottom: 0 !important;
+}
+
+.portfolio-info-copyright {
+  margin: 3rem 0 0 !important;
+}
+
 .portfolio-context-bar {
   align-items: center;
   background: $secondary-color;
@@ -551,10 +612,6 @@ $portfolio-mobile-breakpoint: 767px;
   margin-top: 0;
 }
 
-.is-project.has-context-bar #bottomMenu {
-  bottom: $portfolio-context-bar-height;
-}
-
 .portfolio-presentation .project-page #stickycontainer > .project-intro:first-child,
 .portfolio-presentation .project-introduction > .project-intro:first-child {
   padding-top: 0;
@@ -652,8 +709,20 @@ $portfolio-mobile-breakpoint: 767px;
     padding-bottom: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-bottom));
   }
 
-  .is-project.has-context-bar #bottomMenu {
-    bottom: 0;
+  .portfolio-related-projects {
+    margin-top: 4rem;
+  }
+
+  .portfolio-related-project-grid {
+    display: block;
+  }
+
+  .portfolio-related-project-grid .project-card {
+    margin-bottom: 2rem;
+  }
+
+  .portfolio-related-project-grid .project-card:last-child {
+    margin-bottom: 0;
   }
 
   .portfolio-context-bar {

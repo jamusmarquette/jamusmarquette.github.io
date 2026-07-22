@@ -5,6 +5,7 @@
   const controls = Array.from(navigation.querySelectorAll('[data-section-control]'));
   const sections = Array.from(document.querySelectorAll('[data-project-section]'));
   const introductions = Array.from(document.querySelectorAll('[data-project-introduction]'));
+  const relatedProjects = Array.from(document.querySelectorAll('[data-project-related]'));
   const mobileMedia = window.matchMedia('(max-width: 767px)');
   const validSections = new Set(controls.map((control) => control.dataset.sectionControl));
 
@@ -24,6 +25,10 @@
 
     introductions.forEach((introduction) => {
       introduction.hidden = visibleSection !== 'all';
+    });
+
+    relatedProjects.forEach((related) => {
+      related.hidden = visibleSection !== 'all';
     });
 
     controls.forEach((control) => {

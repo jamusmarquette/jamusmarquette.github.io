@@ -7,6 +7,10 @@ order: 901
 featured: false
 prototype: true
 section_default: all
+related_projects:
+  - theater_campaigns
+  - nflpa
+  - cnn_grill_at_sxsw
 categories:
   - Identity & Branding
 thumbnail: /project/prototype-brand-system/img/thumbnail.svg

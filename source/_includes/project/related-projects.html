@@ -1,0 +1,40 @@
+{% assign related_limit = site.data.portfolio_related.related_projects_limit | default: 3 %}
+{% assign eligible_projects = '' | split: '' %}
+{% for candidate in site.projects %}
+  {% if candidate.prototype != true and candidate.browser_exclude != true and candidate.hidden != true and candidate.published != false and candidate.thumbnail and candidate.url != page.url %}
+    {% assign eligible_projects = eligible_projects | push: candidate %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_projects = '' | split: '' %}
+{% assign selected_urls = '' %}
+{% if page.related_projects %}
+  {% for related_slug in page.related_projects %}
+    {% for candidate in eligible_projects %}
+      {% if candidate.slug == related_slug %}
+        {% capture candidate_token %}|{{ candidate.url }}|{% endcapture %}
+        {% unless selected_urls contains candidate_token %}
+          {% assign related_projects = related_projects | push: candidate %}
+          {% assign selected_urls = selected_urls | append: candidate_token %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+{% if related_projects.size == 0 and site.data.portfolio_related.show_random_related_fallback %}
+  {% assign related_projects = eligible_projects | sample: related_limit %}
+{% endif %}
+
+{% if related_projects.size > 0 %}
+<section class="portfolio-related-projects" data-project-related aria-labelledby="related-projects-title">
+  <div class="container-fluid">
+    <h2 id="related-projects-title">Related Projects</h2>
+    <div class="portfolio-related-project-grid">
+      {% for project in related_projects limit: related_limit %}
+        {% include project-card.html project=project %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

@@ -15,17 +15,16 @@ hero_type: full-image
 hero: /project/prototype-font-design/img/hero.svg
 description:
   - 'Meridian is a fictional variable type family for editorial systems, public information, interfaces, and cultural institutions.'
-project_facts:
-  - label: Role
-    value: Fictional type design, spacing, masters, and specimen direction
-  - label: Status
-    value: Development prototype — not portfolio work
-  - label: Intended axes
-    value: Weight and optical size
-  - label: Technical stand-in
-    value: Inter Variable is used only to test this specimen interface; it is not a JAMUS typeface.
-  - label: Attribution
-    value: Inter Project Authors — SIL Open Font License 1.1
+collaborators:
+  - role: Type Design
+    people:
+      - Jamus Marquette
+  - role: Specimen Design
+    people:
+      - Jamus Marquette
+  - role: Technical Support
+    people:
+      - Inter Project Authors
 sections:
   - id: context
     label: Context
@@ -38,14 +37,6 @@ sections:
   - id: in-use
     label: In Use
     component: font-specimen
-introduction_rows:
-  - caption:
-      title: A variable family for public language
-      text: 'This fictional type-design case study tests how a family can explain its purpose, formal logic, and practical range before presenting specimens.'
-    items:
-      - image: /project/prototype-font-design/img/overview.svg
-        alt: Fictional Meridian variable typeface overview
-        col: col-16
 media_rows:
   - section: context
     caption:
