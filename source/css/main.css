@@ -14858,7 +14858,7 @@ video {
   height: 100%;
   min-width: 0;
   overflow: auto;
-  padding: 1.75rem 1.25rem 0.625rem;
+  padding: 1.2125rem 1.25rem 0.625rem;
   width: var(--portfolio-sidebar-width);
 }
 
@@ -14883,7 +14883,7 @@ video {
 .portfolio-primary-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.125rem;
+  gap: 0.4rem;
   margin-bottom: 0;
 }
 
@@ -15043,11 +15043,12 @@ video {
 .portfolio-presentation {
   margin-left: var(--portfolio-sidebar-width);
   min-height: 100vh;
+  padding-top: 1.2125rem;
   transition: margin-left 180ms ease;
 }
 
 .has-context-bar .portfolio-presentation {
-  padding-bottom: 4rem;
+  padding-bottom: calc(4rem + 1.2125rem);
 }
 
 .portfolio-shell.is-sidebar-collapsed {
@@ -15055,8 +15056,11 @@ video {
 }
 
 .is-sidebar-collapsed .portfolio-nav-link .portfolio-nav-label,
-.is-sidebar-collapsed .portfolio-browser-tools,
 .is-sidebar-collapsed [data-work-count] {
+  display: none;
+}
+
+.is-sidebar-collapsed .portfolio-browser-tools {
   display: none;
 }
 
@@ -15069,7 +15073,7 @@ video {
 .is-sidebar-collapsed .portfolio-nav-link {
   align-items: center;
   display: grid;
-  height: 2.7rem;
+  height: 2.75rem;
   margin: 0 auto;
   min-height: 0;
   padding: 0;
@@ -15117,7 +15121,7 @@ video {
   --portfolio-grid-gap: 1rem;
   --portfolio-selected-columns: 5;
   --portfolio-columns: var(--portfolio-selected-columns);
-  padding: 1.5rem;
+  padding: 0 1.2125rem 1.2125rem;
 }
 
 .portfolio-project-grid {
@@ -15171,9 +15175,11 @@ video {
   background: #131313;
   border-top: 1px solid rgba(199, 199, 199, 0.18);
   bottom: 0;
+  box-sizing: border-box;
   height: 4rem;
   left: var(--portfolio-sidebar-width);
   position: fixed;
+  padding-block: calc((4rem - 2.75rem) / 2);
   right: 0;
   transition: left 180ms ease;
   z-index: 1032;
@@ -15183,7 +15189,7 @@ video {
   column-gap: 1rem;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  padding: 0 1.25rem;
+  padding-inline: 1.25rem;
 }
 
 .portfolio-context-bar--browser label {
@@ -15241,7 +15247,7 @@ video {
 .portfolio-context-bar--project {
   display: flex;
   gap: 1rem;
-  padding: 0 1.25rem;
+  padding-inline: 1.25rem;
 }
 
 .portfolio-context-bar__project-title {
@@ -15327,6 +15333,11 @@ video {
   bottom: 4rem;
 }
 
+.portfolio-presentation .project-page #stickycontainer > .project-intro:first-child,
+.portfolio-presentation .project-introduction > .project-intro:first-child {
+  padding-top: 0;
+}
+
 @media (max-width: 767px) {
   .portfolio-shell,
 .portfolio-shell.is-sidebar-collapsed {
@@ -15342,16 +15353,17 @@ video {
   }
 
   .portfolio-sidebar__body {
-    padding-bottom: max(0.625rem, env(safe-area-inset-bottom));
-    padding-left: max(1.25rem, env(safe-area-inset-left));
-    padding-right: max(1.25rem, env(safe-area-inset-right));
-    padding-top: max(1.75rem, env(safe-area-inset-top));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding-left: calc(1.25rem + env(safe-area-inset-left));
+    padding-right: calc(1.25rem + env(safe-area-inset-right));
+    padding-top: calc(1rem + env(safe-area-inset-top));
     width: 100vw;
   }
 
   .portfolio-presentation {
     margin-left: 0;
-    padding-top: 3.75rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding-top: calc( 1rem + 2.7rem + env(safe-area-inset-top) );
   }
 
   .portfolio-mobile-toggle {
@@ -15359,10 +15371,10 @@ video {
     border: 1px solid rgba(199, 199, 199, 0.3);
     color: #c7c7c7;
     display: block;
-    left: max(1rem, env(safe-area-inset-left));
+    left: calc(1rem + env(safe-area-inset-left));
     padding: 0.5rem 0.65rem;
     position: fixed;
-    top: max(1rem, env(safe-area-inset-top));
+    top: calc(1rem + env(safe-area-inset-top));
     z-index: 1030;
   }
 
@@ -15409,11 +15421,11 @@ video {
   }
 
   .portfolio-browser {
-    padding: 1.25rem 1rem;
+    padding: 0 1rem 1rem;
   }
 
   .has-context-bar .portfolio-presentation {
-    padding-bottom: 0;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 
   .is-project.has-context-bar #bottomMenu {
