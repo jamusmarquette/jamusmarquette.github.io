@@ -4,8 +4,11 @@
 
   const storageKey = 'portfolio-sidebar-collapsed';
   const defaultColumns = 5;
+  const mobileMedia = window.matchMedia('(max-width: 767px)');
+  const sidebar = shell.querySelector('#portfolio-sidebar');
   const sidebarToggle = shell.querySelector('[data-sidebar-toggle]');
   const mobileToggle = shell.querySelector('[data-mobile-sidebar-toggle]');
+  const mobileClose = shell.querySelector('[data-mobile-sidebar-close]');
   const backdrop = shell.querySelector('[data-sidebar-backdrop]');
   const browser = shell.querySelector('[data-project-browser]');
   const workControl = shell.querySelector('.portfolio-work-group > .portfolio-nav-link');
@@ -17,6 +20,7 @@
   const columnsControl = shell.querySelector('[data-thumbnail-columns]');
   const columnsOutput = shell.querySelector('[data-thumbnail-columns-output]');
   const cards = browser ? Array.from(browser.querySelectorAll('.project-card')) : [];
+  let mobileReturnFocus = null;
 
   function setCollapsed(collapsed) {
     shell.classList.toggle('is-sidebar-collapsed', collapsed);
@@ -30,6 +34,35 @@
     shell.classList.toggle('is-mobile-sidebar-open', open);
     mobileToggle.setAttribute('aria-expanded', String(open));
     document.body.classList.toggle('portfolio-drawer-open', open);
+    sidebar.toggleAttribute('inert', mobileMedia.matches && !open);
+    sidebar.setAttribute('aria-hidden', String(mobileMedia.matches && !open));
+
+    if (open) {
+      mobileReturnFocus = document.activeElement;
+      window.requestAnimationFrame(function () { mobileClose.focus(); });
+    } else if (mobileMedia.matches && mobileReturnFocus) {
+      mobileReturnFocus.focus();
+      mobileReturnFocus = null;
+    }
+  }
+
+  function syncResponsiveNavigation() {
+    if (mobileMedia.matches) {
+      shell.classList.remove('is-sidebar-collapsed');
+      setMobileOpen(false);
+    } else {
+      setCollapsed(localStorage.getItem(storageKey) === 'true');
+      shell.classList.remove('is-mobile-sidebar-open');
+      document.body.classList.remove('portfolio-drawer-open');
+      sidebar.removeAttribute('inert');
+      sidebar.removeAttribute('aria-hidden');
+    }
+  }
+
+  function mobileFocusableElements() {
+    return Array.from(
+      sidebar.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ).filter((element) => element.offsetParent !== null);
   }
 
   function validColumns(value) {
@@ -94,7 +127,37 @@
   mobileToggle.addEventListener('click', function () {
     setMobileOpen(!shell.classList.contains('is-mobile-sidebar-open'));
   });
+  mobileClose.addEventListener('click', function () { setMobileOpen(false); });
   backdrop.addEventListener('click', function () { setMobileOpen(false); });
+
+  document.addEventListener('keydown', function (event) {
+    if (!mobileMedia.matches || !shell.classList.contains('is-mobile-sidebar-open')) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      setMobileOpen(false);
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+    const focusable = mobileFocusableElements();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  shell.querySelectorAll('.portfolio-primary-nav a').forEach((link) => {
+    link.addEventListener('click', function () {
+      if (mobileMedia.matches) setMobileOpen(false);
+    });
+  });
 
   if (browser) {
     cardCategoryLinks.forEach((link) => {
@@ -122,8 +185,9 @@
   }
 
   window.addEventListener('popstate', function () { renderState(stateFromUrl(), false); });
+  mobileMedia.addEventListener('change', syncResponsiveNavigation);
 
-  setCollapsed(localStorage.getItem(storageKey) === 'true');
+  syncResponsiveNavigation();
   if (browser) {
     const initialState = stateFromUrl();
     renderState(initialState, false);

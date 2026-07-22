@@ -1,6 +1,11 @@
 {% assign is_browser = false %} {% if page.url == '/' %}{% assign is_browser = true %}{% endif %}
+{% assign is_project = false %} {% if page.layout == 'project' %}{% assign is_project = true %}{% endif %}
+{% assign has_context_bar = false %} {% if is_browser or is_project %}{% assign has_context_bar = true %}{% endif %}
 
-<div class="portfolio-shell{% if is_browser %} is-browser{% endif %}" data-portfolio-shell>
+<div
+  class="portfolio-shell{% if is_browser %} is-browser{% endif %}{% if is_project %} is-project{% endif %}{% if has_context_bar %} has-context-bar{% endif %}"
+  data-portfolio-shell
+>
   <aside class="portfolio-sidebar" id="portfolio-sidebar" aria-label="Portfolio navigation">
     <div class="portfolio-sidebar__body">
       <div class="portfolio-sidebar__identity">
@@ -12,6 +17,25 @@
           data-sidebar-toggle
           aria-label="Collapse sidebar"
           title="Collapse sidebar"
+        >
+          <svg
+            class="portfolio-nav-icon portfolio-nav-icon--collapse"
+            viewBox="0 0 22 18"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <rect x="0.375" y="0.375" width="21.25" height="17.25" stroke="currentColor" stroke-width="0.75" />
+            <path d="M6 0.5V17.5" stroke="currentColor" stroke-width="0.75" />
+          </svg>
+        </button>
+        <button
+          class="portfolio-mobile-close"
+          type="button"
+          aria-controls="portfolio-sidebar"
+          aria-label="Close portfolio navigation"
+          title="Close portfolio navigation"
+          data-mobile-sidebar-close
         >
           <svg
             class="portfolio-nav-icon portfolio-nav-icon--collapse"
@@ -96,44 +120,6 @@
           {% endif %}
         </div>
 
-        {% if page.sections and page.sections.size > 1 %}
-        <section
-          class="portfolio-section-navigation"
-          aria-labelledby="portfolio-section-navigation-title"
-          data-section-navigation
-        >
-          <p class="portfolio-current-project-title" id="portfolio-section-navigation-title">
-            <svg
-              class="portfolio-nav-icon portfolio-nav-icon--project-marker"
-              viewBox="0 0 19 19"
-              fill="none"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path d="M0.375 9.5H18.625" stroke="currentColor" stroke-width="0.75" />
-            </svg>
-            <span>{{ page.title }}</span>
-          </p>
-          <button
-            type="button"
-            class="portfolio-section-control is-active"
-            data-section-control="all"
-            aria-pressed="true"
-          >
-            Overview
-          </button>
-          {% for section in page.sections %}
-          <button
-            type="button"
-            class="portfolio-section-control"
-            data-section-control="{{ section.id }}"
-            aria-pressed="false"
-          >
-            {{ section.label }}
-          </button>
-          {% endfor %}
-        </section>
-        {% endif %}
         <!-- prettier-ignore -->
         <a
           href="{{ '/information/' | relative_url }}"
@@ -216,4 +202,54 @@
   <button class="portfolio-sidebar-backdrop" type="button" data-sidebar-backdrop aria-label="Close navigation"></button>
 
   <main class="portfolio-presentation" id="content">{{ content }} {% include footer.html %}</main>
+
+  {% if is_browser %}
+  <!-- The bottom bar is the contextual control surface for the desktop presentation area. -->
+  <div class="portfolio-context-bar portfolio-context-bar--browser" data-portfolio-context-bar>
+    <label for="portfolio-thumbnail-columns">Columns</label>
+    <input
+      id="portfolio-thumbnail-columns"
+      type="range"
+      min="2"
+      max="6"
+      step="1"
+      value="5"
+      aria-label="Number of project columns"
+      data-thumbnail-columns
+    />
+    <output for="portfolio-thumbnail-columns" data-thumbnail-columns-output>5</output>
+  </div>
+  {% elsif is_project %}
+  <div class="portfolio-context-bar portfolio-context-bar--project" data-portfolio-context-bar>
+    <div
+      class="portfolio-context-bar__project-title"
+      role="group"
+      aria-label="Current project: {{ page.title | escape }}"
+    >
+      <span aria-hidden="true" title="{{ page.title | escape }}">{{ page.title }}</span>
+    </div>
+    {% if page.sections and page.sections.size > 1 %}
+    <nav class="portfolio-context-bar__section-navigation" aria-label="Project sections" data-section-navigation>
+      <button
+        type="button"
+        class="portfolio-section-control is-active"
+        data-section-control="all"
+        aria-pressed="true"
+      >
+        Overview
+      </button>
+      {% for section in page.sections %}
+      <button
+        type="button"
+        class="portfolio-section-control"
+        data-section-control="{{ section.id }}"
+        aria-pressed="false"
+      >
+        {{ section.label }}
+      </button>
+      {% endfor %}
+    </nav>
+    {% endif %}
+  </div>
+  {% endif %}
 </div>

@@ -5,22 +5,25 @@
   const controls = Array.from(navigation.querySelectorAll('[data-section-control]'));
   const sections = Array.from(document.querySelectorAll('[data-project-section]'));
   const introductions = Array.from(document.querySelectorAll('[data-project-introduction]'));
+  const mobileMedia = window.matchMedia('(max-width: 767px)');
   const validSections = new Set(controls.map((control) => control.dataset.sectionControl));
 
   function selectedFromUrl() {
     const requested = new URLSearchParams(window.location.search).get('section');
+    if (requested === 'overview') return 'all';
     return requested && validSections.has(requested) ? requested : 'all';
   }
 
   function applySection(sectionId, updateHistory) {
     const selected = validSections.has(sectionId) ? sectionId : 'all';
+    const visibleSection = mobileMedia.matches ? 'all' : selected;
 
     sections.forEach((section) => {
-      section.hidden = selected !== 'all' && section.dataset.projectSection !== selected;
+      section.hidden = visibleSection !== 'all' && section.dataset.projectSection !== visibleSection;
     });
 
     introductions.forEach((introduction) => {
-      introduction.hidden = selected !== 'all';
+      introduction.hidden = visibleSection !== 'all';
     });
 
     controls.forEach((control) => {
@@ -41,15 +44,13 @@
     control.addEventListener('click', function () {
       applySection(control.dataset.sectionControl, true);
 
-      const shell = document.querySelector('[data-portfolio-shell]');
-      const mobileToggle = shell && shell.querySelector('[data-mobile-sidebar-toggle]');
-      if (shell) shell.classList.remove('is-mobile-sidebar-open');
-      if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('portfolio-drawer-open');
     });
   });
 
   window.addEventListener('popstate', function () {
+    applySection(selectedFromUrl(), false);
+  });
+  mobileMedia.addEventListener('change', function () {
     applySection(selectedFromUrl(), false);
   });
 
