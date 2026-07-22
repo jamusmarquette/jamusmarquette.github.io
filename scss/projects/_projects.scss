@@ -17,7 +17,7 @@
 .h3ul {
   margin-bottom: 1.25rem;
   text-decoration: underline;
-  line-height: 1.2;
+  line-height: $portfolio-line-height-default;
 }
 
 .lg-full-ht {
@@ -356,8 +356,8 @@
   #currentproject #downarrow a,
   .previousProject a,
   .nextProject a {
-    //font-size: calc(1.275rem + 0.3vw) !important;
-    font-size: 1.5rem !important;
+    font-size: $portfolio-font-size-default !important;
+    line-height: $portfolio-line-height-default;
   }
 }
 
@@ -449,7 +449,6 @@
 }
 
 .project-facts dt {
-  font-size: 0.8em;
   margin-bottom: 0.2rem;
   text-transform: uppercase;
 }
@@ -471,7 +470,6 @@
 }
 
 .case-study-guidance h3 {
-  font-size: 1rem;
   margin-bottom: 0.4rem;
 }
 
@@ -484,6 +482,17 @@
   border-left: 1px solid currentColor;
   margin: 0 0 2rem;
   padding-left: 1rem;
+}
+
+.caption-row h3,
+.caption-row .caption,
+figcaption,
+.figure-caption,
+.project-caption,
+.project-media-caption,
+.media-caption {
+  font-size: $portfolio-font-size-small !important;
+  line-height: $portfolio-line-height-small;
 }
 
 //@media (max-width: 992px) {768 576

@@ -13174,8 +13174,8 @@ textarea.form-control-lg {
   font-display: swap;
 }
 .rg-text {
-  font-size: 1.5rem;
-  line-height: 1.3;
+  font-size: 1.125rem;
+  line-height: 1.4;
   font-weight: 100 !important;
 }
 
@@ -13201,8 +13201,8 @@ textarea.form-control-lg {
 .h3-ul {
     font-weight: 400 !important;
     font-style: normal;
-    font-size: 1.5rem !important;
-    line-height: 1.35;
+    font-size: 1.125rem !important;
+    line-height: 1.4;
   }
 }
 /* No greater than 900px, no less than 400px */
@@ -13210,8 +13210,8 @@ textarea.form-control-lg {
   .h3-ul {
     font-weight: 400 !important;
     font-style: normal;
-    font-size: 1.5rem;
-    line-height: 1.35;
+    font-size: 1.125rem;
+    line-height: 1.4;
   }
 
   .md-text {
@@ -13318,7 +13318,7 @@ textarea.form-control-lg {
 .h3ul {
   margin-bottom: 1.25rem;
   text-decoration: underline;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .lg-full-ht {
@@ -13579,7 +13579,8 @@ textarea.form-control-lg {
 #currentproject #downarrow a,
 .previousProject a,
 .nextProject a {
-    font-size: 1.5rem !important;
+    font-size: 1.125rem !important;
+    line-height: 1.4;
   }
 }
 /*#thumbnails {
@@ -13650,7 +13651,6 @@ textarea.form-control-lg {
 }
 
 .project-facts dt {
-  font-size: 0.8em;
   margin-bottom: 0.2rem;
   text-transform: uppercase;
 }
@@ -13672,7 +13672,6 @@ textarea.form-control-lg {
 }
 
 .case-study-guidance h3, .case-study-guidance .h3 {
-  font-size: 1rem;
   margin-bottom: 0.4rem;
 }
 
@@ -13685,6 +13684,17 @@ textarea.form-control-lg {
   border-left: 1px solid currentColor;
   margin: 0 0 2rem;
   padding-left: 1rem;
+}
+
+.caption-row h3, .caption-row .h3,
+.caption-row .caption,
+figcaption,
+.figure-caption,
+.project-caption,
+.project-media-caption,
+.media-caption {
+  font-size: 0.95rem !important;
+  line-height: 1.4;
 }
 
 @media (max-width: 1170px) {
@@ -13899,6 +13909,8 @@ textarea.form-control-lg {
 }
 .font-prototype-specimen {
   border: 1px solid currentColor;
+  font-size: 1.125rem;
+  line-height: 1.4;
   margin-top: 1rem;
   padding: 1.5rem;
 }
@@ -13911,7 +13923,6 @@ textarea.form-control-lg {
 }
 
 .font-prototype-specimen__eyebrow {
-  font-size: 0.85rem;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem !important;
   text-transform: uppercase;
@@ -13937,7 +13948,6 @@ textarea.form-control-lg {
 
 .font-prototype-presets legend {
   float: none;
-  font-size: 1rem;
   margin-bottom: 0.75rem;
   width: 100%;
 }
@@ -13994,8 +14004,15 @@ textarea.form-control-lg {
 
 .font-prototype-support,
 .font-prototype-attribution {
-  font-size: 0.9rem;
   margin-top: 1rem;
+}
+
+.font-prototype-reset,
+.font-prototype-presets button,
+.font-prototype-controls label,
+.font-prototype-controls output {
+  font-size: 1.125rem;
+  line-height: 1.4;
 }
 
 @media (max-width: 767px) {
@@ -14014,9 +14031,8 @@ body {
   font-family: "inter", sans-serif !important;
   font-weight: 100 !important;
   font-style: normal;
-  /*This is the default h3 font size/line-height*/
-  font-size: 1.5rem;
-  line-height: 1.3;
+  font-size: 1.125rem;
+  line-height: 1.4;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -14068,13 +14084,9 @@ h5,
 .h5,
 h6,
 .h6 {
+  font-size: 1.125rem;
   font-weight: 300;
-}
-
-h3, .h3 {
-  font-style: normal;
-  font-size: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 p {
@@ -14106,7 +14118,8 @@ ul {
   list-style-type: none !important;
   font-weight: 400 !important;
   font-style: normal;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
 }
 
 /* ——— Header ——— */
@@ -14543,7 +14556,7 @@ button {
 }
 
 #moreprojects {
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 #contactSection {
@@ -14804,7 +14817,26 @@ video {
 }
 .portfolio-shell {
   --portfolio-sidebar-width: 22rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
   min-height: 100vh;
+}
+
+.portfolio-shell .fs-1,
+.portfolio-shell .fs-2,
+.portfolio-shell .fs-3,
+.portfolio-shell .fs-4,
+.portfolio-shell .fs-5,
+.portfolio-shell .fs-6 {
+  font-size: 1.125rem !important;
+  line-height: 1.4;
+}
+
+.portfolio-shell button,
+.portfolio-shell input,
+.portfolio-shell select,
+.portfolio-shell textarea {
+  font: inherit;
 }
 
 .portfolio-sidebar {
@@ -14844,8 +14876,6 @@ video {
 }
 
 .portfolio-introduction-block {
-  font-size: 1.125rem;
-  line-height: 1.4;
   margin: 0 !important;
   max-width: 15rem;
 }
@@ -14876,7 +14906,7 @@ video {
   display: grid;
   font-size: 1.125rem;
   grid-template-columns: 1.5rem minmax(0, 1fr);
-  line-height: 1.2;
+  line-height: 1.4;
   margin-left: -0.6rem;
   min-height: 2.75rem;
   padding: 0.45rem 0.6rem;
@@ -14922,7 +14952,6 @@ video {
 }
 
 .portfolio-work-group [data-work-count] {
-  font-size: 1.1rem;
   margin-left: auto;
 }
 
@@ -14969,7 +14998,7 @@ video {
   color: #c7c7c7;
   display: block;
   font-size: 1.125rem;
-  line-height: 1.25;
+  line-height: 1.4;
   margin-left: -0.5rem;
   min-height: 2.75rem;
   padding: 0.45rem 0.6rem 0.45rem 1.1rem;
@@ -15015,7 +15044,7 @@ video {
   display: grid;
   font-size: 1.125rem;
   grid-template-columns: 1.5rem minmax(0, 1fr);
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0 0 0.25rem -2.5rem !important;
   min-height: 2.75rem;
   padding: 0.45rem 0.6rem;
@@ -15144,6 +15173,7 @@ video {
 
 .portfolio-project-grid .content-details h3, .portfolio-project-grid .content-details .h3 {
   font-size: 1.125rem;
+  line-height: 1.4;
   margin-bottom: 0.5rem;
 }
 
@@ -15162,7 +15192,8 @@ video {
 }
 
 .portfolio-project-grid .project-card-categories {
-  font-size: 1rem !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4;
   margin-bottom: 0 !important;
 }
 
@@ -15183,14 +15214,14 @@ video {
 
 .portfolio-thumbnail-columns label {
   font-size: 1.125rem;
-  line-height: 1.2;
+  line-height: 1.4;
   margin: 0;
   white-space: nowrap;
 }
 
 .portfolio-thumbnail-columns output {
   font-size: 1.125rem;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .portfolio-thumbnail-columns input {

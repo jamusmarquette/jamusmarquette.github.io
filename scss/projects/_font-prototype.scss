@@ -7,6 +7,8 @@
 
 .font-prototype-specimen {
   border: 1px solid currentColor;
+  font-size: $portfolio-font-size-default;
+  line-height: $portfolio-line-height-default;
   margin-top: 1rem;
   padding: 1.5rem;
 }
@@ -19,7 +21,6 @@
 }
 
 .font-prototype-specimen__eyebrow {
-  font-size: 0.85rem;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem !important;
   text-transform: uppercase;
@@ -45,7 +46,6 @@
 
 .font-prototype-presets legend {
   float: none;
-  font-size: 1rem;
   margin-bottom: 0.75rem;
   width: 100%;
 }
@@ -102,8 +102,15 @@
 
 .font-prototype-support,
 .font-prototype-attribution {
-  font-size: 0.9rem;
   margin-top: 1rem;
+}
+
+.font-prototype-reset,
+.font-prototype-presets button,
+.font-prototype-controls label,
+.font-prototype-controls output {
+  font-size: $portfolio-font-size-default;
+  line-height: $portfolio-line-height-default;
 }
 
 @media (max-width: 767px) {

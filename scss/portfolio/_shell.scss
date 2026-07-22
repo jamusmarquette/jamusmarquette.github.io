@@ -2,8 +2,7 @@ $portfolio-sidebar-width: 22rem;
 $portfolio-rail-width: 4rem;
 $portfolio-sidebar-padding-x: 1.25rem;
 $portfolio-sidebar-padding-y: 1.75rem;
-$portfolio-sidebar-row-size: 1.125rem;
-$portfolio-sidebar-supporting-size: 0.82rem;
+$portfolio-sidebar-row-size: $portfolio-font-size-default;
 $portfolio-sidebar-icon-size: 1.5rem;
 $portfolio-sidebar-icon-gap: 1rem;
 $portfolio-sidebar-row-padding-x: 0.6rem;
@@ -26,7 +25,28 @@ $portfolio-sidebar-introduction-width: 15rem;
 
 .portfolio-shell {
   --portfolio-sidebar-width: #{$portfolio-sidebar-width};
+  font-size: $portfolio-font-size-default;
+  line-height: $portfolio-line-height-default;
   min-height: 100vh;
+}
+
+// Bootstrap's font-size utilities use !important, so the portfolio shell must
+// override them at the same priority to keep legacy content on the shared scale.
+.portfolio-shell .fs-1,
+.portfolio-shell .fs-2,
+.portfolio-shell .fs-3,
+.portfolio-shell .fs-4,
+.portfolio-shell .fs-5,
+.portfolio-shell .fs-6 {
+  font-size: $portfolio-font-size-default !important;
+  line-height: $portfolio-line-height-default;
+}
+
+.portfolio-shell button,
+.portfolio-shell input,
+.portfolio-shell select,
+.portfolio-shell textarea {
+  font: inherit;
 }
 
 .portfolio-sidebar {
@@ -66,8 +86,6 @@ $portfolio-sidebar-introduction-width: 15rem;
 }
 
 .portfolio-introduction-block {
-  font-size: 1.125rem;
-  line-height: 1.4;
   margin: 0 !important;
   max-width: $portfolio-sidebar-introduction-width;
 }
@@ -98,7 +116,7 @@ $portfolio-sidebar-introduction-width: 15rem;
   display: grid;
   font-size: $portfolio-sidebar-row-size;
   grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
-  line-height: 1.2;
+  line-height: $portfolio-line-height-default;
   margin-left: $portfolio-sidebar-icon-row-offset;
   min-height: 2.75rem;
   padding: 0.45rem $portfolio-sidebar-row-padding-x;
@@ -144,7 +162,6 @@ $portfolio-sidebar-introduction-width: 15rem;
 }
 
 .portfolio-work-group [data-work-count] {
-  font-size: 1.1rem;
   margin-left: auto;
 }
 
@@ -191,7 +208,7 @@ $portfolio-sidebar-introduction-width: 15rem;
   color: $primary;
   display: block;
   font-size: $portfolio-sidebar-row-size;
-  line-height: 1.25;
+  line-height: $portfolio-line-height-default;
   margin-left: -$portfolio-sidebar-active-bleed;
   min-height: $portfolio-sidebar-filter-min-height;
   padding: $portfolio-sidebar-filter-padding-y $portfolio-sidebar-filter-padding-x $portfolio-sidebar-filter-padding-y
@@ -238,7 +255,7 @@ $portfolio-sidebar-introduction-width: 15rem;
   display: grid;
   font-size: $portfolio-sidebar-row-size;
   grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
-  line-height: 1.5;
+  line-height: $portfolio-line-height-default;
   margin: 0 0 $portfolio-sidebar-heading-filter-gap
     (-$portfolio-sidebar-filter-indent - $portfolio-sidebar-row-padding-x) !important;
   min-height: 2.75rem;
@@ -369,7 +386,8 @@ $portfolio-sidebar-introduction-width: 15rem;
 }
 
 .portfolio-project-grid .content-details h3 {
-  font-size: 1.125rem;
+  font-size: $portfolio-font-size-default;
+  line-height: $portfolio-line-height-default;
   margin-bottom: 0.5rem;
 }
 
@@ -388,7 +406,8 @@ $portfolio-sidebar-introduction-width: 15rem;
 }
 
 .portfolio-project-grid .project-card-categories {
-  font-size: 1rem !important;
+  font-size: $portfolio-font-size-small !important;
+  line-height: $portfolio-line-height-small;
   margin-bottom: 0 !important;
 }
 
@@ -409,14 +428,14 @@ $portfolio-sidebar-introduction-width: 15rem;
 
 .portfolio-thumbnail-columns label {
   font-size: $portfolio-sidebar-row-size;
-  line-height: 1.2;
+  line-height: $portfolio-line-height-default;
   margin: 0;
   white-space: nowrap;
 }
 
 .portfolio-thumbnail-columns output {
   font-size: $portfolio-sidebar-row-size;
-  line-height: 1.2;
+  line-height: $portfolio-line-height-default;
 }
 
 .portfolio-thumbnail-columns input {
