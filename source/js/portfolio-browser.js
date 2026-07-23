@@ -2,8 +2,11 @@
   const shell = document.querySelector('[data-portfolio-shell]');
   if (!shell) return;
 
-  const storageKey = 'portfolio-sidebar-collapsed';
+  const sidebarStorageKey = 'portfolio-sidebar-collapsed';
+  const recentStorageKey = 'jamus-portfolio-recently-viewed-v1';
+  const browserStateStorageKey = 'jamus-portfolio-browser-state-v1';
   const defaultColumns = 5;
+  const maximumRecentProjects = 18;
   const mobileMedia = window.matchMedia('(max-width: 767px)');
   const sidebar = shell.querySelector('#portfolio-sidebar');
   const sidebarToggle = shell.querySelector('[data-sidebar-toggle]');
@@ -15,19 +18,87 @@
   const workCount = shell.querySelector('[data-work-count]');
   const emptyState = shell.querySelector('[data-empty-state]');
   const allProjectsControl = shell.querySelector('[data-browser-view="all"]');
+  const recentProjectsControl = shell.querySelector('[data-browser-view="recent"]');
   const categoryControls = Array.from(shell.querySelectorAll('.portfolio-category-filter[data-category]'));
   const cardCategoryLinks = Array.from(shell.querySelectorAll('.portfolio-card-category[data-category]'));
   const columnsControl = shell.querySelector('[data-thumbnail-columns]');
   const columnsOutput = shell.querySelector('[data-thumbnail-columns-output]');
   const cards = browser ? Array.from(browser.querySelectorAll('.project-card')) : [];
   let mobileReturnFocus = null;
+  let activeState = { categories: [], recent: false, columns: defaultColumns };
+
+  function storageGet(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storageSet(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch (error) {
+      // Local storage is optional; normal browser filtering remains available.
+    }
+  }
+
+  function storageRemove(key) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (error) {
+      // Local storage is optional.
+    }
+  }
+
+  function sessionGet(key) {
+    try {
+      return window.sessionStorage.getItem(key);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function sessionSet(key, value) {
+    try {
+      window.sessionStorage.setItem(key, value);
+    } catch (error) {
+      // URL state remains the primary browser-state source.
+    }
+  }
+
+  function readRecentProjectIds() {
+    const stored = storageGet(recentStorageKey);
+    if (!stored) return [];
+
+    try {
+      const parsed = JSON.parse(stored);
+      return Array.isArray(parsed) ? parsed.filter((id) => typeof id === 'string') : [];
+    } catch (error) {
+      storageRemove(recentStorageKey);
+      return [];
+    }
+  }
+
+  function writeRecentProjectIds(projectIds) {
+    storageSet(recentStorageKey, JSON.stringify(projectIds.slice(0, maximumRecentProjects)));
+  }
+
+  function recordCurrentProject() {
+    const projectId = shell.dataset.projectId;
+    if (shell.dataset.projectEligible !== 'true' || !projectId) return;
+
+    const updatedIds = readRecentProjectIds().filter((id) => id !== projectId);
+    updatedIds.unshift(projectId);
+    writeRecentProjectIds(updatedIds);
+  }
 
   function setCollapsed(collapsed) {
     shell.classList.toggle('is-sidebar-collapsed', collapsed);
     sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
-    sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
-    sidebarToggle.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
-    localStorage.setItem(storageKey, String(collapsed));
+    sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand navigation' : 'Collapse navigation');
+    sidebarToggle.title = collapsed ? 'Expand navigation' : 'Collapse navigation';
+    storageSet(sidebarStorageKey, String(collapsed));
   }
 
   function setMobileOpen(open) {
@@ -51,7 +122,7 @@
       shell.classList.remove('is-sidebar-collapsed');
       setMobileOpen(false);
     } else {
-      setCollapsed(localStorage.getItem(storageKey) === 'true');
+      setCollapsed(storageGet(sidebarStorageKey) === 'true');
       shell.classList.remove('is-mobile-sidebar-open');
       document.body.classList.remove('portfolio-drawer-open');
       sidebar.removeAttribute('inert');
@@ -70,11 +141,47 @@
     return Number.isInteger(columns) && columns >= 2 && columns <= 6 ? columns : defaultColumns;
   }
 
+  function validCategories(value) {
+    const requestedCategories = typeof value === 'string' && value ? value.split(',') : [];
+    const availableCategories = categoryControls.map((control) => control.dataset.category);
+    return availableCategories.filter((category) => requestedCategories.includes(category));
+  }
+
+  function storedBrowserState() {
+    const stored = sessionGet(browserStateStorageKey);
+    if (!stored) return null;
+
+    try {
+      const parsed = JSON.parse(stored);
+      return {
+        categories: validCategories(parsed.categories && parsed.categories.join ? parsed.categories.join(',') : ''),
+        recent: parsed.recent === true,
+        columns: validColumns(parsed.columns),
+      };
+    } catch (error) {
+      return null;
+    }
+  }
+
   function stateFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    const category = params.get('category');
-    const validCategory = categoryControls.some((control) => control.dataset.category === category);
-    return { category: validCategory ? category : null, columns: validColumns(params.get('columns')) };
+    const requestedView = params.get('view');
+    const requestedCategories = params.get('category');
+    const hasExplicitView = requestedView === 'recent' || Boolean(requestedCategories);
+
+    if (!hasExplicitView) {
+      const stored = storedBrowserState();
+      if (stored && stored.recent) {
+        stored.columns = params.has('columns') ? validColumns(params.get('columns')) : stored.columns;
+        return stored;
+      }
+    }
+
+    return {
+      categories: requestedView === 'recent' ? [] : validCategories(requestedCategories),
+      recent: requestedView === 'recent',
+      columns: validColumns(params.get('columns')),
+    };
   }
 
   function writeUrl(state, replace) {
@@ -84,7 +191,8 @@
     url.searchParams.delete('scale');
     url.searchParams.delete('category');
     url.searchParams.delete('columns');
-    if (state.category) url.searchParams.set('category', state.category);
+    if (state.recent) url.searchParams.set('view', 'recent');
+    else if (state.categories.length) url.searchParams.set('category', state.categories.join(','));
     if (state.columns !== defaultColumns) url.searchParams.set('columns', state.columns);
     history[replace ? 'replaceState' : 'pushState']({}, '', url);
   }
@@ -96,21 +204,58 @@
     browser.style.setProperty('--portfolio-selected-columns', value);
   }
 
+  function validRecentCards() {
+    const cardsById = new Map(cards.map((card) => [card.dataset.projectId, card]));
+    const seen = new Set();
+    const validIds = readRecentProjectIds().filter((id) => {
+      if (!cardsById.has(id) || seen.has(id)) return false;
+      seen.add(id);
+      return true;
+    });
+
+    if (validIds.length !== readRecentProjectIds().length) writeRecentProjectIds(validIds);
+    return validIds.map((id) => cardsById.get(id));
+  }
+
+  function reorderCards(orderedCards) {
+    orderedCards.forEach((card) => browser.querySelector('[data-project-grid]').appendChild(card));
+  }
+
+  function rememberBrowserState(state) {
+    sessionSet(browserStateStorageKey, JSON.stringify(state));
+  }
+
   function renderState(state, updateHistory) {
     if (!browser) return;
-    const visibleCards = state.category
-      ? cards.filter((card) => card.dataset.category.trim().split(/\s+/).includes(state.category))
-      : cards;
+
+    const recentCards = validRecentCards();
+    const normalizedState = {
+      categories: state.recent ? [] : validCategories(state.categories.join(',')),
+      recent: state.recent && recentCards.length > 0,
+      columns: validColumns(state.columns),
+    };
+    const visibleCards = normalizedState.recent
+      ? recentCards
+      : normalizedState.categories.length
+        ? cards.filter((card) => {
+            const categories = card.dataset.category.trim().split(/\s+/);
+            return normalizedState.categories.some((category) => categories.includes(category));
+          })
+        : cards;
     const visibleSet = new Set(visibleCards);
 
+    reorderCards(normalizedState.recent ? recentCards : cards);
     cards.forEach((card) => { card.hidden = !visibleSet.has(card); });
-    setColumns(state.columns);
+    setColumns(normalizedState.columns);
 
-    const allActive = !state.category;
+    const allActive = !normalizedState.recent && normalizedState.categories.length === 0;
     allProjectsControl.classList.toggle('is-active', allActive);
     allProjectsControl.setAttribute('aria-pressed', String(allActive));
+    recentProjectsControl.hidden = recentCards.length === 0;
+    recentProjectsControl.classList.toggle('is-active', normalizedState.recent);
+    recentProjectsControl.setAttribute('aria-pressed', String(normalizedState.recent));
     categoryControls.forEach((control) => {
-      const active = control.dataset.category === state.category;
+      const active = normalizedState.categories.includes(control.dataset.category);
       control.classList.toggle('is-active', active);
       control.setAttribute('aria-pressed', String(active));
     });
@@ -118,8 +263,15 @@
     workCount.textContent = `(${visibleCards.length}/${cards.length})`;
     workControl.setAttribute('aria-label', `Work (${visibleCards.length} of ${cards.length} projects)`);
     emptyState.hidden = visibleCards.length !== 0;
-    if (updateHistory) writeUrl(state, false);
+    activeState = normalizedState;
+    rememberBrowserState(normalizedState);
+    if (updateHistory) writeUrl(normalizedState, false);
   }
+
+  window.clearRecentlyViewedProjects = function () {
+    storageRemove(recentStorageKey);
+    if (browser) renderState({ categories: [], recent: false, columns: activeState.columns }, true);
+  };
 
   sidebarToggle.addEventListener('click', function () {
     setCollapsed(!shell.classList.contains('is-sidebar-collapsed'));
@@ -163,23 +315,33 @@
     cardCategoryLinks.forEach((link) => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        renderState({ category: link.dataset.category, columns: Number(columnsControl.value) }, true);
+        renderState({ categories: [link.dataset.category], recent: false, columns: activeState.columns }, true);
       });
     });
     allProjectsControl.addEventListener('click', function () {
-      renderState({ category: null, columns: Number(columnsControl.value) }, true);
+      renderState({ categories: [], recent: false, columns: activeState.columns }, true);
+      setMobileOpen(false);
+    });
+    recentProjectsControl.addEventListener('click', function () {
+      renderState({ categories: [], recent: true, columns: activeState.columns }, true);
       setMobileOpen(false);
     });
     categoryControls.forEach((control) => {
       control.addEventListener('click', function () {
-        renderState({ category: control.dataset.category, columns: Number(columnsControl.value) }, true);
+        const categories = activeState.recent ? [] : activeState.categories.slice();
+        const category = control.dataset.category;
+        const index = categories.indexOf(category);
+        if (index === -1) categories.push(category);
+        else categories.splice(index, 1);
+        renderState({ categories, recent: false, columns: activeState.columns }, true);
         setMobileOpen(false);
       });
     });
     columnsControl.addEventListener('input', function () {
-      const state = stateFromUrl();
-      state.columns = Number(columnsControl.value);
+      const state = Object.assign({}, activeState, { columns: Number(columnsControl.value) });
       setColumns(state.columns);
+      activeState = state;
+      rememberBrowserState(state);
       writeUrl(state, true);
     });
   }
@@ -187,10 +349,11 @@
   window.addEventListener('popstate', function () { renderState(stateFromUrl(), false); });
   mobileMedia.addEventListener('change', syncResponsiveNavigation);
 
+  recordCurrentProject();
   syncResponsiveNavigation();
   if (browser) {
     const initialState = stateFromUrl();
     renderState(initialState, false);
-    writeUrl(initialState, true);
+    writeUrl(activeState, true);
   }
 })();

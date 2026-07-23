@@ -1,11 +1,24 @@
 {% assign is_browser = false %} {% if page.url == '/' %}{% assign is_browser = true %}{% endif %}
 {% assign is_project = false %} {% if page.layout == 'project' %}{% assign is_project = true %}{% endif %}
 {% assign has_context_bar = false %} {% if is_browser or is_project %}{% assign has_context_bar = true %}{% endif %}
+{% assign is_eligible_project = false %}
+{% if is_project and page.prototype != true and page.browser_exclude != true and page.hidden != true and page.published != false %}
+{% assign is_eligible_project = true %}
+{% endif %}
 
 <div
+  id="portfolio-shell"
   class="portfolio-shell{% if is_browser %} is-browser{% endif %}{% if is_project %} is-project{% endif %}{% if has_context_bar %} has-context-bar{% endif %}"
   data-portfolio-shell
+  {% if is_eligible_project %}data-project-id="{{ page.slug }}" data-project-eligible="true"{% endif %}
 >
+  <script>
+    try {
+      if (window.localStorage.getItem('portfolio-sidebar-collapsed') === 'true') {
+        document.getElementById('portfolio-shell').classList.add('is-sidebar-collapsed');
+      }
+    } catch (error) {}
+  </script>
   <aside class="portfolio-sidebar" id="portfolio-sidebar" aria-label="Portfolio navigation">
     <div class="portfolio-sidebar__body">
       <div class="portfolio-sidebar__identity">
@@ -15,37 +28,49 @@
           aria-controls="portfolio-sidebar"
           aria-expanded="true"
           data-sidebar-toggle
-          aria-label="Collapse sidebar"
-          title="Collapse sidebar"
+          aria-label="Collapse navigation"
+          title="Collapse navigation"
         >
           <svg
             class="portfolio-nav-icon portfolio-nav-icon--collapse"
-            viewBox="0 0 22 18"
+            viewBox="0 0 19 19"
             fill="none"
             aria-hidden="true"
             focusable="false"
+            data-sidebar-toggle-icon="collapse"
           >
-            <rect x="0.375" y="0.375" width="21.25" height="17.25" stroke="currentColor" stroke-width="0.75" />
-            <path d="M6 0.5V17.5" stroke="currentColor" stroke-width="0.75" />
+            <rect x="0.375" y="0.375" width="18.25" height="18.25" stroke="currentColor" stroke-width="0.75" />
+            <path d="M11 4.5L6 9.5L11 14.5" stroke="currentColor" stroke-width="0.75" />
+          </svg>
+          <svg
+            class="portfolio-nav-icon portfolio-nav-icon--expand"
+            viewBox="0 0 19 19"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+            data-sidebar-toggle-icon="expand"
+          >
+            <rect x="-0.375" y="0.375" width="18.25" height="18.25" transform="matrix(-1 0 0 1 18.25 0)" stroke="currentColor" stroke-width="0.75" />
+            <path d="M8 4.5L13 9.5L8 14.5" stroke="currentColor" stroke-width="0.75" />
           </svg>
         </button>
         <button
           class="portfolio-mobile-close"
           type="button"
           aria-controls="portfolio-sidebar"
-          aria-label="Close portfolio navigation"
-          title="Close portfolio navigation"
+          aria-label="Close navigation"
+          title="Close navigation"
           data-mobile-sidebar-close
         >
           <svg
-            class="portfolio-nav-icon portfolio-nav-icon--collapse"
-            viewBox="0 0 22 18"
+            class="portfolio-nav-icon portfolio-nav-icon--close"
+            viewBox="0 0 18 18"
             fill="none"
             aria-hidden="true"
             focusable="false"
           >
-            <rect x="0.375" y="0.375" width="21.25" height="17.25" stroke="currentColor" stroke-width="0.75" />
-            <path d="M6 0.5V17.5" stroke="currentColor" stroke-width="0.75" />
+            <path d="M0.265625 0.265625L17.2656 17.2656" stroke="currentColor" stroke-width="0.75" />
+            <path d="M17.2656 0.265625L0.265624 17.2656" stroke="currentColor" stroke-width="0.75" />
           </svg>
         </button>
         <p class="portfolio-introduction-block">
@@ -104,6 +129,9 @@
             <div class="portfolio-category-filters">
               <button class="portfolio-category-filter" type="button" data-browser-view="all" aria-pressed="false">
                 All Projects
+              </button>
+              <button class="portfolio-category-filter" type="button" data-browser-view="recent" aria-pressed="false" hidden>
+                Recently Viewed
               </button>
               {% assign categories = site.data.portfolio_categories | sort: 'order' %} {% for category in categories %}
               <button
@@ -193,10 +221,21 @@
     type="button"
     aria-controls="portfolio-sidebar"
     aria-expanded="false"
+    aria-label="Open navigation"
+    title="Open navigation"
     data-mobile-sidebar-toggle
   >
-    <span aria-hidden="true">☰</span>
-    <span class="visually-hidden">Open portfolio navigation</span>
+    <svg
+      class="portfolio-nav-icon portfolio-nav-icon--menu"
+      viewBox="0 0 20 18"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M0 0.375H20" stroke="currentColor" stroke-width="0.75" />
+      <path d="M0 8.875H20" stroke="currentColor" stroke-width="0.75" />
+      <path d="M0 17.375H20" stroke="currentColor" stroke-width="0.75" />
+    </svg>
   </button>
 
   <button class="portfolio-sidebar-backdrop" type="button" data-sidebar-backdrop aria-label="Close navigation"></button>

@@ -188,9 +188,20 @@ $portfolio-mobile-breakpoint: 767px;
   width: 1.5rem;
 }
 
-.portfolio-nav-icon--collapse {
+.portfolio-nav-icon--close {
   height: 1.125rem;
-  width: 1.375rem;
+  width: 1.125rem;
+}
+
+.portfolio-nav-icon--menu {
+  height: 1.125rem;
+  width: 1.25rem;
+}
+
+.portfolio-nav-icon--collapse,
+.portfolio-nav-icon--expand {
+  height: 1.1875rem;
+  width: 1.1875rem;
 }
 
 .portfolio-nav-icon--instagram {
@@ -232,7 +243,8 @@ $portfolio-mobile-breakpoint: 767px;
 
 .portfolio-category-filter:focus-visible,
 .portfolio-nav-link:focus-visible,
-.portfolio-sidebar__toggle:focus-visible {
+.portfolio-sidebar__toggle:focus-visible,
+.portfolio-mobile-toggle:focus-visible {
   outline: 1px solid $primary;
   outline-offset: 2px;
 }
@@ -252,6 +264,18 @@ $portfolio-mobile-breakpoint: 767px;
   padding: 0.225rem 0 0;
   place-items: start center;
   width: $portfolio-sidebar-icon-hit-size;
+}
+
+.portfolio-sidebar__toggle [data-sidebar-toggle-icon="expand"] {
+  display: none;
+}
+
+.is-sidebar-collapsed .portfolio-sidebar__toggle [data-sidebar-toggle-icon="collapse"] {
+  display: none;
+}
+
+.is-sidebar-collapsed .portfolio-sidebar__toggle [data-sidebar-toggle-icon="expand"] {
+  display: block;
 }
 
 .portfolio-mobile-close {
@@ -648,14 +672,18 @@ $portfolio-mobile-breakpoint: 767px;
   }
 
   .portfolio-mobile-toggle {
+    align-items: center;
     background: $secondary-color;
     border: 1px solid rgba($primary, 0.3);
     color: $primary;
-    display: block;
+    display: grid;
+    height: $portfolio-sidebar-icon-hit-size;
     left: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-left));
-    padding: 0.5rem 0.65rem;
+    padding: 0;
+    place-items: center;
     position: fixed;
     top: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-top));
+    width: $portfolio-sidebar-icon-hit-size;
     z-index: 1030;
   }
 

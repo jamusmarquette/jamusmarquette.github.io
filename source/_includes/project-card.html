@@ -1,5 +1,6 @@
 <article
     class="project-card"
+    data-project-id="{{ include.project.slug }}"
     data-category="{% for project_category in include.project.categories %}{% for category in site.data.portfolio_categories %}{% if category.label == project_category %}{{ category.id }} {% endif %}{% endfor %}{% endfor %}"
 >
 
