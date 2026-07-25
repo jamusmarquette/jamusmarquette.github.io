@@ -145,25 +145,6 @@
 
 //End content image
 
-#credits {
-  .bodyul {
-    border-bottom: 2px solid #929697;
-    padding-bottom: 0;
-  }
-
-  #roles {
-    padding-left: 0;
-
-    .collaborator {
-      padding-bottom: 0.5rem;
-
-      .role {
-        //font-style: italic !important;
-      }
-    }
-  }
-}
-
 #topgradient {
   z-index: 1031;
 }
@@ -252,45 +233,154 @@
   white-space: pre-line;
 }
 
-.project-facts {
+$project-information-max-width: 68.25rem;
+$project-information-description-width: 26rem;
+$project-information-project-width: 11rem;
+$project-information-credits-width: 11.5rem;
+$project-information-final-width: 10.75rem;
+$project-information-columns: $project-information-project-width $project-information-credits-width
+  $project-information-final-width;
+$project-information-column-gap: 2rem;
+$project-information-wrapper-right-padding: 1rem;
+$project-information-details-width: $project-information-project-width + $project-information-credits-width + $project-information-final-width + ($project-information-column-gap * 2) + $project-information-wrapper-right-padding;
+$project-information-description-to-details-gap: 4rem;
+$project-information-group-gap: 2rem;
+$project-information-heading-gap: 0.5rem;
+$project-information-heading-underline-thickness: 1px;
+$project-information-heading-underline-offset: 0.18em;
+$project-information-entry-gap: 0.75rem;
+$project-information-label-gap: 0.15rem;
+
+.project-details {
+  font-size: $portfolio-font-size-small;
+  line-height: $portfolio-line-height-small;
+  padding-right: $project-information-wrapper-right-padding;
+}
+
+.project-details h2,
+.project-details dt,
+.project-details dd,
+.project-details ul,
+.project-details li,
+.project-details a,
+.project-details span {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.project-details dl,
+.project-details dd {
+  margin: 0;
+}
+
+.project-details__groups {
   display: grid;
-  gap: 0.5rem 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  margin: 0;
+  gap: $project-information-group-gap;
 }
 
-.project-facts__item {
-  margin: 0;
+.project-details__group h2 {
+  font-size: inherit;
+  font-style: normal;
+  line-height: inherit;
+  margin-bottom: $project-information-heading-gap;
+  text-decoration-line: underline;
+  text-decoration-thickness: $project-information-heading-underline-thickness;
+  text-underline-offset: $project-information-heading-underline-offset;
 }
 
-.project-facts dt {
-  margin-bottom: 0.2rem;
-  text-transform: uppercase;
+.project-details__field,
+.project-details__credit,
+.project-details__list li {
+  margin-bottom: $project-information-entry-gap;
 }
 
-.project-facts dd {
-  margin: 0;
-}
-
-.project-collaborators h2 {
-  margin-bottom: 0.5rem;
-}
-
-.project-collaborators dl {
-  margin: 0;
-}
-
-.project-collaborators__group {
-  margin-bottom: 0.75rem;
-}
-
-.project-collaborators__group:last-child {
+.project-details__field:last-child,
+.project-details__credit:last-child,
+.project-details__group:last-child .project-details__list li:last-child {
   margin-bottom: 0;
 }
 
-.project-collaborators dt,
-.project-collaborators dd {
+.project-details dt,
+.project-details dd {
   margin: 0;
+}
+
+.project-details__credits,
+.project-details__list {
+  padding-left: 0;
+}
+
+.project-details__field dt,
+.project-details__credit dt {
+  margin-bottom: $project-information-label-gap;
+}
+
+.project-details__field dt,
+.project-details__credit dt,
+.project-details__detail {
+  font-style: italic;
+}
+
+.project-details__detail::before {
+  content: ' — ';
+}
+
+@media (min-width: 992px) {
+  .project-information {
+    max-width: $project-information-max-width;
+    width: 100%;
+  }
+
+  .project-intro-paragraph {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: $project-information-description-to-details-gap;
+  }
+
+  .project-intro-paragraph > .project-intro__description,
+  .project-intro-paragraph > .project-details {
+    flex: none;
+    max-width: none;
+    padding-bottom: 0;
+  }
+
+  .project-intro-paragraph > .project-intro__description {
+    width: $project-information-description-width;
+  }
+
+  .project-intro-paragraph > .project-details {
+    width: $project-information-details-width;
+  }
+
+  .project-details__groups {
+    column-gap: $project-information-column-gap;
+    grid-template-columns: $project-information-columns;
+    row-gap: 0;
+  }
+
+  .project-details__track {
+    min-width: 0;
+  }
+
+  .project-details__track--project {
+    grid-column: 1;
+  }
+
+  .project-details__track--credits {
+    grid-column: 2;
+  }
+
+  .project-details__track--supplementary {
+    grid-column: 3;
+    display: grid;
+    gap: $project-information-group-gap;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .project-details__track.is-empty {
+    display: none;
+  }
 }
 
 .case-study-guidance {

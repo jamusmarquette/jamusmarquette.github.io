@@ -15,16 +15,21 @@ hero_type: full-image
 hero: /project/prototype-font-design/img/hero.svg
 description:
   - 'Meridian is a fictional variable type family for editorial systems, public information, interfaces, and cultural institutions.'
-collaborators:
+status: In Development
+version: 0.900 Beta
+credits:
   - role: Type Design
-    people:
+    names:
       - Jamus Marquette
   - role: Specimen Design
-    people:
+    names:
       - Jamus Marquette
   - role: Technical Support
-    people:
+    names:
       - Inter Project Authors
+links:
+  - label: Variable Specimen
+    url: /project/prototype-font-design/
 sections:
   - id: context
     label: Context

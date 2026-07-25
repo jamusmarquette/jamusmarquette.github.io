@@ -14,17 +14,19 @@ hero_type: full-image
 hero: /project/prototype-interactive-experience/img/hero.svg
 description:
   - 'Fieldguide is a fictional museum companion that helps visitors choose, understand, and remember routes through a changing collection.'
-project_facts:
-  - label: Product owner
-    value: Fieldguide Museum (fictional)
-  - label: Role
-    value: Product strategy, IA, interaction, and interface design
-  - label: Duration
-    value: Development example, 12 weeks
-  - label: Technologies
-    value: Responsive web, shared display, prototype motion
-  - label: Status
-    value: Development prototype — not portfolio work
+status: Development prototype — fictional content
+version: 0.047
+client: Fieldguide Museum (fictional)
+credits:
+  - role: Product Strategy and Experience Design
+    names:
+      - Jamus Marquette
+  - role: Exhibition Content Collaboration
+    names:
+      - Fictional Fieldguide project team
+links:
+  - label: Interactive Prototype
+    url: /project/prototype-interactive-experience/
 sections:
   - id: context
     label: Context
@@ -36,14 +38,6 @@ sections:
     label: System
   - id: in-use
     label: In Use
-introduction_rows:
-  - caption:
-      title: A guide for a changing visit
-      text: 'A fictional responsive product for first-time visitors, families, educators, and onsite staff across personal devices and shared displays.'
-    items:
-      - image: /project/prototype-interactive-experience/img/overview.svg
-        alt: Fictional Fieldguide product overview
-        col: col-16
 media_rows:
   - section: context
     caption:

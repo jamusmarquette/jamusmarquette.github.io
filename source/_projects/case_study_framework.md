@@ -10,35 +10,18 @@ section_default: all
 thumbnail: /project/case-study-framework/img/thumbnail.svg
 description:
   - "A reference page showing what belongs in a JAMUS project introduction and each conceptual section. This is a development reference, not client work or a portfolio project."
-project_facts:
-  - label: Purpose
-    value: Authoring reference for future case studies
-  - label: Method
-    value: Project introduction → Context → Concept → Structure → System → In Use
-  - label: Status
-    value: Development reference — not portfolio work
-  - label: Central logic
-    value: Ideas become structures. Structures become systems. Systems become experiences.
-introduction_guidance:
-  - type: purpose
-    label: Purpose
-    text: "Orient the visitor before the conceptual narrative begins. The introduction answers: What is this project? Treat it like the cover of a book, not a selectable chapter."
-  - type: questions
-    label: Questions to answer
-    text: "What is it? Who is it for? What was the role, year, team, status, and relevant scope?"
-  - type: examples
-    label: Content that belongs here
-    text: "Hero, concise summary, client, role, team, tools, technologies, links, and compact credit information."
-  - type: avoid
-    label: Does not belong here
-    text: "A conceptual essay, a process chronology, or a gallery of final applications."
-  - type: review-question
-    label: Review question
-    text: "Could a visitor identify the project before choosing a section?"
+status: Development reference — not client work
+credits:
+  - role: Framework Author
+    names:
+      - Jamus Marquette
 sections:
   - id: context
     label: Context
     guidance:
+      - type: examples
+        label: Opening Details
+        text: "Opening content is hero, concise description, and optional Details. Details provides factual orientation—not conceptual narrative—with any authored Status, Version, Client, Credits, Recognition, and Links. Credits pairs roles with contributors; legacy Collaborators data temporarily renders as Credits during migration. Version is primarily useful for typefaces, tools, products, and software."
       - type: purpose
         label: Purpose
         text: "Explain the situation that made the project necessary before revealing the solution."
@@ -126,14 +109,6 @@ sections:
       - type: review-question
         label: Review question
         text: "Can a visitor understand how the system performs rather than merely how it looks?"
-introduction_rows:
-  - caption:
-      title: A factual introduction before the conceptual narrative
-      text: "Project introduction → Context → Concept → Structure → System → In Use. The introduction is always part of All Sections, but it is not a selectable section."
-    items:
-      - text: "Ideas become structures. Structures become systems. Systems become experiences. This project was not designed this way because it looked good. It was designed this way because the concept demanded it."
-        col: col-16
-        text_class: case-study-concept-statement
 ---
 
 <div id="project" class="prototype-project case-study-framework mb-5">

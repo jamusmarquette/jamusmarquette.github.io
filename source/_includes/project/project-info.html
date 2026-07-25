@@ -3,10 +3,11 @@
 
     <h1 class="project-page-title">{{ page.title }}</h1>
 
+    <div class="project-information">
     <div class="row project-intro-paragraph pb-4 pb-md-6 pt-0">
 
         <!-- description -->
-        <div class="{{ page.description_col | default: 'col-md-8 col-lg-7 pb-3' }}">
+        <div class="project-intro__description {{ page.description_col | default: 'col-md-8 col-lg-7 pb-3' }}">
 
             {% for paragraph in page.description %}
                 <p>{{ paragraph }}</p>
@@ -14,40 +15,9 @@
 
         </div>
 
-        {% if page.collaborators %}
-        <div class="col-md-8 col-lg-7 pb-3 project-collaborators">
-            <h2>Collaborators</h2>
-            <dl>
-                {% for collaborator in page.collaborators %}
-                {% assign collaborator_names = collaborator.people | default: collaborator.names %}
-                {% if collaborator.role and collaborator_names and collaborator_names.size > 0 %}
-                <div class="project-collaborators__group">
-                    <dt>{{ collaborator.role }}</dt>
-                    {% for name in collaborator_names %}
-                    <dd>{{ name }}</dd>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                {% endfor %}
-            </dl>
-        </div>
-        {% elsif page.project_facts %}
-        <div class="col-md-8 col-lg-7 pb-3">
-            <dl class="project-facts">
-                {% for fact in page.project_facts %}
-                <div class="project-facts__item">
-                    <dt>{{ fact.label }}</dt>
-                    <dd>{{ fact.value }}</dd>
-                </div>
-                {% endfor %}
-            </dl>
-        </div>
-        {% endif %}
+        {% include project/project-details.html %}
 
-        {% unless include.hide_credits %}
-          {% include project/credits.html %}
-        {% endunless %}
-
+    </div>
     </div>
 
 </div>

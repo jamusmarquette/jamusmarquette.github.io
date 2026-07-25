@@ -1,0 +1,153 @@
+{% comment %}
+  Preferred Details schema: credits is an ordered list of role/name groups.
+  Legacy collaborators is rendered as Credits until individual projects migrate.
+{% endcomment %}
+{% assign status_value = page.status | default: '' | strip %}
+{% assign version_value = page.version | default: '' | strip %}
+{% assign client_value = page.client | default: '' | strip %}
+{% assign has_project_group = false %}
+{% if status_value != '' or version_value != '' or client_value != '' %}
+  {% assign has_project_group = true %}
+{% endif %}
+
+{% assign detail_credits = page.credits %}
+{% assign has_credits = false %}
+{% for credit in detail_credits %}
+  {% assign credit_names = credit.names | default: credit.people %}
+  {% if credit.role %}
+    {% if credit_names and credit_names.size > 0 %}
+      {% assign has_credits = true %}
+    {% elsif credit.name %}
+      {% assign has_credits = true %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% if has_credits == false %}
+  {% assign detail_credits = page.collaborators %}
+  {% for credit in detail_credits %}
+    {% assign credit_names = credit.names | default: credit.people %}
+    {% if credit.role %}
+      {% if credit_names and credit_names.size > 0 %}
+        {% assign has_credits = true %}
+      {% elsif credit.name %}
+        {% assign has_credits = true %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign has_recognition = false %}
+{% for item in page.recognition %}
+  {% if item.title %}
+    {% assign has_recognition = true %}
+  {% endif %}
+{% endfor %}
+
+{% assign has_links = false %}
+{% for item in page.links %}
+  {% if item.label and item.url %}
+    {% assign has_links = true %}
+  {% endif %}
+{% endfor %}
+
+{% assign has_supplementary_group = false %}
+{% if has_recognition or has_links %}
+  {% assign has_supplementary_group = true %}
+{% endif %}
+
+{% if has_project_group or has_credits or has_supplementary_group %}
+<div class="col-md-8 col-lg-7 pb-3 project-details">
+  <div class="project-details__groups">
+    <div class="project-details__track project-details__track--project{% unless has_project_group %} is-empty{% endunless %}">
+      {% if has_project_group %}
+      <section class="project-details__group project-details__group--project">
+        <h2>Project Info</h2>
+        <dl>
+          {% if status_value != '' %}
+          <div class="project-details__field">
+            <dt>Status</dt>
+            <dd>{{ page.status }}</dd>
+          </div>
+          {% endif %}
+          {% if version_value != '' %}
+          <div class="project-details__field">
+            <dt>Version</dt>
+            <dd>{{ page.version }}</dd>
+          </div>
+          {% endif %}
+          {% if client_value != '' %}
+          <div class="project-details__field">
+            <dt>Client</dt>
+            <dd>{{ page.client }}</dd>
+          </div>
+          {% endif %}
+        </dl>
+      </section>
+      {% endif %}
+    </div>
+
+    <div class="project-details__track project-details__track--credits{% unless has_credits %} is-empty{% endunless %}">
+      {% if has_credits %}
+      <section class="project-details__group project-details__group--credits">
+        <h2>Credits</h2>
+        <dl class="project-details__credits">
+          {% for credit in detail_credits %}
+            {% assign credit_names = credit.names | default: credit.people %}
+            {% assign valid_credit = false %}
+            {% if credit.role %}
+              {% if credit_names and credit_names.size > 0 %}
+                {% assign valid_credit = true %}
+              {% elsif credit.name %}
+                {% assign valid_credit = true %}
+              {% endif %}
+            {% endif %}
+            {% if valid_credit %}
+            <div class="project-details__credit">
+              <dt>{{ credit.role }}</dt>
+              {% if credit_names and credit_names.size > 0 %}
+                {% for name in credit_names %}
+                <dd>{{ name }}</dd>
+                {% endfor %}
+              {% else %}
+                <dd>{{ credit.name }}</dd>
+              {% endif %}
+            </div>
+            {% endif %}
+          {% endfor %}
+        </dl>
+      </section>
+      {% endif %}
+    </div>
+
+    <div class="project-details__track project-details__track--supplementary{% unless has_supplementary_group %} is-empty{% endunless %}">
+      {% if has_recognition %}
+      <section class="project-details__group project-details__group--recognition">
+        <h2>Recognition</h2>
+        <ul class="project-details__list">
+          {% for item in page.recognition %}
+            {% if item.title %}
+            <li>
+              {% if item.url %}<a href="{{ item.url }}"{% if item.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}{% if item.detail %}<span class="project-details__detail">{{ item.detail }}</span>{% endif %}
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if has_links %}
+      <section class="project-details__group project-details__group--links">
+        <h2>Links</h2>
+        <ul class="project-details__list">
+          {% for item in page.links %}
+            {% if item.label and item.url %}
+            <li><a href="{{ item.url }}"{% if item.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}

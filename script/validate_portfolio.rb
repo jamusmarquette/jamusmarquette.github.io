@@ -65,8 +65,55 @@ def case_exact?(path)
   true
 end
 
+def present_text?(value)
+  value.is_a?(String) && !value.strip.empty?
+end
+
+def contributor_names_present?(entry)
+  names = entry["names"] || entry["people"] || entry["name"]
+  case names
+  when Array
+    names.any? { |name| present_text?(name) }
+  else
+    present_text?(names)
+  end
+end
+
+def valid_credit_entry?(entry)
+  entry.is_a?(Hash) && present_text?(entry["role"]) && contributor_names_present?(entry)
+end
+
+def valid_detail_entries?(entries)
+  entries.is_a?(Array) && entries.any? { |entry| valid_credit_entry?(entry) }
+end
+
+def malformed_detail_entries?(entries)
+  !entries.is_a?(Array) || entries.any? { |entry| !valid_credit_entry?(entry) }
+end
+
+def valid_recognition_entries?(entries)
+  entries.is_a?(Array) && entries.any? { |entry| entry.is_a?(Hash) && present_text?(entry["title"]) }
+end
+
+def valid_link_entries?(entries)
+  entries.is_a?(Array) && entries.any? do |entry|
+    entry.is_a?(Hash) && present_text?(entry["label"]) && present_text?(entry["url"])
+  end
+end
+
+def report_list(entries)
+  entries.empty? ? "none" : entries.join(", ")
+end
+
 issues = []
 projects = []
+details_report = {
+  credits: [],
+  collaborators: [],
+  both: [],
+  malformed_collaborators: [],
+  no_details: []
+}
 
 PROJECT_DIR.glob("*.md").sort.each do |path|
   begin
@@ -78,6 +125,19 @@ PROJECT_DIR.glob("*.md").sort.each do |path|
 
   projects << [path, data]
   label = data["title"] || path.basename.to_s
+
+  has_credits = valid_detail_entries?(data["credits"])
+  has_collaborators = valid_detail_entries?(data["collaborators"])
+  details_report[:credits] << label if has_credits
+  details_report[:collaborators] << label if has_collaborators
+  details_report[:both] << label if data.key?("credits") && data.key?("collaborators")
+  if data.key?("collaborators") && malformed_detail_entries?(data["collaborators"])
+    details_report[:malformed_collaborators] << label
+  end
+
+  has_scalar_detail = %w[status version client].any? { |key| present_text?(data[key]) }
+  has_details = has_scalar_detail || has_credits || has_collaborators || valid_recognition_entries?(data["recognition"]) || valid_link_entries?(data["links"])
+  details_report[:no_details] << label unless has_details
 
   if data["thumbnail"].to_s.strip.empty?
     issues << Issue.new(level: :error, code: "thumbnail", message: "#{label}: missing thumbnail metadata")
@@ -171,6 +231,12 @@ end
 puts "Portfolio validation"
 puts "Projects: #{projects.length}"
 puts "Known categories: #{KNOWN_CATEGORIES.length}"
+puts "Details migration report"
+puts "  Preferred credits (#{details_report[:credits].length}): #{report_list(details_report[:credits])}"
+puts "  Legacy collaborators (#{details_report[:collaborators].length}): #{report_list(details_report[:collaborators])}"
+puts "  Both fields (#{details_report[:both].length}): #{report_list(details_report[:both])}"
+puts "  Malformed legacy collaborators (#{details_report[:malformed_collaborators].length}): #{report_list(details_report[:malformed_collaborators])}"
+puts "  No Details data (#{details_report[:no_details].length}): #{report_list(details_report[:no_details])}"
 
 if issues.empty?
   puts "PASS: no collection metadata or media-path issues found"

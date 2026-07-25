@@ -18,17 +18,15 @@ hero_type: full-image
 hero: /project/prototype-brand-system/img/hero.svg
 description:
   - 'Northstar is a fictional identity system for a regional cultural organization connecting public programs, publications, and digital services.'
-project_facts:
-  - label: Client
-    value: Northstar Cultural Network (fictional)
-  - label: Role
-    value: Strategy, identity, typography, and applications
-  - label: Year
-    value: Development example, 2026
-  - label: Team
-    value: Fictional identity, editorial, and production collaborators
-  - label: Status
-    value: Development prototype — not portfolio work
+status: Development prototype — fictional content
+client: Northstar Cultural Network (fictional)
+credits:
+  - role: Strategy and Identity Design
+    names:
+      - Jamus Marquette
+  - role: Editorial and Production Collaboration
+    names:
+      - Fictional Northstar project team
 sections:
   - id: context
     label: Context
@@ -40,14 +38,6 @@ sections:
     label: System
   - id: in-use
     label: In Use
-introduction_rows:
-  - caption:
-      title: A cultural network with one public voice
-      text: 'This fictional case study tests a concise orientation: what Northstar is, who the system serves, and the role of a shared identity across many programs.'
-    items:
-      - image: /project/prototype-brand-system/img/overview-summary.svg
-        alt: Fictional Northstar identity project summary
-        col: col-16
 media_rows:
   - section: context
     caption:
