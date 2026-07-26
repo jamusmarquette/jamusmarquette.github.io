@@ -13650,6 +13650,17 @@ textarea.form-control-lg {
     gap: 2rem;
   }
 }
+@media (min-width: 1024px) and (max-width: 1295.98px) {
+  .project-opening__primary-content {
+    max-width: 100%;
+    min-width: 0;
+    width: 50%;
+  }
+
+  .project-opening__details {
+    max-width: 82%;
+  }
+}
 @media (min-width: 1296px) {
   .project-opening {
     display: grid;
@@ -13677,7 +13688,7 @@ textarea.form-control-lg {
     align-self: start;
     grid-column: 4/span 3;
     grid-row: 1;
-    max-width: 100%;
+    max-width: 82%;
     min-width: 0;
     width: 100%;
   }

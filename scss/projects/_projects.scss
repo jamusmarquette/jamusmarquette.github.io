@@ -236,6 +236,7 @@
 
 $project-opening-column-gap: 1rem;
 $project-opening-primary-content-width: 78%;
+$project-opening-primary-intermediate-width: 50%;
 $project-opening-details-max-width: 82%;
 $project-opening-details-column-gap: 1rem;
 $project-opening-title-to-description-gap: 1.5rem;
@@ -412,6 +413,20 @@ $project-information-label-gap: 0.15rem;
   }
 }
 
+// Below the side-by-side outer layout, keep the stacked rows' readable
+// content widths constrained until the tablet layout begins.
+@media (min-width: $project-information-three-column-breakpoint) and (max-width: ($project-opening-medium-breakpoint - 0.02px)) {
+  .project-opening__primary-content {
+    max-width: 100%;
+    min-width: 0;
+    width: $project-opening-primary-intermediate-width;
+  }
+
+  .project-opening__details {
+    max-width: $project-opening-details-max-width;
+  }
+}
+
 // The two outer halves remain intact until the primary content and the
 // three-column details grid no longer fit comfortably side by side.
 @media (min-width: $project-opening-medium-breakpoint) {
@@ -441,7 +456,7 @@ $project-information-label-gap: 0.15rem;
     align-self: start;
     grid-column: 4 / span 3;
     grid-row: 1;
-    max-width: 100%;
+    max-width: $project-opening-details-max-width;
     min-width: 0;
     width: 100%;
   }
