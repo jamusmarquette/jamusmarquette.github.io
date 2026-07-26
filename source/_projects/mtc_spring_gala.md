@@ -47,20 +47,39 @@ credits:
   - role: Designed at
     name: RED Partners
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         image: /project/mtc_spring_gala/img/02_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         image: /project/mtc_spring_gala/img/03_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
 
 
-  - row_class: row mb-5
+  - section: in-use
+    row_class: row mb-5
     items:
       - col: col-16
         image: /project/mtc_spring_gala/img/04_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
@@ -68,14 +87,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

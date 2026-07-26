@@ -49,40 +49,63 @@ credits:
   - role: Designed at
     name: RED Partners
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
+
 media_rows:
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         image: /project/design_firms_open_for_business/img/jamus_marquette_Open_for_business_refernce_signs.png
 
-  - items:
+  - section: in-use
+    items:
       - col: col-8 mb-4
         image: /project/design_firms_open_for_business/img/01_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
       - col: col-md-8 mb-4
         image: /project/design_firms_open_for_business/img/03_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/design_firms_open_for_business/img/05_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
       - col: col-md-8 mb-4
         image: /project/design_firms_open_for_business/img/04_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/design_firms_open_for_business/img/07_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
       - col: col-md-8 mb-4
         image: /project/design_firms_open_for_business/img/10_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/design_firms_open_for_business/img/09_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
       - col: col-8 mb-4
         image: /project/design_firms_open_for_business/img/13_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4 mb-md-0
         image: /project/design_firms_open_for_business/img/12_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 
@@ -90,14 +113,4 @@ media_rows:
         image: /project/design_firms_open_for_business/img/17_jamus_marquette_design_firms_open_for_business_by_steven_heller_and_lita_talarico_book_design.jpg
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

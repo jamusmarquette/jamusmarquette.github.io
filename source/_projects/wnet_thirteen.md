@@ -44,32 +44,43 @@ credits:
   - role: Designed at
     name: RED Partners
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
+
 media_rows:
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         image: /project/wnet_thirteen/img/jamus_marquette_wnet_pbs_thirteen_guide_and_covers_education_issue_and_carousel.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         image: /project/wnet_thirteen/img/jamus_marquette_wnet_pbs_thirteen_guide_and_covers_thank_you_cake_and_annie.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         image: /project/wnet_thirteen/img/jamus_marquette_wnet_pbs_thirteen_guide_and_covers_education_meets_broadway_and_new_york_state_of_mind.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16
         image: /project/wnet_thirteen/img/jamus_marquette_wnet_pbs_thirteen_guide_and_covers_women_war_and_peace_cover_and_911_american_flag.jpg
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}
