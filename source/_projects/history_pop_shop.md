@@ -36,24 +36,6 @@ description:
   - >
     RED worked with Civic’s team of production/interior designers on exterior signage, neon lights, window covers and also designed various print collateral promoting daily offers and events.
 
-  - >
-    © 2026 Jamus Marquette.
-
-  - >
-    Jamus is a conceptually driven, tech-savvy, multidisciplinary graphic and motion designer, creative thinker, and problem solver interested in creating original, unexpected, and intelligent design that communicates authentic ideas and stories, and creates purposeful and meaningful experiences that advance goals, touch hearts, provoke the use of heads, and charm eyes.
-
-  - >
-    His talents have been developed at SpotCo under the art direction of Gail Anderson, designing at RED Partners on a wide range of projects including branding, book design, book covers, posters, environmental graphics, event graphics, web, and motion graphics for various clients, creating award winning theater posters with Kevin Brainard of Area of Practice, and as a freelance designer and consultant while living abroad volunteering, developing his character, and broadening his cultural perspective.
-
-  - >
-    School of Visual Arts<br> BFA Graphic Design<br> 2008
-
-  - >
-    Jamus is available for freelance work, collaborations, and full-time hire.
-
-  - >
-    <a class="blur" href="mailto:jamusss@gmail.com" target="_blank">jamusss@gmail.com</a><br> <a class="blur" href="http://www.instagram.com/jamusmarquette" target="_blank">Instagram @jamusmarquette</a>
-
 
 credits_title: Collaborators
 
@@ -70,10 +52,27 @@ credits:
   - role: Designed at
     name: RED Partners
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: col-lg-8 col-md-16 pb-4 order-lg-1
         image: /project/history_pop_shop/img/01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
 
@@ -89,14 +88,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

@@ -22,10 +22,27 @@ description:
   - >
     Each of these works were created considering the historical, grammatical, and literary context of each source of influence in an effort to communicate originally intended meanings without bias while also developing a cohesive visually appealing graphic style of illustration and animation for creative, conceptually driven thinkers.
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-4 mb-4
         image: /project/illustrations/img/love_cross.gif
 
@@ -45,7 +62,8 @@ media_rows:
         poster: /project/illustrations/img/jamus_marquette_eat_animation.gif
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/illustrations/img/01_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
 
@@ -53,7 +71,8 @@ media_rows:
         image: /project/illustrations/img/04_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/illustrations/img/03_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
 
@@ -61,7 +80,8 @@ media_rows:
         image: /project/illustrations/img/02_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/illustrations/img/08_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
 
@@ -69,7 +89,8 @@ media_rows:
         image: /project/illustrations/img/06_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4 mb-md-0
         image: /project/illustrations/img/07_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif
 
@@ -79,14 +100,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

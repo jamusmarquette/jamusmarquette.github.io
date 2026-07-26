@@ -48,10 +48,27 @@ credits:
   - role: Designed at
     name: RED Partners
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - caption:
+  - section: in-use
+    caption:
       title: Environmental Graphics System
       text: >
         The visual language extended throughout the venue,
@@ -65,12 +82,14 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/00_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16
 
 
-  - caption:
+  - section: in-use
+    caption:
       text: >
         Interactive elements, such as the neon boot photo-op,
         encouraged social sharing and engagement with the brand.
@@ -83,7 +102,8 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/05_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16 col-md-8
 
@@ -91,7 +111,8 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/07_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16 col-md-8
 
@@ -99,12 +120,14 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/09_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/10_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design_neon_boot.jpg
         col: col-16 col-md-8
 
@@ -112,12 +135,14 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/12_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/13_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16 col-md-8
 
@@ -125,7 +150,8 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/15_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16 col-md-8
 
@@ -133,25 +159,17 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/17_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/cnn_grill_at_sxsw/img/18_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
         col: col-16
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}
