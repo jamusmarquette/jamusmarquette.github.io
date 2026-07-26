@@ -32,8 +32,10 @@
   class="{{ page.hero_container_class | default: 'container-fluid project-intro' }}"
   {% if page.hero_container_style %}style="{{ page.hero_container_style }}"{% endif %}
 >
-  {% for row in page.hero_rows %}
-    {% include project/media-row.html row=row %}
-  {% endfor %}
+  <div class="project-media-stack project-media-stack--hero">
+    {% for row in page.hero_rows %}
+      {% include project/media-row.html row=row %}
+    {% endfor %}
+  </div>
 </div>
 {% endif %}

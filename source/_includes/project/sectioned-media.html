@@ -9,9 +9,13 @@
   </div>
   {% endif %}
 
-  {% for row in page.introduction_rows %}
-  <div class="container-fluid">{% include project/media-row.html row=row %}</div>
-  {% endfor %}
+  {% if page.introduction_rows %}
+  <div class="project-media-stack">
+    {% for row in page.introduction_rows %}
+    <div class="container-fluid project-media-stack__row">{% include project/media-row.html row=row %}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
 
   {% if page.introduction_guidance %}
   <div class="container-fluid case-study-guidance">
@@ -40,9 +44,15 @@
     </div>
   </div>
 
-  {% for row in page.media_rows %} {% if row.section == section.id %}
-  <div class="container-fluid">{% include project/media-row.html row=row %}</div>
-  {% endif %} {% endfor %} {% if section.guidance %}
+  {% assign section_media_rows = page.media_rows | where: 'section', section.id %}
+  {% if section_media_rows.size > 0 %}
+  <div class="project-media-stack">
+    {% for row in section_media_rows %}
+    <div class="container-fluid project-media-stack__row">{% include project/media-row.html row=row %}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if section.guidance %}
   <div class="container-fluid case-study-guidance">
     {% for block in section.guidance %}
     <div class="case-study-guidance__{{ block.type | default: 'examples' }}">

@@ -15,6 +15,30 @@
   width: 100% !important;
 }
 
+// Shared project media uses one gutter for columns, wrapped items, and rows.
+$project-media-gap: 0.75rem;
+
+.project-media-stack {
+  display: grid;
+  row-gap: $project-media-gap;
+}
+
+.project-media-stack__row,
+.project-media-stack > .project-media-row {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.project-media-row {
+  --bs-gutter-x: #{$project-media-gap};
+  --bs-gutter-y: 0;
+  row-gap: $project-media-gap;
+}
+
+.project-media-row > .project-media-item {
+  margin-bottom: 0 !important;
+}
+
 .h3ul {
   margin-bottom: 1.25rem;
   text-decoration: underline;
