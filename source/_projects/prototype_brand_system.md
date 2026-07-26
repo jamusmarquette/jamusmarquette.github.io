@@ -30,14 +30,19 @@ credits:
 sections:
   - id: context
     label: Context
+    status: complete
   - id: concept
     label: Concept
-  - id: structure
-    label: Structure
+    status: complete
+  - id: development
+    label: Development
+    status: complete
   - id: system
     label: System
+    status: complete
   - id: in-use
     label: In Use
+    status: complete
 media_rows:
   - section: context
     caption:
@@ -58,7 +63,7 @@ media_rows:
       - text: 'A recognizable center is useful only when it helps people find the many things around it.'
         col: col-16
         text_class: case-study-concept-statement
-  - section: structure
+  - section: development
     caption:
       title: Hierarchy follows proximity
       text: 'The mark, naming hierarchy, and layouts organize information as linked coordinates: the network leads, a program identifies itself, and a specific event becomes easy to locate. The sketches show only the choices that established this relationship.'
@@ -72,7 +77,7 @@ media_rows:
       - image: /project/prototype-brand-system/img/sketch-3.svg
         alt: Fictional layout composition study
         col: col-md-5
-  - section: structure
+  - section: development
     caption:
       title: A responsive identity hierarchy
       text: 'The logo system is structured to move from a full network signature to compact program and event lockups without losing the relationship between them.'

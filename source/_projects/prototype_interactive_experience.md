@@ -30,14 +30,19 @@ links:
 sections:
   - id: context
     label: Context
+    status: complete
   - id: concept
     label: Concept
-  - id: structure
-    label: Structure
+    status: complete
+  - id: development
+    label: Development
+    status: complete
   - id: system
     label: System
+    status: complete
   - id: in-use
     label: In Use
+    status: complete
 media_rows:
   - section: context
     caption:
@@ -58,7 +63,7 @@ media_rows:
       - text: 'Orientation is not a map of everything; it is confidence about what to do next.'
         col: col-16
         text_class: case-study-concept-statement
-  - section: structure
+  - section: development
     caption:
       title: A collection organized around decisions
       text: 'The information architecture groups collection content around routes, objects, and saved moments. Its hierarchy follows the concept: choose a direction, understand a place, then keep a thread for later.'
@@ -66,7 +71,7 @@ media_rows:
       - image: /project/prototype-interactive-experience/img/information-architecture.svg
         alt: Fictional Fieldguide information architecture
         col: col-16
-  - section: structure
+  - section: development
     caption:
       title: The primary route sequence
       text: 'The core flow moves from arrival to route selection, object discovery, saving, and sharing. These wireframes show the structural decisions that make each next step visible.'

@@ -30,6 +30,7 @@
 </div>
 
 {% for section in page.sections %}
+{% assign section_status = section.status | default: 'complete' %}
 <section
   class="prototype-project-section"
   id="section-{{ section.id }}"
@@ -44,24 +45,39 @@
     </div>
   </div>
 
-  {% assign section_media_rows = page.media_rows | where: 'section', section.id %}
-  {% if section_media_rows.size > 0 %}
-  <div class="project-media-stack">
-    {% for row in section_media_rows %}
-    <div class="container-fluid project-media-stack__row">{% include project/media-row.html row=row %}</div>
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% if section.guidance %}
-  <div class="container-fluid case-study-guidance">
-    {% for block in section.guidance %}
-    <div class="case-study-guidance__{{ block.type | default: 'examples' }}">
-      <h3>{{ block.label }}</h3>
-      <p>{{ block.text }}</p>
+  {% if section_status == 'placeholder' %}
+    {% include project/section-placeholder.html %}
+  {% else %}
+    {% assign section_media_rows = page.media_rows | where: 'section', section.id %}
+    {% if section.text %}
+    <div class="container-fluid prototype-project-section__text">
+      {% for paragraph in section.text %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-  {% endif %} {% if section.component == 'font-specimen' %} {% include project/font-specimen.html %} {% endif %}
+    {% endif %}
+    {% if section_media_rows.size > 0 %}
+    <div class="project-media-stack">
+      {% for row in section_media_rows %}
+      <div class="container-fluid project-media-stack__row">{% include project/media-row.html row=row %}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if section.guidance %}
+    <div class="container-fluid case-study-guidance">
+      {% for block in section.guidance %}
+      <div class="case-study-guidance__{{ block.type | default: 'examples' }}">
+        <h3>{{ block.label }}</h3>
+        <p>{{ block.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if section.placeholder_example %}
+      {% include project/section-placeholder.html %}
+    {% endif %}
+    {% if section.component == 'font-specimen' %}{% include project/font-specimen.html %}{% endif %}
+  {% endif %}
 </section>
 {% endfor %}
 {% endif %}

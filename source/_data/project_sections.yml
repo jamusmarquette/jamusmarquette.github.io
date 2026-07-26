@@ -1,0 +1,20 @@
+# Shared authored project-section model. Overview is the complete-project view,
+# not an authored section.
+sections:
+  - id: context
+    label: Context
+  - id: concept
+    label: Concept
+  - id: development
+    label: Development
+  - id: system
+    label: System
+  - id: in-use
+    label: In Use
+
+statuses:
+  - complete
+  - placeholder
+
+placeholder:
+  message: Content in development.

@@ -12,6 +12,7 @@
   function selectedFromUrl() {
     const requested = new URLSearchParams(window.location.search).get('section');
     if (requested === 'overview') return 'all';
+    if (requested === 'structure') return 'development';
     return requested && validSections.has(requested) ? requested : 'all';
   }
 

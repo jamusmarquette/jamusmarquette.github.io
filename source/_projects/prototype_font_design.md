@@ -33,15 +33,20 @@ links:
 sections:
   - id: context
     label: Context
+    status: complete
   - id: concept
     label: Concept
-  - id: structure
-    label: Structure
+    status: complete
+  - id: development
+    label: Development
+    status: complete
   - id: system
     label: System
+    status: complete
   - id: in-use
     label: In Use
     component: font-specimen
+    status: complete
 media_rows:
   - section: context
     caption:
@@ -62,7 +67,7 @@ media_rows:
       - text: 'A public voice can be precise without becoming impersonal.'
         col: col-16
         text_class: case-study-concept-statement
-  - section: structure
+  - section: development
     caption:
       title: Glyph architecture follows the reading task
       text: 'Skeletons, proportions, contrast, terminals, and width relationships are selected because they support measured warmth at display and reading sizes—not as a chronological drawing archive.'
@@ -76,7 +81,7 @@ media_rows:
       - image: /project/prototype-font-design/img/construction-3.svg
         alt: Fictional glyph architecture study
         col: col-md-5
-  - section: structure
+  - section: development
     caption:
       title: Masters as a structural plan
       text: 'Weight and optical-size masters are planned around transitions in reading conditions, so interpolation reinforces the family’s formal logic instead of merely filling a numerical range.'

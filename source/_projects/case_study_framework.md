@@ -18,6 +18,7 @@ credits:
 sections:
   - id: context
     label: Context
+    status: complete
     guidance:
       - type: examples
         label: Opening Details
@@ -39,6 +40,7 @@ sections:
         text: "Does this section make the project’s need clear without describing the complete answer?"
   - id: concept
     label: Concept
+    status: complete
     guidance:
       - type: purpose
         label: Purpose
@@ -54,13 +56,15 @@ sections:
         text: "Generic goals such as engaging, cohesive, innovative, or modern without a specific consequence."
       - type: review-question
         label: Review question
-        text: "Could Structure and System be explained as consequences of this statement?"
-  - id: structure
-    label: Structure
+        text: "Could Development and System be explained as consequences of this statement?"
+  - id: development
+    label: Development
+    status: complete
+    placeholder_example: true
     guidance:
       - type: purpose
         label: Purpose
-        text: "Show how the concept determined organization and form. Structure is not a chronological archive."
+        text: "Show how the concept determined organization and form. Development is not a chronological archive."
       - type: questions
         label: Questions to answer
         text: "Why this hierarchy, navigation, layout, flow, construction, pacing, or proportion?"
@@ -75,6 +79,7 @@ sections:
         text: "Does every artifact demonstrate why the work took this form?"
   - id: system
     label: System
+    status: complete
     guidance:
       - type: purpose
         label: Purpose
@@ -93,6 +98,7 @@ sections:
         text: "Could another person extend this work without inventing a new visual language?"
   - id: in-use
     label: In Use
+    status: complete
     guidance:
       - type: purpose
         label: Purpose
