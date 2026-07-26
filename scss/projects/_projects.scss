@@ -235,6 +235,9 @@
 }
 
 $project-opening-column-gap: 1rem;
+$project-opening-primary-content-width: 78%;
+$project-opening-details-max-width: 82%;
+$project-opening-details-column-gap: 1rem;
 $project-opening-title-to-description-gap: 1.5rem;
 $project-opening-to-hero-gap: 1.5rem;
 $project-opening-wide-breakpoint: 1632px;
@@ -346,7 +349,9 @@ $project-information-label-gap: 0.15rem;
 }
 
 .project-opening__primary,
-.project-opening__primary > .project-intro__description {
+.project-opening__primary-content,
+.project-opening__primary-content > .project-intro__description,
+.project-opening__details {
   max-width: none;
   min-width: 0;
   width: 100%;
@@ -354,7 +359,7 @@ $project-information-label-gap: 0.15rem;
 
 @media (min-width: $project-information-three-column-breakpoint) {
   .project-details__groups {
-    column-gap: $project-opening-column-gap;
+    column-gap: $project-opening-details-column-gap;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     row-gap: 0;
   }
@@ -380,7 +385,7 @@ $project-information-label-gap: 0.15rem;
 
 @media (min-width: $project-information-two-column-breakpoint) and (max-width: ($project-information-three-column-breakpoint - 0.02px)) {
   .project-details__groups {
-    column-gap: $project-opening-column-gap;
+    column-gap: $project-opening-details-column-gap;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: $project-information-group-gap;
   }
@@ -407,12 +412,12 @@ $project-information-label-gap: 0.15rem;
   }
 }
 
-// The medium grid removes the wide layout's intentionally unoccupied third
-// column before metadata begins stacking.
+// The two outer halves remain intact until the primary content and the
+// three-column details grid no longer fit comfortably side by side.
 @media (min-width: $project-opening-medium-breakpoint) {
   .project-opening {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     column-gap: $project-opening-column-gap;
     max-width: none;
     width: 100%;
@@ -420,20 +425,32 @@ $project-information-label-gap: 0.15rem;
 
   .project-opening__primary {
     align-self: start;
-    grid-column: 1;
+    grid-column: 1 / span 3;
     grid-row: 1;
     min-width: 0;
     width: 100%;
   }
 
-  .project-opening > .project-details {
-    display: contents;
+  .project-opening__primary-content {
+    max-width: 100%;
+    min-width: 0;
+    width: $project-opening-primary-content-width;
+  }
+
+  .project-opening__details {
+    align-self: start;
+    grid-column: 4 / span 3;
+    grid-row: 1;
+    max-width: 100%;
     min-width: 0;
     width: 100%;
   }
 
   .project-details__groups {
-    display: contents;
+    column-gap: $project-opening-details-column-gap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 0;
   }
 
   .project-details__track {
@@ -441,43 +458,15 @@ $project-information-label-gap: 0.15rem;
     min-width: 0;
   }
 
-  .project-details__track--project {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .project-details__track--credits {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
   .project-details__track--supplementary {
     display: grid;
     gap: $project-information-group-gap;
-    grid-column: 4;
-    grid-row: 1;
   }
 }
 
 @media (min-width: $project-opening-wide-breakpoint) {
-  .project-opening {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .project-opening__primary {
-    grid-column: 1 / span 2;
-  }
-
-  .project-details__track--project {
-    grid-column: 4;
-  }
-
-  .project-details__track--credits {
-    grid-column: 5;
-  }
-
-  .project-details__track--supplementary {
-    grid-column: 6;
+  .project-opening__details {
+    max-width: $project-opening-details-max-width;
   }
 }
 

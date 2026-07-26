@@ -2,12 +2,14 @@
 <div class="container-fluid project-intro">
   <div class="project-opening">
     <div class="project-opening__primary">
-      <h1 class="project-page-title">{{ page.title }}</h1>
+      <div class="project-opening__primary-content">
+        <h1 class="project-page-title">{{ page.title }}</h1>
 
-      <div class="project-intro__description">
-        {% for paragraph in page.description %}
-          <p>{{ paragraph }}</p>
-        {% endfor %}
+        <div class="project-intro__description">
+          {% for paragraph in page.description %}
+            <p>{{ paragraph }}</p>
+          {% endfor %}
+        </div>
       </div>
     </div>
 
