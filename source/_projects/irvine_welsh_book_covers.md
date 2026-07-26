@@ -40,39 +40,49 @@ credits:
   - role: Art Direction
     name: "Kevin Brainard, Darren Cox"
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 mb-4
         image: /project/irvine_welsh_book_covers/img/jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_design.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 mb-4
         image: /project/irvine_welsh_book_covers/img/jamus_marquette_irvine_welsh_kingdom_of_fife_book_cover_design.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 mb-4
         image: /project/irvine_welsh_book_covers/img/jamus_marquette_irvine_welsh_the_dogs_of_lincoln_park_book_cover_design.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12
         image: /project/irvine_welsh_book_covers/img/jamus_marquette_irvine_welsh_miss_arizona_book_cover_design.jpg
 
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

@@ -51,10 +51,27 @@ credits:
   - role: "Design, Illustration, Photography, Photography Direction"
     name: Jamus Marquette
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/theater_campaigns/img/01-jamus-marquette-theater-poster-design-happy-days-by-samuel-beckett-westport-country-playhouse.jpg
 
@@ -62,7 +79,8 @@ media_rows:
         image: /project/theater_campaigns/img/02-jamus-marquette-theater-poster-design-kin-by-bathsheba-doran-directed-by-sam-gold-playwrights-horizons.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/theater_campaigns/img/03-jamus-marquette-theater-poster-design-marie-and-bruce-by-wallace-shawn-the-new-group.jpg
 
@@ -70,7 +88,8 @@ media_rows:
         image: /project/theater_campaigns/img/04-jamus-marquette-theater-poster-design-blood-from-a-stone-by-tommy-nohilly-directed-by-scott-elliott-the-new-group.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/theater_campaigns/img/05-jamus-marquette-theater-poster-design-the-flick-by-annie-baker-directed-by-sam-gold-playwrights-horizon.jpg
 
@@ -78,7 +97,8 @@ media_rows:
         image: /project/theater_campaigns/img/06-jamus-marquette-theater-poster-design-russian-transport-by-erika-sheffer-directed-by-scott-elliott-the-new-group.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/theater_campaigns/img/07-jamus-marquette-theater-poster-design-the_new_sincerity-alena-smith-bay-street-theater.jpg
 
@@ -86,12 +106,14 @@ media_rows:
         image: /project/theater_campaigns/img/08-jamus-marquette-theater-poster-travesties-by-tom-stoppard-directed-by-gregory-boyd-bay-street-theatre.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         image: /project/theater_campaigns/img/09-jamus-marquette-theater-poster-design-mr-burns-by-anne-washburn-directed-by-steve-cosson-music-by-michael-friedman-playwright-horizon-simpsons-burnt-image.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/theater_campaigns/img/10-jamus-marquette-theater-poster-design-grey-gardens-the-musical-by-doug-wright-directed-by-michael-wilson-bay-street-theater.jpg
 
@@ -99,7 +121,8 @@ media_rows:
         image: /project/theater_campaigns/img/11-jamus-marquette-theater-poster-design-vision-disturbance-a-new-play-by-Christina-masciotti-directed-by-richard-maxwell.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4 mb-0-md
         image: /project/theater_campaigns/img/12-jamus-marquette-theater-poster-design-assistance-by-leslye-headland-directed-by-trip-cullman.jpg
 
@@ -109,14 +132,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

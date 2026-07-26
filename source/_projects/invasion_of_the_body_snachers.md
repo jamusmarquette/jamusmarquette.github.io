@@ -34,23 +34,31 @@ description:
     This book cover design, aimed towards those who are intrigued by strange questionable occurrences, features a photograph that subtly suggests that something invasive has infiltrated the small town of Mill Valley, and a newspaper-like style, as though this story is one of those same nonsensical stories that we would naturally dismiss as a hoax.
 
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
+
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16
         image: /project/invasion_of_the_body_snachers/img/jamus_marquette_invasion_of_the_body_snachers_book_cover.jpg
 
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}
