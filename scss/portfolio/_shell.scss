@@ -552,24 +552,7 @@ $portfolio-mobile-breakpoint: 767px;
 }
 
 .portfolio-context-bar--project {
-  display: flex;
-  gap: 1rem;
   padding-inline: $portfolio-sidebar-padding-x;
-}
-
-.portfolio-context-bar__project-title {
-  color: $white;
-  flex: 1 1 auto;
-  min-width: 5rem;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.portfolio-context-bar__project-title span {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .portfolio-context-bar__section-navigation {
@@ -577,7 +560,7 @@ $portfolio-mobile-breakpoint: 767px;
   display: flex;
   flex: 0 1 auto;
   gap: 0.1rem;
-  max-width: 72%;
+  max-width: 100%;
   min-width: 0;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
@@ -608,19 +591,6 @@ $portfolio-mobile-breakpoint: 767px;
 .portfolio-context-bar .portfolio-section-control:focus-visible {
   outline: 1px solid $primary;
   outline-offset: -2px;
-}
-
-.project-page-title {
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 .portfolio-empty-state {
@@ -755,18 +725,6 @@ $portfolio-mobile-breakpoint: 767px;
 
   .portfolio-context-bar {
     display: none;
-  }
-
-  .project-page-title {
-    clip: auto;
-    clip-path: none;
-    height: auto;
-    margin: 0 0 1.5rem;
-    overflow: visible;
-    padding: 1.25rem 0 0;
-    position: static;
-    white-space: normal;
-    width: auto;
   }
 
   .portfolio-project-grid {

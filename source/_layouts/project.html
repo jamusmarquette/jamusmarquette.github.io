@@ -5,10 +5,13 @@ layout: portfolio
 <div class="project-page">
   <div id="stickycontainer">
     {% unless page.sections %}
+      {% capture project_opening %}{% include project/project-info.html %}{% endcapture %}
+      {{ project_opening }}
       {% include project/hero.html %}
+      {{ content | replace: project_opening, '' }}
+    {% else %}
+      {{ content }}
     {% endunless %}
-
-    {{ content }}
   </div>
   {% include project/related-projects.html %}
 </div>

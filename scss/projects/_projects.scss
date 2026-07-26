@@ -3,6 +3,7 @@
 .project-intro {
   //padding-top: 63px;
   padding-top: 40px;
+  min-height: 20rem !important;
 
   &-paragraph {
     //height: calc(100vh - 63px);
@@ -233,17 +234,16 @@
   white-space: pre-line;
 }
 
-$project-information-max-width: 68.25rem;
-$project-information-description-width: 26rem;
-$project-information-project-width: 11rem;
-$project-information-credits-width: 11.5rem;
-$project-information-final-width: 10.75rem;
-$project-information-columns: $project-information-project-width $project-information-credits-width
-  $project-information-final-width;
-$project-information-column-gap: 2rem;
-$project-information-wrapper-right-padding: 1rem;
-$project-information-details-width: $project-information-project-width + $project-information-credits-width + $project-information-final-width + ($project-information-column-gap * 2) + $project-information-wrapper-right-padding;
-$project-information-description-to-details-gap: 4rem;
+$project-opening-column-gap: 1rem;
+$project-opening-title-to-description-gap: 1.5rem;
+$project-opening-to-hero-gap: 1.5rem;
+$project-opening-wide-breakpoint: 1632px;
+$project-opening-medium-breakpoint: 1296px;
+$project-information-three-column-breakpoint: 1024px;
+$project-information-two-column-breakpoint: 800px;
+$project-information-meta-font-size: 0.85rem;
+$project-information-meta-line-height: 1.35;
+$project-information-meta-font-weight: 300;
 $project-information-group-gap: 2rem;
 $project-information-heading-gap: 0.5rem;
 $project-information-heading-underline-thickness: 1px;
@@ -252,9 +252,9 @@ $project-information-entry-gap: 0.75rem;
 $project-information-label-gap: 0.15rem;
 
 .project-details {
-  font-size: $portfolio-font-size-small;
-  line-height: $portfolio-line-height-small;
-  padding-right: $project-information-wrapper-right-padding;
+  font-size: $project-information-meta-font-size;
+  font-weight: $project-information-meta-font-weight;
+  line-height: $project-information-meta-line-height;
 }
 
 .project-details h2,
@@ -265,6 +265,7 @@ $project-information-label-gap: 0.15rem;
 .project-details a,
 .project-details span {
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
 }
 
@@ -282,6 +283,7 @@ $project-information-label-gap: 0.15rem;
   font-size: inherit;
   font-style: normal;
   line-height: inherit;
+  margin-top: 0;
   margin-bottom: $project-information-heading-gap;
   text-decoration-line: underline;
   text-decoration-thickness: $project-information-heading-underline-thickness;
@@ -325,36 +327,35 @@ $project-information-label-gap: 0.15rem;
   content: ' — ';
 }
 
-@media (min-width: 992px) {
-  .project-information {
-    max-width: $project-information-max-width;
-    width: 100%;
-  }
+.project-page-title {
+  font-size: $portfolio-font-size-default;
+  font-style: normal;
+  font-weight: 300;
+  line-height: $portfolio-line-height-default;
+  margin: 0 0 $project-opening-title-to-description-gap;
+  color: $white;
+  text-decoration-line: none;
+  width: 100%;
+  max-width: none;
+}
 
-  .project-intro-paragraph {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: $project-information-description-to-details-gap;
-  }
+.project-opening {
+  margin-bottom: $project-opening-to-hero-gap;
+  max-width: none;
+  width: 100%;
+}
 
-  .project-intro-paragraph > .project-intro__description,
-  .project-intro-paragraph > .project-details {
-    flex: none;
-    max-width: none;
-    padding-bottom: 0;
-  }
+.project-opening__primary,
+.project-opening__primary > .project-intro__description {
+  max-width: none;
+  min-width: 0;
+  width: 100%;
+}
 
-  .project-intro-paragraph > .project-intro__description {
-    width: $project-information-description-width;
-  }
-
-  .project-intro-paragraph > .project-details {
-    width: $project-information-details-width;
-  }
-
+@media (min-width: $project-information-three-column-breakpoint) {
   .project-details__groups {
-    column-gap: $project-information-column-gap;
-    grid-template-columns: $project-information-columns;
+    column-gap: $project-opening-column-gap;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     row-gap: 0;
   }
 
@@ -374,6 +375,109 @@ $project-information-label-gap: 0.15rem;
     grid-column: 3;
     display: grid;
     gap: $project-information-group-gap;
+  }
+}
+
+@media (min-width: $project-information-two-column-breakpoint) and (max-width: ($project-information-three-column-breakpoint - 0.02px)) {
+  .project-details__groups {
+    column-gap: $project-opening-column-gap;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: $project-information-group-gap;
+  }
+
+  .project-details__track {
+    min-width: 0;
+  }
+
+  .project-details__track--project {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .project-details__track--credits {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .project-details__track--supplementary {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    gap: $project-information-group-gap;
+  }
+}
+
+// The medium grid removes the wide layout's intentionally unoccupied third
+// column before metadata begins stacking.
+@media (min-width: $project-opening-medium-breakpoint) {
+  .project-opening {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+    column-gap: $project-opening-column-gap;
+    max-width: none;
+    width: 100%;
+  }
+
+  .project-opening__primary {
+    align-self: start;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .project-opening > .project-details {
+    display: contents;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .project-details__groups {
+    display: contents;
+  }
+
+  .project-details__track {
+    align-self: start;
+    min-width: 0;
+  }
+
+  .project-details__track--project {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .project-details__track--credits {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .project-details__track--supplementary {
+    display: grid;
+    gap: $project-information-group-gap;
+    grid-column: 4;
+    grid-row: 1;
+  }
+}
+
+@media (min-width: $project-opening-wide-breakpoint) {
+  .project-opening {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .project-opening__primary {
+    grid-column: 1 / span 2;
+  }
+
+  .project-details__track--project {
+    grid-column: 4;
+  }
+
+  .project-details__track--credits {
+    grid-column: 5;
+  }
+
+  .project-details__track--supplementary {
+    grid-column: 6;
   }
 }
 

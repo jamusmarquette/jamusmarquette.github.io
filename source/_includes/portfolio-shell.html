@@ -1,6 +1,11 @@
 {% assign is_browser = false %} {% if page.url == '/' %}{% assign is_browser = true %}{% endif %}
 {% assign is_project = false %} {% if page.layout == 'project' %}{% assign is_project = true %}{% endif %}
-{% assign has_context_bar = false %} {% if is_browser or is_project %}{% assign has_context_bar = true %}{% endif %}
+{% assign has_context_bar = false %}
+{% if is_browser %}
+  {% assign has_context_bar = true %}
+{% elsif is_project and page.sections and page.sections.size > 1 %}
+  {% assign has_context_bar = true %}
+{% endif %}
 {% assign is_eligible_project = false %}
 {% if is_project and page.prototype != true and page.browser_exclude != true and page.hidden != true and page.published != false %}
 {% assign is_eligible_project = true %}
@@ -258,16 +263,8 @@
     />
     <output for="portfolio-thumbnail-columns" data-thumbnail-columns-output>5</output>
   </div>
-  {% elsif is_project %}
+  {% elsif is_project and page.sections and page.sections.size > 1 %}
   <div class="portfolio-context-bar portfolio-context-bar--project" data-portfolio-context-bar>
-    <div
-      class="portfolio-context-bar__project-title"
-      role="group"
-      aria-label="Current project: {{ page.title | escape }}"
-    >
-      <span aria-hidden="true" title="{{ page.title | escape }}">{{ page.title }}</span>
-    </div>
-    {% if page.sections and page.sections.size > 1 %}
     <nav class="portfolio-context-bar__section-navigation" aria-label="Project sections" data-section-navigation>
       <button
         type="button"
@@ -288,7 +285,6 @@
       </button>
       {% endfor %}
     </nav>
-    {% endif %}
   </div>
   {% endif %}
 </div>
