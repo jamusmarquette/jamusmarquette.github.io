@@ -38,10 +38,27 @@ credits:
   - role: Creative Direction
     name: Kevin Brainard, Darren Cox
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/00_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
         col: col-16 col-md-8
 
@@ -49,7 +66,8 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/02_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
         col: col-16 col-md-8
 
@@ -57,17 +75,20 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/04_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/05_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/06_jamus_marquette_confinement_photography_book_prostitution_hans_neleman.jpg
         col: col-16 col-md-8
 
@@ -75,12 +96,14 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/08_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/09_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
         col: col-16 col-md-8
 
@@ -88,17 +111,20 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/jamus_marquette_confinement_photo_book_quote_page.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/11_jamus_marquette_confinement_photography_book_prison_oliver_chanarin_and_adam_broomberg.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/12_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
         col: col-16 col-md-8
 
@@ -106,7 +132,8 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/14_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
         col: col-16 col-md-8
 
@@ -114,25 +141,17 @@ media_rows:
         col: col-16 col-md-8
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/16_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
         col: col-16
 
 
-  - items:
+  - section: in-use
+    items:
       - image: /project/confinement/img/17_jamus_marquette_confinement_photography_book_sexual_dependency_nan_golden.jpg
         col: col-16
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}
