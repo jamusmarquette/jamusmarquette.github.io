@@ -44,47 +44,61 @@ credits:
   - role: 'Photography, Video'
     name: Rudo Mudzi
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
+
 media_rows:
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 pb-4
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
         media_class: video-content-video
         poster: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_pattern_video_poster.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 pb-4
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust.mp4
         media_class: video-content-video
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 pb-4
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_diagram.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 mb-4
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust2.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 mb-4
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust6.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 mb-4
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust4.jpg
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust5.jpg
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

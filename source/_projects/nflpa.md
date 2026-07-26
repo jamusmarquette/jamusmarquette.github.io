@@ -45,10 +45,27 @@ credits:
   - role: Designed at
     name: RED Partners
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-0 col-lg-4 mb-4 col-md-8
         video: /project/nflpa/video/jamus_marquette_nflpa_hero.mp4
         media_class: video-content-video
@@ -70,7 +87,8 @@ media_rows:
         controls: true
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-lg-8 pb-4
         image: /project/nflpa/img/03_jamus_marquette_nflpa_logo_branding_on_tshirt.jpg
 
@@ -84,7 +102,8 @@ media_rows:
         image: /project/nflpa/img/06_jamus_marquette_nflpa_rookie_logo_on_football_player.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-0 col-lg-8 pb-4 pb-md-0
         image: /project/nflpa/img/06_jamus_marquette_nflpa_rookie_logo_on_football_players.jpg
 
@@ -94,14 +113,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

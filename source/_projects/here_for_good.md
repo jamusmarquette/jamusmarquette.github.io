@@ -54,44 +54,55 @@ credits:
   - role: Designed at
     name: RED Partners
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 col-md-16 mb-4 mb-lg-6
         image: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_clinton.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 col-md-16 mb-4 mb-lg-6
         image: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_slide.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 col-md-16 mb-4 mb-lg-6
         image: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_stage_01.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 col-md-16 mb-4 mb-lg-6
         image: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_book_2026.png
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 col-md-16
         image: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_stage_02.jpg
 
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

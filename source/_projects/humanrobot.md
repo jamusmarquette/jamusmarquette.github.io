@@ -38,10 +38,27 @@ description:
   - >
     The website is an invitation to connect with HUMANROBOT and develop a personal yet business oriented relationship. In the form of a simple, single view platform, it highlights HUMANROBOT’s ability to simplify product into its necessities from the ground up, and features motion of the HUMANROBOT mark as one would type code, emphasizing the development of product through code, and the invitation to build a close, effective, and collaborative relationship.
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-0 col-md-8 pb-4
         video: /project/humanrobot/video/jamus_marquette_humanrobot_text_animation.mp4
         media_class: video-content-video
@@ -53,7 +70,8 @@ media_rows:
         poster: /project/humanrobot/img/jamus_marquette_humanrobot_web_poster.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 pb-4
         image: /project/humanrobot/img/jamus_marquette_humanrobot_web_motion_branding_design7.jpg
 
@@ -61,7 +79,8 @@ media_rows:
         image: /project/humanrobot/img/jamus_marquette_humanrobot_web_motion_branding_design_text_illustrations.gif
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 pb-4
         image: /project/humanrobot/img/jamus_marquette_humanrobot_web_motion_branding_design8.jpg
 
@@ -77,14 +96,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}
