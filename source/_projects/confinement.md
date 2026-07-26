@@ -11,9 +11,7 @@ order: 2
 featured: true
 
 categories:
-  - Book Covers
   - Editorial & Publications
-  - Personal Projects
 
 thumbnail: /img/jamus_marquette_confinement_photo_book_lr.gif
 

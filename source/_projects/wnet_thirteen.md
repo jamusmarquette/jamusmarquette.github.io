@@ -11,7 +11,6 @@ order: 8
 featured: true
 
 categories:
-  - Book Covers
   - Editorial & Publications
 
 thumbnail: /img/jamus_marquette_wnet_thirteen_covers.jpg

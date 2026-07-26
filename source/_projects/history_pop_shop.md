@@ -12,7 +12,7 @@ featured: true
 
 categories:
   - Identity & Branding
-  - Environmentals & Interactives
+  - Environmental & Exhibit Design
 
 thumbnail: /img/01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
 

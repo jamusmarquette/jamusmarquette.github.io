@@ -12,7 +12,7 @@ featured: true
 
 categories:
   - Editorial & Publications
-  - Environmentals & Interactives
+  - Environmental & Exhibit Design
 
 thumbnail: /img/jamus_marquette_mtc_spring_gala_invite.gif
 

@@ -11,7 +11,6 @@ order: 18
 featured: true
 
 categories:
-  - Book Covers
   - Editorial & Publications
 
 thumbnail: /img/jamus_marquette_design_firms_open_for_business_book_design.jpg

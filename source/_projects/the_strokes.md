@@ -11,7 +11,6 @@ order: 15
 featured: true
 
 categories:
-  - Book Covers
   - Editorial & Publications
 
 thumbnail: /img/the_strokes_is_this_it_album_artwork.gif

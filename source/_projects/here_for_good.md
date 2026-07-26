@@ -12,7 +12,7 @@ featured: true
 
 categories:
   - Identity & Branding
-  - Environmentals & Interactives
+  - Environmental & Exhibit Design
 
 thumbnail: /img/jamus_marquette_laureate_summit_logo.png
 

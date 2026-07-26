@@ -8,21 +8,20 @@ ROOT = Pathname.new(__dir__).join("..").expand_path
 PROJECT_DIR = ROOT.join("source/_projects")
 SOURCE_DIR = ROOT.join("source")
 
-# This is the taxonomy exposed by the current active header. Keep aliases here
-# until a single category registry is introduced with the portfolio browser.
-KNOWN_CATEGORIES = [
-  "Theater Art",
-  "Identity & Branding",
-  "Book Covers",
-  "Editorial & Publications",
-  "Personal Projects",
-  "Motion",
-  "Font Design",
-  "Websites",
-  "Interactive Tools",
-  "Environmentals & Interactives",
-  "Illustration"
+CATEGORY_REGISTRY_PATH = ROOT.join("source/_data/portfolio_categories.yml")
+FINAL_CATEGORIES = [
+  { "id" => "identity-branding", "label" => "Identity & Branding" },
+  { "id" => "editorial-publications", "label" => "Editorial & Publications" },
+  { "id" => "illustration", "label" => "Illustration" },
+  { "id" => "motion", "label" => "Motion" },
+  { "id" => "font-design", "label" => "Font Design" },
+  { "id" => "websites", "label" => "Websites" },
+  { "id" => "interactive-tools", "label" => "Interactive Tools" },
+  { "id" => "environmental-exhibit-design", "label" => "Environmental & Exhibit Design" },
+  { "id" => "theater-art", "label" => "Theater Art" }
 ].freeze
+RESERVED_CATEGORY_LABELS = ["All Projects", "Recently Viewed"].freeze
+LEGACY_CATEGORY_LABELS = ["Book Covers", "Environmentals & Interactives", "Personal Projects"].freeze
 
 MEDIA_KEYS = %w[thumbnail hero hero_left hero_right image video poster].freeze
 ACTIVE_TEMPLATE_GLOBS = [
@@ -107,6 +106,8 @@ end
 
 issues = []
 projects = []
+category_usage = Hash.new { |hash, key| hash[key] = [] }
+excluded_category_usage = Hash.new { |hash, key| hash[key] = [] }
 details_report = {
   credits: [],
   collaborators: [],
@@ -114,6 +115,35 @@ details_report = {
   malformed_collaborators: [],
   no_details: []
 }
+
+begin
+  category_registry = YAML.safe_load(CATEGORY_REGISTRY_PATH.read, permitted_classes: [], aliases: false)
+rescue StandardError => e
+  issues << Issue.new(level: :error, code: "category-registry", message: "#{CATEGORY_REGISTRY_PATH.relative_path_from(ROOT)}: #{e.message}")
+  category_registry = []
+end
+
+unless category_registry.is_a?(Array)
+  issues << Issue.new(level: :error, code: "category-registry", message: "category registry must be an array")
+  category_registry = []
+end
+
+registry_ids = category_registry.map { |category| category.is_a?(Hash) ? category["id"] : nil }
+registry_labels = category_registry.map { |category| category.is_a?(Hash) ? category["label"] : nil }
+category_registry.each_with_index do |category, index|
+  unless category.is_a?(Hash) && present_text?(category["id"]) && present_text?(category["label"])
+    issues << Issue.new(level: :error, code: "category-registry", message: "category registry entry #{index + 1} must include a non-empty id and label")
+  end
+end
+registry_ids.compact.group_by(&:itself).each do |id, entries|
+  issues << Issue.new(level: :error, code: "duplicate-category-id", message: "category registry id #{id.inspect} is duplicated") if entries.length > 1
+end
+registry_labels.compact.group_by(&:itself).each do |label, entries|
+  issues << Issue.new(level: :error, code: "duplicate-category-label", message: "category registry label #{label.inspect} is duplicated") if entries.length > 1
+end
+if category_registry.map { |category| category.slice("id", "label") } != FINAL_CATEGORIES
+  issues << Issue.new(level: :error, code: "category-registry", message: "category registry must match the final taxonomy and order")
+end
 
 PROJECT_DIR.glob("*.md").sort.each do |path|
   begin
@@ -143,17 +173,34 @@ PROJECT_DIR.glob("*.md").sort.each do |path|
     issues << Issue.new(level: :error, code: "thumbnail", message: "#{label}: missing thumbnail metadata")
   end
 
-  categories = Array(data["categories"])
+  excluded_project = data["prototype"] == true || data["browser_exclude"] == true || data["hidden"] == true || data["published"] == false
+  categories_value = data["categories"]
+  if !excluded_project && !categories_value.is_a?(Array)
+    issues << Issue.new(level: :error, code: "malformed-categories", message: "#{label}: categories must be a non-empty array")
+  end
+  categories = categories_value.is_a?(Array) ? categories_value : []
+  if !excluded_project && categories.empty?
+    issues << Issue.new(level: :error, code: "empty-categories", message: "#{label}: categories must not be empty")
+  end
   categories.group_by(&:itself).select { |_category, entries| entries.length > 1 }.each_key do |category|
     issues << Issue.new(level: :error, code: "duplicate-category", message: "#{label}: category #{category.inspect} is duplicated")
   end
 
   categories.each do |category|
-    next if KNOWN_CATEGORIES.include?(category)
-
-    case_match = KNOWN_CATEGORIES.find { |known| known.casecmp?(category.to_s) }
-    detail = case_match ? "case differs from #{case_match.inspect}" : "not in the active category navigation"
-    issues << Issue.new(level: :warning, code: "unknown-category", message: "#{label}: #{category.inspect} is #{detail}")
+    if !category.is_a?(String) || category.strip.empty?
+      issues << Issue.new(level: :error, code: "empty-category", message: "#{label}: category values must be non-empty strings")
+      next
+    end
+    if RESERVED_CATEGORY_LABELS.include?(category)
+      issues << Issue.new(level: :error, code: "reserved-category", message: "#{label}: #{category.inspect} is a filter state, not project metadata")
+    end
+    if LEGACY_CATEGORY_LABELS.include?(category)
+      issues << Issue.new(level: :error, code: "legacy-category", message: "#{label}: #{category.inspect} is a retired category")
+    end
+    unless registry_labels.include?(category)
+      issues << Issue.new(level: :error, code: "unknown-category", message: "#{label}: #{category.inspect} is not in the category registry")
+    end
+    (excluded_project ? excluded_category_usage : category_usage)[category] << label
   end
 
   collect_media(data).each do |trail, reference|
@@ -230,7 +277,17 @@ end
 
 puts "Portfolio validation"
 puts "Projects: #{projects.length}"
-puts "Known categories: #{KNOWN_CATEGORIES.length}"
+puts "Final categories: #{FINAL_CATEGORIES.length}"
+puts "Real project category usage"
+FINAL_CATEGORIES.each do |category|
+  labels = category_usage[category["label"]]
+  puts "  #{category["label"]} (#{labels.length}): #{report_list(labels)}"
+end
+puts "Excluded project category usage"
+excluded_category_usage.keys.sort.each do |category|
+  labels = excluded_category_usage[category]
+  puts "  #{category} (#{labels.length}): #{report_list(labels)}"
+end
 puts "Details migration report"
 puts "  Preferred credits (#{details_report[:credits].length}): #{report_list(details_report[:credits])}"
 puts "  Legacy collaborators (#{details_report[:collaborators].length}): #{report_list(details_report[:collaborators])}"

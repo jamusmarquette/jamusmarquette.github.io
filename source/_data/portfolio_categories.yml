@@ -1,35 +1,35 @@
-- id: branding
+- id: identity-branding
   label: Identity & Branding
   order: 1
 
-- id: theater
-  label: Theater Art
-  order: 2
-
-- id: book-covers
-  label: Book Covers
-  order: 3
-
-- id: editorial
+- id: editorial-publications
   label: Editorial & Publications
-  order: 4
-
-- id: environmentals
-  label: Environmentals & Interactives
-  order: 5
-
-- id: motion
-  label: Motion
-  order: 6
-
-- id: websites
-  label: Websites
-  order: 7
+  order: 2
 
 - id: illustration
   label: Illustration
+  order: 3
+
+- id: motion
+  label: Motion
+  order: 4
+
+- id: font-design
+  label: Font Design
+  order: 5
+
+- id: websites
+  label: Websites
+  order: 6
+
+- id: interactive-tools
+  label: Interactive Tools
+  order: 7
+
+- id: environmental-exhibit-design
+  label: Environmental & Exhibit Design
   order: 8
 
-- id: personal
-  label: Personal Projects
+- id: theater-art
+  label: Theater Art
   order: 9

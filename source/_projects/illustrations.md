@@ -11,7 +11,6 @@ order: 12
 featured: true
 
 categories:
-  - Personal Projects
   - Illustration
 
 thumbnail: /img/00_jamus_marquette_jamus_and_adriana_tshirt_illustrations.gif

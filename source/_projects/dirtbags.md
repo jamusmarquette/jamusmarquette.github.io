@@ -12,7 +12,6 @@ featured: true
 
 categories:
   - Identity & Branding
-  - Personal Projects
 
 thumbnail: /project/dirtbags/img/jamus_marquette_dirtbags_hmo_rabbit_stuffed_animal_with_real_life_problems.gif
 
