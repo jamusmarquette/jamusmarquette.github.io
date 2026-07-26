@@ -50,15 +50,33 @@ credits:
   - role: "Motion, Design, Art Direction, Photography"
     name: Jamus Marquette
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-1 col-lg-14 mb-4
         image: /project/restaurants_on_mission/img/06_jamus_marquette_restaurants_on_mission_web.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-4 mb-4
         image: /project/restaurants_on_mission/img/14_jamus_marquette_restaurants_on_mission_re_pattern_2_white_on_black.jpg
 
@@ -72,14 +90,16 @@ media_rows:
         image: /project/restaurants_on_mission/img/09_jamus_marquette_restaurants_on_mission_re_floral_pattern_02.jpg
 
 
-  - row_class: row mb-4
+  - section: in-use
+    row_class: row mb-4
     items:
       - col: col-md-16
         video: /project/restaurants_on_mission/video/04_jamus_marquette_restaurants_on_mission_animations.mp4
         media_class: video-content-video
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-4 mb-4
         video: /project/restaurants_on_mission/video/09_jamus_marquette_restaurants_on_mission_animations_lr.mp4
         media_class: video-content-video
@@ -129,12 +149,14 @@ media_rows:
         media_class: video-content-video
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 mb-4
         image: /project/restaurants_on_mission/img/07_jamus_marquette_restaurants_on_mission_mobile.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/restaurants_on_mission/img/11_jamus_marquette_restaurants_on_mission_girl_in_shirt.jpg
 
@@ -142,7 +164,8 @@ media_rows:
         image: /project/restaurants_on_mission/img/10_jamus_marquette_restaurants_on_mission_re_jewelry_collection.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         image: /project/restaurants_on_mission/img/03_jamus_marquette_restaurants_on_mission_black_booklet_with_pattern_and_logo.jpg
 
@@ -150,31 +173,24 @@ media_rows:
         image: /project/restaurants_on_mission/img/12_jamus_marquette_restaurants_on_mission_re_jewelry.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 mb-4
         image: /project/restaurants_on_mission/img/01_jamus_marquette_restaurants_on_mission_stationary_letterhead_on_recycled_cardboard_paper.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 mb-4
         image: /project/restaurants_on_mission/img/02_jamus_marquette_restaurants_on_mission_stationary_businescards_on_recycled_cardboard_paper.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16
         image: /project/restaurants_on_mission/img/04_jamus_marquette_restaurants_on_mission_black_booklet_with_logo_and_interior_spread.jpg
 
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

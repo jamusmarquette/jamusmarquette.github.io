@@ -38,10 +38,27 @@ description:
   - >
     SVA motion graphics reel (above), and an assortment of motion projects (below).
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4
         video: /project/no_love/video/no_love_no_life_animation.mp4
         media_class: video-content-video
@@ -50,7 +67,8 @@ media_rows:
         controls: true
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-8 col-md-8 mb-4
         image: /project/illustrations/img/love_cross.gif
 
@@ -70,7 +88,8 @@ media_rows:
         poster: /project/illustrations/img/jamus_marquette_eat_animation.gif
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-lg-16 mb-4
         video: /project/mtc_spring_gala/video/jamus_marquette_mtc_animation.mp4
         media_class: video-content-video
@@ -78,14 +97,16 @@ media_rows:
         poster: /project/mtc_spring_gala/img/jamus_marquette_mtc_poster_image_2021.gif
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 pb-4
         video: /project/humanrobot/video/jamus_marquette_humanrobot_text_animation.mp4
         media_class: video-content-video
         poster: /project/humanrobot/img/jamus_marquette_humanrobot_text_animation_poster.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-8 mb-4 d-flex justify-content-center align-items-center
         image: /project/humanrobot/img/jamus_marquette_humanrobot_web_motion_branding_design_logo_animation.gif
         media_style: "max-width:200px;"
@@ -95,14 +116,16 @@ media_rows:
         media_style: "max-width:200px;"
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-16 pb-4
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
         media_class: video-content-video
         poster: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_pattern_video_poster.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-0 col-lg-16 mb-4
         video: /project/history_pop_shop/video/jamus_marquette_history_pop_shop.mp4
         media_class: video-content-video
@@ -110,7 +133,8 @@ media_rows:
         poster: /project/history_pop_shop/img/jamus_marquette_history_pop_shop.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 mb-4 d-flex justify-content-center align-items-center
         video: /project/here_for_good/video/here_for_good_animation.mp4
         media_class: video-content-video
@@ -118,7 +142,8 @@ media_rows:
         poster: /project/here_for_good/img/here_for_good_animation.jpg
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-16 col-md-8 mb-4
         video: /project/restaurants_on_mission/video/00_jamus_marquette_restaurants_on_mission_animation.mp4
         media_class: video-content-video
@@ -129,7 +154,8 @@ media_rows:
         media_class: video-content-video
 
 
-  - row_class: row mb-5
+  - section: in-use
+    row_class: row mb-5
     items:
       - col: col-8 col-md-4 mb-4
         video: /project/restaurants_on_mission/video/09_jamus_marquette_restaurants_on_mission_animations_lr.mp4
@@ -164,7 +190,8 @@ media_rows:
         media_class: video-content-video
 
 
-  - items:
+  - section: in-use
+    items:
       - col: col-md-8 mb-4
         video: /project/nflpa/video/jamus_marquette_nflpa_hero.mp4
         media_class: video-content-video
@@ -188,14 +215,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}

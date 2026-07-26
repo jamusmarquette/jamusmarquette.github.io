@@ -37,10 +37,27 @@ description:
   - >
     Their fur is rough (but still soft), their heads are square (but not sharp), and they are packaged in the comfort of a tight transparent bag, and marked with a friendly tag on their toe.
 
+sections:
+  - id: context
+    label: Context
+    status: placeholder
+  - id: concept
+    label: Concept
+    status: placeholder
+  - id: development
+    label: Development
+    status: placeholder
+  - id: system
+    label: System
+    status: placeholder
+  - id: in-use
+    label: In Use
+    status: complete
 
 media_rows:
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-lg-2 col-lg-12 col-md-16 text-center
         media:
           - image: /project/dirtbags/img/jamus_marquette_dirtbags_voodoobear_stuffed_animal_with_real_life_problems.gif
@@ -73,7 +90,8 @@ media_rows:
           DONT-SLEEP-SHEEP is an ex-counting sheep who suffers from insomnia.
 
 
-  - items:
+  - section: in-use
+    items:
       - col: offset-md-2 col-md-4 mb-4 mb-md-0
         image: /project/dirtbags/img/jamus_marquette_dirtbags_voodoobear_packaged_stuffed_animal_with_real_life_problems.jpg
 
@@ -86,14 +104,4 @@ media_rows:
 
 ---
 
-{% include project/project-info.html %}
-
-<div class="container-fluid mb-5" id="project">
-
-    {% for row in page.media_rows %}
-
-        {% include project/media-row.html row=row %}
-
-    {% endfor %}
-
-</div>
+{% include project/sectioned-media.html %}
