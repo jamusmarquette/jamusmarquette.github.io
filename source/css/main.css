@@ -13768,8 +13768,12 @@ textarea.form-control-lg {
   padding-left: 1rem;
 }
 
-.caption-row h3, .caption-row .h3,
-.caption-row .caption,
+.caption-row .project-media-caption-title {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.caption-row .project-media-caption,
 figcaption,
 .figure-caption,
 .project-caption,

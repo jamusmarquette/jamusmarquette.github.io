@@ -542,8 +542,12 @@ $project-information-label-gap: 0.15rem;
   padding-left: 1rem;
 }
 
-.caption-row h3,
-.caption-row .caption,
+.caption-row .project-media-caption-title {
+  font-size: $portfolio-font-size-default;
+  line-height: $portfolio-line-height-default;
+}
+
+.caption-row .project-media-caption,
 figcaption,
 .figure-caption,
 .project-caption,
