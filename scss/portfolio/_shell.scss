@@ -23,7 +23,53 @@ $portfolio-sidebar-active: rgba($primary, 0.055);
 $portfolio-sidebar-radius: 1rem;
 $portfolio-project-card-hover-padding: 0.5rem;
 $portfolio-sidebar-icon-hit-size: 2.7rem;
+$portfolio-sidebar-toggle-icon-inset: 0.225rem;
+$portfolio-sidebar-collapse-label-gap: 0.4rem;
+$portfolio-sidebar-collapse-label-width: 5rem;
+$portfolio-sidebar-collapse-label-offset: $portfolio-font-size-default * $portfolio-line-height-default +
+  $portfolio-project-description-gap;
+$portfolio-sidebar-collapse-surface-height: $portfolio-sidebar-icon-hit-size;
+$portfolio-sidebar-collapse-surface-width: $portfolio-sidebar-icon-hit-size + $portfolio-sidebar-collapse-label-gap +
+  $portfolio-sidebar-collapse-label-width + $portfolio-sidebar-row-padding-x;
+$portfolio-sidebar-collapse-label-row-offset: ($portfolio-sidebar-collapse-surface-height -
+    ($portfolio-font-size-default * $portfolio-line-height-default)) /
+  2;
 $portfolio-sidebar-introduction-height: 4.725rem;
+$portfolio-sidebar-identity-bottom-gap: 2.25rem;
+// The three expanded desktop rows map to the project opening: title, first
+// description line, then the second description line. The Theater description
+// occupies two lines at the shared desktop text width.
+$portfolio-sidebar-collapse-row-offset: -$portfolio-sidebar-collapse-label-row-offset;
+$portfolio-sidebar-info-introduction-gap: ($portfolio-font-size-default * $portfolio-line-height-default) +
+  $portfolio-project-description-gap - $portfolio-sidebar-filter-padding-y -
+  ($portfolio-sidebar-collapse-row-offset + $portfolio-sidebar-collapse-surface-height);
+$portfolio-sidebar-work-label-row-offset: ($portfolio-global-nav-row-height -
+    ($portfolio-font-size-default * $portfolio-line-height-default)) /
+  2;
+$portfolio-sidebar-work-row-offset: ($portfolio-font-size-default * $portfolio-line-height-default * 3) +
+  ($portfolio-project-description-gap * 2) - $portfolio-sidebar-work-label-row-offset;
+$portfolio-expanded-work-group-offset: $portfolio-sidebar-work-row-offset -
+  ($portfolio-sidebar-collapse-row-offset + $portfolio-sidebar-collapse-surface-height +
+    $portfolio-sidebar-info-introduction-gap + $portfolio-sidebar-introduction-height +
+    (2 * $portfolio-sidebar-filter-padding-y) + $portfolio-sidebar-identity-bottom-gap) +
+  ($portfolio-font-size-default * $portfolio-line-height-default);
+$portfolio-sidebar-collapse-horizontal-offset: -0.2rem;
+// The collapsed rail preserves the expanded Collapse and Info icon centers;
+// Work occupies the next equal interval below Info.
+$portfolio-collapsed-identity-top: $portfolio-sidebar-collapse-row-offset;
+$portfolio-collapsed-info-gap: ($portfolio-font-size-default * $portfolio-line-height-default) +
+  $portfolio-project-description-gap -
+  ($portfolio-collapsed-identity-top + $portfolio-sidebar-icon-hit-size);
+$portfolio-collapsed-icon-interval: (($portfolio-font-size-default * $portfolio-line-height-default) +
+    $portfolio-project-description-gap + ($portfolio-sidebar-icon-size / 2)) -
+  ($portfolio-collapsed-identity-top + ($portfolio-sidebar-icon-hit-size / 2));
+$portfolio-collapsed-work-row-top: (($portfolio-font-size-default * $portfolio-line-height-default) +
+    $portfolio-project-description-gap + ($portfolio-sidebar-icon-size / 2) +
+    $portfolio-collapsed-icon-interval) -
+  ($portfolio-global-nav-row-height / 2);
+$portfolio-collapsed-work-rail-offset: $portfolio-collapsed-work-row-top -
+  ($portfolio-collapsed-identity-top + $portfolio-sidebar-icon-hit-size +
+    $portfolio-collapsed-info-gap + $portfolio-global-nav-row-height);
 $portfolio-sidebar-introduction-width: 15rem;
 $portfolio-mobile-breakpoint: 767px;
 
@@ -85,31 +131,54 @@ $portfolio-mobile-breakpoint: 767px;
   font-weight: 700 !important;
 }
 
-.portfolio-wordmark-link {
-  color: inherit;
-  cursor: pointer;
+.portfolio-sidebar__identity {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: $portfolio-global-nav-gap;
+  margin: 0 0 $portfolio-sidebar-identity-bottom-gap (-$portfolio-sidebar-row-padding-x);
+}
+
+@media (min-width: ($portfolio-mobile-breakpoint + 0.02px)) {
+  .portfolio-shell:not(.is-sidebar-collapsed) .portfolio-sidebar__identity {
+    gap: $portfolio-sidebar-info-introduction-gap;
+    margin-top: $portfolio-sidebar-collapse-row-offset;
+  }
+}
+
+.portfolio-info-introduction {
+  align-items: start;
+  background: transparent;
+  border-radius: $portfolio-sidebar-radius;
+  color: $primary;
+  column-gap: $portfolio-sidebar-icon-row-gap;
+  display: grid;
+  grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
+  min-height: $portfolio-global-nav-row-height;
+  padding: $portfolio-sidebar-filter-padding-y $portfolio-sidebar-row-padding-x;
   text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
+  width: 100%;
 }
 
-.portfolio-wordmark-link:hover {
-  color: $interactive-color;
+.portfolio-info-introduction:hover,
+.portfolio-info-introduction:focus-visible {
+  background: rgba($primary, 0.03);
+  color: $white;
 }
 
-.portfolio-wordmark-link:focus-visible {
-  outline: 1px solid currentColor;
+.portfolio-info-introduction.is-active {
+  background: $portfolio-sidebar-active;
+  color: $white;
+}
+
+.portfolio-info-introduction:focus-visible {
+  outline: 1px solid $primary;
   outline-offset: 2px;
 }
 
-.portfolio-sidebar__identity {
-  align-items: start;
-  column-gap: 0.4rem;
-  display: grid;
-  grid-template-columns: $portfolio-sidebar-icon-hit-size minmax(0, 1fr);
-  margin: 0 0 2.25rem (-$portfolio-sidebar-row-padding-x);
-  min-height: $portfolio-sidebar-introduction-height;
-}
-
 .portfolio-introduction-block {
+  display: block;
   margin: 0 !important;
   max-width: $portfolio-sidebar-introduction-width;
 }
@@ -118,7 +187,7 @@ $portfolio-mobile-breakpoint: 767px;
   display: flex;
   flex-direction: column;
   gap: $portfolio-global-nav-gap;
-  margin-bottom: 0;
+  margin: $portfolio-expanded-work-group-offset 0 0;
 }
 
 .portfolio-work-group {
@@ -274,13 +343,54 @@ $portfolio-mobile-breakpoint: 767px;
   align-items: center;
   background: transparent;
   border: 0;
+  border-radius: $portfolio-sidebar-radius;
   color: $primary;
   cursor: pointer;
   display: grid;
-  height: $portfolio-sidebar-icon-hit-size;
-  padding: 0.225rem 0 0;
-  place-items: start center;
-  width: $portfolio-sidebar-icon-hit-size;
+  grid-template-columns: ($portfolio-sidebar-icon-hit-size + $portfolio-sidebar-collapse-label-gap) minmax(0, 1fr);
+  height: $portfolio-sidebar-collapse-surface-height;
+  overflow: visible;
+  padding: 0;
+  place-items: center start;
+  position: relative;
+  transition: background-color 150ms ease;
+  width: $portfolio-sidebar-collapse-surface-width;
+}
+
+@media (min-width: ($portfolio-mobile-breakpoint + 0.02px)) {
+  .portfolio-shell:not(.is-sidebar-collapsed) .portfolio-sidebar__toggle {
+    margin-left: $portfolio-sidebar-collapse-horizontal-offset;
+  }
+}
+
+.portfolio-sidebar__toggle:hover,
+.portfolio-sidebar__toggle:focus-visible {
+  background: rgba($primary, 0.03);
+}
+
+.portfolio-sidebar__toggle .portfolio-nav-icon {
+  align-self: center;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  margin-top: 0;
+}
+
+.portfolio-sidebar__toggle-label {
+  align-self: center;
+  color: $primary;
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+  white-space: nowrap;
+}
+
+.portfolio-sidebar__toggle:hover .portfolio-sidebar__toggle-label--collapse,
+.portfolio-sidebar__toggle:focus-visible .portfolio-sidebar__toggle-label--collapse {
+  opacity: 1;
 }
 
 .portfolio-sidebar__toggle [data-sidebar-toggle-icon="expand"] {
@@ -361,10 +471,62 @@ $portfolio-mobile-breakpoint: 767px;
   display: none;
 }
 
-.is-sidebar-collapsed .portfolio-introduction-block {
+.is-sidebar-collapsed .portfolio-sidebar {
+  overflow: visible;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction {
+  align-items: start;
+  grid-template-columns: 1fr;
+  height: $portfolio-global-nav-row-height;
+  margin: 0 auto;
+  min-height: 0;
+  padding: 0;
+  place-items: start center;
+  position: relative;
+  width: $portfolio-sidebar-icon-hit-size;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction::before {
+  background: transparent;
+  border-radius: $portfolio-sidebar-radius;
+  content: '';
+  height: $portfolio-global-nav-row-height;
+  left: 0;
   pointer-events: none;
-  user-select: none;
-  visibility: hidden;
+  position: absolute;
+  top: calc((#{$portfolio-sidebar-icon-size} - #{$portfolio-global-nav-row-height}) / 2);
+  width: $portfolio-sidebar-icon-hit-size;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction:hover,
+.is-sidebar-collapsed .portfolio-info-introduction:focus-visible,
+.is-sidebar-collapsed .portfolio-info-introduction.is-active {
+  background: transparent;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction:hover::before,
+.is-sidebar-collapsed .portfolio-info-introduction:focus-visible::before,
+.is-sidebar-collapsed .portfolio-info-introduction.is-active::before {
+  background: $portfolio-sidebar-active;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction:focus-visible {
+  outline: none;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction:focus-visible::before {
+  outline: 1px solid $primary;
+  outline-offset: 2px;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction .portfolio-nav-icon {
+  position: relative;
+  z-index: 1;
+}
+
+.is-sidebar-collapsed .portfolio-info-introduction .portfolio-introduction-block {
+  display: none;
 }
 
 .is-sidebar-collapsed .portfolio-nav-link {
@@ -380,27 +542,43 @@ $portfolio-mobile-breakpoint: 767px;
 }
 
 .is-sidebar-collapsed .portfolio-sidebar__body {
-  overflow: hidden;
+  overflow: visible;
   padding-left: 0;
   padding-right: 0;
 }
 
 .is-sidebar-collapsed .portfolio-sidebar__identity {
-  display: grid;
-  margin: 0 0 2.25rem (($portfolio-rail-width - $portfolio-sidebar-icon-hit-size) * 0.5);
-  min-height: $portfolio-sidebar-introduction-height;
-  text-align: left;
-  width: calc(
-    #{$portfolio-sidebar-width} - (2 * #{$portfolio-sidebar-padding-x}) + #{$portfolio-sidebar-row-padding-x}
-  );
+  align-items: center;
+  gap: $portfolio-collapsed-info-gap;
+  margin: $portfolio-collapsed-identity-top 0 $portfolio-collapsed-work-rail-offset;
+  width: 100%;
 }
 
 .is-sidebar-collapsed .portfolio-sidebar__toggle {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: $portfolio-sidebar-icon-hit-size;
   margin: 0 auto;
+  place-items: center;
+  width: $portfolio-sidebar-icon-hit-size;
+}
+
+.is-sidebar-collapsed .portfolio-sidebar__toggle .portfolio-nav-icon {
+  align-self: center;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  margin-top: 0;
+}
+
+.is-sidebar-collapsed .portfolio-sidebar__toggle-label--collapse {
+  display: none;
 }
 
 .is-sidebar-collapsed .portfolio-primary-nav {
   gap: $portfolio-global-nav-gap;
+  margin-top: 0;
 }
 
 .is-sidebar-collapsed .portfolio-nav-link--instagram {
@@ -821,6 +999,10 @@ $portfolio-mobile-breakpoint: 767px;
     display: none;
   }
 
+  .portfolio-sidebar__identity {
+    gap: $portfolio-global-nav-gap;
+  }
+
   .portfolio-mobile-close {
     align-items: center;
     background: transparent;
@@ -845,6 +1027,10 @@ $portfolio-mobile-breakpoint: 767px;
 
   .portfolio-browser {
     padding: 0 $portfolio-edge-space-mobile $portfolio-edge-space-mobile;
+  }
+
+  .portfolio-primary-nav {
+    margin-top: 0;
   }
 
   .has-context-bar .portfolio-presentation {
@@ -880,7 +1066,9 @@ $portfolio-mobile-breakpoint: 767px;
 @media (prefers-reduced-motion: reduce) {
   .portfolio-sidebar,
   .portfolio-presentation,
-  .portfolio-context-bar {
+  .portfolio-context-bar,
+  .portfolio-sidebar__toggle,
+  .portfolio-sidebar__toggle-label {
     transition: none;
   }
 }

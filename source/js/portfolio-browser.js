@@ -118,8 +118,8 @@
   function setCollapsed(collapsed) {
     shell.classList.toggle('is-sidebar-collapsed', collapsed);
     sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
-    sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand navigation' : 'Collapse navigation');
-    sidebarToggle.title = collapsed ? 'Expand navigation' : 'Collapse navigation';
+    sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+    sidebarToggle.removeAttribute('title');
     storageSet(sidebarStorageKey, String(collapsed));
   }
 
@@ -373,7 +373,7 @@
     }
   });
 
-  shell.querySelectorAll('.portfolio-primary-nav a').forEach((link) => {
+  shell.querySelectorAll('.portfolio-primary-nav a, .portfolio-info-introduction').forEach((link) => {
     link.addEventListener('click', function () {
       if (mobileMedia.matches) setMobileOpen(false);
     });

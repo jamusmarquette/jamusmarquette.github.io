@@ -40,6 +40,8 @@ $portfolio-font-size-default: 1.125rem;
 $portfolio-line-height-default: 1.4;
 $portfolio-font-size-small: 0.95rem;
 $portfolio-line-height-small: 1.4;
+// Opening project copy uses this same rhythm between its title and paragraphs.
+$portfolio-project-description-gap: 2rem;
 
 //fs-text, fine print
 .xs-text {

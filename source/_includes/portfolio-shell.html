@@ -33,8 +33,7 @@
           aria-controls="portfolio-sidebar"
           aria-expanded="true"
           data-sidebar-toggle
-          aria-label="Collapse navigation"
-          title="Collapse navigation"
+          aria-label="Collapse sidebar"
         >
           <svg
             class="portfolio-nav-icon portfolio-nav-icon--collapse"
@@ -58,6 +57,7 @@
             <rect x="-0.375" y="0.375" width="18.25" height="18.25" transform="matrix(-1 0 0 1 18.25 0)" stroke="currentColor" stroke-width="0.75" />
             <path d="M8 4.5L13 9.5L8 14.5" stroke="currentColor" stroke-width="0.75" />
           </svg>
+          <span class="portfolio-sidebar__toggle-label portfolio-sidebar__toggle-label--collapse" aria-hidden="true">Collapse</span>
         </button>
         <button
           class="portfolio-mobile-close"
@@ -78,12 +78,40 @@
             <path d="M17.2656 0.265625L0.265624 17.2656" stroke="currentColor" stroke-width="0.75" />
           </svg>
         </button>
-        <p class="portfolio-introduction-block">
-          <a class="portfolio-wordmark portfolio-wordmark-link" href="{{ '/' | relative_url }}" aria-label="JAMUS home">JAMUS</a>
-          <span class="portfolio-introduction-copy">
-            creates scalable concept-driven systems, products, and experiences.
+        <a
+          class="portfolio-info-introduction{% if page.url == '/information/' %} is-active{% endif %}"
+          href="{{ '/information/' | relative_url }}"
+          aria-label="About Jamus"
+          {% if page.url == '/information/' %}aria-current="page"{% endif %}
+        >
+          <svg
+            class="portfolio-nav-icon portfolio-nav-icon--info"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <rect
+              x="0.375"
+              y="0.375"
+              width="23.25"
+              height="23.25"
+              rx="11.625"
+              stroke="currentColor"
+              stroke-width="0.75"
+            />
+            <path
+              d="M11.4998 18.4599V8.64169H12.4998V18.4599H11.4998ZM11.9998 7.37607C11.73 7.37607 11.4986 7.28661 11.3054 7.10769C11.1152 6.92593 11.02 6.70868 11.02 6.45592C11.02 6.20601 11.1152 5.99159 11.3054 5.81267C11.4986 5.63092 11.73 5.54004 11.9998 5.54004C12.2696 5.54004 12.4996 5.63092 12.6899 5.81267C12.883 5.99159 12.9796 6.20601 12.9796 6.45592C12.9796 6.70868 12.883 6.92593 12.6899 7.10769C12.4996 7.28661 12.2696 7.37607 11.9998 7.37607Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span class="portfolio-introduction-block">
+            <strong class="portfolio-wordmark">JAMUS</strong>
+            <span class="portfolio-introduction-copy">
+              creates scalable concept-driven systems, products, and experiences.
+            </span>
           </span>
-        </p>
+        </a>
       </div>
 
       <nav class="portfolio-primary-nav" aria-label="Primary">
@@ -153,37 +181,6 @@
           {% endif %}
         </div>
 
-        <!-- prettier-ignore -->
-        <a
-          href="{{ '/information/' | relative_url }}"
-          class="portfolio-nav-link{% if page.url == '/information/' %} is-active{% endif %}"
-          aria-label="Info"
-          title="Info"
-          {% if page.url == '/information/' %}aria-current="page"{% endif %}
-        >
-          <svg
-            class="portfolio-nav-icon portfolio-nav-icon--info"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <rect
-              x="0.375"
-              y="0.375"
-              width="23.25"
-              height="23.25"
-              rx="11.625"
-              stroke="currentColor"
-              stroke-width="0.75"
-            />
-            <path
-              d="M11.4998 18.4599V8.64169H12.4998V18.4599H11.4998ZM11.9998 7.37607C11.73 7.37607 11.4986 7.28661 11.3054 7.10769C11.1152 6.92593 11.02 6.70868 11.02 6.45592C11.02 6.20601 11.1152 5.99159 11.3054 5.81267C11.4986 5.63092 11.73 5.54004 11.9998 5.54004C12.2696 5.54004 12.4996 5.63092 12.6899 5.81267C12.883 5.99159 12.9796 6.20601 12.9796 6.45592C12.9796 6.70868 12.883 6.92593 12.6899 7.10769C12.4996 7.28661 12.2696 7.37607 11.9998 7.37607Z"
-              fill="currentColor"
-            />
-          </svg>
-          <span class="portfolio-nav-label">Info</span>
-        </a>
       </nav>
       <a
         class="portfolio-nav-link portfolio-nav-link--instagram"
