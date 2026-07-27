@@ -1,5 +1,6 @@
 {% assign is_browser = false %} {% if page.url == '/' %}{% assign is_browser = true %}{% endif %}
 {% assign is_project = false %} {% if page.layout == 'project' %}{% assign is_project = true %}{% endif %}
+{% assign is_info = false %} {% if page.url == '/information/' %}{% assign is_info = true %}{% endif %}
 {% assign has_context_bar = false %}
 {% if is_browser %}
   {% assign has_context_bar = true %}
@@ -59,25 +60,6 @@
           </svg>
           <span class="portfolio-sidebar__toggle-label portfolio-sidebar__toggle-label--collapse" aria-hidden="true">Collapse</span>
         </button>
-        <button
-          class="portfolio-mobile-close"
-          type="button"
-          aria-controls="portfolio-sidebar"
-          aria-label="Close navigation"
-          title="Close navigation"
-          data-mobile-sidebar-close
-        >
-          <svg
-            class="portfolio-nav-icon portfolio-nav-icon--close"
-            viewBox="0 0 18 18"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <path d="M0.265625 0.265625L17.2656 17.2656" stroke="currentColor" stroke-width="0.75" />
-            <path d="M17.2656 0.265625L0.265624 17.2656" stroke="currentColor" stroke-width="0.75" />
-          </svg>
-        </button>
         <a
           class="portfolio-info-introduction{% if page.url == '/information/' %} is-active{% endif %}"
           href="{{ '/information/' | relative_url }}"
@@ -111,6 +93,7 @@
               creates scalable concept-driven systems, products, and experiences.
             </span>
           </span>
+          <span class="portfolio-mobile-info-label">Info</span>
         </a>
       </div>
 
@@ -151,13 +134,10 @@
               <rect x="10.875" y="10.875" width="7.75" height="7.75" stroke="currentColor" stroke-width="0.75" />
             </svg>
             <span class="portfolio-nav-label">
-              Work{% if is_browser %}
-              <span data-work-count>(18/18)</span>
-              {% endif %}
+              Work <span data-work-count>(18/18)</span>
             </span>
           </a>
 
-          {% if is_browser %}
           <section class="portfolio-browser-tools" aria-label="Work filters">
             <div class="portfolio-category-filters">
               <button class="portfolio-category-filter" type="button" data-browser-view="all" aria-pressed="false">
@@ -178,7 +158,6 @@
               {% endfor %}
             </div>
           </section>
-          {% endif %}
         </div>
 
       </nav>
@@ -218,27 +197,48 @@
     </div>
   </aside>
 
-  <button
-    class="portfolio-mobile-toggle"
-    type="button"
-    aria-controls="portfolio-sidebar"
-    aria-expanded="false"
-    aria-label="Open navigation"
-    title="Open navigation"
-    data-mobile-sidebar-toggle
-  >
-    <svg
-      class="portfolio-nav-icon portfolio-nav-icon--menu"
-      viewBox="0 0 20 18"
-      fill="none"
-      aria-hidden="true"
-      focusable="false"
+  <header class="portfolio-mobile-header" data-mobile-header>
+    <button
+      class="portfolio-mobile-toggle"
+      type="button"
+      aria-controls="portfolio-sidebar"
+      aria-expanded="false"
+      aria-label="Open navigation"
+      title="Open navigation"
+      data-mobile-sidebar-toggle
     >
-      <path d="M0 0.375H20" stroke="currentColor" stroke-width="0.75" />
-      <path d="M0 8.875H20" stroke="currentColor" stroke-width="0.75" />
-      <path d="M0 17.375H20" stroke="currentColor" stroke-width="0.75" />
-    </svg>
-  </button>
+      <svg class="portfolio-nav-icon portfolio-nav-icon--menu" viewBox="0 0 20 18" fill="none" aria-hidden="true" focusable="false" data-mobile-toggle-icon="menu">
+        <path d="M0 0.375H20" stroke="currentColor" stroke-width="0.75" />
+        <path d="M0 8.875H20" stroke="currentColor" stroke-width="0.75" />
+        <path d="M0 17.375H20" stroke="currentColor" stroke-width="0.75" />
+      </svg>
+      <svg class="portfolio-nav-icon portfolio-nav-icon--close" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false" data-mobile-toggle-icon="close">
+        <path d="M0.265625 0.265625L17.2656 17.2656" stroke="currentColor" stroke-width="0.75" />
+        <path d="M17.2656 0.265625L0.265624 17.2656" stroke="currentColor" stroke-width="0.75" />
+      </svg>
+    </button>
+    <div class="portfolio-mobile-header__identity">
+      <a class="portfolio-mobile-wordmark" href="{{ '/' | relative_url }}" aria-label="JAMUS home">JAMUS</a>
+      {% if is_browser %}
+      <span class="portfolio-mobile-header__description">creates scalable concept-driven systems, products, and experiences.</span>
+      {% endif %}
+    </div>
+    {% if is_project or is_info %}
+    <a
+      class="portfolio-mobile-page-close"
+      href="{{ '/' | relative_url }}"
+      aria-label="{% if is_project %}Close project and return home{% else %}Close Info and return home{% endif %}"
+      title="{% if is_project %}Close project and return home{% else %}Close Info and return home{% endif %}"
+    >
+      <svg class="portfolio-nav-icon portfolio-nav-icon--close" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
+        <path d="M0.265625 0.265625L17.2656 17.2656" stroke="currentColor" stroke-width="0.75" />
+        <path d="M17.2656 0.265625L0.265624 17.2656" stroke="currentColor" stroke-width="0.75" />
+      </svg>
+    </a>
+    {% else %}
+    <span class="portfolio-mobile-header__end" aria-hidden="true"></span>
+    {% endif %}
+  </header>
 
   <button class="portfolio-sidebar-backdrop" type="button" data-sidebar-backdrop aria-label="Close navigation"></button>
 

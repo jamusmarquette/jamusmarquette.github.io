@@ -8,13 +8,13 @@
   const workReturnStorageKey = 'jamus-portfolio-work-return-v1';
   const workReturnPendingStorageKey = 'jamus-portfolio-work-return-pending-v1';
   const projectBrowserScrollStorageKey = 'jamus-portfolio-project-browser-scroll-v1';
+  const mobileHeaderScrollThreshold = 32;
   const defaultColumns = 5;
   const maximumRecentProjects = 18;
   const mobileMedia = window.matchMedia('(max-width: 767px)');
   const sidebar = shell.querySelector('#portfolio-sidebar');
   const sidebarToggle = shell.querySelector('[data-sidebar-toggle]');
   const mobileToggle = shell.querySelector('[data-mobile-sidebar-toggle]');
-  const mobileClose = shell.querySelector('[data-mobile-sidebar-close]');
   const backdrop = shell.querySelector('[data-sidebar-backdrop]');
   const browser = shell.querySelector('[data-project-browser]');
   const workControl = shell.querySelector('.portfolio-work-group > .portfolio-nav-link');
@@ -39,7 +39,8 @@
     ? projectBrowserStrip.querySelector('[aria-current="page"]')
     : null;
   let mobileReturnFocus = null;
-  let activeState = { categories: [], recent: false, columns: defaultColumns };
+  let mobileHeaderScrollFrame = null;
+  let activeState = { category: null, recent: false, columns: defaultColumns };
 
   function storageGet(key) {
     try {
@@ -125,14 +126,19 @@
 
   function setMobileOpen(open) {
     shell.classList.toggle('is-mobile-sidebar-open', open);
+    syncMobileHeaderState();
     mobileToggle.setAttribute('aria-expanded', String(open));
+    mobileToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    mobileToggle.setAttribute('title', open ? 'Close navigation' : 'Open navigation');
     document.body.classList.toggle('portfolio-drawer-open', open);
     sidebar.toggleAttribute('inert', mobileMedia.matches && !open);
     sidebar.setAttribute('aria-hidden', String(mobileMedia.matches && !open));
 
     if (open) {
       mobileReturnFocus = document.activeElement;
-      window.requestAnimationFrame(function () { mobileClose.focus(); });
+      window.requestAnimationFrame(function () {
+        (workControl || mobileFocusableElements()[0]).focus();
+      });
     } else if (mobileMedia.matches && mobileReturnFocus) {
       mobileReturnFocus.focus();
       mobileReturnFocus = null;
@@ -150,6 +156,18 @@
       sidebar.removeAttribute('inert');
       sidebar.removeAttribute('aria-hidden');
     }
+    syncMobileHeaderState();
+  }
+
+  function syncMobileHeaderState() {
+    if (!mobileMedia.matches) {
+      shell.classList.remove('is-mobile-header-compact');
+      return;
+    }
+    const shouldCompact = !shell.classList.contains('is-browser') ||
+      shell.classList.contains('is-mobile-sidebar-open') ||
+      window.scrollY > mobileHeaderScrollThreshold;
+    shell.classList.toggle('is-mobile-header-compact', shouldCompact);
   }
 
   function mobileFocusableElements() {
@@ -163,10 +181,9 @@
     return Number.isInteger(columns) && columns >= 2 && columns <= 6 ? columns : defaultColumns;
   }
 
-  function validCategories(value) {
-    const requestedCategories = typeof value === 'string' && value ? value.split(',') : [];
+  function validCategory(value) {
     const availableCategories = categoryControls.map((control) => control.dataset.category);
-    return availableCategories.filter((category) => requestedCategories.includes(category));
+    return typeof value === 'string' && availableCategories.includes(value) ? value : null;
   }
 
   function storedBrowserState() {
@@ -175,11 +192,16 @@
 
     try {
       const parsed = JSON.parse(stored);
-      return {
-        categories: validCategories(parsed.categories && parsed.categories.join ? parsed.categories.join(',') : ''),
-        recent: parsed.recent === true,
-        columns: validColumns(parsed.columns),
-      };
+      // v1 stored an array because category filters could be combined. A
+      // single unambiguous legacy value is retained; ambiguous selections
+      // safely reset to All Projects.
+      const legacyCategories = Array.isArray(parsed.categories) ? parsed.categories : [];
+      const category = parsed.category
+        ? validCategory(parsed.category)
+        : legacyCategories.length === 1
+          ? validCategory(legacyCategories[0])
+          : null;
+      return { category, recent: parsed.recent === true && !category, columns: validColumns(parsed.columns) };
     } catch (error) {
       return null;
     }
@@ -188,8 +210,8 @@
   function stateFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const requestedView = params.get('view');
-    const requestedCategories = params.get('category');
-    const hasExplicitView = requestedView === 'recent' || Boolean(requestedCategories);
+    const requestedCategory = params.get('category');
+    const hasExplicitView = requestedView === 'recent' || Boolean(requestedCategory);
 
     if (!hasExplicitView) {
       const stored = storedBrowserState();
@@ -200,7 +222,7 @@
     }
 
     return {
-      categories: requestedView === 'recent' ? [] : validCategories(requestedCategories),
+      category: requestedView === 'recent' ? null : validCategory(requestedCategory),
       recent: requestedView === 'recent',
       columns: validColumns(params.get('columns')),
     };
@@ -214,7 +236,7 @@
     url.searchParams.delete('category');
     url.searchParams.delete('columns');
     if (state.recent) url.searchParams.set('view', 'recent');
-    else if (state.categories.length) url.searchParams.set('category', state.categories.join(','));
+    else if (state.category) url.searchParams.set('category', state.category);
     if (state.columns !== defaultColumns) url.searchParams.set('columns', state.columns);
     history[replace ? 'replaceState' : 'pushState']({}, '', url);
   }
@@ -298,16 +320,16 @@
 
     const recentCards = validRecentCards();
     const normalizedState = {
-      categories: state.recent ? [] : validCategories(state.categories.join(',')),
+      category: state.recent ? null : validCategory(state.category),
       recent: state.recent && recentCards.length > 0,
       columns: validColumns(state.columns),
     };
     const visibleCards = normalizedState.recent
       ? recentCards
-      : normalizedState.categories.length
+      : normalizedState.category
         ? cards.filter((card) => {
             const categories = card.dataset.category.trim().split(/\s+/);
-            return normalizedState.categories.some((category) => categories.includes(category));
+            return categories.includes(normalizedState.category);
           })
         : cards;
     const visibleSet = new Set(visibleCards);
@@ -316,14 +338,14 @@
     cards.forEach((card) => { card.hidden = !visibleSet.has(card); });
     setColumns(normalizedState.columns);
 
-    const allActive = !normalizedState.recent && normalizedState.categories.length === 0;
+    const allActive = !normalizedState.recent && !normalizedState.category;
     allProjectsControl.classList.toggle('is-active', allActive);
     allProjectsControl.setAttribute('aria-pressed', String(allActive));
     recentProjectsControl.hidden = recentCards.length === 0;
     recentProjectsControl.classList.toggle('is-active', normalizedState.recent);
     recentProjectsControl.setAttribute('aria-pressed', String(normalizedState.recent));
     categoryControls.forEach((control) => {
-      const active = normalizedState.categories.includes(control.dataset.category);
+      const active = normalizedState.category === control.dataset.category;
       control.classList.toggle('is-active', active);
       control.setAttribute('aria-pressed', String(active));
     });
@@ -338,7 +360,7 @@
 
   window.clearRecentlyViewedProjects = function () {
     storageRemove(recentStorageKey);
-    if (browser) renderState({ categories: [], recent: false, columns: activeState.columns }, true);
+    if (browser) renderState({ category: null, recent: false, columns: activeState.columns }, true);
   };
 
   sidebarToggle.addEventListener('click', function () {
@@ -347,7 +369,6 @@
   mobileToggle.addEventListener('click', function () {
     setMobileOpen(!shell.classList.contains('is-mobile-sidebar-open'));
   });
-  mobileClose.addEventListener('click', function () { setMobileOpen(false); });
   backdrop.addEventListener('click', function () { setMobileOpen(false); });
 
   document.addEventListener('keydown', function (event) {
@@ -373,7 +394,7 @@
     }
   });
 
-  shell.querySelectorAll('.portfolio-primary-nav a, .portfolio-info-introduction').forEach((link) => {
+  shell.querySelectorAll('.portfolio-primary-nav a, .portfolio-info-introduction, .portfolio-mobile-wordmark, .portfolio-mobile-page-close').forEach((link) => {
     link.addEventListener('click', function () {
       if (mobileMedia.matches) setMobileOpen(false);
     });
@@ -388,25 +409,20 @@
     cardCategoryLinks.forEach((link) => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        renderState({ categories: [link.dataset.category], recent: false, columns: activeState.columns }, true);
+        renderState({ category: link.dataset.category, recent: false, columns: activeState.columns }, true);
       });
     });
     allProjectsControl.addEventListener('click', function () {
-      renderState({ categories: [], recent: false, columns: activeState.columns }, true);
+      renderState({ category: null, recent: false, columns: activeState.columns }, true);
       setMobileOpen(false);
     });
     recentProjectsControl.addEventListener('click', function () {
-      renderState({ categories: [], recent: true, columns: activeState.columns }, true);
+      renderState({ category: null, recent: true, columns: activeState.columns }, true);
       setMobileOpen(false);
     });
     categoryControls.forEach((control) => {
       control.addEventListener('click', function () {
-        const categories = activeState.recent ? [] : activeState.categories.slice();
-        const category = control.dataset.category;
-        const index = categories.indexOf(category);
-        if (index === -1) categories.push(category);
-        else categories.splice(index, 1);
-        renderState({ categories, recent: false, columns: activeState.columns }, true);
+        renderState({ category: control.dataset.category, recent: false, columns: activeState.columns }, true);
         setMobileOpen(false);
       });
     });
@@ -416,6 +432,23 @@
       activeState = state;
       rememberBrowserState(state);
       writeUrl(state, true);
+    });
+  }
+
+  function navigateToBrowser(category, recent) {
+    const url = new URL('/', window.location.origin);
+    if (recent) url.searchParams.set('view', 'recent');
+    else if (category) url.searchParams.set('category', category);
+    setMobileOpen(false);
+    window.location.assign(`${url.pathname}${url.search}`);
+  }
+
+  if (!browser) {
+    recentProjectsControl.hidden = readRecentProjectIds().length === 0;
+    allProjectsControl.addEventListener('click', function () { navigateToBrowser(null, false); });
+    recentProjectsControl.addEventListener('click', function () { navigateToBrowser(null, true); });
+    categoryControls.forEach((control) => {
+      control.addEventListener('click', function () { navigateToBrowser(control.dataset.category, false); });
     });
   }
 
@@ -471,6 +504,13 @@
 
   window.addEventListener('popstate', function () { renderState(stateFromUrl(), false); });
   mobileMedia.addEventListener('change', syncResponsiveNavigation);
+  window.addEventListener('scroll', function () {
+    if (!mobileMedia.matches || mobileHeaderScrollFrame) return;
+    mobileHeaderScrollFrame = window.requestAnimationFrame(function () {
+      mobileHeaderScrollFrame = null;
+      syncMobileHeaderState();
+    });
+  }, { passive: true });
 
   recordCurrentProject();
   syncResponsiveNavigation();
