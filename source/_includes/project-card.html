@@ -1,5 +1,5 @@
 <article
-    class="project-card"
+    class="project-card{% if include.interactive %} project-card--interactive{% endif %}{% if include.current %} is-current{% endif %}"
     data-project-id="{{ include.project.slug }}"
     data-category="{% for project_category in include.project.categories %}{% for category in site.data.portfolio_categories %}{% if category.label == project_category %}{{ category.id }} {% endif %}{% endfor %}{% endfor %}"
 >
@@ -25,8 +25,10 @@
         <div class="content-details">
 
             <h3 class="rg-text">
-                <a class="project-card-title"
+                <a class="project-card-title{% if include.primary %} project-card-primary-link{% endif %}"
                     href="{{ include.project.url | relative_url }}"
+                    {% if include.primary %}data-project-browser-primary{% endif %}
+                    {% if include.current %}aria-current="page"{% endif %}
                 >
                     {{ include.project.title }}
                 </a>

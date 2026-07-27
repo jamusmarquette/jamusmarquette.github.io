@@ -14086,7 +14086,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 #introText,
@@ -14227,8 +14227,8 @@ ul {
 
 #info a:hover,
 #info a.info-active {
-  color: #000000;
-  border-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 #info a.info-active {
@@ -14882,7 +14882,7 @@ video {
 }
 
 .portfolio-wordmark-link:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 .portfolio-wordmark-link:focus-visible {
@@ -15095,6 +15095,35 @@ video {
   transition: margin-left 180ms ease;
 }
 
+.portfolio-project-close {
+  align-items: center;
+  background: #131313;
+  border: 1px solid rgba(199, 199, 199, 0.3);
+  color: #c7c7c7;
+  display: grid;
+  font-size: 1.5rem;
+  height: 2.7rem;
+  justify-items: center;
+  line-height: 1;
+  position: fixed;
+  right: 1.2125rem;
+  text-decoration: none;
+  top: 1.2125rem;
+  transition: background-color 150ms ease, color 150ms ease;
+  width: 2.7rem;
+  z-index: 1031;
+}
+
+.portfolio-project-close:hover {
+  background: rgba(199, 199, 199, 0.055);
+  color: #fff;
+}
+
+.portfolio-project-close:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
 .portfolio-presentation .project-inner {
   box-sizing: border-box;
   padding-left: var(--portfolio-project-inset);
@@ -15191,6 +15220,81 @@ video {
   min-width: 0;
 }
 
+.project-card--interactive {
+  isolation: isolate;
+  position: relative;
+}
+
+.project-card--interactive::before {
+  background-color: transparent;
+  border-radius: 1rem;
+  content: "";
+  inset: -0.5rem;
+  position: absolute;
+  transition: background-color 150ms ease;
+  z-index: 0;
+}
+
+.project-card--interactive .content {
+  position: relative;
+  z-index: 1;
+}
+
+.project-card--interactive .content-details {
+  background-color: transparent;
+}
+
+.project-card--interactive:hover,
+.project-card--interactive:focus-within {
+  z-index: 2;
+}
+
+.project-card--interactive:hover::before,
+.project-card--interactive:focus-within::before {
+  background-color: rgba(199, 199, 199, 0.055);
+}
+
+.project-card--interactive.is-current::before {
+  background-color: rgba(199, 199, 199, 0.055);
+  outline: 1px solid rgba(199, 199, 199, 0.45);
+  outline-offset: -1px;
+}
+
+.project-card--interactive .project-card-title {
+  color: #c7c7c7;
+  transition: color 150ms ease;
+}
+
+.project-card--interactive:hover .project-card-title,
+.project-card--interactive:focus-within .project-card-title,
+.project-card--interactive.is-current .project-card-title {
+  color: #fff;
+}
+
+.project-card--interactive .portfolio-card-category {
+  color: #c7c7c7;
+  transition: color 150ms ease;
+}
+
+.project-card--interactive .portfolio-card-category:hover,
+.project-card--interactive .portfolio-card-category:focus-visible {
+  color: #fff;
+}
+
+.project-card--interactive .project-card-image-link:focus-visible,
+.project-card--interactive .project-card-title:focus-visible,
+.project-card--interactive .portfolio-card-category:focus-visible {
+  border-radius: 0.2rem;
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card--interactive:hover .content-image,
+.project-card--interactive:focus-within .content-image {
+    transform: rotateX(-12deg);
+  }
+}
 .portfolio-project-grid .content-details {
   opacity: 1;
   padding-top: 0.75rem;
@@ -15224,40 +15328,49 @@ video {
   margin-bottom: 0 !important;
 }
 
-.portfolio-related-projects {
+.portfolio-project-browser {
   margin-top: 6rem;
   padding-bottom: 1.2125rem;
 }
 
-.portfolio-related-projects[hidden] {
+.portfolio-project-browser[hidden] {
   display: none;
 }
 
-.portfolio-related-projects h2, .portfolio-related-projects .h2 {
+.portfolio-project-browser__header h2, .portfolio-project-browser__header .h2 {
   margin-bottom: 1.5rem;
 }
 
-.portfolio-related-project-grid {
-  --portfolio-related-project-gap: 1rem;
-  align-items: center;
+.portfolio-project-browser__scroller {
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.portfolio-project-browser__track {
+  --portfolio-project-browser-gap: 1rem;
+  align-items: flex-start;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--portfolio-related-project-gap);
+  flex-wrap: nowrap;
+  gap: var(--portfolio-project-browser-gap);
+  min-width: max-content;
+  padding-bottom: 0.5rem;
 }
 
-.portfolio-related-project-grid .project-card {
-  flex: 0 0 calc((100% - (4 * var(--portfolio-related-project-gap))) / 5);
-  min-width: 11rem;
+.portfolio-project-browser__track .project-card {
+  flex: 0 0 clamp(12rem, 18vw, 16rem);
+  min-width: 0;
 }
 
-.portfolio-related-project-grid .content-details {
+.portfolio-project-browser__track .content-details {
   opacity: 1;
   padding-top: 0.75rem;
   position: static;
   transform: none;
 }
 
-.portfolio-related-project-grid .content-image {
+.portfolio-project-browser__track .content-image {
   display: block;
   height: auto;
   margin: 0 auto;
@@ -15267,17 +15380,17 @@ video {
   width: auto;
 }
 
-.portfolio-related-project-grid .content-overlay {
+.portfolio-project-browser__track .content-overlay {
   display: none;
 }
 
-.portfolio-related-project-grid .project-card-categories,
+.portfolio-project-browser__track .project-card-categories,
 .portfolio-info-copyright {
   font-size: 0.95rem !important;
   line-height: 1.4;
 }
 
-.portfolio-related-project-grid .project-card-categories {
+.portfolio-project-browser__track .project-card-categories {
   margin-bottom: 0 !important;
 }
 
@@ -15514,20 +15627,21 @@ video {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 
-  .portfolio-related-projects {
+  .portfolio-project-close {
+    right: calc(1rem + env(safe-area-inset-right));
+    top: calc(1rem + env(safe-area-inset-top));
+  }
+
+  .portfolio-project-browser {
     margin-top: 4rem;
   }
 
-  .portfolio-related-project-grid {
-    display: block;
+  .portfolio-project-browser__track {
+    padding-right: 1rem;
   }
 
-  .portfolio-related-project-grid .project-card {
-    margin-bottom: 2rem;
-  }
-
-  .portfolio-related-project-grid .project-card:last-child {
-    margin-bottom: 0;
+  .portfolio-project-browser__track .project-card {
+    flex-basis: min(76vw, 18rem);
   }
 
   .portfolio-context-bar {

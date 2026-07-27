@@ -21,6 +21,7 @@ $portfolio-edge-space: ($portfolio-context-bar-height - ($portfolio-font-size-de
 $portfolio-edge-space-mobile: 1rem;
 $portfolio-sidebar-active: rgba($primary, 0.055);
 $portfolio-sidebar-radius: 1rem;
+$portfolio-project-card-hover-padding: 0.5rem;
 $portfolio-sidebar-icon-hit-size: 2.7rem;
 $portfolio-sidebar-introduction-height: 4.725rem;
 $portfolio-sidebar-introduction-width: 15rem;
@@ -305,6 +306,35 @@ $portfolio-mobile-breakpoint: 767px;
   transition: margin-left 180ms ease;
 }
 
+.portfolio-project-close {
+  align-items: center;
+  background: $secondary-color;
+  border: 1px solid rgba($primary, 0.3);
+  color: $primary;
+  display: grid;
+  font-size: 1.5rem;
+  height: $portfolio-sidebar-icon-hit-size;
+  justify-items: center;
+  line-height: 1;
+  position: fixed;
+  right: $portfolio-edge-space;
+  text-decoration: none;
+  top: $portfolio-edge-space;
+  transition: background-color 150ms ease, color 150ms ease;
+  width: $portfolio-sidebar-icon-hit-size;
+  z-index: 1031;
+}
+
+.portfolio-project-close:hover {
+  background: $portfolio-sidebar-active;
+  color: $white;
+}
+
+.portfolio-project-close:focus-visible {
+  outline: 1px solid $white;
+  outline-offset: 2px;
+}
+
 // Project heroes and section media share the presentation pane's inset.
 // Legacy full-width classes may still provide backgrounds or vertical behavior,
 // but no longer let visible project media escape this content boundary.
@@ -406,6 +436,85 @@ $portfolio-mobile-breakpoint: 767px;
   min-width: 0;
 }
 
+// Shared project-card interaction surface. The pseudo-element creates the
+// padded card treatment without changing grid dimensions or clipping the
+// existing 3D thumbnail transform.
+.project-card--interactive {
+  isolation: isolate;
+  position: relative;
+}
+
+.project-card--interactive::before {
+  background-color: transparent;
+  border-radius: $portfolio-sidebar-radius;
+  content: '';
+  inset: -$portfolio-project-card-hover-padding;
+  position: absolute;
+  transition: background-color 150ms ease;
+  z-index: 0;
+}
+
+.project-card--interactive .content {
+  position: relative;
+  z-index: 1;
+}
+
+.project-card--interactive .content-details {
+  background-color: transparent;
+}
+
+.project-card--interactive:hover,
+.project-card--interactive:focus-within {
+  z-index: 2;
+}
+
+.project-card--interactive:hover::before,
+.project-card--interactive:focus-within::before {
+  background-color: $portfolio-sidebar-active;
+}
+
+.project-card--interactive.is-current::before {
+  background-color: $portfolio-sidebar-active;
+  outline: 1px solid rgba($primary, 0.45);
+  outline-offset: -1px;
+}
+
+.project-card--interactive .project-card-title {
+  color: $primary;
+  transition: color 150ms ease;
+}
+
+.project-card--interactive:hover .project-card-title,
+.project-card--interactive:focus-within .project-card-title,
+.project-card--interactive.is-current .project-card-title {
+  color: $white;
+}
+
+.project-card--interactive .portfolio-card-category {
+  color: $primary;
+  transition: color 150ms ease;
+}
+
+.project-card--interactive .portfolio-card-category:hover,
+.project-card--interactive .portfolio-card-category:focus-visible {
+  color: $white;
+}
+
+.project-card--interactive .project-card-image-link:focus-visible,
+.project-card--interactive .project-card-title:focus-visible,
+.project-card--interactive .portfolio-card-category:focus-visible {
+  border-radius: 0.2rem;
+  outline: 1px solid $white;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card--interactive:hover .content-image,
+  .project-card--interactive:focus-within .content-image {
+    transform: rotateX(-12deg);
+  }
+}
+
 .portfolio-project-grid .content-details {
   opacity: 1;
   padding-top: 0.75rem;
@@ -439,40 +548,49 @@ $portfolio-mobile-breakpoint: 767px;
   margin-bottom: 0 !important;
 }
 
-.portfolio-related-projects {
+.portfolio-project-browser {
   margin-top: 6rem;
   padding-bottom: $portfolio-edge-space;
 }
 
-.portfolio-related-projects[hidden] {
+.portfolio-project-browser[hidden] {
   display: none;
 }
 
-.portfolio-related-projects h2 {
+.portfolio-project-browser__header h2 {
   margin-bottom: 1.5rem;
 }
 
-.portfolio-related-project-grid {
-  --portfolio-related-project-gap: 1rem;
-  align-items: center;
+.portfolio-project-browser__scroller {
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.portfolio-project-browser__track {
+  --portfolio-project-browser-gap: 1rem;
+  align-items: flex-start;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--portfolio-related-project-gap);
+  flex-wrap: nowrap;
+  gap: var(--portfolio-project-browser-gap);
+  min-width: max-content;
+  padding-bottom: $portfolio-project-card-hover-padding;
 }
 
-.portfolio-related-project-grid .project-card {
-  flex: 0 0 calc((100% - (4 * var(--portfolio-related-project-gap))) / 5);
-  min-width: 11rem;
+.portfolio-project-browser__track .project-card {
+  flex: 0 0 clamp(12rem, 18vw, 16rem);
+  min-width: 0;
 }
 
-.portfolio-related-project-grid .content-details {
+.portfolio-project-browser__track .content-details {
   opacity: 1;
   padding-top: 0.75rem;
   position: static;
   transform: none;
 }
 
-.portfolio-related-project-grid .content-image {
+.portfolio-project-browser__track .content-image {
   display: block;
   height: auto;
   margin: 0 auto;
@@ -482,17 +600,17 @@ $portfolio-mobile-breakpoint: 767px;
   width: auto;
 }
 
-.portfolio-related-project-grid .content-overlay {
+.portfolio-project-browser__track .content-overlay {
   display: none;
 }
 
-.portfolio-related-project-grid .project-card-categories,
+.portfolio-project-browser__track .project-card-categories,
 .portfolio-info-copyright {
   font-size: $portfolio-font-size-small !important;
   line-height: $portfolio-line-height-small;
 }
 
-.portfolio-related-project-grid .project-card-categories {
+.portfolio-project-browser__track .project-card-categories {
   margin-bottom: 0 !important;
 }
 
@@ -733,20 +851,21 @@ $portfolio-mobile-breakpoint: 767px;
     padding-bottom: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-bottom));
   }
 
-  .portfolio-related-projects {
+  .portfolio-project-close {
+    right: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-right));
+    top: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-top));
+  }
+
+  .portfolio-project-browser {
     margin-top: 4rem;
   }
 
-  .portfolio-related-project-grid {
-    display: block;
+  .portfolio-project-browser__track {
+    padding-right: $portfolio-edge-space-mobile;
   }
 
-  .portfolio-related-project-grid .project-card {
-    margin-bottom: 2rem;
-  }
-
-  .portfolio-related-project-grid .project-card:last-child {
-    margin-bottom: 0;
+  .portfolio-project-browser__track .project-card {
+    flex-basis: min(76vw, 18rem);
   }
 
   .portfolio-context-bar {

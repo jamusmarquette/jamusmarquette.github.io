@@ -10,8 +10,8 @@
 
   <div class="portfolio-project-grid" data-project-grid>
     {% for project in projects %}
-      {% if project.prototype != true %}
-        {% include project-card.html project=project %}
+      {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false %}
+        {% include project-card.html project=project interactive=true %}
       {% endif %}
     {% endfor %}
   </div>

@@ -5,6 +5,9 @@
   const sidebarStorageKey = 'portfolio-sidebar-collapsed';
   const recentStorageKey = 'jamus-portfolio-recently-viewed-v1';
   const browserStateStorageKey = 'jamus-portfolio-browser-state-v1';
+  const workReturnStorageKey = 'jamus-portfolio-work-return-v1';
+  const workReturnPendingStorageKey = 'jamus-portfolio-work-return-pending-v1';
+  const projectBrowserScrollStorageKey = 'jamus-portfolio-project-browser-scroll-v1';
   const defaultColumns = 5;
   const maximumRecentProjects = 18;
   const mobileMedia = window.matchMedia('(max-width: 767px)');
@@ -24,6 +27,17 @@
   const columnsControl = shell.querySelector('[data-thumbnail-columns]');
   const columnsOutput = shell.querySelector('[data-thumbnail-columns-output]');
   const cards = browser ? Array.from(browser.querySelectorAll('.project-card')) : [];
+  const workProjectLinks = browser
+    ? Array.from(browser.querySelectorAll('.project-card-image-link, .project-card-title'))
+    : [];
+  const projectClose = shell.querySelector('[data-project-close]');
+  const projectBrowserStrip = shell.querySelector('[data-project-browser-strip]');
+  const projectBrowserPrimaryLinks = projectBrowserStrip
+    ? Array.from(projectBrowserStrip.querySelectorAll('[data-project-browser-primary]'))
+    : [];
+  const currentProjectBrowserLink = projectBrowserStrip
+    ? projectBrowserStrip.querySelector('[aria-current="page"]')
+    : null;
   let mobileReturnFocus = null;
   let activeState = { categories: [], recent: false, columns: defaultColumns };
 
@@ -64,6 +78,14 @@
       window.sessionStorage.setItem(key, value);
     } catch (error) {
       // URL state remains the primary browser-state source.
+    }
+  }
+
+  function sessionRemove(key) {
+    try {
+      window.sessionStorage.removeItem(key);
+    } catch (error) {
+      // Session storage is optional.
     }
   }
 
@@ -225,6 +247,52 @@
     sessionSet(browserStateStorageKey, JSON.stringify(state));
   }
 
+  function workReturnState(destination) {
+    const url = new URL(window.location.href);
+    const projectUrl = new URL(destination, window.location.origin);
+    return {
+      url: `${url.pathname}${url.search}`,
+      scrollY: Math.max(0, Math.round(window.scrollY || window.pageYOffset || 0)),
+      destination: projectUrl.pathname,
+    };
+  }
+
+  function readWorkReturnState(key) {
+    const stored = sessionGet(key);
+    if (!stored) return null;
+
+    try {
+      const parsed = JSON.parse(stored);
+      const url = new URL(parsed.url, window.location.origin);
+      if (
+        url.origin !== window.location.origin ||
+        typeof parsed.scrollY !== 'number' ||
+        typeof parsed.destination !== 'string'
+      ) return null;
+      return {
+        url: `${url.pathname}${url.search}`,
+        scrollY: Math.max(0, parsed.scrollY),
+        destination: new URL(parsed.destination, window.location.origin).pathname,
+      };
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function revealProjectBrowserCard(link, behavior) {
+    if (!projectBrowserStrip || !link) return;
+    const card = link.closest('.project-card');
+    if (!card) return;
+    const left = card.offsetLeft;
+    const right = left + card.offsetWidth;
+    const visibleLeft = projectBrowserStrip.scrollLeft;
+    const visibleRight = visibleLeft + projectBrowserStrip.clientWidth;
+    let target = visibleLeft;
+    if (left < visibleLeft) target = left;
+    else if (right > visibleRight) target = right - projectBrowserStrip.clientWidth;
+    if (target !== visibleLeft) projectBrowserStrip.scrollTo({ left: target, behavior });
+  }
+
   function renderState(state, updateHistory) {
     if (!browser) return;
 
@@ -312,6 +380,11 @@
   });
 
   if (browser) {
+    workProjectLinks.forEach((link) => {
+      link.addEventListener('click', function () {
+        sessionSet(workReturnStorageKey, JSON.stringify(workReturnState(link.href)));
+      });
+    });
     cardCategoryLinks.forEach((link) => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
@@ -346,6 +419,56 @@
     });
   }
 
+  if (projectClose) {
+    const savedReturn = readWorkReturnState(workReturnStorageKey);
+    const validReturn = savedReturn && savedReturn.destination === window.location.pathname ? savedReturn : null;
+    if (validReturn) projectClose.href = validReturn.url;
+    projectClose.addEventListener('click', function (event) {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      if (!validReturn) return;
+      event.preventDefault();
+      sessionSet(workReturnPendingStorageKey, JSON.stringify(validReturn));
+      window.location.assign(validReturn.url);
+    });
+  }
+
+  if (projectBrowserStrip) {
+    projectBrowserStrip.addEventListener('click', function (event) {
+      const currentProjectLink = event.target.closest('.project-card.is-current .project-card-image-link, .project-card.is-current .project-card-title');
+      if (!currentProjectLink || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+    });
+
+    projectBrowserPrimaryLinks.forEach((link) => {
+      link.addEventListener('click', function () {
+        sessionSet(projectBrowserScrollStorageKey, String(Math.round(projectBrowserStrip.scrollLeft)));
+        const savedReturn = readWorkReturnState(workReturnStorageKey);
+        if (savedReturn) {
+          savedReturn.destination = new URL(link.href, window.location.origin).pathname;
+          sessionSet(workReturnStorageKey, JSON.stringify(savedReturn));
+        }
+      });
+    });
+
+    projectBrowserStrip.addEventListener('keydown', function (event) {
+      if ((event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') || event.metaKey || event.ctrlKey || event.altKey) return;
+      const index = projectBrowserPrimaryLinks.indexOf(event.target);
+      if (index === -1) return;
+      const nextIndex = event.key === 'ArrowLeft' ? index - 1 : index + 1;
+      if (nextIndex < 0 || nextIndex >= projectBrowserPrimaryLinks.length) return;
+      event.preventDefault();
+      const nextLink = projectBrowserPrimaryLinks[nextIndex];
+      nextLink.focus({ preventScroll: true });
+      revealProjectBrowserCard(nextLink, mobileMedia.matches ? 'auto' : 'smooth');
+    });
+
+    window.requestAnimationFrame(function () {
+      const savedScroll = Number(sessionGet(projectBrowserScrollStorageKey));
+      if (Number.isFinite(savedScroll) && savedScroll > 0) projectBrowserStrip.scrollLeft = savedScroll;
+      revealProjectBrowserCard(currentProjectBrowserLink, 'auto');
+    });
+  }
+
   window.addEventListener('popstate', function () { renderState(stateFromUrl(), false); });
   mobileMedia.addEventListener('change', syncResponsiveNavigation);
 
@@ -355,5 +478,12 @@
     const initialState = stateFromUrl();
     renderState(initialState, false);
     writeUrl(activeState, true);
+    const pendingReturn = readWorkReturnState(workReturnPendingStorageKey);
+    if (pendingReturn) {
+      sessionRemove(workReturnPendingStorageKey);
+      window.requestAnimationFrame(function () {
+        window.scrollTo({ top: pendingReturn.scrollY, behavior: 'auto' });
+      });
+    }
   }
 })();

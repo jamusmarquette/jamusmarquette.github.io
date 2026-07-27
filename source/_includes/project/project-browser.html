@@ -1,0 +1,24 @@
+{% assign projects = site.projects | sort: 'order' %}
+
+<section class="portfolio-project-browser" data-project-browser-at-end aria-labelledby="project-browser-title">
+  <div class="portfolio-project-browser__header project-inner">
+    <h2 id="project-browser-title">Projects</h2>
+  </div>
+  <nav
+    class="portfolio-project-browser__scroller"
+    aria-label="Browse all projects"
+    aria-describedby="project-browser-keyboard-help"
+    data-project-browser-strip
+  >
+    <div class="portfolio-project-browser__track project-inner">
+      {% for project in projects %}
+        {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.thumbnail %}
+          {% assign is_current_project = false %}
+          {% if project.url == page.url %}{% assign is_current_project = true %}{% endif %}
+          {% include project-card.html project=project interactive=true current=is_current_project primary=true %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+  <p class="visually-hidden" id="project-browser-keyboard-help">Use the Left and Right Arrow keys on a project title to scan projects. Press Enter to open a project.</p>
+</section>

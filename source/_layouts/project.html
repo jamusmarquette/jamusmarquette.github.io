@@ -3,6 +3,15 @@ layout: portfolio
 ---
 
 <div class="project-page">
+  <a
+    class="portfolio-project-close"
+    href="{{ '/' | relative_url }}"
+    aria-label="Close project and return to Work"
+    title="Close project and return to Work"
+    data-project-close
+  >
+    <span aria-hidden="true">×</span>
+  </a>
   <div id="stickycontainer">
     {% unless page.sections %}
       {% capture project_opening %}{% include project/project-info.html %}{% endcapture %}
@@ -13,5 +22,5 @@ layout: portfolio
       {{ content }}
     {% endunless %}
   </div>
-  {% include project/related-projects.html %}
+  {% include project/project-browser.html %}
 </div>
