@@ -27,6 +27,7 @@ $portfolio-sidebar-introduction-width: 15rem;
 $portfolio-mobile-breakpoint: 767px;
 
 .portfolio-shell {
+  --portfolio-project-inset: #{$portfolio-edge-space};
   --portfolio-sidebar-width: #{$portfolio-sidebar-width};
   font-size: $portfolio-font-size-default;
   line-height: $portfolio-line-height-default;
@@ -81,6 +82,21 @@ $portfolio-mobile-breakpoint: 767px;
 
 .portfolio-wordmark {
   font-weight: 700 !important;
+}
+
+.portfolio-wordmark-link {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.portfolio-wordmark-link:hover {
+  color: $interactive-color;
+}
+
+.portfolio-wordmark-link:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
 }
 
 .portfolio-sidebar__identity {
@@ -287,6 +303,15 @@ $portfolio-mobile-breakpoint: 767px;
   min-height: 100vh;
   padding-top: $portfolio-edge-space;
   transition: margin-left 180ms ease;
+}
+
+// Project heroes and section media share the presentation pane's inset.
+// Legacy full-width classes may still provide backgrounds or vertical behavior,
+// but no longer let visible project media escape this content boundary.
+.portfolio-presentation .project-inner {
+  box-sizing: border-box;
+  padding-left: var(--portfolio-project-inset);
+  padding-right: var(--portfolio-project-inset);
 }
 
 .has-context-bar .portfolio-presentation {
@@ -614,6 +639,7 @@ $portfolio-mobile-breakpoint: 767px;
 @media (max-width: $portfolio-mobile-breakpoint) {
   .portfolio-shell,
   .portfolio-shell.is-sidebar-collapsed {
+    --portfolio-project-inset: #{$portfolio-edge-space-mobile};
     --portfolio-sidebar-width: 0px;
   }
 

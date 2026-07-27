@@ -1,4 +1,9 @@
 {% assign row = include.row %}
+{% assign row_item_count = row.items | size %}
+{% assign is_single_section_row = false %}
+{% if include.section_media and row_item_count == 1 %}
+  {% assign is_single_section_row = true %}
+{% endif %}
 
 {% if row.caption %}
 
@@ -8,12 +13,12 @@
 
 {% endif %}
 
-<div class="{{ row.row_class | default: 'row' }} project-media-row">
+<div class="{{ row.row_class | default: 'row' }} project-media-row{% if is_single_section_row %} project-media-row--single{% endif %}">
 
     {% for item in row.items %}
 
     <div
-        class="{{ item.col | default: 'col-md-16' }} project-media-item"
+        class="{{ item.col | default: 'col-md-16' }} project-media-item{% if is_single_section_row %} project-media-item--full{% endif %}"
         {% if item.style %}style="{{ item.style }}"{% endif %}>
 
         {% include project/media-item.html item=item %}

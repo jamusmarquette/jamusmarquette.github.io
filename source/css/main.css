@@ -13337,6 +13337,19 @@ textarea.form-control-lg {
   margin-bottom: 0 !important;
 }
 
+.project-media-row--single > .project-media-item--full {
+  flex: 0 0 100%;
+  margin-left: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.project-media-row--single > .project-media-item--full > img,
+.project-media-row--single > .project-media-item--full > video {
+  max-width: none;
+  width: 100%;
+}
+
 .h3ul {
   margin-bottom: 1.25rem;
   text-decoration: underline;
@@ -14811,6 +14824,7 @@ video {
   }
 }
 .portfolio-shell {
+  --portfolio-project-inset: 1.2125rem;
   --portfolio-sidebar-width: 22rem;
   font-size: 1.125rem;
   line-height: 1.4;
@@ -14859,6 +14873,21 @@ video {
 
 .portfolio-wordmark {
   font-weight: 700 !important;
+}
+
+.portfolio-wordmark-link {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.portfolio-wordmark-link:hover {
+  color: #000000;
+}
+
+.portfolio-wordmark-link:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
 }
 
 .portfolio-sidebar__identity {
@@ -15064,6 +15093,12 @@ video {
   min-height: 100vh;
   padding-top: 1.2125rem;
   transition: margin-left 180ms ease;
+}
+
+.portfolio-presentation .project-inner {
+  box-sizing: border-box;
+  padding-left: var(--portfolio-project-inset);
+  padding-right: var(--portfolio-project-inset);
 }
 
 .has-context-bar .portfolio-presentation {
@@ -15387,6 +15422,7 @@ video {
 @media (max-width: 767px) {
   .portfolio-shell,
 .portfolio-shell.is-sidebar-collapsed {
+    --portfolio-project-inset: 1rem;
     --portfolio-sidebar-width: 0px;
   }
 

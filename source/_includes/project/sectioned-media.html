@@ -12,13 +12,13 @@
   {% if page.introduction_rows %}
   <div class="project-media-stack">
     {% for row in page.introduction_rows %}
-    <div class="container-fluid project-media-stack__row">{% include project/media-row.html row=row %}</div>
+    <div class="container-fluid project-inner project-media-stack__row">{% include project/media-row.html row=row %}</div>
     {% endfor %}
   </div>
   {% endif %}
 
   {% if page.introduction_guidance %}
-  <div class="container-fluid case-study-guidance">
+  <div class="container-fluid project-inner case-study-guidance">
     {% for block in page.introduction_guidance %}
     <div class="case-study-guidance__{{ block.type | default: 'examples' }}">
       <h3>{{ block.label }}</h3>
@@ -37,7 +37,7 @@
   data-project-section="{{ section.id }}"
   aria-labelledby="section-title-{{ section.id }}"
 >
-  <div class="container-fluid">
+  <div class="container-fluid project-inner project-section-heading">
     <div class="row">
       <div class="col-16">
         <h2 id="section-title-{{ section.id }}">{{ section.label }}</h2>
@@ -50,7 +50,7 @@
   {% else %}
     {% assign section_media_rows = page.media_rows | where: 'section', section.id %}
     {% if section.text %}
-    <div class="container-fluid prototype-project-section__text">
+    <div class="container-fluid project-inner prototype-project-section__text">
       {% for paragraph in section.text %}
       <p>{{ paragraph }}</p>
       {% endfor %}
@@ -59,12 +59,12 @@
     {% if section_media_rows.size > 0 %}
     <div class="project-media-stack">
       {% for row in section_media_rows %}
-      <div class="container-fluid project-media-stack__row">{% include project/media-row.html row=row %}</div>
+      <div class="container-fluid project-inner project-media-stack__row">{% include project/media-row.html row=row section_media=true %}</div>
       {% endfor %}
     </div>
     {% endif %}
     {% if section.guidance %}
-    <div class="container-fluid case-study-guidance">
+    <div class="container-fluid project-inner case-study-guidance">
       {% for block in section.guidance %}
       <div class="case-study-guidance__{{ block.type | default: 'examples' }}">
         <h3>{{ block.label }}</h3>
