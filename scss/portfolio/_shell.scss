@@ -17,11 +17,17 @@ $portfolio-global-nav-row-height: $portfolio-sidebar-filter-min-height;
 $portfolio-sidebar-heading-filter-gap: 0.25rem;
 $portfolio-global-nav-gap: 0.4rem;
 $portfolio-context-bar-height: 4rem;
-$portfolio-edge-space: ($portfolio-context-bar-height - ($portfolio-font-size-default * $portfolio-line-height-default)) / 2;
+$portfolio-edge-space: (
+    $portfolio-context-bar-height - ($portfolio-font-size-default * $portfolio-line-height-default)
+  ) /
+  2;
 $portfolio-edge-space-mobile: 1rem;
 $portfolio-sidebar-active: rgba($primary, 0.055);
 $portfolio-sidebar-radius: 1rem;
 $portfolio-project-card-hover-padding: 0.5rem;
+$portfolio-project-card-surface-padding: $portfolio-project-card-hover-padding;
+$portfolio-project-card-surface-padding-top: calc(#{$portfolio-project-card-surface-padding} + 3px);
+$portfolio-project-card-metadata-min-width: 11rem;
 $portfolio-sidebar-icon-hit-size: 2.7rem;
 $portfolio-sidebar-toggle-icon-inset: 0.225rem;
 $portfolio-sidebar-collapse-label-gap: 0.4rem;
@@ -31,8 +37,9 @@ $portfolio-sidebar-collapse-label-offset: $portfolio-font-size-default * $portfo
 $portfolio-sidebar-collapse-surface-height: $portfolio-sidebar-icon-hit-size;
 $portfolio-sidebar-collapse-surface-width: $portfolio-sidebar-icon-hit-size + $portfolio-sidebar-collapse-label-gap +
   $portfolio-sidebar-collapse-label-width + $portfolio-sidebar-row-padding-x;
-$portfolio-sidebar-collapse-label-row-offset: ($portfolio-sidebar-collapse-surface-height -
-    ($portfolio-font-size-default * $portfolio-line-height-default)) /
+$portfolio-sidebar-collapse-label-row-offset: (
+    $portfolio-sidebar-collapse-surface-height - ($portfolio-font-size-default * $portfolio-line-height-default)
+  ) /
   2;
 $portfolio-sidebar-introduction-height: 4.725rem;
 $portfolio-sidebar-identity-bottom-gap: 2.25rem;
@@ -43,33 +50,40 @@ $portfolio-sidebar-collapse-row-offset: -$portfolio-sidebar-collapse-label-row-o
 $portfolio-sidebar-info-introduction-gap: ($portfolio-font-size-default * $portfolio-line-height-default) +
   $portfolio-project-description-gap - $portfolio-sidebar-filter-padding-y -
   ($portfolio-sidebar-collapse-row-offset + $portfolio-sidebar-collapse-surface-height);
-$portfolio-sidebar-work-label-row-offset: ($portfolio-global-nav-row-height -
-    ($portfolio-font-size-default * $portfolio-line-height-default)) /
+$portfolio-sidebar-work-label-row-offset: (
+    $portfolio-global-nav-row-height - ($portfolio-font-size-default * $portfolio-line-height-default)
+  ) /
   2;
 $portfolio-sidebar-work-row-offset: ($portfolio-font-size-default * $portfolio-line-height-default * 3) +
   ($portfolio-project-description-gap * 2) - $portfolio-sidebar-work-label-row-offset;
 $portfolio-expanded-work-group-offset: $portfolio-sidebar-work-row-offset -
-  ($portfolio-sidebar-collapse-row-offset + $portfolio-sidebar-collapse-surface-height +
-    $portfolio-sidebar-info-introduction-gap + $portfolio-sidebar-introduction-height +
-    (2 * $portfolio-sidebar-filter-padding-y) + $portfolio-sidebar-identity-bottom-gap) +
+  (
+    $portfolio-sidebar-collapse-row-offset + $portfolio-sidebar-collapse-surface-height +
+      $portfolio-sidebar-info-introduction-gap + $portfolio-sidebar-introduction-height +
+      (2 * $portfolio-sidebar-filter-padding-y) + $portfolio-sidebar-identity-bottom-gap
+  ) +
   ($portfolio-font-size-default * $portfolio-line-height-default);
 $portfolio-sidebar-collapse-horizontal-offset: -0.2rem;
 // The collapsed rail preserves the expanded Collapse and Info icon centers;
 // Work occupies the next equal interval below Info.
 $portfolio-collapsed-identity-top: $portfolio-sidebar-collapse-row-offset;
 $portfolio-collapsed-info-gap: ($portfolio-font-size-default * $portfolio-line-height-default) +
-  $portfolio-project-description-gap -
-  ($portfolio-collapsed-identity-top + $portfolio-sidebar-icon-hit-size);
-$portfolio-collapsed-icon-interval: (($portfolio-font-size-default * $portfolio-line-height-default) +
-    $portfolio-project-description-gap + ($portfolio-sidebar-icon-size / 2)) -
+  $portfolio-project-description-gap - ($portfolio-collapsed-identity-top + $portfolio-sidebar-icon-hit-size);
+$portfolio-collapsed-icon-interval: (
+    ($portfolio-font-size-default * $portfolio-line-height-default) + $portfolio-project-description-gap +
+      ($portfolio-sidebar-icon-size / 2)
+  ) -
   ($portfolio-collapsed-identity-top + ($portfolio-sidebar-icon-hit-size / 2));
-$portfolio-collapsed-work-row-top: (($portfolio-font-size-default * $portfolio-line-height-default) +
-    $portfolio-project-description-gap + ($portfolio-sidebar-icon-size / 2) +
-    $portfolio-collapsed-icon-interval) -
+$portfolio-collapsed-work-row-top: (
+    ($portfolio-font-size-default * $portfolio-line-height-default) + $portfolio-project-description-gap +
+      ($portfolio-sidebar-icon-size / 2) + $portfolio-collapsed-icon-interval
+  ) -
   ($portfolio-global-nav-row-height / 2);
 $portfolio-collapsed-work-rail-offset: $portfolio-collapsed-work-row-top -
-  ($portfolio-collapsed-identity-top + $portfolio-sidebar-icon-hit-size +
-    $portfolio-collapsed-info-gap + $portfolio-global-nav-row-height);
+  (
+    $portfolio-collapsed-identity-top + $portfolio-sidebar-icon-hit-size + $portfolio-collapsed-info-gap +
+      $portfolio-global-nav-row-height
+  );
 $portfolio-sidebar-introduction-width: 15rem;
 $portfolio-mobile-breakpoint: 767px;
 
@@ -122,8 +136,10 @@ $portfolio-mobile-breakpoint: 767px;
   // Instagram and Columns share the same 2.75rem row and line box; subtracting
   // the row's internal lower half leaves the same outer 0.625rem below each.
   padding: $portfolio-edge-space $portfolio-sidebar-padding-x
-    ($portfolio-edge-space -
-      (($portfolio-sidebar-filter-min-height - ($portfolio-font-size-default * $portfolio-line-height-default)) / 2));
+    (
+      $portfolio-edge-space -
+        (($portfolio-sidebar-filter-min-height - ($portfolio-font-size-default * $portfolio-line-height-default)) / 2)
+    );
   width: var(--portfolio-sidebar-width);
 }
 
@@ -157,7 +173,9 @@ $portfolio-mobile-breakpoint: 767px;
   min-height: $portfolio-global-nav-row-height;
   padding: $portfolio-sidebar-filter-padding-y $portfolio-sidebar-row-padding-x;
   text-decoration: none;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
   width: 100%;
 }
 
@@ -393,15 +411,15 @@ $portfolio-mobile-breakpoint: 767px;
   opacity: 1;
 }
 
-.portfolio-sidebar__toggle [data-sidebar-toggle-icon="expand"] {
+.portfolio-sidebar__toggle [data-sidebar-toggle-icon='expand'] {
   display: none;
 }
 
-.is-sidebar-collapsed .portfolio-sidebar__toggle [data-sidebar-toggle-icon="collapse"] {
+.is-sidebar-collapsed .portfolio-sidebar__toggle [data-sidebar-toggle-icon='collapse'] {
   display: none;
 }
 
-.is-sidebar-collapsed .portfolio-sidebar__toggle [data-sidebar-toggle-icon="expand"] {
+.is-sidebar-collapsed .portfolio-sidebar__toggle [data-sidebar-toggle-icon='expand'] {
   display: block;
 }
 
@@ -430,7 +448,9 @@ $portfolio-mobile-breakpoint: 767px;
   right: $portfolio-edge-space;
   text-decoration: none;
   top: $portfolio-edge-space;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
   width: $portfolio-sidebar-icon-hit-size;
   z-index: 1031;
 }
@@ -610,8 +630,20 @@ $portfolio-mobile-breakpoint: 767px;
 }
 
 .portfolio-project-grid .project-card {
+  container-name: portfolio-work-card;
+  container-type: inline-size;
   flex: 0 0 calc((100% - (var(--portfolio-columns) - 1) * var(--portfolio-grid-gap)) / var(--portfolio-columns));
   min-width: 0;
+}
+
+// Work cards become thumbnail-only before title and category wrapping becomes
+// difficult to read. The image link retains its project-title aria-label.
+@supports (container-type: inline-size) {
+  @container portfolio-work-card (max-width: #{$portfolio-project-card-metadata-min-width}) {
+    .content-details {
+      display: none;
+    }
+  }
 }
 
 // Shared project-card interaction surface. The pseudo-element creates the
@@ -653,8 +685,20 @@ $portfolio-mobile-breakpoint: 767px;
 
 .project-card--interactive.is-current::before {
   background-color: $portfolio-sidebar-active;
-  outline: 1px solid rgba($primary, 0.45);
-  outline-offset: -1px;
+}
+
+// Work-grid and horizontal-browser cards share one padded interaction surface.
+// The content owns the inset at rest; hover and current states only change color.
+.portfolio-project-grid .project-card--interactive::before,
+.portfolio-project-browser__track .project-card--interactive::before {
+  inset: 0;
+}
+
+.portfolio-project-grid .project-card--interactive .content,
+.portfolio-project-browser__track .project-card--interactive .content {
+  margin-bottom: 0;
+  padding: $portfolio-project-card-surface-padding-top $portfolio-project-card-surface-padding
+    $portfolio-project-card-surface-padding;
 }
 
 .project-card--interactive .project-card-title {
@@ -695,7 +739,7 @@ $portfolio-mobile-breakpoint: 767px;
 
 .portfolio-project-grid .content-details {
   opacity: 1;
-  padding-top: 0.75rem;
+  padding: 0.75rem 0 0;
   position: static;
   transform: none;
 }
@@ -763,7 +807,7 @@ $portfolio-mobile-breakpoint: 767px;
 
 .portfolio-project-browser__track .content-details {
   opacity: 1;
-  padding-top: 0.75rem;
+  padding: 0.75rem 0 0;
   position: static;
   transform: none;
 }
@@ -958,9 +1002,7 @@ $portfolio-mobile-breakpoint: 767px;
   .portfolio-presentation {
     margin-left: 0;
     padding-bottom: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-bottom));
-    padding-top: calc(
-      #{$portfolio-edge-space-mobile} + #{$portfolio-sidebar-icon-hit-size} + env(safe-area-inset-top)
-    );
+    padding-top: calc(#{$portfolio-edge-space-mobile} + #{$portfolio-sidebar-icon-hit-size} + env(safe-area-inset-top));
   }
 
   .portfolio-mobile-toggle {
