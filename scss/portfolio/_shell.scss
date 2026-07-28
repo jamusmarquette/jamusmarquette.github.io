@@ -90,6 +90,14 @@ $portfolio-mobile-header-padding-y: 0.5rem;
 $portfolio-mobile-header-height: $portfolio-sidebar-icon-hit-size + (2 * $portfolio-mobile-header-padding-y);
 $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $portfolio-line-height-default) +
   (2 * $portfolio-mobile-header-padding-y);
+$portfolio-mobile-header-icon-size: 1.125rem;
+$portfolio-mobile-header-control-bleed: ($portfolio-sidebar-icon-hit-size - $portfolio-mobile-header-icon-size) / 2;
+$portfolio-mobile-header-control-column: $portfolio-mobile-header-icon-size + $portfolio-sidebar-icon-gap;
+$portfolio-mobile-page-inset: $portfolio-sidebar-padding-x +
+  (($portfolio-sidebar-icon-size - $portfolio-mobile-header-icon-size) / 2);
+$portfolio-mobile-header-text-top-adjustment: (
+  $portfolio-sidebar-icon-hit-size - ($portfolio-font-size-default * $portfolio-line-height-default)
+) / 2;
 
 .portfolio-shell {
   --portfolio-project-inset: #{$portfolio-edge-space};
@@ -997,7 +1005,8 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
 @media (max-width: $portfolio-mobile-breakpoint) {
   .portfolio-shell,
   .portfolio-shell.is-sidebar-collapsed {
-    --portfolio-project-inset: #{$portfolio-edge-space-mobile};
+    --portfolio-mobile-page-inset: #{$portfolio-mobile-page-inset};
+    --portfolio-project-inset: var(--portfolio-mobile-page-inset);
     --portfolio-sidebar-width: 0px;
     --portfolio-mobile-header-current-height: #{$portfolio-mobile-header-height};
   }
@@ -1035,12 +1044,12 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
     background: $secondary-color;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: $portfolio-sidebar-icon-hit-size minmax(0, 1fr) $portfolio-sidebar-icon-hit-size;
+    grid-template-columns: $portfolio-mobile-header-control-column minmax(0, 1fr) $portfolio-mobile-header-control-column;
     height: calc(var(--portfolio-mobile-header-current-height) + env(safe-area-inset-top));
     left: 0;
     padding: calc(#{$portfolio-mobile-header-padding-y} + env(safe-area-inset-top))
-      calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-right)) $portfolio-mobile-header-padding-y
-      calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-left));
+      calc(var(--portfolio-mobile-page-inset) + env(safe-area-inset-right)) $portfolio-mobile-header-padding-y
+      calc(var(--portfolio-mobile-page-inset) + env(safe-area-inset-left));
     position: fixed;
     right: 0;
     top: 0;
@@ -1058,6 +1067,7 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
     padding: 0;
     place-items: center;
     position: relative;
+    margin-left: -$portfolio-mobile-header-control-bleed;
     top: auto;
     width: $portfolio-sidebar-icon-hit-size;
     z-index: auto;
@@ -1079,6 +1089,7 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
     display: block;
     line-height: $portfolio-line-height-default;
     min-width: 0;
+    padding-top: $portfolio-mobile-header-text-top-adjustment;
   }
 
   .portfolio-mobile-wordmark {
@@ -1118,6 +1129,10 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
     justify-self: end;
     place-items: center;
     width: $portfolio-sidebar-icon-hit-size;
+  }
+
+  .portfolio-mobile-page-close {
+    margin-right: -$portfolio-mobile-header-control-bleed;
   }
 
   .portfolio-mobile-page-close {
@@ -1164,7 +1179,16 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
   }
 
   .portfolio-browser {
+    // The browser grid retains its established inset; project and Info pages
+    // intentionally follow the mobile navigation icon rail instead.
     padding: 0 $portfolio-edge-space-mobile $portfolio-edge-space-mobile;
+  }
+
+  // Bootstrap's container gutter is 0.75rem; matching the project pane's
+  // 1rem inset here removes the Info page's narrower mobile content column.
+  #aboutcontent {
+    padding-left: var(--portfolio-mobile-page-inset);
+    padding-right: var(--portfolio-mobile-page-inset);
   }
 
   .portfolio-info-introduction {

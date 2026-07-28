@@ -15697,7 +15697,8 @@ video {
 @media (max-width: 767px) {
   .portfolio-shell,
 .portfolio-shell.is-sidebar-collapsed {
-    --portfolio-project-inset: 1rem;
+    --portfolio-mobile-page-inset: 1.4375rem;
+    --portfolio-project-inset: var(--portfolio-mobile-page-inset);
     --portfolio-sidebar-width: 0px;
     --portfolio-mobile-header-current-height: 3.7rem;
   }
@@ -15735,10 +15736,10 @@ video {
     background: #131313;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 2.7rem minmax(0, 1fr) 2.7rem;
+    grid-template-columns: 2.125rem minmax(0, 1fr) 2.125rem;
     height: calc(var(--portfolio-mobile-header-current-height) + env(safe-area-inset-top));
     left: 0;
-    padding: calc(0.5rem + env(safe-area-inset-top)) calc(1rem + env(safe-area-inset-right)) 0.5rem calc(1rem + env(safe-area-inset-left));
+    padding: calc(0.5rem + env(safe-area-inset-top)) calc(var(--portfolio-mobile-page-inset) + env(safe-area-inset-right)) 0.5rem calc(var(--portfolio-mobile-page-inset) + env(safe-area-inset-left));
     position: fixed;
     right: 0;
     top: 0;
@@ -15756,6 +15757,7 @@ video {
     padding: 0;
     place-items: center;
     position: relative;
+    margin-left: -0.7875rem;
     top: auto;
     width: 2.7rem;
     z-index: auto;
@@ -15777,6 +15779,7 @@ video {
     display: block;
     line-height: 1.4;
     min-width: 0;
+    padding-top: 0.5625rem;
   }
 
   .portfolio-mobile-wordmark {
@@ -15816,6 +15819,10 @@ video {
     justify-self: end;
     place-items: center;
     width: 2.7rem;
+  }
+
+  .portfolio-mobile-page-close {
+    margin-right: -0.7875rem;
   }
 
   .portfolio-mobile-page-close {
@@ -15863,6 +15870,11 @@ video {
 
   .portfolio-browser {
     padding: 0 1rem 1rem;
+  }
+
+  #aboutcontent {
+    padding-left: var(--portfolio-mobile-page-inset);
+    padding-right: var(--portfolio-mobile-page-inset);
   }
 
   .portfolio-info-introduction {
