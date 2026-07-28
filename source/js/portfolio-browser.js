@@ -32,14 +32,18 @@
     : [];
   const projectClose = shell.querySelector('[data-project-close]');
   const projectBrowserStrip = shell.querySelector('[data-project-browser-strip]');
+  const projectBrowserPositionControl = shell.querySelector('[data-project-browser-position]');
+  const projectBrowserPositionOutput = shell.querySelector('[data-project-browser-position-output]');
   const projectBrowserPrimaryLinks = projectBrowserStrip
     ? Array.from(projectBrowserStrip.querySelectorAll('[data-project-browser-primary]'))
     : [];
+  const projectBrowserCards = projectBrowserPrimaryLinks.map((link) => link.closest('.project-card'));
   const currentProjectBrowserLink = projectBrowserStrip
     ? projectBrowserStrip.querySelector('[aria-current="page"]')
     : null;
   let mobileReturnFocus = null;
   let mobileHeaderScrollFrame = null;
+  let projectBrowserScrollFrame = null;
   let activeState = { category: null, recent: false, columns: defaultColumns };
 
   function storageGet(key) {
@@ -315,6 +319,57 @@
     if (target !== visibleLeft) projectBrowserStrip.scrollTo({ left: target, behavior });
   }
 
+  function projectBrowserLeadingInset() {
+    if (!projectBrowserStrip) return 0;
+    const track = projectBrowserStrip.querySelector('.portfolio-project-browser__track');
+    return track ? Number.parseFloat(window.getComputedStyle(track).paddingLeft) || 0 : 0;
+  }
+
+  function ensureProjectBrowserEndSpace() {
+    if (!projectBrowserStrip || !projectBrowserCards.length) return;
+    const track = projectBrowserStrip.querySelector('.portfolio-project-browser__track');
+    const lastCard = projectBrowserCards[projectBrowserCards.length - 1];
+    if (!track || !lastCard) return;
+
+    track.style.setProperty('--portfolio-project-browser-end-space', '0px');
+    const desiredLastPosition = Math.max(0, lastCard.offsetLeft - projectBrowserLeadingInset());
+    const currentMaximum = Math.max(0, projectBrowserStrip.scrollWidth - projectBrowserStrip.clientWidth);
+    track.style.setProperty('--portfolio-project-browser-end-space', `${Math.max(0, desiredLastPosition - currentMaximum)}px`);
+  }
+
+  function projectBrowserIndexFromScroll() {
+    if (!projectBrowserStrip || !projectBrowserCards.length) return 0;
+    const leadingEdge = projectBrowserStrip.scrollLeft + projectBrowserLeadingInset();
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+    projectBrowserCards.forEach((card, index) => {
+      const distance = Math.abs(card.offsetLeft - leadingEdge);
+      if (distance < closestDistance) {
+        closestIndex = index;
+        closestDistance = distance;
+      }
+    });
+    return closestIndex;
+  }
+
+  function setProjectBrowserPosition(index, behavior) {
+    if (!projectBrowserStrip || !projectBrowserCards.length) return;
+    const safeIndex = Math.max(0, Math.min(projectBrowserCards.length - 1, index));
+    const position = safeIndex + 1;
+    const card = projectBrowserCards[safeIndex];
+    const target = Math.max(0, card.offsetLeft - projectBrowserLeadingInset());
+    projectBrowserPositionControl.value = position;
+    projectBrowserPositionOutput.textContent = `${position}/${projectBrowserCards.length}`;
+    projectBrowserStrip.scrollTo({ left: target, behavior });
+  }
+
+  function syncProjectBrowserPositionFromScroll() {
+    if (!projectBrowserPositionControl || !projectBrowserPositionOutput) return;
+    const position = projectBrowserIndexFromScroll() + 1;
+    projectBrowserPositionControl.value = position;
+    projectBrowserPositionOutput.textContent = `${position}/${projectBrowserCards.length}`;
+  }
+
   function renderState(state, updateHistory) {
     if (!browser) return;
 
@@ -483,6 +538,18 @@
       });
     });
 
+    projectBrowserPositionControl.addEventListener('input', function () {
+      setProjectBrowserPosition(Number(projectBrowserPositionControl.value) - 1, 'auto');
+    });
+
+    projectBrowserStrip.addEventListener('scroll', function () {
+      if (projectBrowserScrollFrame) return;
+      projectBrowserScrollFrame = window.requestAnimationFrame(function () {
+        projectBrowserScrollFrame = null;
+        syncProjectBrowserPositionFromScroll();
+      });
+    }, { passive: true });
+
     projectBrowserStrip.addEventListener('keydown', function (event) {
       if ((event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') || event.metaKey || event.ctrlKey || event.altKey) return;
       const index = projectBrowserPrimaryLinks.indexOf(event.target);
@@ -496,9 +563,15 @@
     });
 
     window.requestAnimationFrame(function () {
-      const savedScroll = Number(sessionGet(projectBrowserScrollStorageKey));
-      if (Number.isFinite(savedScroll) && savedScroll > 0) projectBrowserStrip.scrollLeft = savedScroll;
-      revealProjectBrowserCard(currentProjectBrowserLink, 'auto');
+      ensureProjectBrowserEndSpace();
+      const currentCard = currentProjectBrowserLink && currentProjectBrowserLink.closest('.project-card');
+      const currentIndex = currentCard ? projectBrowserCards.indexOf(currentCard) : 0;
+      setProjectBrowserPosition(currentIndex, 'auto');
+    });
+
+    window.addEventListener('resize', function () {
+      ensureProjectBrowserEndSpace();
+      syncProjectBrowserPositionFromScroll();
     });
   }
 
