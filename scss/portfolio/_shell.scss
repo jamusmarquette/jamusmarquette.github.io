@@ -446,18 +446,20 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
 
 .portfolio-project-close {
   align-items: center;
-  background: $secondary-color;
-  border: 1px solid rgba($primary, 0.3);
+  background: transparent;
+  border: 0;
+  border-radius: $portfolio-sidebar-radius;
   color: $primary;
   display: grid;
-  font-size: 1.5rem;
   height: $portfolio-sidebar-icon-hit-size;
   justify-items: center;
   line-height: 1;
   position: fixed;
-  right: $portfolio-edge-space;
+  // Share the actual project-media edge rather than maintaining a separate
+  // viewport offset for this fixed top-row control.
+  right: var(--portfolio-project-inset);
   text-decoration: none;
-  top: $portfolio-edge-space;
+  top: $portfolio-edge-space + $portfolio-sidebar-collapse-row-offset;
   transition:
     background-color 150ms ease,
     color 150ms ease;
@@ -471,8 +473,14 @@ $portfolio-mobile-header-expanded-height: (3 * $portfolio-font-size-default * $p
 }
 
 .portfolio-project-close:focus-visible {
+  background: $portfolio-sidebar-active;
+  color: $white;
   outline: 1px solid $white;
   outline-offset: 2px;
+}
+
+.portfolio-project-close:active {
+  background: rgba($primary, 0.08);
 }
 
 // Project heroes and section media share the presentation pane's inset.

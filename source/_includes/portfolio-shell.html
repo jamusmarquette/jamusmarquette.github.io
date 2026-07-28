@@ -212,10 +212,7 @@
         <path d="M0 8.875H20" stroke="currentColor" stroke-width="0.75" />
         <path d="M0 17.375H20" stroke="currentColor" stroke-width="0.75" />
       </svg>
-      <svg class="portfolio-nav-icon portfolio-nav-icon--close" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false" data-mobile-toggle-icon="close">
-        <path d="M0.265625 0.265625L17.2656 17.2656" stroke="currentColor" stroke-width="0.75" />
-        <path d="M17.2656 0.265625L0.265624 17.2656" stroke="currentColor" stroke-width="0.75" />
-      </svg>
+      {% include icons/close.html toggle_icon="close" %}
     </button>
     <div class="portfolio-mobile-header__identity">
       <a class="portfolio-mobile-wordmark" href="{{ '/' | relative_url }}" aria-label="JAMUS home">JAMUS</a>
@@ -230,10 +227,7 @@
       aria-label="{% if is_project %}Close project and return home{% else %}Close Info and return home{% endif %}"
       title="{% if is_project %}Close project and return home{% else %}Close Info and return home{% endif %}"
     >
-      <svg class="portfolio-nav-icon portfolio-nav-icon--close" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
-        <path d="M0.265625 0.265625L17.2656 17.2656" stroke="currentColor" stroke-width="0.75" />
-        <path d="M17.2656 0.265625L0.265624 17.2656" stroke="currentColor" stroke-width="0.75" />
-      </svg>
+      {% include icons/close.html %}
     </a>
     {% else %}
     <span class="portfolio-mobile-header__end" aria-hidden="true"></span>

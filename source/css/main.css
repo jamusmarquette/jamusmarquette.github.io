@@ -15165,18 +15165,18 @@ video {
 
 .portfolio-project-close {
   align-items: center;
-  background: #131313;
-  border: 1px solid rgba(199, 199, 199, 0.3);
+  background: transparent;
+  border: 0;
+  border-radius: 1rem;
   color: #c7c7c7;
   display: grid;
-  font-size: 1.5rem;
   height: 2.7rem;
   justify-items: center;
   line-height: 1;
   position: fixed;
-  right: 1.2125rem;
+  right: var(--portfolio-project-inset);
   text-decoration: none;
-  top: 1.2125rem;
+  top: 0.65rem;
   transition: background-color 150ms ease, color 150ms ease;
   width: 2.7rem;
   z-index: 1031;
@@ -15188,8 +15188,14 @@ video {
 }
 
 .portfolio-project-close:focus-visible {
+  background: rgba(199, 199, 199, 0.055);
+  color: #fff;
   outline: 1px solid #fff;
   outline-offset: 2px;
+}
+
+.portfolio-project-close:active {
+  background: rgba(199, 199, 199, 0.08);
 }
 
 .portfolio-presentation .project-inner {
