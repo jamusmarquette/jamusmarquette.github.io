@@ -27,6 +27,10 @@ $portfolio-sidebar-radius: 1rem;
 $portfolio-project-card-hover-padding: 0.5rem;
 $portfolio-project-card-surface-padding: $portfolio-project-card-hover-padding;
 $portfolio-project-card-surface-padding-top: calc(#{$portfolio-project-card-surface-padding} + 3px);
+$portfolio-project-card-visible-gap: $project-media-gap;
+// Work-grid and browser interaction surfaces use inset: 0, so their layout
+// gap needs no extra outward-inset compensation.
+$portfolio-project-card-layout-gap: $portfolio-project-card-visible-gap;
 $portfolio-project-card-metadata-min-width: 11rem;
 $portfolio-sidebar-icon-hit-size: 2.7rem;
 $portfolio-sidebar-toggle-icon-inset: 0.225rem;
@@ -641,7 +645,8 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-browser {
-  --portfolio-grid-gap: 1rem;
+  --portfolio-grid-column-gap: #{$portfolio-project-card-layout-gap};
+  --portfolio-grid-row-gap: 1rem;
   --portfolio-selected-columns: 5;
   --portfolio-columns: var(--portfolio-selected-columns);
   padding: 0 $portfolio-edge-space $portfolio-edge-space;
@@ -652,13 +657,14 @@ $portfolio-mobile-header-text-top-adjustment: (
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--portfolio-grid-gap);
+  column-gap: var(--portfolio-grid-column-gap);
+  row-gap: var(--portfolio-grid-row-gap);
 }
 
 .portfolio-project-grid .project-card {
   container-name: portfolio-work-card;
   container-type: inline-size;
-  flex: 0 0 calc((100% - (var(--portfolio-columns) - 1) * var(--portfolio-grid-gap)) / var(--portfolio-columns));
+  flex: 0 0 calc((100% - (var(--portfolio-columns) - 1) * var(--portfolio-grid-column-gap)) / var(--portfolio-columns));
   min-width: 0;
 }
 
@@ -869,11 +875,14 @@ $portfolio-mobile-header-text-top-adjustment: (
   overflow-x: auto;
   overflow-y: visible;
   overscroll-behavior-inline: contain;
+  padding-inline: var(--portfolio-project-inset);
+  scroll-padding-inline-start: var(--portfolio-project-inset);
+  scroll-snap-type: x proximity;
   scrollbar-width: thin;
 }
 
 .portfolio-project-browser__track {
-  --portfolio-project-browser-gap: 1rem;
+  --portfolio-project-browser-gap: #{$portfolio-project-card-layout-gap};
   --portfolio-project-browser-end-space: 0px;
   align-items: flex-start;
   display: flex;
@@ -891,6 +900,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 .portfolio-project-browser__track .project-card {
   flex: 0 0 clamp(12rem, 18vw, 16rem);
   min-width: 0;
+  scroll-snap-align: start;
 }
 
 .portfolio-project-browser__track .content-details {
@@ -1294,10 +1304,6 @@ $portfolio-mobile-header-text-top-adjustment: (
 
   .portfolio-project-browser {
     margin-top: 4rem;
-  }
-
-  .portfolio-project-browser__track {
-    padding-right: $portfolio-edge-space-mobile;
   }
 
   .portfolio-project-browser__track .project-card {

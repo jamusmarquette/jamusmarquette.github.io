@@ -32,6 +32,7 @@
     : [];
   const projectClose = shell.querySelector('[data-project-close]');
   const projectBrowserStrip = shell.querySelector('[data-project-browser-strip]');
+  const projectBrowserTitle = shell.querySelector('#project-browser-title');
   const projectBrowserPositionControl = shell.querySelector('[data-project-browser-position]');
   const projectBrowserPositionOutput = shell.querySelector('[data-project-browser-position-output]');
   const projectBrowserPrimaryLinks = projectBrowserStrip
@@ -309,20 +310,20 @@
     if (!projectBrowserStrip || !link) return;
     const card = link.closest('.project-card');
     if (!card) return;
-    const left = card.offsetLeft;
-    const right = left + card.offsetWidth;
-    const visibleLeft = projectBrowserStrip.scrollLeft;
-    const visibleRight = visibleLeft + projectBrowserStrip.clientWidth;
-    let target = visibleLeft;
-    if (left < visibleLeft) target = left;
-    else if (right > visibleRight) target = right - projectBrowserStrip.clientWidth;
-    if (target !== visibleLeft) projectBrowserStrip.scrollTo({ left: target, behavior });
+    setProjectBrowserPosition(projectBrowserCards.indexOf(card), behavior);
   }
 
-  function projectBrowserLeadingInset() {
+  function projectBrowserUnclampedScrollTarget(card) {
+    if (!projectBrowserStrip || !projectBrowserTitle || !card) return 0;
+    const cardRect = card.getBoundingClientRect();
+    const titleRect = projectBrowserTitle.getBoundingClientRect();
+    return Math.max(0, projectBrowserStrip.scrollLeft + cardRect.left - titleRect.left);
+  }
+
+  function projectBrowserScrollTarget(card) {
     if (!projectBrowserStrip) return 0;
-    const track = projectBrowserStrip.querySelector('.portfolio-project-browser__track');
-    return track ? Number.parseFloat(window.getComputedStyle(track).paddingLeft) || 0 : 0;
+    const maximum = Math.max(0, projectBrowserStrip.scrollWidth - projectBrowserStrip.clientWidth);
+    return Math.min(maximum, projectBrowserUnclampedScrollTarget(card));
   }
 
   function ensureProjectBrowserEndSpace() {
@@ -332,18 +333,18 @@
     if (!track || !lastCard) return;
 
     track.style.setProperty('--portfolio-project-browser-end-space', '0px');
-    const desiredLastPosition = Math.max(0, lastCard.offsetLeft - projectBrowserLeadingInset());
+    const desiredLastPosition = projectBrowserUnclampedScrollTarget(lastCard);
     const currentMaximum = Math.max(0, projectBrowserStrip.scrollWidth - projectBrowserStrip.clientWidth);
     track.style.setProperty('--portfolio-project-browser-end-space', `${Math.max(0, desiredLastPosition - currentMaximum)}px`);
   }
 
   function projectBrowserIndexFromScroll() {
-    if (!projectBrowserStrip || !projectBrowserCards.length) return 0;
-    const leadingEdge = projectBrowserStrip.scrollLeft + projectBrowserLeadingInset();
+    if (!projectBrowserStrip || !projectBrowserTitle || !projectBrowserCards.length) return 0;
+    const titleLeft = projectBrowserTitle.getBoundingClientRect().left;
     let closestIndex = 0;
     let closestDistance = Infinity;
     projectBrowserCards.forEach((card, index) => {
-      const distance = Math.abs(card.offsetLeft - leadingEdge);
+      const distance = Math.abs(card.getBoundingClientRect().left - titleLeft);
       if (distance < closestDistance) {
         closestIndex = index;
         closestDistance = distance;
@@ -353,11 +354,11 @@
   }
 
   function setProjectBrowserPosition(index, behavior) {
-    if (!projectBrowserStrip || !projectBrowserCards.length) return;
+    if (!projectBrowserStrip || !projectBrowserPositionControl || !projectBrowserPositionOutput || !projectBrowserCards.length) return;
     const safeIndex = Math.max(0, Math.min(projectBrowserCards.length - 1, index));
     const position = safeIndex + 1;
     const card = projectBrowserCards[safeIndex];
-    const target = Math.max(0, card.offsetLeft - projectBrowserLeadingInset());
+    const target = projectBrowserScrollTarget(card);
     projectBrowserPositionControl.value = position;
     projectBrowserPositionOutput.textContent = `${position}/${projectBrowserCards.length}`;
     projectBrowserStrip.scrollTo({ left: target, behavior });

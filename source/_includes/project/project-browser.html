@@ -34,7 +34,7 @@
     aria-describedby="project-browser-keyboard-help"
     data-project-browser-strip
   >
-    <div class="portfolio-project-browser__track project-inner">
+    <div class="portfolio-project-browser__track">
       {% for project in projects %}
         {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.thumbnail %}
           {% assign is_current_project = false %}

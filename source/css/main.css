@@ -15345,7 +15345,8 @@ video {
 }
 
 .portfolio-browser {
-  --portfolio-grid-gap: 1rem;
+  --portfolio-grid-column-gap: 0.75rem;
+  --portfolio-grid-row-gap: 1rem;
   --portfolio-selected-columns: 5;
   --portfolio-columns: var(--portfolio-selected-columns);
   padding: 0 1.2125rem 1.2125rem;
@@ -15356,13 +15357,14 @@ video {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--portfolio-grid-gap);
+  column-gap: var(--portfolio-grid-column-gap);
+  row-gap: var(--portfolio-grid-row-gap);
 }
 
 .portfolio-project-grid .project-card {
   container-name: portfolio-work-card;
   container-type: inline-size;
-  flex: 0 0 calc((100% - (var(--portfolio-columns) - 1) * var(--portfolio-grid-gap)) / var(--portfolio-columns));
+  flex: 0 0 calc((100% - (var(--portfolio-columns) - 1) * var(--portfolio-grid-column-gap)) / var(--portfolio-columns));
   min-width: 0;
 }
 
@@ -15563,11 +15565,14 @@ video {
   overflow-x: auto;
   overflow-y: visible;
   overscroll-behavior-inline: contain;
+  padding-inline: var(--portfolio-project-inset);
+  scroll-padding-inline-start: var(--portfolio-project-inset);
+  scroll-snap-type: x proximity;
   scrollbar-width: thin;
 }
 
 .portfolio-project-browser__track {
-  --portfolio-project-browser-gap: 1rem;
+  --portfolio-project-browser-gap: 0.75rem;
   --portfolio-project-browser-end-space: 0px;
   align-items: flex-start;
   display: flex;
@@ -15585,6 +15590,7 @@ video {
 .portfolio-project-browser__track .project-card {
   flex: 0 0 clamp(12rem, 18vw, 16rem);
   min-width: 0;
+  scroll-snap-align: start;
 }
 
 .portfolio-project-browser__track .content-details {
@@ -15980,10 +15986,6 @@ video {
 
   .portfolio-project-browser {
     margin-top: 4rem;
-  }
-
-  .portfolio-project-browser__track {
-    padding-right: 1rem;
   }
 
   .portfolio-project-browser__track .project-card {
