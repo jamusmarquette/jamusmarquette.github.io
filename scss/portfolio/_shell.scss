@@ -679,7 +679,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 .portfolio-browser {
   --portfolio-grid-column-gap: #{$portfolio-project-card-layout-gap};
   --portfolio-grid-row-gap: 1rem;
-  --portfolio-selected-columns: 5;
+  --portfolio-selected-columns: 6;
   --portfolio-columns: var(--portfolio-selected-columns);
   padding: 0 $portfolio-edge-space $portfolio-edge-space;
 }
@@ -904,13 +904,18 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-project-browser__scroller {
+  -ms-overflow-style: none;
   overflow-x: auto;
   overflow-y: visible;
   overscroll-behavior-inline: contain;
   padding-inline: var(--portfolio-project-inset);
   scroll-padding-inline-start: var(--portfolio-project-inset);
   scroll-snap-type: x proximity;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+}
+
+.portfolio-project-browser__scroller::-webkit-scrollbar {
+  display: none;
 }
 
 .portfolio-project-browser__track {

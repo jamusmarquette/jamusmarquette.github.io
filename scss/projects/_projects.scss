@@ -15,6 +15,11 @@
   width: 100% !important;
 }
 
+// Every hero composition is wrapped by .project-hero in the shared include.
+.project-hero {
+  margin-bottom: 8rem;
+}
+
 // Shared project media uses one gutter for columns, wrapped items, and rows.
 $project-media-gap: 0.75rem;
 $project-authored-section-background: rgba($primary, 0.055);
@@ -316,7 +321,7 @@ $project-opening-primary-intermediate-width: 50%;
 $project-opening-details-max-width: 82%;
 $project-opening-details-column-gap: 1rem;
 $project-opening-title-to-description-gap: $portfolio-project-description-gap;
-$project-opening-to-hero-gap: 1.5rem;
+$project-opening-to-hero-gap: 6rem;
 $project-opening-wide-breakpoint: 1632px;
 $project-opening-medium-breakpoint: 1296px;
 $project-information-three-column-breakpoint: 1024px;

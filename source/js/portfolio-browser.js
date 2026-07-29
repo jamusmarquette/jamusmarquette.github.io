@@ -9,7 +9,7 @@
   const workReturnPendingStorageKey = 'jamus-portfolio-work-return-pending-v1';
   const projectBrowserScrollStorageKey = 'jamus-portfolio-project-browser-scroll-v1';
   const mobileHeaderScrollThreshold = 32;
-  const defaultColumns = 5;
+  const defaultColumns = 6;
   const maximumRecentProjects = 18;
   const mobileMedia = window.matchMedia('(max-width: 767px)');
   const sidebar = shell.querySelector('#portfolio-sidebar');
