@@ -18,12 +18,12 @@ thumbnail: /img/jamus_marquette_mtc_spring_gala_invite.gif
 
 hero_type: media-rows
 
-hero_container_class: container-fluid project-intro nomargin full-width topmargin mb-0 mb-md-5
+hero_container_class: container-fluid nomargin topmargin
 
 hero_rows:
 
   - items:
-      - col: offset-lg-2 col-lg-12 mb-4
+      - col: col-16
         video: /project/mtc_spring_gala/video/jamus_marquette_mtc_animation.mp4
         media_class: video-content-video
         media_style: "display:block;"

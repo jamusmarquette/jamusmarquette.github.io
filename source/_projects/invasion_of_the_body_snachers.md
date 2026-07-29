@@ -17,7 +17,7 @@ thumbnail: /img/jamus_marquette_invasion_of_the_body_snatchers_by_jack_finn_book
 
 hero_type: media-rows
 
-hero_container_class: container-fluid nomargin mb-5 topmargin
+hero_container_class: container-fluid nomargin topmargin
 
 hero_rows:
 

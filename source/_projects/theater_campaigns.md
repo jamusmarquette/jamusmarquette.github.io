@@ -18,13 +18,12 @@ thumbnail: /img/jamus_theater_posters.gif
 
 hero_type: media-rows
 
-hero_container_class: container-fluid topmargin
+hero_container_class: container-fluid nomargin topmargin
 
 hero_rows:
 
-  - row_class: row mb-5
-    items:
-      - col: offset-lg-2 col-lg-12
+  - items:
+      - col: col-16
         image: /project/theater_campaigns/img/00-jamus-marquette-theater-poster-designs-on-theater-row-wall.jpg
 
 

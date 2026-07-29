@@ -17,13 +17,12 @@ thumbnail: /img/jamus_marquette_sva_motion_graphics_reel.gif
 
 hero_type: media-rows
 
-hero_container_class: container-fluid project-intro mb-5
+hero_container_class: container-fluid nomargin topmargin
 
 hero_rows:
 
-  - row_class: row project-intro-paragraph
-    items:
-      - col: offset-lg-3 col-lg-10 col-md-16
+  - items:
+      - col: col-16
         video: /project/motion_graphics/video/jamus_marquette_sva_motion_graphics_reel.mp4
         media_class: video-content-video
         media_style: "display:block;"

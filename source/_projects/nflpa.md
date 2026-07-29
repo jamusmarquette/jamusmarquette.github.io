@@ -18,13 +18,13 @@ thumbnail: /img/jamus_marquette_nflpa_ribbon_animation.gif
 
 hero_type: media-rows
 
-hero_container_class: container-fluid topmargin
+hero_container_class: container-fluid nomargin topmargin
 hero_container_style: "background-color: #121114;"
 
 hero_rows:
 
   - items:
-      - col: offset-lg-2 col-lg-12 col-md-16
+      - col: col-16
         image: /project/nflpa/img/01_jamus_marquette_nflpa_logos.jpg
 
 

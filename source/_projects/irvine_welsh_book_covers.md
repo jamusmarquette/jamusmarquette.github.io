@@ -17,12 +17,12 @@ thumbnail: /img/jamus_marquette_irvine_welsh_covers_animation.gif
 
 hero_type: media-rows
 
-hero_container_class: container-fluid topmargin
+hero_container_class: container-fluid nomargin topmargin
 
 hero_rows:
 
   - items:
-      - col: offset-lg-2 col-lg-12 mb-4
+      - col: col-16
         image: /project/irvine_welsh_book_covers/img/jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_designs_wide.jpg
 
 

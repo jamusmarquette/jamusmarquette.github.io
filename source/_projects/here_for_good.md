@@ -18,13 +18,12 @@ thumbnail: /img/jamus_marquette_laureate_summit_logo.png
 
 hero_type: media-rows
 
-hero_container_class: container-fluid project-intro
+hero_container_class: container-fluid nomargin topmargin
 
 hero_rows:
 
-  - row_class: row project-intro-paragraph
-    items:
-      - col: offset-lg-1 col-lg-14 mb-0 mb-lg-5
+  - items:
+      - col: col-16
         video: /project/here_for_good/video/here_for_good_animation.mp4
         media_class: video-content-video
         media_style: "display:block; max-height: 75vh !important; height: 100%;"

@@ -15,11 +15,15 @@ categories:
 
 thumbnail: /img/jamus_marquette_confinement_photo_book_lr.gif
 
-hero_type: split-image
+hero_type: media-rows
 
-hero_left: /project/confinement/img/jamus_marquette_confinement_photo_book_coverb.jpg
+hero_container_class: container-fluid nomargin topmargin
 
-hero_right: /project/confinement/img/jamus_marquette_confinement_photo_book_opening_page1.jpg
+hero_rows:
+
+  - items:
+      - col: col-16
+        image: /project/confinement/img/jamus_marquette_confinement_photo_book_coverb.jpg
 
 description:
   - <em>Confinement</em> is a self-initiated photography book featuring works by Oliver Chanarin, Adam Broomberg, Hans Neleman, and Nan Golden including a selection of works that embody various forms of confinement&mdash;psychiatric hospital, prostitution, prison, and sexual dependency.
@@ -56,6 +60,14 @@ sections:
     status: complete
 
 media_rows:
+
+  - section: in-use
+    items:
+      - image: /project/confinement/img/jamus_marquette_confinement_photo_book_coverb.jpg
+        col: col-16 col-md-8
+
+      - image: /project/confinement/img/jamus_marquette_confinement_photo_book_opening_page1.jpg
+        col: col-16 col-md-8
 
   - section: in-use
     items:
