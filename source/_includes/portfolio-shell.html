@@ -1,10 +1,20 @@
 {% assign is_browser = false %} {% if page.url == '/' %}{% assign is_browser = true %}{% endif %}
 {% assign is_project = false %} {% if page.layout == 'project' %}{% assign is_project = true %}{% endif %}
 {% assign is_info = false %} {% if page.url == '/information/' %}{% assign is_info = true %}{% endif %}
+{% assign visible_section_count = 0 %}
+{% if is_project and page.sections %}
+  {% for section in page.sections %}
+    {% if section.status == 'complete' %}
+      {% assign visible_section_count = visible_section_count | plus: 1 %}
+    {% elsif site.portfolio_show_placeholders == true and section.status == 'placeholder' %}
+      {% assign visible_section_count = visible_section_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 {% assign has_context_bar = false %}
 {% if is_browser %}
   {% assign has_context_bar = true %}
-{% elsif is_project and page.sections and page.sections.size > 1 %}
+{% elsif is_project and visible_section_count > 0 %}
   {% assign has_context_bar = true %}
 {% endif %}
 {% assign is_eligible_project = false %}
@@ -254,7 +264,7 @@
     />
     <output for="portfolio-thumbnail-columns" data-thumbnail-columns-output>5</output>
   </div>
-  {% elsif is_project and page.sections and page.sections.size > 1 %}
+  {% elsif is_project and visible_section_count > 0 %}
   <div class="portfolio-context-bar portfolio-context-bar--project" data-portfolio-context-bar>
     <nav class="portfolio-context-bar__section-navigation" aria-label="Project sections" data-section-navigation>
       <button
@@ -266,6 +276,7 @@
         Overview
       </button>
       {% for section in page.sections %}
+      {% if section.status == 'complete' or site.portfolio_show_placeholders == true and section.status == 'placeholder' %}
       <button
         type="button"
         class="portfolio-section-control"
@@ -274,6 +285,7 @@
       >
         {{ section.label }}
       </button>
+      {% endif %}
       {% endfor %}
     </nav>
   </div>

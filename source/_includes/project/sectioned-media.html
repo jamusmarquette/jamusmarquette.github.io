@@ -30,14 +30,22 @@
 </div>
 
 {% for section in page.sections %}
-{% assign section_status = section.status | default: 'complete' %}
+{% assign section_is_visible = false %}
+{% if section.status == 'complete' %}
+  {% assign section_is_visible = true %}
+{% elsif site.portfolio_show_placeholders == true and section.status == 'placeholder' %}
+  {% assign section_is_visible = true %}
+{% endif %}
+{% if section_is_visible %}
+{% assign section_status = section.status %}
 <section
-  class="prototype-project-section"
+  class="prototype-project-section project-authored-section project-inner"
   id="section-{{ section.id }}"
   data-project-section="{{ section.id }}"
   aria-labelledby="section-title-{{ section.id }}"
 >
-  <div class="container-fluid project-inner project-section-heading">
+  <div class="project-authored-section__surface">
+  <div class="container-fluid project-inner project-section-heading" data-project-section-heading>
     <div class="row">
       <div class="col-16">
         <h2 id="section-title-{{ section.id }}">{{ section.label }}</h2>
@@ -73,11 +81,13 @@
       {% endfor %}
     </div>
     {% endif %}
-    {% if section.placeholder_example %}
+    {% if site.portfolio_show_placeholders == true and section.placeholder_example %}
       {% include project/section-placeholder.html %}
     {% endif %}
     {% if section.component == 'font-specimen' %}{% include project/font-specimen.html %}{% endif %}
   {% endif %}
+  </div>
 </section>
+{% endif %}
 {% endfor %}
 {% endif %}

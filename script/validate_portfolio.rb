@@ -10,6 +10,7 @@ SOURCE_DIR = ROOT.join("source")
 
 CATEGORY_REGISTRY_PATH = ROOT.join("source/_data/portfolio_categories.yml")
 SECTION_REGISTRY_PATH = ROOT.join("source/_data/project_sections.yml")
+SITE_CONFIG_PATH = ROOT.join("_config.yml")
 FINAL_CATEGORIES = [
   { "id" => "identity-branding", "label" => "Identity & Branding" },
   { "id" => "editorial-publications", "label" => "Editorial & Publications" },
@@ -192,6 +193,15 @@ unless present_text?(section_registry.dig("placeholder", "message"))
   issues << Issue.new(level: :error, code: "section-registry", message: "section registry must define placeholder copy")
 end
 
+begin
+  site_config = YAML.safe_load(SITE_CONFIG_PATH.read, permitted_classes: [], aliases: false) || {}
+  unless site_config["portfolio_show_placeholders"] == false
+    issues << Issue.new(level: :error, code: "placeholder-preview-default", message: "_config.yml must set portfolio_show_placeholders to false")
+  end
+rescue StandardError => e
+  issues << Issue.new(level: :error, code: "site-config", message: "#{SITE_CONFIG_PATH.relative_path_from(ROOT)}: #{e.message}")
+end
+
 PROJECT_DIR.glob("*.md").sort.each do |path|
   begin
     data = front_matter(path)
@@ -280,7 +290,7 @@ PROJECT_DIR.glob("*.md").sort.each do |path|
         issues << Issue.new(level: :error, code: "section-label", message: "#{label}: #{section_id.inspect} must use label #{expected_section["label"].inspect}")
       end
 
-      status = section["status"] || "complete"
+      status = section["status"]
       unless SECTION_STATUSES.include?(status)
         issues << Issue.new(level: :error, code: "invalid-section-status", message: "#{label}: section #{section_id.inspect} has unsupported status #{status.inspect}")
       end

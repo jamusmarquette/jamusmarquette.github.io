@@ -1,6 +1,7 @@
 title: Jamus Marquette
 baseurl: ""
 url: "http://127.0.0.1:4000"
+portfolio_show_placeholders: false
 
 theme: null
 

@@ -13507,7 +13507,7 @@ textarea.form-control-lg {
 }
 
 .prototype-project-section {
-  margin-bottom: 6rem;
+  margin-bottom: 1.5rem;
   scroll-margin-top: 2rem;
 }
 
@@ -13516,9 +13516,26 @@ textarea.form-control-lg {
 }
 
 .prototype-project-section h2, .prototype-project-section .h2 {
-  border-bottom: 1px solid currentColor;
   margin-bottom: 2rem;
-  padding-bottom: 0.75rem;
+}
+
+.project-authored-section__surface {
+  background: rgba(199, 199, 199, 0.055);
+  border-radius: 1rem;
+  overflow: hidden;
+  padding-bottom: 1.5rem;
+  padding-inline: var(--portfolio-project-content-inset);
+  padding-top: 0.75rem;
+}
+
+.project-authored-section__surface .project-media-stack__row:last-child,
+.project-authored-section__surface > :last-child {
+  margin-bottom: 0;
+}
+
+.project-authored-section__surface .project-media-stack {
+  min-width: 0;
+  width: 100%;
 }
 
 .project-section-placeholder {
@@ -14825,6 +14842,11 @@ video {
 }
 .portfolio-shell {
   --portfolio-project-inset: 1.2125rem;
+  --portfolio-project-content-inset: 0.75rem;
+  --portfolio-project-content-boundary: calc(var(--portfolio-project-inset) + var(--portfolio-project-content-inset));
+  --portfolio-project-control-text-inset: calc(
+    var(--portfolio-project-content-boundary) - 0.6rem
+  );
   --portfolio-sidebar-width: 22rem;
   font-size: 1.125rem;
   line-height: 1.4;
@@ -14854,8 +14876,7 @@ video {
 }
 
 .portfolio-sidebar {
-  background: #131313;
-  border-right: 1px solid rgba(199, 199, 199, 0.18);
+  background: #101010;
   bottom: 0;
   left: 0;
   overflow: hidden;
@@ -15204,6 +15225,23 @@ video {
   padding-right: var(--portfolio-project-inset);
 }
 
+@media (min-width: 767.02px) {
+  .portfolio-presentation .project-introduction > .project-intro:first-child,
+.portfolio-presentation .portfolio-project-browser__header.project-inner {
+    padding-left: var(--portfolio-project-content-boundary);
+    padding-right: var(--portfolio-project-content-boundary);
+  }
+
+  .portfolio-presentation .project-authored-section__surface .project-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .portfolio-presentation .project-authored-section.is-filtered-section > .project-section-heading {
+    padding-left: var(--portfolio-project-content-inset);
+    padding-right: var(--portfolio-project-content-inset);
+  }
+}
 .has-context-bar .portfolio-presentation {
   padding-bottom: calc(4rem + 1.2125rem);
 }
@@ -15421,7 +15459,7 @@ video {
 .portfolio-project-grid .project-card--interactive .content,
 .portfolio-project-browser__track .project-card--interactive .content {
   margin-bottom: 0;
-  padding: calc(0.5rem + 3px) 0.5rem 0.5rem;
+  padding: calc(0.5rem + 3px) var(--portfolio-project-content-inset) 0.5rem;
 }
 
 .project-card--interactive .project-card-title {
@@ -15631,7 +15669,6 @@ video {
 .portfolio-context-bar {
   align-items: center;
   background: #131313;
-  border-top: 1px solid rgba(199, 199, 199, 0.18);
   bottom: 0;
   box-sizing: border-box;
   height: 4rem;
@@ -15703,7 +15740,8 @@ video {
 }
 
 .portfolio-context-bar--project {
-  padding-inline: 1.25rem;
+  padding-left: var(--portfolio-project-control-text-inset);
+  padding-right: var(--portfolio-project-content-boundary);
 }
 
 .portfolio-context-bar__section-navigation {
@@ -15776,6 +15814,7 @@ video {
   }
 
   .portfolio-sidebar {
+    background: #131313;
     height: 100dvh;
     max-width: none;
     transform: translateX(-100%);

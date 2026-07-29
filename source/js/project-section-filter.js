@@ -16,6 +16,23 @@
     return requested && validSections.has(requested) ? requested : 'all';
   }
 
+  function positionFilteredSectionHeading(visibleSection) {
+    sections.forEach((section) => {
+      const heading = section.querySelector('[data-project-section-heading]');
+      const surface = section.querySelector('.project-authored-section__surface');
+      if (!heading || !surface) return;
+
+      const isSelectedDesktopSection = visibleSection !== 'all' && section.dataset.projectSection === visibleSection;
+      section.classList.toggle('is-filtered-section', isSelectedDesktopSection);
+
+      if (isSelectedDesktopSection && heading.parentElement === surface) {
+        section.insertBefore(heading, surface);
+      } else if (!isSelectedDesktopSection && heading.parentElement === section) {
+        surface.insertBefore(heading, surface.firstChild);
+      }
+    });
+  }
+
   function applySection(sectionId, updateHistory) {
     const selected = validSections.has(sectionId) ? sectionId : 'all';
     const visibleSection = mobileMedia.matches ? 'all' : selected;
@@ -23,6 +40,8 @@
     sections.forEach((section) => {
       section.hidden = visibleSection !== 'all' && section.dataset.projectSection !== visibleSection;
     });
+
+    positionFilteredSectionHeading(visibleSection);
 
     introductions.forEach((introduction) => {
       introduction.hidden = visibleSection !== 'all';

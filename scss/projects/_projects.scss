@@ -17,6 +17,11 @@
 
 // Shared project media uses one gutter for columns, wrapped items, and rows.
 $project-media-gap: 0.75rem;
+$project-authored-section-background: rgba($primary, 0.055);
+$project-authored-section-radius: 1rem;
+$project-authored-section-padding: 1.5rem;
+$project-authored-section-padding-top: 0.75rem;
+$project-authored-section-gap: 1.5rem;
 
 .project-media-stack {
   display: grid;
@@ -253,7 +258,7 @@ $project-media-gap: 0.75rem;
 }
 
 .prototype-project-section {
-  margin-bottom: 6rem;
+  margin-bottom: $project-authored-section-gap;
   scroll-margin-top: 2rem;
 }
 
@@ -262,9 +267,28 @@ $project-media-gap: 0.75rem;
 }
 
 .prototype-project-section h2 {
-  border-bottom: 1px solid currentColor;
   margin-bottom: 2rem;
-  padding-bottom: 0.75rem;
+}
+
+// Authored sections are independent surfaces; the uncontained project
+// introduction and Projects browser remain part of the presentation pane.
+.project-authored-section__surface {
+  background: $project-authored-section-background;
+  border-radius: $project-authored-section-radius;
+  overflow: hidden;
+  padding-bottom: $project-authored-section-padding;
+  padding-inline: var(--portfolio-project-content-inset);
+  padding-top: $project-authored-section-padding-top;
+}
+
+.project-authored-section__surface .project-media-stack__row:last-child,
+.project-authored-section__surface > :last-child {
+  margin-bottom: 0;
+}
+
+.project-authored-section__surface .project-media-stack {
+  min-width: 0;
+  width: 100%;
 }
 
 .project-section-placeholder {

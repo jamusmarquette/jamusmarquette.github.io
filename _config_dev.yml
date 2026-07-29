@@ -1,0 +1,2 @@
+# Local editor preview only. Public builds use _config.yml and omit placeholders.
+portfolio_show_placeholders: true
