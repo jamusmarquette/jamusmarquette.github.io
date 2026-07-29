@@ -528,6 +528,12 @@ $portfolio-mobile-header-text-top-adjustment: (
     padding-left: var(--portfolio-project-content-inset);
     padding-right: var(--portfolio-project-content-inset);
   }
+
+  // A filtered section is the primary project view; retain its layout box and
+  // content padding while removing only the overview card surface.
+  .portfolio-presentation .project-authored-section.is-filtered-section > .project-authored-section__surface {
+    background: transparent;
+  }
 }
 
 .has-context-bar .portfolio-presentation {

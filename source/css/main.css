@@ -15241,6 +15241,10 @@ video {
     padding-left: var(--portfolio-project-content-inset);
     padding-right: var(--portfolio-project-content-inset);
   }
+
+  .portfolio-presentation .project-authored-section.is-filtered-section > .project-authored-section__surface {
+    background: transparent;
+  }
 }
 .has-context-bar .portfolio-presentation {
   padding-bottom: calc(4rem + 1.2125rem);
