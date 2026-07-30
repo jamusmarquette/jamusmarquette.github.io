@@ -28,9 +28,6 @@ links:
   - label: Interactive Prototype
     url: /project/prototype-interactive-experience/
 sections:
-  - id: context
-    label: Context
-    status: complete
   - id: concept
     label: Concept
     status: complete
@@ -44,7 +41,7 @@ sections:
     label: In Use
     status: complete
 media_rows:
-  - section: context
+  - section: development
     caption:
       title: Visitors arrive with different questions
       text: 'A changing exhibition schedule, limited connectivity, multilingual content, and short attention windows made a single linear guide ineffective. Visitors needed confidence to choose a route before they needed more content.'

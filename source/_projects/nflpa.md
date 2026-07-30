@@ -46,9 +46,6 @@ credits:
     name: RED Partners
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder
@@ -89,22 +86,22 @@ media_rows:
 
   - section: in-use
     items:
-      - col: col-lg-8 pb-4
+      - col: col-lg-8
         image: /project/nflpa/img/03_jamus_marquette_nflpa_logo_branding_on_tshirt.jpg
 
-      - col: offset-lg-0 col-lg-8 pb-4
+      - col: offset-lg-0 col-lg-8
         image: /project/nflpa/img/04_jamus_marquette_nflpa_rookie_logo_football_player.jpg
 
-      - col: offset-lg-0 col-lg-8 pb-4
+      - col: offset-lg-0 col-lg-8
         image: /project/nflpa/img/05_jamus_marquette_nflpa_logo_live.jpg
 
-      - col: offset-lg-0 col-lg-8 pb-4
+      - col: offset-lg-0 col-lg-8
         image: /project/nflpa/img/06_jamus_marquette_nflpa_rookie_logo_on_football_player.jpg
 
 
   - section: in-use
     items:
-      - col: offset-lg-0 col-lg-8 pb-4 pb-md-0
+      - col: offset-lg-0 col-lg-8
         image: /project/nflpa/img/06_jamus_marquette_nflpa_rookie_logo_on_football_players.jpg
 
       - col: col-lg-8

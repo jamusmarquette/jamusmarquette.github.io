@@ -50,9 +50,6 @@ credits:
     name: RED Partners
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder

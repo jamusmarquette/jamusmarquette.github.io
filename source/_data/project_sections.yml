@@ -1,8 +1,6 @@
 # Shared authored project-section model. Overview is the complete-project view,
-# not an authored section.
+# not authored content.
 sections:
-  - id: context
-    label: Context
   - id: concept
     label: Concept
   - id: development

@@ -43,9 +43,6 @@ credits:
     name: Kevin Brainard, Darren Cox
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder

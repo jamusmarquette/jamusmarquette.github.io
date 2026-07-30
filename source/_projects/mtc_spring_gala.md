@@ -48,9 +48,6 @@ credits:
     name: RED Partners
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder
@@ -79,7 +76,7 @@ media_rows:
 
 
   - section: in-use
-    row_class: row mb-5
+    row_class: row
     items:
       - col: col-16
         image: /project/mtc_spring_gala/img/04_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg

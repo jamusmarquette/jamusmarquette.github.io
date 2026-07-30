@@ -45,9 +45,6 @@ credits:
     name: Rudo Mudzi
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder
@@ -64,20 +61,20 @@ sections:
 media_rows:
   - section: in-use
     items:
-      - col: col-md-16 pb-4
+      - col: col-md-16
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
         media_class: video-content-video
         poster: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_pattern_video_poster.jpg
 
   - section: in-use
     items:
-      - col: col-md-16 pb-4
+      - col: col-md-16
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust.mp4
         media_class: video-content-video
 
   - section: in-use
     items:
-      - col: col-md-16 pb-4
+      - col: col-md-16
         image: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_diagram.jpg
 
   - section: in-use

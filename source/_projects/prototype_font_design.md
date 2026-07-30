@@ -31,9 +31,6 @@ links:
   - label: Variable Specimen
     url: /project/prototype-font-design/
 sections:
-  - id: context
-    label: Context
-    status: complete
   - id: concept
     label: Concept
     status: complete
@@ -48,7 +45,7 @@ sections:
     component: font-specimen
     status: complete
 media_rows:
-  - section: context
+  - section: development
     caption:
       title: One voice across unlike reading conditions
       text: 'Editorial headlines, public information, interfaces, and environmental graphics require different optical conditions but often need to feel like one institution is speaking. Meridian is imagined for that tension between expression and durable reading.'

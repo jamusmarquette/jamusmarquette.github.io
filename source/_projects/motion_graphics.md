@@ -38,9 +38,6 @@ description:
     SVA motion graphics reel (above), and an assortment of motion projects (below).
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder
@@ -98,7 +95,7 @@ media_rows:
 
   - section: in-use
     items:
-      - col: col-md-16 pb-4
+      - col: col-md-16
         video: /project/humanrobot/video/jamus_marquette_humanrobot_text_animation.mp4
         media_class: video-content-video
         poster: /project/humanrobot/img/jamus_marquette_humanrobot_text_animation_poster.jpg
@@ -117,7 +114,7 @@ media_rows:
 
   - section: in-use
     items:
-      - col: col-md-16 pb-4
+      - col: col-md-16
         video: /project/jonathan_childrens_trust/video/jamus_marquette_jonathan_childrens_trust_pattern_video_lr.mp4
         media_class: video-content-video
         poster: /project/jonathan_childrens_trust/img/jamus_marquette_jonathan_childrens_trust_pattern_video_poster.jpg
@@ -154,7 +151,7 @@ media_rows:
 
 
   - section: in-use
-    row_class: row mb-5
+    row_class: row
     items:
       - col: col-8 col-md-4 mb-4
         video: /project/restaurants_on_mission/video/09_jamus_marquette_restaurants_on_mission_animations_lr.mp4

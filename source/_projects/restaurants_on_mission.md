@@ -51,9 +51,6 @@ credits:
     name: Jamus Marquette
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder
@@ -91,7 +88,7 @@ media_rows:
 
 
   - section: in-use
-    row_class: row mb-4
+    row_class: row
     items:
       - col: col-md-16
         video: /project/restaurants_on_mission/video/04_jamus_marquette_restaurants_on_mission_animations.mp4

@@ -38,9 +38,6 @@ description:
     Their fur is rough (but still soft), their heads are square (but not sharp), and they are packaged in the comfort of a tight transparent bag, and marked with a friendly tag on their toe.
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder
@@ -65,7 +62,7 @@ media_rows:
             media_class: pt-3
             media_style: "width:73%;"
 
-      - col: col-md-7 col-lg-5 pb-6
+      - col: col-md-7 col-lg-5
         text: >
           VOO-DOO-BEAR is a cursed teddy-bear with low self esteem.
 
@@ -76,7 +73,7 @@ media_rows:
             media_class: pt-3
             media_style: "width:73%;"
 
-      - col: col-md-7 col-lg-5 pb-6
+      - col: col-md-7 col-lg-5
         text: >
           HMO-RABBIT is an unlucky rabbit who is always sick due to his terrible health insurance plan.
 
@@ -85,7 +82,7 @@ media_rows:
           - image: /project/dirtbags/img/jamus_marquette_dirtbags_dont_sleep_sheep_stuffed_animal_with_real_life_problems.gif
           - image: /project/dirtbags/img/jamus_marquette_dirtbags_dont_sleep_sheep_logo_stuffed_animal_with_real_life_problems.png
 
-      - col: col-md-7 col-lg-5 pb-6
+      - col: col-md-7 col-lg-5
         text: >
           DONT-SLEEP-SHEEP is an ex-counting sheep who suffers from insomnia.
 

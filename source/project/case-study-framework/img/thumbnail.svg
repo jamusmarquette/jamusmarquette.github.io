@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
   <title id="title">Case study framework reference thumbnail</title>
-  <desc id="desc">A simple diagram showing the six stages of the portfolio case-study methodology.</desc>
+  <desc id="desc">A simple diagram showing the five stages of the portfolio case-study methodology.</desc>
   <rect width="1200" height="675" fill="#131313"/>
   <g fill="none" stroke="#c7c7c7" stroke-width="3">
     <path d="M150 338H1050"/>
-    <circle cx="150" cy="338" r="36"/><circle cx="330" cy="338" r="36"/><circle cx="510" cy="338" r="36"/>
-    <circle cx="690" cy="338" r="36"/><circle cx="870" cy="338" r="36"/><circle cx="1050" cy="338" r="36"/>
+    <circle cx="150" cy="338" r="36"/><circle cx="375" cy="338" r="36"/><circle cx="600" cy="338" r="36"/>
+    <circle cx="825" cy="338" r="36"/><circle cx="1050" cy="338" r="36"/>
   </g>
   <g fill="#c7c7c7" font-family="Arial, sans-serif" font-size="26" text-anchor="middle">
-    <text x="150" y="430">Overview</text><text x="330" y="430">Context</text><text x="510" y="430">Concept</text>
-    <text x="690" y="430">Structure</text><text x="870" y="430">System</text><text x="1050" y="430">In Use</text>
+    <text x="150" y="430">Overview</text><text x="375" y="430">Concept</text><text x="600" y="430">Development</text>
+    <text x="825" y="430">System</text><text x="1050" y="430">In Use</text>
   </g>
 </svg>

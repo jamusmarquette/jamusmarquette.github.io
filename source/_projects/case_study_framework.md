@@ -10,34 +10,13 @@ section_default: all
 thumbnail: /project/case-study-framework/img/thumbnail.svg
 description:
   - "A reference page showing what belongs in a JAMUS project introduction and each conceptual section. This is a development reference, not client work or a portfolio project."
+  - "The project opening is Overview: it identifies what the project is and why it exists before Concept, Development, System, and In Use explain the work in more detail."
 status: Development reference — not client work
 credits:
   - role: Framework Author
     names:
       - Jamus Marquette
 sections:
-  - id: context
-    label: Context
-    status: complete
-    guidance:
-      - type: examples
-        label: Opening Details
-        text: "Opening content is hero, concise description, and optional Details. Details provides factual orientation—not conceptual narrative—with any authored Status, Version, Client, Credits, Recognition, and Links. Credits pairs roles with contributors; legacy Collaborators data temporarily renders as Credits during migration. Version is primarily useful for typefaces, tools, products, and software."
-      - type: purpose
-        label: Purpose
-        text: "Explain the situation that made the project necessary before revealing the solution."
-      - type: questions
-        label: Questions to answer
-        text: "Why did it exist? Who needed it? What opportunity, limitation, workflow, or public condition mattered?"
-      - type: examples
-        label: Discipline-specific examples
-        text: "Audience needs, cultural history, content inventory, reading conditions, technical constraints, or existing service friction."
-      - type: avoid
-        label: Does not belong here
-        text: "A list of activities such as interviews, wireframes, or workshops without explaining what they revealed."
-      - type: review-question
-        label: Review question
-        text: "Does this section make the project’s need clear without describing the complete answer?"
   - id: concept
     label: Concept
     status: complete
@@ -64,29 +43,29 @@ sections:
     guidance:
       - type: purpose
         label: Purpose
-        text: "Show how the concept determined organization and form. Development is not a chronological archive."
+        text: "Show the research, constraints, exploration, iteration, prototyping, testing, and refinement that led toward the solution."
       - type: questions
         label: Questions to answer
-        text: "Why this hierarchy, navigation, layout, flow, construction, pacing, or proportion?"
+        text: "What did research, discovery, constraints, experimentation, or testing reveal? How did the work evolve?"
       - type: examples
         label: Discipline-specific examples
-        text: "Information architecture, user flow, editorial grid, letter skeleton, layout exploration, wayfinding plan, or story model."
+        text: "Research synthesis, sketches, alternative directions, user flows, letter studies, prototypes, material tests, or refinement studies."
       - type: avoid
         label: Does not belong here
-        text: "Reusable component rules or polished applications unless they explain the structural decision itself."
+        text: "Only polished final applications or reusable rules without showing the process that produced them."
       - type: review-question
         label: Review question
-        text: "Does every artifact demonstrate why the work took this form?"
+        text: "Does every artifact reveal how the project took shape?"
   - id: system
     label: System
     status: complete
     guidance:
       - type: purpose
         label: Purpose
-        text: "Explain how the structure becomes coherent, repeatable, and scalable."
+        text: "Explain how typography, layout, motion, color, imagery, interaction, materials, grids, and components express and reinforce the concept."
       - type: questions
         label: Questions to answer
-        text: "What rules repeat? What components, tokens, metrics, behaviors, or visual languages maintain consistency?"
+        text: "How do the formal choices support the concept? What repeatable rules, components, behaviors, or visual languages make that expression coherent?"
       - type: examples
         label: Discipline-specific examples
         text: "Product states and tokens; identity typography and color; editorial rhythm; type-family axes and features; exhibit modules and visitor flow."

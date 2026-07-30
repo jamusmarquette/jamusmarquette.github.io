@@ -23,9 +23,6 @@ description:
     Each of these works were created considering the historical, grammatical, and literary context of each source of influence in an effort to communicate originally intended meanings without bias while also developing a cohesive visually appealing graphic style of illustration and animation for creative, conceptually driven thinkers.
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder

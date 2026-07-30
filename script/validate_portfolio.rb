@@ -25,14 +25,13 @@ FINAL_CATEGORIES = [
 RESERVED_CATEGORY_LABELS = ["All Projects", "Recently Viewed"].freeze
 LEGACY_CATEGORY_LABELS = ["Book Covers", "Environmentals & Interactives", "Personal Projects"].freeze
 FINAL_SECTIONS = [
-  { "id" => "context", "label" => "Context" },
   { "id" => "concept", "label" => "Concept" },
   { "id" => "development", "label" => "Development" },
   { "id" => "system", "label" => "System" },
   { "id" => "in-use", "label" => "In Use" }
 ].freeze
 SECTION_STATUSES = %w[complete placeholder].freeze
-RETIRED_SECTION_IDS = %w[structure].freeze
+RETIRED_SECTION_REPLACEMENTS = { "context" => "the complete-project Overview view", "structure" => "development" }.freeze
 RESERVED_SECTION_IDS = %w[all overview all-projects recently-viewed].freeze
 
 MEDIA_KEYS = %w[thumbnail hero hero_left hero_right image video poster].freeze
@@ -277,8 +276,8 @@ PROJECT_DIR.glob("*.md").sort.each do |path|
 
       section_id = section["id"]
       section_ids << section_id
-      if RETIRED_SECTION_IDS.include?(section_id)
-        issues << Issue.new(level: :error, code: "retired-section", message: "#{label}: section id #{section_id.inspect} has been replaced by \"development\"")
+      if RETIRED_SECTION_REPLACEMENTS.key?(section_id)
+        issues << Issue.new(level: :error, code: "retired-section", message: "#{label}: section id #{section_id.inspect} has been replaced by #{RETIRED_SECTION_REPLACEMENTS[section_id].inspect}")
       elsif RESERVED_SECTION_IDS.include?(section_id)
         issues << Issue.new(level: :error, code: "reserved-section", message: "#{label}: section id #{section_id.inspect} is a view or filter state, not authored content")
       elsif !FINAL_SECTIONS.map { |final_section| final_section["id"] }.include?(section_id)

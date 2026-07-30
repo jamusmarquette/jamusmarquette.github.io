@@ -53,9 +53,6 @@ credits:
     name: RED Partners
 
 sections:
-  - id: context
-    label: Context
-    status: placeholder
   - id: concept
     label: Concept
     status: placeholder
@@ -73,13 +70,13 @@ media_rows:
 
   - section: in-use
     items:
-      - col: col-lg-8 col-md-16 pb-4 order-lg-1
+      - col: col-lg-8 col-md-16 order-lg-1
         image: /project/history_pop_shop/img/01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
 
-      - col: col-lg-8 col-md-16 pb-4 pb-lg-0 order-lg-3
+      - col: col-lg-8 col-md-16 order-lg-3
         image: /project/history_pop_shop/img/02_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_tshirt.jpg
 
-      - col: col-lg-8 col-md-16 pb-4 order-lg-2
+      - col: col-lg-8 col-md-16 order-lg-2
         image: /project/history_pop_shop/img/03_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_door.jpg
 
       - col: col-lg-8 col-md-16 order-lg-4

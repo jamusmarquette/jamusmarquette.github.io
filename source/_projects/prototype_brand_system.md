@@ -28,9 +28,6 @@ credits:
     names:
       - Fictional Northstar project team
 sections:
-  - id: context
-    label: Context
-    status: complete
   - id: concept
     label: Concept
     status: complete
@@ -44,7 +41,7 @@ sections:
     label: In Use
     status: complete
 media_rows:
-  - section: context
+  - section: development
     caption:
       title: A fragmented public experience
       text: 'Northstar’s venues, classes, and publications had accumulated distinct visual habits. Visitors could recognize individual events but not the network that connected them. The identity needed to make a broad offer legible without flattening local character.'
