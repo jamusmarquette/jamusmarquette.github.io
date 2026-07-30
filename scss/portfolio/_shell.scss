@@ -1315,6 +1315,13 @@ $portfolio-mobile-header-text-top-adjustment: (
     padding: 0 var(--portfolio-project-surface-inset) var(--portfolio-project-surface-inset);
   }
 
+  // The section surface supplies the one intentional inner inset on mobile.
+  // Its nested project-inner wrappers must not add the shared page inset again.
+  .portfolio-presentation .project-authored-section__surface .project-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   // Bootstrap's container gutter is 0.75rem; matching the project pane's
   // 1rem inset here removes the Info page's narrower mobile content column.
   #aboutcontent {

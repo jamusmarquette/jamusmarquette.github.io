@@ -16004,6 +16004,11 @@ video {
     padding: 0 var(--portfolio-project-surface-inset) var(--portfolio-project-surface-inset);
   }
 
+  .portfolio-presentation .project-authored-section__surface .project-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   #aboutcontent {
     padding-left: var(--portfolio-mobile-page-inset);
     padding-right: var(--portfolio-mobile-page-inset);

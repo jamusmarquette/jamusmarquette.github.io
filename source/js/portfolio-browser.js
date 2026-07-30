@@ -45,6 +45,7 @@
   let mobileReturnFocus = null;
   let mobileHeaderScrollFrame = null;
   let projectBrowserScrollFrame = null;
+  let projectBrowserPositionFrame = null;
   let activeState = { category: null, recent: false, columns: defaultColumns };
 
   function storageGet(key) {
@@ -313,11 +314,24 @@
     setProjectBrowserPosition(projectBrowserCards.indexOf(card), behavior);
   }
 
+  function projectBrowserCardContent(card) {
+    return card ? card.querySelector('.content') || card : null;
+  }
+
+  function projectBrowserCardContentLeft(card) {
+    const content = projectBrowserCardContent(card);
+    if (!content) return null;
+    const contentRect = content.getBoundingClientRect();
+    const contentPaddingLeft = parseFloat(window.getComputedStyle(content).paddingLeft) || 0;
+    return contentRect.left + contentPaddingLeft;
+  }
+
   function projectBrowserUnclampedScrollTarget(card) {
     if (!projectBrowserStrip || !projectBrowserTitle || !card) return 0;
-    const cardRect = card.getBoundingClientRect();
+    const contentLeft = projectBrowserCardContentLeft(card);
+    if (contentLeft === null) return 0;
     const titleRect = projectBrowserTitle.getBoundingClientRect();
-    return Math.max(0, projectBrowserStrip.scrollLeft + cardRect.left - titleRect.left);
+    return Math.max(0, projectBrowserStrip.scrollLeft + contentLeft - titleRect.left);
   }
 
   function projectBrowserScrollTarget(card) {
@@ -335,7 +349,19 @@
     track.style.setProperty('--portfolio-project-browser-end-space', '0px');
     const desiredLastPosition = projectBrowserUnclampedScrollTarget(lastCard);
     const currentMaximum = Math.max(0, projectBrowserStrip.scrollWidth - projectBrowserStrip.clientWidth);
-    track.style.setProperty('--portfolio-project-browser-end-space', `${Math.max(0, desiredLastPosition - currentMaximum)}px`);
+    let endSpace = Math.ceil(Math.max(0, desiredLastPosition - currentMaximum));
+    track.style.setProperty('--portfolio-project-browser-end-space', `${endSpace}px`);
+
+    // Re-measure after the spacer participates in flex layout. This keeps the
+    // final card's measured outer-surface target reachable after viewport or
+    // inset changes, without relying on a card index or fixed card width.
+    const correctedTarget = projectBrowserUnclampedScrollTarget(lastCard);
+    const correctedMaximum = Math.max(0, projectBrowserStrip.scrollWidth - projectBrowserStrip.clientWidth);
+    const remainingShortfall = Math.ceil(Math.max(0, correctedTarget - correctedMaximum));
+    if (remainingShortfall) {
+      endSpace += remainingShortfall;
+      track.style.setProperty('--portfolio-project-browser-end-space', `${endSpace}px`);
+    }
   }
 
   function projectBrowserIndexFromScroll() {
@@ -344,7 +370,9 @@
     let closestIndex = 0;
     let closestDistance = Infinity;
     projectBrowserCards.forEach((card, index) => {
-      const distance = Math.abs(card.getBoundingClientRect().left - titleLeft);
+      const contentLeft = projectBrowserCardContentLeft(card);
+      if (contentLeft === null) return;
+      const distance = Math.abs(contentLeft - titleLeft);
       if (distance < closestDistance) {
         closestIndex = index;
         closestDistance = distance;
@@ -355,13 +383,21 @@
 
   function setProjectBrowserPosition(index, behavior) {
     if (!projectBrowserStrip || !projectBrowserPositionControl || !projectBrowserPositionOutput || !projectBrowserCards.length) return;
+    ensureProjectBrowserEndSpace();
     const safeIndex = Math.max(0, Math.min(projectBrowserCards.length - 1, index));
     const position = safeIndex + 1;
     const card = projectBrowserCards[safeIndex];
-    const target = projectBrowserScrollTarget(card);
     projectBrowserPositionControl.value = position;
     projectBrowserPositionOutput.textContent = `${position}/${projectBrowserCards.length}`;
-    projectBrowserStrip.scrollTo({ left: target, behavior });
+
+    // Spacer changes must enter layout before this measured target is clamped.
+    // Coalescing input updates avoids competing slider-driven scroll positions.
+    if (projectBrowserPositionFrame) window.cancelAnimationFrame(projectBrowserPositionFrame);
+    projectBrowserPositionFrame = window.requestAnimationFrame(function () {
+      projectBrowserPositionFrame = null;
+      ensureProjectBrowserEndSpace();
+      projectBrowserStrip.scrollTo({ left: projectBrowserScrollTarget(card), behavior });
+    });
   }
 
   function syncProjectBrowserPositionFromScroll() {
@@ -572,8 +608,24 @@
 
     window.addEventListener('resize', function () {
       ensureProjectBrowserEndSpace();
-      syncProjectBrowserPositionFromScroll();
+      setProjectBrowserPosition(Number(projectBrowserPositionControl.value) - 1, 'auto');
     });
+
+    window.addEventListener('orientationchange', function () {
+      window.requestAnimationFrame(function () {
+        ensureProjectBrowserEndSpace();
+        setProjectBrowserPosition(Number(projectBrowserPositionControl.value) - 1, 'auto');
+      });
+    });
+
+    window.addEventListener('load', function () {
+      ensureProjectBrowserEndSpace();
+    });
+
+    projectBrowserStrip.addEventListener('load', function (event) {
+      if (!event.target.matches('img, video')) return;
+      window.requestAnimationFrame(ensureProjectBrowserEndSpace);
+    }, true);
   }
 
   window.addEventListener('popstate', function () { renderState(stateFromUrl(), false); });
