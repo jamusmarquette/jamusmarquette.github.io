@@ -15430,7 +15430,7 @@ video {
   background-color: transparent;
   border-radius: 1rem;
   content: "";
-  inset: -0.5rem;
+  inset: -0.72rem;
   position: absolute;
   transition: background-color 150ms ease;
   z-index: 0;
@@ -15467,7 +15467,7 @@ video {
 .portfolio-project-grid .project-card--interactive .content,
 .portfolio-project-browser__track .project-card--interactive .content {
   margin-bottom: 0;
-  padding: calc(0.5rem + 3px) var(--portfolio-project-content-inset) 0.5rem;
+  padding: calc(0.72rem + 0.25rem) var(--portfolio-project-content-inset) 0.72rem;
 }
 
 .project-card--interactive .project-card-title {
@@ -15630,7 +15630,7 @@ video {
   flex-wrap: nowrap;
   gap: var(--portfolio-project-browser-gap);
   min-width: max-content;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.72rem;
 }
 
 .portfolio-project-browser__track::after {
@@ -15848,7 +15848,7 @@ video {
   .portfolio-presentation {
     margin-left: 0;
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-    padding-top: calc(var(--portfolio-mobile-header-current-height) + 1rem + env(safe-area-inset-top));
+    padding-top: calc( var(--portfolio-mobile-header-current-height) + 1rem + env(safe-area-inset-top) );
   }
 
   .portfolio-mobile-header {

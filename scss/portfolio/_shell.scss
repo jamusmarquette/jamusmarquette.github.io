@@ -25,9 +25,9 @@ $portfolio-edge-space-mobile: 1rem;
 $portfolio-sidebar-active: rgba($primary, 0.055);
 $portfolio-sidebar-background: #101010;
 $portfolio-sidebar-radius: 1rem;
-$portfolio-project-card-hover-padding: 0.5rem;
+$portfolio-project-card-hover-padding: 0.72rem;
 $portfolio-project-card-surface-padding: $portfolio-project-card-hover-padding;
-$portfolio-project-card-surface-padding-top: calc(#{$portfolio-project-card-surface-padding} + 3px);
+$portfolio-project-card-surface-padding-top: calc(#{$portfolio-project-card-surface-padding} + 0.25rem);
 $portfolio-project-card-visible-gap: $project-media-gap;
 // Work-grid and browser interaction surfaces use inset: 0, so their layout
 // gap needs no extra outward-inset compensation.
@@ -101,8 +101,9 @@ $portfolio-mobile-header-control-column: $portfolio-mobile-header-icon-size + $p
 $portfolio-mobile-page-inset: $portfolio-sidebar-padding-x +
   (($portfolio-sidebar-icon-size - $portfolio-mobile-header-icon-size) / 2);
 $portfolio-mobile-header-text-top-adjustment: (
-  $portfolio-sidebar-icon-hit-size - ($portfolio-font-size-default * $portfolio-line-height-default)
-) / 2;
+    $portfolio-sidebar-icon-hit-size - ($portfolio-font-size-default * $portfolio-line-height-default)
+  ) /
+  2;
 
 .portfolio-shell {
   --portfolio-project-inset: #{$portfolio-edge-space};
@@ -1148,7 +1149,9 @@ $portfolio-mobile-header-text-top-adjustment: (
   .portfolio-presentation {
     margin-left: 0;
     padding-bottom: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-bottom));
-    padding-top: calc(var(--portfolio-mobile-header-current-height) + #{$portfolio-edge-space-mobile} + env(safe-area-inset-top));
+    padding-top: calc(
+      var(--portfolio-mobile-header-current-height) + #{$portfolio-edge-space-mobile} + env(safe-area-inset-top)
+    );
   }
 
   .portfolio-mobile-header {
@@ -1156,7 +1159,9 @@ $portfolio-mobile-header-text-top-adjustment: (
     background: $secondary-color;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: $portfolio-mobile-header-control-column minmax(0, 1fr) $portfolio-mobile-header-control-column;
+    grid-template-columns:
+      $portfolio-mobile-header-control-column minmax(0, 1fr)
+      $portfolio-mobile-header-control-column;
     height: calc(var(--portfolio-mobile-header-current-height) + env(safe-area-inset-top));
     left: 0;
     padding: calc(#{$portfolio-mobile-header-padding-y} + env(safe-area-inset-top))
