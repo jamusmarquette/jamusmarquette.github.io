@@ -13528,7 +13528,7 @@ textarea.form-control-lg {
   border-radius: 1rem;
   overflow: hidden;
   padding-bottom: 1.5rem;
-  padding-inline: var(--portfolio-project-content-inset);
+  padding-inline: var(--portfolio-section-inner-inset);
   padding-top: 0.75rem;
 }
 
@@ -14846,11 +14846,15 @@ video {
 }
 .portfolio-shell {
   --portfolio-project-inset: 1.2125rem;
-  --portfolio-project-content-inset: 0.75rem;
-  --portfolio-project-content-boundary: calc(var(--portfolio-project-inset) + var(--portfolio-project-content-inset));
-  --portfolio-project-control-text-inset: calc(
-    var(--portfolio-project-content-boundary) - 0.6rem
+  --portfolio-section-inner-inset: 0.75rem;
+  --portfolio-project-visible-inset: calc(
+    var(--portfolio-project-inset) + 0.5rem
   );
+  --portfolio-project-surface-inset: calc(
+    var(--portfolio-project-visible-inset) - var(--portfolio-section-inner-inset)
+  );
+  --portfolio-project-card-content-inset: var(--portfolio-section-inner-inset);
+  --portfolio-project-control-surface-inset: var(--portfolio-project-surface-inset);
   --portfolio-sidebar-width: 22rem;
   font-size: 1.125rem;
   line-height: 1.4;
@@ -15225,15 +15229,20 @@ video {
 
 .portfolio-presentation .project-inner {
   box-sizing: border-box;
-  padding-left: var(--portfolio-project-inset);
-  padding-right: var(--portfolio-project-inset);
+  padding-left: var(--portfolio-project-visible-inset);
+  padding-right: var(--portfolio-project-visible-inset);
+}
+
+.portfolio-presentation .project-authored-section.project-inner {
+  padding-left: var(--portfolio-project-surface-inset);
+  padding-right: var(--portfolio-project-surface-inset);
 }
 
 @media (min-width: 767.02px) {
   .portfolio-presentation .project-introduction > .project-intro:first-child,
 .portfolio-presentation .portfolio-project-browser__header.project-inner {
-    padding-left: var(--portfolio-project-content-boundary);
-    padding-right: var(--portfolio-project-content-boundary);
+    padding-left: var(--portfolio-project-visible-inset);
+    padding-right: var(--portfolio-project-visible-inset);
   }
 
   .portfolio-presentation .project-authored-section__surface .project-inner {
@@ -15242,8 +15251,8 @@ video {
   }
 
   .portfolio-presentation .project-authored-section.is-filtered-section > .project-section-heading {
-    padding-left: var(--portfolio-project-content-inset);
-    padding-right: var(--portfolio-project-content-inset);
+    padding-left: var(--portfolio-section-inner-inset);
+    padding-right: var(--portfolio-section-inner-inset);
   }
 
   .portfolio-presentation .project-authored-section.is-filtered-section > .project-authored-section__surface {
@@ -15395,7 +15404,7 @@ video {
   --portfolio-grid-row-gap: 1rem;
   --portfolio-selected-columns: 6;
   --portfolio-columns: var(--portfolio-selected-columns);
-  padding: 0 1.2125rem 1.2125rem;
+  padding: 0 var(--portfolio-project-surface-inset) var(--portfolio-project-surface-inset);
 }
 
 .portfolio-project-grid {
@@ -15467,7 +15476,7 @@ video {
 .portfolio-project-grid .project-card--interactive .content,
 .portfolio-project-browser__track .project-card--interactive .content {
   margin-bottom: 0;
-  padding: calc(0.72rem + 0.25rem) var(--portfolio-project-content-inset) 0.72rem;
+  padding: calc(0.72rem + 0.25rem) var(--portfolio-project-card-content-inset) 0.72rem;
 }
 
 .project-card--interactive .project-card-title {
@@ -15612,8 +15621,8 @@ video {
   overflow-x: auto;
   overflow-y: visible;
   overscroll-behavior-inline: contain;
-  padding-inline: var(--portfolio-project-inset);
-  scroll-padding-inline-start: var(--portfolio-project-inset);
+  padding-inline: var(--portfolio-project-surface-inset);
+  scroll-padding-inline-start: var(--portfolio-project-surface-inset);
   scroll-snap-type: x proximity;
   scrollbar-width: none;
 }
@@ -15697,7 +15706,7 @@ video {
   column-gap: 1rem;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  padding-inline: 1.25rem;
+  padding-inline: var(--portfolio-project-surface-inset);
 }
 
 .portfolio-context-bar--browser label {
@@ -15753,8 +15762,8 @@ video {
 }
 
 .portfolio-context-bar--project {
-  padding-left: var(--portfolio-project-control-text-inset);
-  padding-right: var(--portfolio-project-content-boundary);
+  padding-left: var(--portfolio-project-control-surface-inset);
+  padding-right: var(--portfolio-project-surface-inset);
 }
 
 .portfolio-context-bar__section-navigation {
@@ -15777,7 +15786,7 @@ video {
   flex: 0 0 auto;
   line-height: 1.4;
   min-height: 2.75rem;
-  padding: 0.45rem 0.6rem;
+  padding: 0.45rem var(--portfolio-section-inner-inset);
   white-space: nowrap;
 }
 
@@ -15818,6 +15827,9 @@ video {
 .portfolio-shell.is-sidebar-collapsed {
     --portfolio-mobile-page-inset: 1.4375rem;
     --portfolio-project-inset: var(--portfolio-mobile-page-inset);
+    --portfolio-project-visible-inset: calc(
+      var(--portfolio-project-inset) + 0.25rem
+    );
     --portfolio-sidebar-width: 0px;
     --portfolio-mobile-header-current-height: 3.7rem;
   }
@@ -15989,7 +16001,7 @@ video {
   }
 
   .portfolio-browser {
-    padding: 0 1rem 1rem;
+    padding: 0 var(--portfolio-project-surface-inset) var(--portfolio-project-surface-inset);
   }
 
   #aboutcontent {

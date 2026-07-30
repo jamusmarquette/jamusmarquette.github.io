@@ -22,6 +22,8 @@ $portfolio-edge-space: (
   ) /
   2;
 $portfolio-edge-space-mobile: 1rem;
+$portfolio-project-visible-inset-increase: 0.5rem;
+$portfolio-project-visible-inset-mobile-increase: 0.25rem;
 $portfolio-sidebar-active: rgba($primary, 0.055);
 $portfolio-sidebar-background: #101010;
 $portfolio-sidebar-radius: 1rem;
@@ -107,11 +109,15 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-shell {
   --portfolio-project-inset: #{$portfolio-edge-space};
-  --portfolio-project-content-inset: 0.75rem;
-  --portfolio-project-content-boundary: calc(var(--portfolio-project-inset) + var(--portfolio-project-content-inset));
-  --portfolio-project-control-text-inset: calc(
-    var(--portfolio-project-content-boundary) - #{$portfolio-sidebar-filter-padding-x}
+  --portfolio-section-inner-inset: 0.75rem;
+  --portfolio-project-visible-inset: calc(
+    var(--portfolio-project-inset) + #{$portfolio-project-visible-inset-increase}
   );
+  --portfolio-project-surface-inset: calc(
+    var(--portfolio-project-visible-inset) - var(--portfolio-section-inner-inset)
+  );
+  --portfolio-project-card-content-inset: var(--portfolio-section-inner-inset);
+  --portfolio-project-control-surface-inset: var(--portfolio-project-surface-inset);
   --portfolio-sidebar-width: #{$portfolio-sidebar-width};
   font-size: $portfolio-font-size-default;
   line-height: $portfolio-line-height-default;
@@ -506,18 +512,23 @@ $portfolio-mobile-header-text-top-adjustment: (
 // but no longer let visible project media escape this content boundary.
 .portfolio-presentation .project-inner {
   box-sizing: border-box;
-  padding-left: var(--portfolio-project-inset);
-  padding-right: var(--portfolio-project-inset);
+  padding-left: var(--portfolio-project-visible-inset);
+  padding-right: var(--portfolio-project-visible-inset);
+}
+
+.portfolio-presentation .project-authored-section.project-inner {
+  padding-left: var(--portfolio-project-surface-inset);
+  padding-right: var(--portfolio-project-surface-inset);
 }
 
 @media (min-width: ($portfolio-mobile-breakpoint + 0.02px)) {
-  // RED is the project pane's outer-surface edge. GREEN is this shared inner
-  // content edge, used by the opening content, section interiors, and browser
-  // header without moving card interaction surfaces.
+  // GREEN is the shared visible-content edge for hero, opening, and headers.
+  // RED is the surface edge: section surfaces extend outward by their own
+  // unchanged horizontal padding.
   .portfolio-presentation .project-introduction > .project-intro:first-child,
   .portfolio-presentation .portfolio-project-browser__header.project-inner {
-    padding-left: var(--portfolio-project-content-boundary);
-    padding-right: var(--portfolio-project-content-boundary);
+    padding-left: var(--portfolio-project-visible-inset);
+    padding-right: var(--portfolio-project-visible-inset);
   }
 
   .portfolio-presentation .project-authored-section__surface .project-inner {
@@ -526,8 +537,8 @@ $portfolio-mobile-header-text-top-adjustment: (
   }
 
   .portfolio-presentation .project-authored-section.is-filtered-section > .project-section-heading {
-    padding-left: var(--portfolio-project-content-inset);
-    padding-right: var(--portfolio-project-content-inset);
+    padding-left: var(--portfolio-section-inner-inset);
+    padding-right: var(--portfolio-section-inner-inset);
   }
 
   // A filtered section is the primary project view; retain its layout box and
@@ -682,7 +693,9 @@ $portfolio-mobile-header-text-top-adjustment: (
   --portfolio-grid-row-gap: 1rem;
   --portfolio-selected-columns: 6;
   --portfolio-columns: var(--portfolio-selected-columns);
-  padding: 0 $portfolio-edge-space $portfolio-edge-space;
+  // Work shares the project pane's outer card/surface boundary. Card padding
+  // remains internal to each grid item.
+  padding: 0 var(--portfolio-project-surface-inset) var(--portfolio-project-surface-inset);
 }
 
 .portfolio-project-grid {
@@ -762,7 +775,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 .portfolio-project-grid .project-card--interactive .content,
 .portfolio-project-browser__track .project-card--interactive .content {
   margin-bottom: 0;
-  padding: $portfolio-project-card-surface-padding-top var(--portfolio-project-content-inset)
+  padding: $portfolio-project-card-surface-padding-top var(--portfolio-project-card-content-inset)
     $portfolio-project-card-surface-padding;
 }
 
@@ -909,8 +922,8 @@ $portfolio-mobile-header-text-top-adjustment: (
   overflow-x: auto;
   overflow-y: visible;
   overscroll-behavior-inline: contain;
-  padding-inline: var(--portfolio-project-inset);
-  scroll-padding-inline-start: var(--portfolio-project-inset);
+  padding-inline: var(--portfolio-project-surface-inset);
+  scroll-padding-inline-start: var(--portfolio-project-surface-inset);
   scroll-snap-type: x proximity;
   scrollbar-width: none;
 }
@@ -996,7 +1009,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   column-gap: 1rem;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  padding-inline: $portfolio-sidebar-padding-x;
+  padding-inline: var(--portfolio-project-surface-inset);
 }
 
 .portfolio-context-bar--browser label {
@@ -1052,8 +1065,8 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-context-bar--project {
-  padding-left: var(--portfolio-project-control-text-inset);
-  padding-right: var(--portfolio-project-content-boundary);
+  padding-left: var(--portfolio-project-control-surface-inset);
+  padding-right: var(--portfolio-project-surface-inset);
 }
 
 .portfolio-context-bar__section-navigation {
@@ -1076,7 +1089,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   flex: 0 0 auto;
   line-height: $portfolio-line-height-default;
   min-height: $portfolio-sidebar-filter-min-height;
-  padding: $portfolio-sidebar-filter-padding-y $portfolio-sidebar-filter-padding-x;
+  padding: $portfolio-sidebar-filter-padding-y var(--portfolio-section-inner-inset);
   white-space: nowrap;
 }
 
@@ -1117,6 +1130,9 @@ $portfolio-mobile-header-text-top-adjustment: (
   .portfolio-shell.is-sidebar-collapsed {
     --portfolio-mobile-page-inset: #{$portfolio-mobile-page-inset};
     --portfolio-project-inset: var(--portfolio-mobile-page-inset);
+    --portfolio-project-visible-inset: calc(
+      var(--portfolio-project-inset) + #{$portfolio-project-visible-inset-mobile-increase}
+    );
     --portfolio-sidebar-width: 0px;
     --portfolio-mobile-header-current-height: #{$portfolio-mobile-header-height};
   }
@@ -1296,9 +1312,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   }
 
   .portfolio-browser {
-    // The browser grid retains its established inset; project and Info pages
-    // intentionally follow the mobile navigation icon rail instead.
-    padding: 0 $portfolio-edge-space-mobile $portfolio-edge-space-mobile;
+    padding: 0 var(--portfolio-project-surface-inset) var(--portfolio-project-surface-inset);
   }
 
   // Bootstrap's container gutter is 0.75rem; matching the project pane's
