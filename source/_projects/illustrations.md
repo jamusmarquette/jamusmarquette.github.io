@@ -8,7 +8,7 @@ permalink: /project/illustrations/
 
 order: 12
 
-featured: true
+featured: false
 
 categories:
   - Illustration

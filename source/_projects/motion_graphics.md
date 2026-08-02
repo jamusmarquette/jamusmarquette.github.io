@@ -8,7 +8,7 @@ permalink: /project/motion_graphics/
 
 order: 16
 
-featured: true
+featured: false
 
 categories:
   - Motion

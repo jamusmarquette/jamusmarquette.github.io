@@ -35,6 +35,8 @@ $portfolio-project-card-visible-gap: $project-media-gap;
 // gap needs no extra outward-inset compensation.
 $portfolio-project-card-layout-gap: $portfolio-project-card-visible-gap;
 $portfolio-project-card-metadata-min-width: 11rem;
+$portfolio-project-group-heading-gap: 1rem;
+$portfolio-project-group-gap: 5rem;
 $portfolio-sidebar-icon-hit-size: 2.7rem;
 $portfolio-sidebar-toggle-icon-inset: 0.225rem;
 $portfolio-sidebar-collapse-label-gap: 0.4rem;
@@ -705,6 +707,18 @@ $portfolio-mobile-header-text-top-adjustment: (
   flex-wrap: wrap;
   column-gap: var(--portfolio-grid-column-gap);
   row-gap: var(--portfolio-grid-row-gap);
+}
+
+.portfolio-project-group + .portfolio-project-group {
+  margin-top: $portfolio-project-group-gap;
+}
+
+.portfolio-project-group__heading {
+  color: $white;
+  font-size: $portfolio-font-size-default;
+  line-height: $portfolio-line-height-default;
+  margin: 0 0 $portfolio-project-group-heading-gap;
+  padding-left: var(--portfolio-project-card-content-inset);
 }
 
 .portfolio-project-grid .project-card {

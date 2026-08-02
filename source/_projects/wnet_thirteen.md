@@ -8,7 +8,7 @@ permalink: /project/wnet_thirteen/
 
 order: 8
 
-featured: true
+featured: false
 
 categories:
   - Editorial & Publications

@@ -8,7 +8,7 @@ permalink: /project/design_firms_open_for_business/
 
 order: 18
 
-featured: true
+featured: false
 
 categories:
   - Editorial & Publications

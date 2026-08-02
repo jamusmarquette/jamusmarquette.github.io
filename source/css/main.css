@@ -15416,6 +15416,18 @@ video {
   row-gap: var(--portfolio-grid-row-gap);
 }
 
+.portfolio-project-group + .portfolio-project-group {
+  margin-top: 5rem;
+}
+
+.portfolio-project-group__heading {
+  color: #fff;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+  padding-left: var(--portfolio-project-card-content-inset);
+}
+
 .portfolio-project-grid .project-card {
   container-name: portfolio-work-card;
   container-type: inline-size;

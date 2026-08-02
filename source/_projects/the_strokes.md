@@ -8,7 +8,7 @@ permalink: /project/the_strokes/
 
 order: 15
 
-featured: true
+featured: false
 
 categories:
   - Editorial & Publications

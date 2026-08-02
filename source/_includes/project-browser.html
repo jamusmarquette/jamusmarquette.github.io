@@ -8,13 +8,29 @@
 >
   <h1 class="visually-hidden" id="portfolio-browser-title">Projects</h1>
 
-  <div class="portfolio-project-grid" data-project-grid>
-    {% for project in projects %}
-      {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false %}
-        {% include project-card.html project=project interactive=true %}
-      {% endif %}
-    {% endfor %}
-  </div>
+  <section class="portfolio-project-group" data-project-group="featured" aria-labelledby="portfolio-featured-title">
+    <h2 class="portfolio-project-group__heading" id="portfolio-featured-title">Featured Projects</h2>
+    <div class="portfolio-project-grid" data-project-grid="featured">
+      {% for project in projects %}
+        {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.featured == true %}
+          {% include project-card.html project=project interactive=true home_browser=true %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="portfolio-project-group" data-project-group="library" aria-labelledby="portfolio-library-title">
+    <h2 class="portfolio-project-group__heading" id="portfolio-library-title">More Work</h2>
+    <div class="portfolio-project-grid" data-project-grid="library">
+      {% for project in projects %}
+        {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.featured != true %}
+          {% include project-card.html project=project interactive=true home_browser=true %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="portfolio-project-grid" data-project-grid="recent" hidden></div>
 
   <p class="portfolio-empty-state" data-empty-state hidden>No projects match this category.</p>
 

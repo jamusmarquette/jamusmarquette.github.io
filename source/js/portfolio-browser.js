@@ -27,6 +27,11 @@
   const columnsControl = shell.querySelector('[data-thumbnail-columns]');
   const columnsOutput = shell.querySelector('[data-thumbnail-columns-output]');
   const cards = browser ? Array.from(browser.querySelectorAll('.project-card')) : [];
+  const featuredGroup = browser ? browser.querySelector('[data-project-group="featured"]') : null;
+  const libraryGroup = browser ? browser.querySelector('[data-project-group="library"]') : null;
+  const featuredGrid = browser ? browser.querySelector('[data-project-grid="featured"]') : null;
+  const libraryGrid = browser ? browser.querySelector('[data-project-grid="library"]') : null;
+  const recentGrid = browser ? browser.querySelector('[data-project-grid="recent"]') : null;
   const workProjectLinks = browser
     ? Array.from(browser.querySelectorAll('.project-card-image-link, .project-card-title'))
     : [];
@@ -267,8 +272,16 @@
     return validIds.map((id) => cardsById.get(id));
   }
 
-  function reorderCards(orderedCards) {
-    orderedCards.forEach((card) => browser.querySelector('[data-project-grid]').appendChild(card));
+  function reorderCards(orderedCards, grid) {
+    if (!grid) return;
+    orderedCards.forEach((card) => grid.appendChild(card));
+  }
+
+  function restoreGroupedCards() {
+    cards.forEach((card) => {
+      const grid = card.dataset.projectFeatured === 'true' ? featuredGrid : libraryGrid;
+      if (grid) grid.appendChild(card);
+    });
   }
 
   function rememberBrowserState(state) {
@@ -426,8 +439,17 @@
         : cards;
     const visibleSet = new Set(visibleCards);
 
-    reorderCards(normalizedState.recent ? recentCards : cards);
+    if (normalizedState.recent) {
+      reorderCards(recentCards, recentGrid);
+    } else {
+      restoreGroupedCards();
+    }
     cards.forEach((card) => { card.hidden = !visibleSet.has(card); });
+    const visibleFeaturedCount = visibleCards.filter((card) => card.dataset.projectFeatured === 'true').length;
+    const visibleLibraryCount = visibleCards.length - visibleFeaturedCount;
+    if (featuredGroup) featuredGroup.hidden = normalizedState.recent || visibleFeaturedCount === 0;
+    if (libraryGroup) libraryGroup.hidden = normalizedState.recent || visibleLibraryCount === 0;
+    if (recentGrid) recentGrid.hidden = !normalizedState.recent;
     setColumns(normalizedState.columns);
 
     const allActive = !normalizedState.recent && !normalizedState.category;

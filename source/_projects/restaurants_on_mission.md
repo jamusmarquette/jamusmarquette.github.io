@@ -8,7 +8,7 @@ permalink: /project/restaurants_on_mission/
 
 order: 7
 
-featured: true
+featured: false
 
 categories:
   - Identity & Branding

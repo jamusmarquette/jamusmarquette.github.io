@@ -8,7 +8,7 @@ permalink: /project/invasion_of_the_body_snachers/
 
 order: 9
 
-featured: true
+featured: false
 
 categories:
   - Editorial & Publications

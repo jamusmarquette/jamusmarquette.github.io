@@ -8,7 +8,7 @@ permalink: /project/jonathan_childrens_trust/
 
 order: 6
 
-featured: true
+featured: false
 
 categories:
   - Identity & Branding

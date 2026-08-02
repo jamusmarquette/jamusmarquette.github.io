@@ -1,6 +1,7 @@
 <article
     class="project-card{% if include.interactive %} project-card--interactive{% endif %}{% if include.current %} is-current{% endif %}"
     data-project-id="{{ include.project.slug }}"
+    {% if include.home_browser %}data-project-featured="{% if include.project.featured == true %}true{% else %}false{% endif %}"{% endif %}
     data-category="{% for project_category in include.project.categories %}{% for category in site.data.portfolio_categories %}{% if category.label == project_category %}{{ category.id }} {% endif %}{% endfor %}{% endfor %}"
 >
 
