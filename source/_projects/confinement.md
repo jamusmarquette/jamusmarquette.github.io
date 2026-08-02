@@ -14,6 +14,7 @@ categories:
   - Editorial & Publications
 
 thumbnail: /img/jamus_marquette_confinement_photo_book_lr.gif
+featured_thumbnail: /project/confinement/img/00_jamus_marquette_confinement_photography_book_psychiatric_hospital_oliver_chanarin_and_adam_broomberg.jpg
 
 hero_type: media-rows
 

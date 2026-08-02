@@ -14,6 +14,7 @@ categories:
   - Identity & Branding
 
 thumbnail: /project/dirtbags/img/jamus_marquette_dirtbags_hmo_rabbit_stuffed_animal_with_real_life_problems.gif
+featured_thumbnail: /project/dirtbags/img/jamus_marquette_dirtbags_hmo_rabbit_packaged_stuffed_animal_with_real_life_problems.jpg
 
 hero_type: media-rows
 

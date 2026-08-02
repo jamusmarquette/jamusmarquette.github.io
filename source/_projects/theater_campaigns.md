@@ -15,6 +15,7 @@ categories:
  - Illustration
 
 thumbnail: /img/jamus_theater_posters.gif
+featured_thumbnail: /project/theater_campaigns/img/00-jamus-marquette-theater-poster-designs-on-theater-row-wall.jpg
 
 hero_type: media-rows
 

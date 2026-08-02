@@ -12,9 +12,7 @@
   {% endfor %}
 {% endif %}
 {% assign has_context_bar = false %}
-{% if is_browser %}
-  {% assign has_context_bar = true %}
-{% elsif is_project and visible_section_count > 0 %}
+{% if is_project and visible_section_count > 0 %}
   {% assign has_context_bar = true %}
 {% endif %}
 {% assign is_eligible_project = false %}
@@ -248,23 +246,7 @@
 
   <main class="portfolio-presentation" id="content">{{ content }}</main>
 
-  {% if is_browser %}
-  <!-- The bottom bar is the contextual control surface for the desktop presentation area. -->
-  <div class="portfolio-context-bar portfolio-context-bar--browser" data-portfolio-context-bar>
-    <label for="portfolio-thumbnail-columns">Columns</label>
-    <input
-      id="portfolio-thumbnail-columns"
-      type="range"
-      min="2"
-      max="6"
-      step="1"
-      value="6"
-      aria-label="Number of project columns"
-      data-thumbnail-columns
-    />
-    <output for="portfolio-thumbnail-columns" data-thumbnail-columns-output>6</output>
-  </div>
-  {% elsif is_project and visible_section_count > 0 %}
+  {% if is_project and visible_section_count > 0 %}
   <div class="portfolio-context-bar portfolio-context-bar--project" data-portfolio-context-bar>
     <nav class="portfolio-context-bar__section-navigation" aria-label="Project sections" data-section-navigation>
       <button

@@ -9,7 +9,6 @@
   const workReturnPendingStorageKey = 'jamus-portfolio-work-return-pending-v1';
   const projectBrowserScrollStorageKey = 'jamus-portfolio-project-browser-scroll-v1';
   const mobileHeaderScrollThreshold = 32;
-  const defaultColumns = 6;
   const maximumRecentProjects = 18;
   const mobileMedia = window.matchMedia('(max-width: 767px)');
   const sidebar = shell.querySelector('#portfolio-sidebar');
@@ -24,14 +23,15 @@
   const recentProjectsControl = shell.querySelector('[data-browser-view="recent"]');
   const categoryControls = Array.from(shell.querySelectorAll('.portfolio-category-filter[data-category]'));
   const cardCategoryLinks = Array.from(shell.querySelectorAll('.portfolio-card-category[data-category]'));
-  const columnsControl = shell.querySelector('[data-thumbnail-columns]');
-  const columnsOutput = shell.querySelector('[data-thumbnail-columns-output]');
   const cards = browser ? Array.from(browser.querySelectorAll('.project-card')) : [];
   const featuredGroup = browser ? browser.querySelector('[data-project-group="featured"]') : null;
   const libraryGroup = browser ? browser.querySelector('[data-project-group="library"]') : null;
   const featuredGrid = browser ? browser.querySelector('[data-project-grid="featured"]') : null;
   const libraryGrid = browser ? browser.querySelector('[data-project-grid="library"]') : null;
   const recentGrid = browser ? browser.querySelector('[data-project-grid="recent"]') : null;
+  const featuredBrowserScroller = browser ? browser.querySelector('[data-featured-browser-strip]') : null;
+  const featuredBrowserPositionControl = browser ? browser.querySelector('[data-featured-browser-position]') : null;
+  const featuredBrowserPositionOutput = browser ? browser.querySelector('[data-featured-browser-position-output]') : null;
   const workProjectLinks = browser
     ? Array.from(browser.querySelectorAll('.project-card-image-link, .project-card-title'))
     : [];
@@ -51,7 +51,8 @@
   let mobileHeaderScrollFrame = null;
   let projectBrowserScrollFrame = null;
   let projectBrowserPositionFrame = null;
-  let activeState = { category: null, recent: false, columns: defaultColumns };
+  let featuredBrowserPositionFrame = null;
+  let activeState = { category: null, recent: false };
 
   function storageGet(key) {
     try {
@@ -187,11 +188,6 @@
     ).filter((element) => element.offsetParent !== null);
   }
 
-  function validColumns(value) {
-    const columns = Number(value);
-    return Number.isInteger(columns) && columns >= 2 && columns <= 6 ? columns : defaultColumns;
-  }
-
   function validCategory(value) {
     const availableCategories = categoryControls.map((control) => control.dataset.category);
     return typeof value === 'string' && availableCategories.includes(value) ? value : null;
@@ -212,7 +208,7 @@
         : legacyCategories.length === 1
           ? validCategory(legacyCategories[0])
           : null;
-      return { category, recent: parsed.recent === true && !category, columns: validColumns(parsed.columns) };
+      return { category, recent: parsed.recent === true && !category };
     } catch (error) {
       return null;
     }
@@ -227,7 +223,6 @@
     if (!hasExplicitView) {
       const stored = storedBrowserState();
       if (stored && stored.recent) {
-        stored.columns = params.has('columns') ? validColumns(params.get('columns')) : stored.columns;
         return stored;
       }
     }
@@ -235,7 +230,6 @@
     return {
       category: requestedView === 'recent' ? null : validCategory(requestedCategory),
       recent: requestedView === 'recent',
-      columns: validColumns(params.get('columns')),
     };
   }
 
@@ -248,15 +242,28 @@
     url.searchParams.delete('columns');
     if (state.recent) url.searchParams.set('view', 'recent');
     else if (state.category) url.searchParams.set('category', state.category);
-    if (state.columns !== defaultColumns) url.searchParams.set('columns', state.columns);
     history[replace ? 'replaceState' : 'pushState']({}, '', url);
   }
 
-  function setColumns(columns) {
-    const value = validColumns(columns);
-    columnsControl.value = value;
-    columnsOutput.textContent = value;
-    browser.style.setProperty('--portfolio-selected-columns', value);
+  function visibleFeaturedCards() {
+    return cards.filter((card) => card.dataset.projectFeatured === 'true' && !card.hidden);
+  }
+
+  function setFeaturedBrowserPosition(index, behavior) {
+    if (!featuredBrowserPositionControl || !featuredBrowserPositionOutput || !featuredBrowserScroller) return;
+    const visibleCards = visibleFeaturedCards();
+    if (!visibleCards.length) return;
+    const safeIndex = Math.max(0, Math.min(visibleCards.length - 1, index));
+    const position = safeIndex + 1;
+    const card = visibleCards[safeIndex];
+    featuredBrowserPositionControl.max = visibleCards.length;
+    featuredBrowserPositionControl.value = position;
+    featuredBrowserPositionOutput.textContent = `${position}/${visibleCards.length}`;
+    if (featuredBrowserPositionFrame) window.cancelAnimationFrame(featuredBrowserPositionFrame);
+    featuredBrowserPositionFrame = window.requestAnimationFrame(function () {
+      featuredBrowserPositionFrame = null;
+      featuredBrowserScroller.scrollTo({ left: card.offsetLeft, behavior });
+    });
   }
 
   function validRecentCards() {
@@ -427,7 +434,6 @@
     const normalizedState = {
       category: state.recent ? null : validCategory(state.category),
       recent: state.recent && recentCards.length > 0,
-      columns: validColumns(state.columns),
     };
     const visibleCards = normalizedState.recent
       ? recentCards
@@ -450,7 +456,7 @@
     if (featuredGroup) featuredGroup.hidden = normalizedState.recent || visibleFeaturedCount === 0;
     if (libraryGroup) libraryGroup.hidden = normalizedState.recent || visibleLibraryCount === 0;
     if (recentGrid) recentGrid.hidden = !normalizedState.recent;
-    setColumns(normalizedState.columns);
+    if (!normalizedState.recent && visibleFeaturedCount) setFeaturedBrowserPosition(0, 'auto');
 
     const allActive = !normalizedState.recent && !normalizedState.category;
     allProjectsControl.classList.toggle('is-active', allActive);
@@ -474,7 +480,7 @@
 
   window.clearRecentlyViewedProjects = function () {
     storageRemove(recentStorageKey);
-    if (browser) renderState({ category: null, recent: false, columns: activeState.columns }, true);
+    if (browser) renderState({ category: null, recent: false }, true);
   };
 
   sidebarToggle.addEventListener('click', function () {
@@ -523,30 +529,28 @@
     cardCategoryLinks.forEach((link) => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        renderState({ category: link.dataset.category, recent: false, columns: activeState.columns }, true);
+        renderState({ category: link.dataset.category, recent: false }, true);
       });
     });
     allProjectsControl.addEventListener('click', function () {
-      renderState({ category: null, recent: false, columns: activeState.columns }, true);
+      renderState({ category: null, recent: false }, true);
       setMobileOpen(false);
     });
     recentProjectsControl.addEventListener('click', function () {
-      renderState({ category: null, recent: true, columns: activeState.columns }, true);
+      renderState({ category: null, recent: true }, true);
       setMobileOpen(false);
     });
     categoryControls.forEach((control) => {
       control.addEventListener('click', function () {
-        renderState({ category: control.dataset.category, recent: false, columns: activeState.columns }, true);
+        renderState({ category: control.dataset.category, recent: false }, true);
         setMobileOpen(false);
       });
     });
-    columnsControl.addEventListener('input', function () {
-      const state = Object.assign({}, activeState, { columns: Number(columnsControl.value) });
-      setColumns(state.columns);
-      activeState = state;
-      rememberBrowserState(state);
-      writeUrl(state, true);
-    });
+    if (featuredBrowserPositionControl) {
+      featuredBrowserPositionControl.addEventListener('input', function () {
+        setFeaturedBrowserPosition(Number(featuredBrowserPositionControl.value) - 1, 'smooth');
+      });
+    }
   }
 
   function navigateToBrowser(category, recent) {

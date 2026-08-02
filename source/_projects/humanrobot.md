@@ -15,6 +15,7 @@ categories:
   - Websites
 
 thumbnail: /img/jamus_marquette_human_robot_animation.gif
+featured_thumbnail: /project/humanrobot/img/jamus_marquette_humanrobot_web_motion_branding_design7.jpg
 
 hero_type: media-rows
 

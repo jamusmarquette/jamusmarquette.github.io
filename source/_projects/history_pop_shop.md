@@ -15,6 +15,7 @@ categories:
   - Environmental & Exhibit Design
 
 thumbnail: /img/01_jamus_marquette_history_channel_pop_shop_branding_environmental_design_signage.jpg
+featured_thumbnail: /project/history_pop_shop/img/04_jamus_and_adriana_history_channel_pop_shop_branding_environmental_design_signage_and_interior.jpg
 
 hero_type: media-rows
 

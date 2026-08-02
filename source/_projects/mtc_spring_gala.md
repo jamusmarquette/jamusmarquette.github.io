@@ -15,6 +15,7 @@ categories:
   - Environmental & Exhibit Design
 
 thumbnail: /img/jamus_marquette_mtc_spring_gala_invite.gif
+featured_thumbnail: /project/mtc_spring_gala/img/03_jamus_marquette_MTC_manhattan_theatre_club_spring_gala_invite.jpg
 
 hero_type: media-rows
 

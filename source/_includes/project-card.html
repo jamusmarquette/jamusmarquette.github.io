@@ -1,8 +1,13 @@
+{% assign card_thumbnail = include.project.thumbnail %}
+{% if include.featured_browser and include.project.featured_thumbnail %}
+  {% assign card_thumbnail = include.project.featured_thumbnail %}
+{% endif %}
 <article
     class="project-card{% if include.interactive %} project-card--interactive{% endif %}{% if include.current %} is-current{% endif %}"
     data-project-id="{{ include.project.slug }}"
     {% if include.home_browser %}data-project-featured="{% if include.project.featured == true %}true{% else %}false{% endif %}"{% endif %}
     data-category="{% for project_category in include.project.categories %}{% for category in site.data.portfolio_categories %}{% if category.label == project_category %}{{ category.id }} {% endif %}{% endfor %}{% endfor %}"
+    {% if include.featured_browser and include.project.featured_thumbnail_position %}style="--portfolio-featured-thumbnail-position: {{ include.project.featured_thumbnail_position }};"{% endif %}
 >
 
     <div class="content">
@@ -17,7 +22,7 @@
 
             <img
                 class="content-image"
-                src="{{ include.project.thumbnail | relative_url }}"
+                src="{{ card_thumbnail | relative_url }}"
                 alt="{{ include.project.title }}"
             >
 

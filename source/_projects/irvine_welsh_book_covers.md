@@ -14,6 +14,7 @@ categories:
   - Editorial & Publications
 
 thumbnail: /img/jamus_marquette_irvine_welsh_covers_animation.gif
+featured_thumbnail: /project/irvine_welsh_book_covers/img/jamus_marquette_irvine_welsh_if_you_liked_school_youll_love_work_book_cover_designs_wide.jpg
 
 hero_type: media-rows
 

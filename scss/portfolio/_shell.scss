@@ -713,6 +713,92 @@ $portfolio-mobile-header-text-top-adjustment: (
   margin-top: $portfolio-project-group-gap;
 }
 
+.portfolio-featured-browser + .portfolio-project-group {
+  margin-top: $portfolio-project-group-gap;
+}
+
+.portfolio-featured-browser__scroller {
+  -ms-overflow-style: none;
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.portfolio-featured-browser__scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-featured-browser__track {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--portfolio-grid-column-gap);
+  min-width: max-content;
+  padding: 0 var(--portfolio-project-surface-inset) $portfolio-project-card-hover-padding;
+}
+
+.portfolio-featured-browser__track .project-card {
+  flex: 0 0 min(72vw, 56rem);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.portfolio-featured-browser__controls {
+  align-items: center;
+  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: 1rem;
+  padding: 0 var(--portfolio-project-surface-inset);
+}
+
+.portfolio-featured-browser__position {
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  height: 1rem;
+  margin: 0;
+  width: 100%;
+}
+
+.portfolio-featured-browser__position::-webkit-slider-runnable-track {
+  background: rgba($primary, 0.55);
+  border-radius: 999px;
+  height: 1px;
+}
+
+.portfolio-featured-browser__position::-webkit-slider-thumb {
+  appearance: none;
+  background: $primary;
+  border: 0;
+  border-radius: 50%;
+  height: 0.8rem;
+  margin-top: -0.35rem;
+  width: 0.8rem;
+}
+
+.portfolio-featured-browser__position::-moz-range-track {
+  background: rgba($primary, 0.55);
+  border-radius: 999px;
+  height: 1px;
+}
+
+.portfolio-featured-browser__position::-moz-range-thumb {
+  background: $primary;
+  border: 0;
+  border-radius: 50%;
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+.portfolio-featured-browser__position:focus-visible {
+  outline: 1px solid $primary;
+  outline-offset: 2px;
+}
+
 .portfolio-project-group__heading {
   color: $white;
   font-size: $portfolio-font-size-default;
@@ -782,12 +868,14 @@ $portfolio-mobile-header-text-top-adjustment: (
 // Work-grid and horizontal-browser cards share one padded interaction surface.
 // The content owns the inset at rest; hover and current states only change color.
 .portfolio-project-grid .project-card--interactive::before,
-.portfolio-project-browser__track .project-card--interactive::before {
+.portfolio-project-browser__track .project-card--interactive::before,
+.portfolio-featured-browser__track .project-card--interactive::before {
   inset: 0;
 }
 
 .portfolio-project-grid .project-card--interactive .content,
-.portfolio-project-browser__track .project-card--interactive .content {
+.portfolio-project-browser__track .project-card--interactive .content,
+.portfolio-featured-browser__track .project-card--interactive .content {
   margin-bottom: 0;
   padding: $portfolio-project-card-surface-padding-top var(--portfolio-project-card-content-inset)
     $portfolio-project-card-surface-padding;
@@ -975,6 +1063,32 @@ $portfolio-mobile-header-text-top-adjustment: (
   transform: none;
 }
 
+.portfolio-featured-browser__track .content-details {
+  opacity: 1;
+  padding: 0.75rem 0 0;
+  position: static;
+  transform: none;
+}
+
+.portfolio-featured-browser__track .content-image {
+  display: block;
+  height: clamp(18rem, 44vw, 34rem);
+  max-width: 100%;
+  object-fit: cover;
+  object-position: var(--portfolio-featured-thumbnail-position, 50% 50%);
+  width: 100%;
+}
+
+.portfolio-featured-browser__track .content-overlay {
+  display: none;
+}
+
+.portfolio-featured-browser__track .project-card-categories {
+  font-size: $portfolio-font-size-small !important;
+  line-height: $portfolio-line-height-small;
+  margin-bottom: 0 !important;
+}
+
 .portfolio-project-browser__track .content-image {
   display: block;
   height: auto;
@@ -1017,65 +1131,6 @@ $portfolio-mobile-header-text-top-adjustment: (
   right: 0;
   transition: left 180ms ease;
   z-index: 1032;
-}
-
-.portfolio-context-bar--browser {
-  column-gap: 1rem;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  padding-inline: var(--portfolio-project-surface-inset);
-}
-
-.portfolio-context-bar--browser label {
-  font-size: $portfolio-sidebar-row-size;
-  line-height: $portfolio-line-height-default;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.portfolio-context-bar--browser output {
-  font-size: $portfolio-sidebar-row-size;
-  line-height: $portfolio-line-height-default;
-}
-
-.portfolio-context-bar--browser input {
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
-  display: block;
-  height: 1rem;
-  margin: 0;
-  width: 100%;
-}
-
-.portfolio-context-bar--browser input::-webkit-slider-runnable-track {
-  background: rgba($primary, 0.55);
-  border-radius: 999px;
-  height: 1px;
-}
-
-.portfolio-context-bar--browser input::-webkit-slider-thumb {
-  appearance: none;
-  background: $primary;
-  border: 0;
-  border-radius: 50%;
-  height: 0.8rem;
-  margin-top: -0.35rem;
-  width: 0.8rem;
-}
-
-.portfolio-context-bar--browser input::-moz-range-track {
-  background: rgba($primary, 0.55);
-  border-radius: 999px;
-  height: 1px;
-}
-
-.portfolio-context-bar--browser input::-moz-range-thumb {
-  background: $primary;
-  border: 0;
-  border-radius: 50%;
-  height: 0.8rem;
-  width: 0.8rem;
 }
 
 .portfolio-context-bar--project {
@@ -1388,6 +1443,14 @@ $portfolio-mobile-header-text-top-adjustment: (
 
   .portfolio-project-browser__track .project-card {
     flex-basis: min(76vw, 18rem);
+  }
+
+  .portfolio-featured-browser__track .project-card {
+    flex-basis: 82vw;
+  }
+
+  .portfolio-featured-browser__track .content-image {
+    height: clamp(15rem, 72vw, 26rem);
   }
 
   .portfolio-context-bar {

@@ -15,6 +15,7 @@ categories:
   - Environmental & Exhibit Design
 
 thumbnail: /img/jamus_marquette_laureate_summit_logo.png
+featured_thumbnail: /project/here_for_good/img/jamus_marquette_laureate_summit_brand_stage_01.jpg
 
 hero_type: media-rows
 

@@ -15,6 +15,7 @@ categories:
   - Environmental & Exhibit Design
 
 thumbnail: /project/cnn_grill_at_sxsw/img/01_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
+featured_thumbnail: /project/cnn_grill_at_sxsw/img/02_jamus_marquette_cnn_grill_at_sxsw_signage_event_branding_design.jpg
 
 hero_type: centered-image
 

@@ -15,6 +15,7 @@ categories:
   - Motion
 
 thumbnail: /img/jamus_marquette_nflpa_ribbon_animation.gif
+featured_thumbnail: /project/nflpa/img/01_jamus_marquette_nflpa_logos.jpg
 
 hero_type: media-rows
 
