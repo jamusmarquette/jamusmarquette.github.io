@@ -360,14 +360,14 @@ $portfolio-mobile-header-text-top-adjustment: (
   gap: 0.1rem;
 }
 
-.portfolio-category-filter {
+.portfolio-shell .portfolio-category-filter {
   background: transparent;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
   color: $primary;
   display: block;
-  font-size: $portfolio-sidebar-row-size;
-  line-height: $portfolio-line-height-default;
+  font-size: $portfolio-font-size-small;
+  line-height: $portfolio-line-height-small;
   margin-left: -$portfolio-sidebar-active-bleed;
   min-height: $portfolio-sidebar-filter-min-height;
   padding: $portfolio-sidebar-filter-padding-y $portfolio-sidebar-filter-padding-x $portfolio-sidebar-filter-padding-y

@@ -15084,13 +15084,13 @@ video {
   gap: 0.1rem;
 }
 
-.portfolio-category-filter {
+.portfolio-shell .portfolio-category-filter {
   background: transparent;
   border: 0;
   border-radius: 1rem;
   color: #c7c7c7;
   display: block;
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   line-height: 1.4;
   margin-left: -0.5rem;
   min-height: 2.75rem;
