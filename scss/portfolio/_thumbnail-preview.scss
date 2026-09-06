@@ -1,0 +1,50 @@
+.project-card-image-link {
+  position: relative;
+}
+
+.project-card-preview {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  transform: rotateX(0);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0.2, 0.65, 0.2, 1);
+  will-change: transform;
+}
+
+.project-card-preview__image {
+  height: 100%;
+  inset: 0;
+  object-fit: contain;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 240ms ease;
+  width: 100%;
+}
+
+.portfolio-featured-browser__track .project-card-preview__image {
+  object-fit: cover;
+  object-position: var(--portfolio-featured-thumbnail-position, 50% 50%);
+}
+
+.project-card-preview__image.is-visible {
+  opacity: 1;
+}
+
+.project-card-preview.is-resetting .project-card-preview__image {
+  transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card--interactive:hover .project-card-preview {
+    transform: rotateX(-12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-preview__image {
+    transition: none;
+  }
+}

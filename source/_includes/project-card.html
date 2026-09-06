@@ -5,6 +5,7 @@
 <article
     class="project-card{% if include.interactive %} project-card--interactive{% endif %}{% if include.current %} is-current{% endif %}"
     data-project-id="{{ include.project.slug }}"
+    data-project-thumbnail="{{ include.project.thumbnail | relative_url | escape }}"
     {% if include.home_browser %}data-project-featured="{% if include.project.featured == true %}true{% else %}false{% endif %}"{% endif %}
     data-category="{% for project_category in include.project.categories %}{% for category in site.data.portfolio_categories %}{% if category.label == project_category %}{{ category.id }} {% endif %}{% endfor %}{% endfor %}"
     {% if include.featured_browser and include.project.featured_thumbnail_position %}style="--portfolio-featured-thumbnail-position: {{ include.project.featured_thumbnail_position }};"{% endif %}
@@ -26,7 +27,28 @@
                 alt="{{ include.project.title }}"
             >
 
+            <span class="project-card-preview" aria-hidden="true" data-project-preview-layer></span>
+
         </a>
+
+        <template data-project-preview-images>
+          {% if include.project.preview %}
+            {% for preview_image in include.project.preview %}
+              <span data-project-preview-src="{{ preview_image | relative_url | escape }}"></span>
+            {% endfor %}
+          {% else %}
+            {% for row in include.project.media_rows %}
+              {% if row.section == 'in-use' or row.section == 'in_use' or row.section == nil %}
+                {% for item in row.items %}
+                  {% if item.image %}<span data-project-preview-src="{{ item.image | relative_url | escape }}"></span>{% endif %}
+                  {% for media in item.media %}
+                    {% if media.image %}<span data-project-preview-src="{{ media.image | relative_url | escape }}"></span>{% endif %}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </template>
 
         <div class="content-details">
 
