@@ -12,9 +12,9 @@ $portfolio-sidebar-filter-indent: $portfolio-sidebar-icon-size + $portfolio-side
   $portfolio-sidebar-row-padding-x;
 $portfolio-sidebar-filter-padding-y: 0.45rem;
 $portfolio-sidebar-filter-padding-x: 0.6rem;
-$portfolio-sidebar-filter-min-height: 2.75rem;
+$portfolio-sidebar-filter-min-height: 2.25rem;
 $portfolio-global-nav-row-height: $portfolio-sidebar-filter-min-height;
-$portfolio-sidebar-heading-filter-gap: 0.25rem;
+$portfolio-sidebar-heading-filter-gap: 0;
 $portfolio-global-nav-gap: 0.4rem;
 $portfolio-context-bar-height: 4rem;
 $portfolio-edge-space: (
@@ -312,7 +312,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-work-group [data-work-count] {
-  margin-left: auto;
+  margin-left: 0.3em;
 }
 
 .portfolio-nav-icon {
@@ -381,7 +381,8 @@ $portfolio-mobile-header-text-top-adjustment: (
   color: $white;
 }
 
-.portfolio-category-filter:hover {
+.portfolio-category-filter:hover,
+.portfolio-category-filter.is-active {
   background: rgba($primary, 0.03);
 }
 
