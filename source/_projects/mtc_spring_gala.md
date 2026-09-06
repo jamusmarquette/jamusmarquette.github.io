@@ -8,7 +8,7 @@ permalink: /project/mtc_spring_gala/
 
 order: 13
 
-featured: false
+featured: true
 
 categories:
   - Editorial & Publications

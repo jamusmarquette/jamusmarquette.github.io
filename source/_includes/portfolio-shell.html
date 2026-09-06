@@ -71,7 +71,7 @@
         <a
           class="portfolio-info-introduction{% if page.url == '/information/' %} is-active{% endif %}"
           href="{{ '/information/' | relative_url }}"
-          aria-label="About Jamus"
+          aria-label="More information about Jamus"
           {% if page.url == '/information/' %}aria-current="page"{% endif %}
         >
           <svg
@@ -95,11 +95,14 @@
               fill="currentColor"
             />
           </svg>
-          <span class="portfolio-introduction-block">
-            <strong class="portfolio-wordmark">JAMUS</strong>
-            <span class="portfolio-introduction-copy">
-              creates scalable concept-driven systems, products, and experiences.
+          <span class="portfolio-introduction-block" aria-hidden="true">
+            <span class="portfolio-introduction-default">
+              <strong class="portfolio-wordmark">JAMUS</strong>
+              <span class="portfolio-introduction-copy">
+                creates scalable concept-driven systems, products, and experiences.
+              </span>
             </span>
+            <span class="portfolio-introduction-hover">More Info</span>
           </span>
           <span class="portfolio-mobile-info-label">Info</span>
         </a>

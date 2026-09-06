@@ -8,7 +8,7 @@ permalink: /project/humanrobot/
 
 order: 11
 
-featured: false
+featured: true
 
 categories:
   - Identity & Branding
