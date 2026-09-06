@@ -23,15 +23,17 @@
   const recentProjectsControl = shell.querySelector('[data-browser-view="recent"]');
   const categoryControls = Array.from(shell.querySelectorAll('.portfolio-category-filter[data-category]'));
   const cardCategoryLinks = Array.from(shell.querySelectorAll('.portfolio-card-category[data-category]'));
-  const cards = browser ? Array.from(browser.querySelectorAll('.project-card')) : [];
+  const cards = browser
+    ? Array.from(browser.querySelectorAll('.project-card')).sort(function (firstCard, secondCard) {
+        return Number(firstCard.dataset.projectOrder) - Number(secondCard.dataset.projectOrder);
+      })
+    : [];
   const featuredGroup = browser ? browser.querySelector('[data-project-group="featured"]') : null;
   const libraryGroup = browser ? browser.querySelector('[data-project-group="library"]') : null;
   const featuredGrid = browser ? browser.querySelector('[data-project-grid="featured"]') : null;
   const libraryGrid = browser ? browser.querySelector('[data-project-grid="library"]') : null;
+  const filteredGrid = browser ? browser.querySelector('[data-project-grid="filtered"]') : null;
   const recentGrid = browser ? browser.querySelector('[data-project-grid="recent"]') : null;
-  const featuredBrowserScroller = browser ? browser.querySelector('[data-featured-browser-strip]') : null;
-  const featuredBrowserPositionControl = browser ? browser.querySelector('[data-featured-browser-position]') : null;
-  const featuredBrowserPositionOutput = browser ? browser.querySelector('[data-featured-browser-position-output]') : null;
   const workProjectLinks = browser
     ? Array.from(browser.querySelectorAll('.project-card-image-link, .project-card-title'))
     : [];
@@ -51,7 +53,6 @@
   let mobileHeaderScrollFrame = null;
   let projectBrowserScrollFrame = null;
   let projectBrowserPositionFrame = null;
-  let featuredBrowserPositionFrame = null;
   let activeState = { category: null, recent: false };
 
   function storageGet(key) {
@@ -245,27 +246,6 @@
     history[replace ? 'replaceState' : 'pushState']({}, '', url);
   }
 
-  function visibleFeaturedCards() {
-    return cards.filter((card) => card.dataset.projectFeatured === 'true' && !card.hidden);
-  }
-
-  function setFeaturedBrowserPosition(index, behavior) {
-    if (!featuredBrowserPositionControl || !featuredBrowserPositionOutput || !featuredBrowserScroller) return;
-    const visibleCards = visibleFeaturedCards();
-    if (!visibleCards.length) return;
-    const safeIndex = Math.max(0, Math.min(visibleCards.length - 1, index));
-    const position = safeIndex + 1;
-    const card = visibleCards[safeIndex];
-    featuredBrowserPositionControl.max = visibleCards.length;
-    featuredBrowserPositionControl.value = position;
-    featuredBrowserPositionOutput.textContent = `${position}/${visibleCards.length}`;
-    if (featuredBrowserPositionFrame) window.cancelAnimationFrame(featuredBrowserPositionFrame);
-    featuredBrowserPositionFrame = window.requestAnimationFrame(function () {
-      featuredBrowserPositionFrame = null;
-      featuredBrowserScroller.scrollTo({ left: card.offsetLeft, behavior });
-    });
-  }
-
   function validRecentCards() {
     const cardsById = new Map(cards.map((card) => [card.dataset.projectId, card]));
     const seen = new Set();
@@ -445,18 +425,21 @@
         : cards;
     const visibleSet = new Set(visibleCards);
 
+    const isHomeView = !normalizedState.recent && !normalizedState.category;
+
     if (normalizedState.recent) {
       reorderCards(recentCards, recentGrid);
+    } else if (normalizedState.category) {
+      reorderCards(visibleCards, filteredGrid);
     } else {
       restoreGroupedCards();
     }
     cards.forEach((card) => { card.hidden = !visibleSet.has(card); });
-    const visibleFeaturedCount = visibleCards.filter((card) => card.dataset.projectFeatured === 'true').length;
-    const visibleLibraryCount = visibleCards.length - visibleFeaturedCount;
-    if (featuredGroup) featuredGroup.hidden = normalizedState.recent || visibleFeaturedCount === 0;
-    if (libraryGroup) libraryGroup.hidden = normalizedState.recent || visibleLibraryCount === 0;
+    if (featuredGroup) featuredGroup.hidden = !isHomeView;
+    if (libraryGroup) libraryGroup.hidden = !isHomeView;
+    if (filteredGrid) filteredGrid.hidden = !normalizedState.category;
     if (recentGrid) recentGrid.hidden = !normalizedState.recent;
-    if (!normalizedState.recent && visibleFeaturedCount) setFeaturedBrowserPosition(0, 'auto');
+    if (isHomeView) setProjectBrowserPosition(0, 'auto');
 
     const allActive = !normalizedState.recent && !normalizedState.category;
     allProjectsControl.classList.toggle('is-active', allActive);
@@ -546,11 +529,6 @@
         setMobileOpen(false);
       });
     });
-    if (featuredBrowserPositionControl) {
-      featuredBrowserPositionControl.addEventListener('input', function () {
-        setFeaturedBrowserPosition(Number(featuredBrowserPositionControl.value) - 1, 'smooth');
-      });
-    }
   }
 
   function navigateToBrowser(category, recent) {

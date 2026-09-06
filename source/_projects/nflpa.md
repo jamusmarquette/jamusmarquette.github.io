@@ -8,7 +8,7 @@ permalink: /project/nflpa/
 
 order: 14
 
-featured: true
+featured: false
 
 categories:
   - Identity & Branding

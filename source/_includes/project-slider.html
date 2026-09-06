@@ -1,0 +1,77 @@
+{% assign slider_projects = include.projects | default: site.projects | sort: 'order' %}
+{% assign slider_total = 0 %}
+{% assign slider_current = 0 %}
+{% for project in slider_projects %}
+  {% assign include_slider_project = false %}
+  {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.thumbnail %}
+    {% if include.home_more == true and project.featured != true %}
+      {% assign include_slider_project = true %}
+    {% elsif include.home_more != true %}
+      {% assign include_slider_project = true %}
+    {% endif %}
+  {% endif %}
+  {% if include_slider_project %}
+    {% assign slider_total = slider_total | plus: 1 %}
+    {% if include.highlight_current == true and project.url == page.url %}
+      {% assign slider_current = slider_total %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% if slider_current == 0 %}{% assign slider_current = 1 %}{% endif %}
+
+<section
+  class="portfolio-project-browser{% if include.home_more %} portfolio-home-more-work{% endif %}"
+  {% if include.project_context %}data-project-browser-at-end{% endif %}
+  {% if include.home_more %}data-project-group="library"{% endif %}
+  aria-labelledby="project-browser-title"
+>
+  <div class="portfolio-project-browser__header project-inner">
+    <h2 id="project-browser-title">{{ include.label | default: 'Projects' }}</h2>
+    <input
+      class="portfolio-project-browser__position"
+      id="project-browser-position"
+      type="range"
+      min="1"
+      max="{{ slider_total }}"
+      step="1"
+      value="{{ slider_current }}"
+      aria-label="{% if include.home_more %}More Work project position{% else %}Project position{% endif %}"
+      aria-describedby="project-browser-position-output"
+      data-project-browser-position
+    />
+    <output id="project-browser-position-output" for="project-browser-position" data-project-browser-position-output>
+      {{ slider_current }}/{{ slider_total }}
+    </output>
+  </div>
+  <nav
+    class="portfolio-project-browser__scroller"
+    aria-label="{% if include.home_more %}Browse more work{% else %}Browse all projects{% endif %}"
+    aria-describedby="project-browser-keyboard-help"
+    data-project-browser-strip
+  >
+    <div class="portfolio-project-browser__track"{% if include.home_more %} data-project-grid="library"{% endif %}>
+      {% for project in slider_projects %}
+        {% assign include_slider_project = false %}
+        {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.thumbnail %}
+          {% if include.home_more == true and project.featured != true %}
+            {% assign include_slider_project = true %}
+          {% elsif include.home_more != true %}
+            {% assign include_slider_project = true %}
+          {% endif %}
+        {% endif %}
+        {% if include_slider_project %}
+          {% assign is_current_project = false %}
+          {% if include.highlight_current == true and project.url == page.url %}
+            {% assign is_current_project = true %}
+          {% endif %}
+          {% if include.home_more %}
+            {% include project-card.html project=project interactive=true home_browser=true primary=true %}
+          {% else %}
+            {% include project-card.html project=project interactive=true current=is_current_project primary=true %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+  <p class="visually-hidden" id="project-browser-keyboard-help">Use the Left and Right Arrow keys on a project title to scan projects. Press Enter to open a project.</p>
+</section>

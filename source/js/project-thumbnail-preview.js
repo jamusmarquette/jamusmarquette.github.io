@@ -3,6 +3,7 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const hoverDelay = 400;
   const imageDuration = 800;
+  const crossfadeDuration = 240;
   const maximumPreviewImages = 4;
   let activePreview = null;
 
@@ -64,14 +65,17 @@
     const orderedCandidates = seededShuffle(candidates, card.dataset.projectId || coverUrl || 'project');
     let hoverTimer = null;
     let cycleTimer = null;
+    let crossfadeTimer = null;
     let session = 0;
 
     function stop() {
       session += 1;
       window.clearTimeout(hoverTimer);
       window.clearTimeout(cycleTimer);
+      window.clearTimeout(crossfadeTimer);
       hoverTimer = null;
       cycleTimer = null;
+      crossfadeTimer = null;
       layer.classList.add('is-resetting');
       layer.replaceChildren();
       window.requestAnimationFrame(function () { layer.classList.remove('is-resetting'); });
@@ -90,26 +94,49 @@
           const previewPaths = loadedPaths.filter(Boolean).slice(0, maximumPreviewImages);
           if (!previewPaths.length) return;
 
-          const images = previewPaths.map(function (path) {
+          const images = [0, 1].map(function () {
             const image = document.createElement('img');
             image.className = 'project-card-preview__image';
-            image.src = path;
             image.alt = '';
             layer.appendChild(image);
             return image;
           });
-          let visibleIndex = 0;
+          let currentImage = images[0];
+          let incomingImage = images[1];
+          let nextIndex = 1 % previewPaths.length;
 
-          function showNext() {
+          function crossfadeToNext() {
             if (currentSession !== session || activePreview !== stop) return;
-            images.forEach(function (image, index) {
-              image.classList.toggle('is-visible', index === visibleIndex);
+            incomingImage.src = previewPaths[nextIndex];
+            incomingImage.classList.remove('is-current', 'is-entering');
+
+            window.requestAnimationFrame(function () {
+              if (currentSession !== session || activePreview !== stop) return;
+              incomingImage.classList.add('is-entering');
+
+              crossfadeTimer = window.setTimeout(function () {
+                if (currentSession !== session || activePreview !== stop) return;
+                currentImage.classList.remove('is-current');
+                incomingImage.classList.remove('is-entering');
+                incomingImage.classList.add('is-current');
+                const previousImage = currentImage;
+                currentImage = incomingImage;
+                incomingImage = previousImage;
+                nextIndex = (nextIndex + 1) % previewPaths.length;
+              }, crossfadeDuration);
+
+              cycleTimer = window.setTimeout(crossfadeToNext, imageDuration);
             });
-            visibleIndex = (visibleIndex + 1) % images.length;
-            cycleTimer = window.setTimeout(showNext, imageDuration);
           }
 
-          window.requestAnimationFrame(showNext);
+          currentImage.src = previewPaths[0];
+          window.requestAnimationFrame(function () {
+            if (currentSession !== session || activePreview !== stop) return;
+            currentImage.classList.add('is-current');
+            if (previewPaths.length > 1) {
+              cycleTimer = window.setTimeout(crossfadeToNext, imageDuration);
+            }
+          });
         });
       }, hoverDelay);
     }

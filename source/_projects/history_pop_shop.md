@@ -8,7 +8,7 @@ permalink: /project/history_pop_shop/
 
 order: 17
 
-featured: true
+featured: false
 
 categories:
   - Identity & Branding

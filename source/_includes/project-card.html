@@ -5,8 +5,9 @@
 <article
     class="project-card{% if include.interactive %} project-card--interactive{% endif %}{% if include.current %} is-current{% endif %}"
     data-project-id="{{ include.project.slug }}"
+    data-project-order="{{ include.project.order }}"
     data-project-thumbnail="{{ include.project.thumbnail | relative_url | escape }}"
-    {% if include.home_browser %}data-project-featured="{% if include.project.featured == true %}true{% else %}false{% endif %}"{% endif %}
+    {% if include.home_browser %}data-project-featured="{% if include.home_featured %}true{% else %}false{% endif %}"{% endif %}
     data-category="{% for project_category in include.project.categories %}{% for category in site.data.portfolio_categories %}{% if category.label == project_category %}{{ category.id }} {% endif %}{% endfor %}{% endfor %}"
     {% if include.featured_browser and include.project.featured_thumbnail_position %}style="--portfolio-featured-thumbnail-position: {{ include.project.featured_thumbnail_position }};"{% endif %}
 >

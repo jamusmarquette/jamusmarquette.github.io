@@ -1,5 +1,4 @@
 {% assign projects = site.projects | sort: 'order' %}
-
 <section
   class="portfolio-browser"
   id="projects"
@@ -8,43 +7,19 @@
 >
   <h1 class="visually-hidden" id="portfolio-browser-title">Projects</h1>
 
-  <section class="portfolio-featured-browser" data-project-group="featured" aria-label="Featured projects">
-    <nav class="portfolio-featured-browser__scroller" aria-label="Browse featured projects" data-featured-browser-strip>
-      <div class="portfolio-featured-browser__track" data-project-grid="featured">
+  <section class="portfolio-home-featured" data-project-group="featured" aria-label="Featured projects">
+    <div class="portfolio-project-grid portfolio-home-featured-grid" data-project-grid="featured">
       {% for project in projects %}
         {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.featured == true %}
-          {% include project-card.html project=project interactive=true home_browser=true featured_browser=true %}
+          {% include project-card.html project=project interactive=true home_browser=true home_featured=true featured_browser=true %}
         {% endif %}
       {% endfor %}
-      </div>
-    </nav>
-    <div class="portfolio-featured-browser__controls">
-      <input
-        class="portfolio-featured-browser__position"
-        id="portfolio-featured-browser-position"
-        type="range"
-        min="1"
-        max="10"
-        step="1"
-        value="1"
-        aria-label="Featured project position"
-        aria-describedby="portfolio-featured-browser-position-output"
-        data-featured-browser-position
-      />
-      <output id="portfolio-featured-browser-position-output" for="portfolio-featured-browser-position" data-featured-browser-position-output>1/10</output>
     </div>
   </section>
 
-  <section class="portfolio-project-group" data-project-group="library" aria-labelledby="portfolio-library-title">
-    <h2 class="portfolio-project-group__heading" id="portfolio-library-title">More Work</h2>
-    <div class="portfolio-project-grid" data-project-grid="library">
-      {% for project in projects %}
-        {% if project.prototype != true and project.browser_exclude != true and project.hidden != true and project.published != false and project.featured != true %}
-          {% include project-card.html project=project interactive=true home_browser=true %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  </section>
+  {% include project-slider.html projects=projects label='More Work' home_more=true %}
+
+  <div class="portfolio-project-grid" data-project-grid="filtered" aria-label="Filtered projects" hidden></div>
 
   <div class="portfolio-project-grid" data-project-grid="recent" aria-label="Recently viewed projects" hidden></div>
 
