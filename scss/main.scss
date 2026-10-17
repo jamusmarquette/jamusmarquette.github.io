@@ -10,8 +10,8 @@
 @import 'portfolio/thumbnail-preview';
 
 body {
-  background-color: $secondary-color !important;
-  color: $primary !important;
+  background-color: $portfolio-color-background !important;
+  color: $portfolio-color-text !important;
 
   font-family: $font-stack !important;
   font-weight: $font-weight !important;
@@ -30,11 +30,12 @@ body * {
 }
 
 a {
-  color: $primary;
+  color: $portfolio-color-text;
   text-decoration: none;
 
-  &:hover {
-    color: $interactive-color;
+  &:hover,
+  &:focus-visible {
+    color: $portfolio-color-text-interactive;
   }
 }
 
@@ -57,7 +58,7 @@ a {
 }
 
 .bg-light {
-  background-color: $secondary-color !important;
+  background-color: $portfolio-color-background !important;
 }
 
 .bg-transparent {
@@ -375,7 +376,7 @@ End borders to category filter*/
 
 /* Intro fade */
 :root {
-  --intro-fade: rgb(199, 199, 199);
+  --intro-fade: #{$portfolio-color-text};
 }
 
 #introText {
@@ -420,7 +421,7 @@ End borders to category filter*/
     white-space: nowrap;
 
     /*color: rgb(0,0,0);*/
-    color: rgb(199, 199, 199);
+    color: $portfolio-color-text;
 
     transition: color 0.5s ease;
 
@@ -428,7 +429,7 @@ End borders to category filter*/
   }
 
   .scrolling-track span.active {
-    color: rgb(199, 199, 199);
+    color: $portfolio-color-text;
   }
 }
 
@@ -849,3 +850,7 @@ video {
 
 @import 'mobile';
 @import 'portfolio/shell';
+
+.portfolio-shell :where(a, button):is(:hover, :focus-visible) {
+  color: $portfolio-color-text-interactive;
+}

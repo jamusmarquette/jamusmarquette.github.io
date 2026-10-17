@@ -1,30 +1,26 @@
-{% assign is_browser = false %} {% if page.url == '/' %}{% assign is_browser = true %}{% endif %}
-{% assign is_project = false %} {% if page.layout == 'project' %}{% assign is_project = true %}{% endif %}
-{% assign is_info = false %} {% if page.url == '/information/' %}{% assign is_info = true %}{% endif %}
-{% assign visible_section_count = 0 %}
-{% if is_project and page.sections %}
-  {% for section in page.sections %}
-    {% if section.status == 'complete' %}
-      {% assign visible_section_count = visible_section_count | plus: 1 %}
-    {% elsif site.portfolio_show_placeholders == true and section.status == 'placeholder' %}
-      {% assign visible_section_count = visible_section_count | plus: 1 %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-{% assign has_context_bar = false %}
-{% if is_project and visible_section_count > 0 %}
-  {% assign has_context_bar = true %}
-{% endif %}
-{% assign is_eligible_project = false %}
-{% if is_project and page.prototype != true and page.browser_exclude != true and page.hidden != true and page.published != false %}
-{% assign is_eligible_project = true %}
-{% endif %}
+{% assign is_browser = false %} {% if page.url == '/' %}{% assign is_browser = true %}{% endif %} {% assign is_project =
+false %} {% if page.layout == 'project' %}{% assign is_project = true %}{% endif %} {% assign is_info = false %} {% if
+page.url == '/information/' %}{% assign is_info = true %}{% endif %} {% assign visible_section_count = 0 %} {% if
+is_project and page.sections %} {% for section in page.sections %} {% if section.status == 'complete' %} {% assign
+visible_section_count = visible_section_count | plus: 1 %} {% elsif site.portfolio_show_placeholders == true and
+section.status == 'placeholder' %} {% assign visible_section_count = visible_section_count | plus: 1 %} {% endif %} {%
+endfor %} {% endif %} {% assign has_context_bar = false %} {% if is_project and visible_section_count > 0 %} {% assign
+has_context_bar = true %} {% endif %} {% assign is_eligible_project = false %} {% if is_project and page.prototype !=
+true and page.browser_exclude != true and page.hidden != true and page.published != false %} {% assign
+is_eligible_project = true %} {% endif %}
 
 <div
   id="portfolio-shell"
   class="portfolio-shell{% if is_browser %} is-browser{% endif %}{% if is_project %} is-project{% endif %}{% if has_context_bar %} has-context-bar{% endif %}"
   data-portfolio-shell
-  {% if is_eligible_project %}data-project-id="{{ page.slug }}" data-project-eligible="true"{% endif %}
+  {%
+  if
+  is_eligible_project
+  %}data-project-id="{{ page.slug }}"
+  data-project-eligible="true"
+  {%
+  endif
+  %}
 >
   <script>
     try {
@@ -63,10 +59,20 @@
             focusable="false"
             data-sidebar-toggle-icon="expand"
           >
-            <rect x="-0.375" y="0.375" width="18.25" height="18.25" transform="matrix(-1 0 0 1 18.25 0)" stroke="currentColor" stroke-width="0.75" />
+            <rect
+              x="-0.375"
+              y="0.375"
+              width="18.25"
+              height="18.25"
+              transform="matrix(-1 0 0 1 18.25 0)"
+              stroke="currentColor"
+              stroke-width="0.75"
+            />
             <path d="M8 4.5L13 9.5L8 14.5" stroke="currentColor" stroke-width="0.75" />
           </svg>
-          <span class="portfolio-sidebar__toggle-label portfolio-sidebar__toggle-label--collapse" aria-hidden="true">Collapse</span>
+          <span class="portfolio-sidebar__toggle-label portfolio-sidebar__toggle-label--collapse" aria-hidden="true">
+            Collapse
+          </span>
         </button>
         <a
           class="portfolio-info-introduction{% if page.url == '/information/' %} is-active{% endif %}"
@@ -98,9 +104,7 @@
           <span class="portfolio-introduction-block" aria-hidden="true">
             <span class="portfolio-introduction-default">
               <strong class="portfolio-wordmark">JAMUS</strong>
-              <span class="portfolio-introduction-copy">
-                creates scalable concept-driven systems, products, and experiences.
-              </span>
+              <span class="portfolio-introduction-copy">creates <br/> concept-driven...</span>
             </span>
             <span class="portfolio-introduction-hover">More Info</span>
           </span>
@@ -145,7 +149,8 @@
               <rect x="10.875" y="10.875" width="7.75" height="7.75" stroke="currentColor" stroke-width="0.75" />
             </svg>
             <span class="portfolio-nav-label">
-              Work <span data-work-count>(18/18)</span>
+              Work
+              <span data-work-count>(18/18)</span>
             </span>
           </a>
 
@@ -154,7 +159,13 @@
               <button class="portfolio-category-filter" type="button" data-browser-view="all" aria-pressed="false">
                 All Projects
               </button>
-              <button class="portfolio-category-filter" type="button" data-browser-view="recent" aria-pressed="false" hidden>
+              <button
+                class="portfolio-category-filter"
+                type="button"
+                data-browser-view="recent"
+                aria-pressed="false"
+                hidden
+              >
                 Recently Viewed
               </button>
               {% assign categories = site.data.portfolio_categories | sort: 'order' %} {% for category in categories %}
@@ -170,7 +181,6 @@
             </div>
           </section>
         </div>
-
       </nav>
       <a
         class="portfolio-nav-link portfolio-nav-link--instagram"
@@ -218,7 +228,14 @@
       title="Open navigation"
       data-mobile-sidebar-toggle
     >
-      <svg class="portfolio-nav-icon portfolio-nav-icon--menu" viewBox="0 0 20 18" fill="none" aria-hidden="true" focusable="false" data-mobile-toggle-icon="menu">
+      <svg
+        class="portfolio-nav-icon portfolio-nav-icon--menu"
+        viewBox="0 0 20 18"
+        fill="none"
+        aria-hidden="true"
+        focusable="false"
+        data-mobile-toggle-icon="menu"
+      >
         <path d="M0 0.375H20" stroke="currentColor" stroke-width="0.75" />
         <path d="M0 8.875H20" stroke="currentColor" stroke-width="0.75" />
         <path d="M0 17.375H20" stroke="currentColor" stroke-width="0.75" />
@@ -228,7 +245,7 @@
     <div class="portfolio-mobile-header__identity">
       <a class="portfolio-mobile-wordmark" href="{{ '/' | relative_url }}" aria-label="JAMUS home">JAMUS</a>
       {% if is_browser %}
-      <span class="portfolio-mobile-header__description">creates scalable concept-driven systems, products, and experiences.</span>
+      <span class="portfolio-mobile-header__description">creates<br /> concept-driven...</span>
       {% endif %}
     </div>
     {% if is_project or is_info %}
@@ -252,16 +269,11 @@
   {% if is_project and visible_section_count > 0 %}
   <div class="portfolio-context-bar portfolio-context-bar--project" data-portfolio-context-bar>
     <nav class="portfolio-context-bar__section-navigation" aria-label="Project sections" data-section-navigation>
-      <button
-        type="button"
-        class="portfolio-section-control is-active"
-        data-section-control="all"
-        aria-pressed="true"
-      >
+      <button type="button" class="portfolio-section-control is-active" data-section-control="all" aria-pressed="true">
         Overview
       </button>
-      {% for section in page.sections %}
-      {% if section.status == 'complete' or site.portfolio_show_placeholders == true and section.status == 'placeholder' %}
+      {% for section in page.sections %} {% if section.status == 'complete' or site.portfolio_show_placeholders == true
+      and section.status == 'placeholder' %}
       <button
         type="button"
         class="portfolio-section-control"
@@ -270,8 +282,7 @@
       >
         {{ section.label }}
       </button>
-      {% endif %}
-      {% endfor %}
+      {% endif %} {% endfor %}
     </nav>
   </div>
   {% endif %}

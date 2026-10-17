@@ -13158,7 +13158,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-/*$secondary-color: rgba(255, 255, 255);*/
 /*@font-face {
   font-family: 'Frankly';
   src: url('/fonts/frankly/Frankly-Regular.woff2') format('woff2');
@@ -13643,7 +13642,7 @@ textarea.form-control-lg {
   font-weight: 300;
   line-height: 1.4;
   margin: 0 0 2rem;
-  color: #fff;
+  color: #ffffff;
   text-decoration-line: none;
   width: 100%;
   max-width: none;
@@ -14107,7 +14106,7 @@ figcaption,
   object-fit: cover;
   opacity: 0;
   position: absolute;
-  transition: opacity 240ms ease;
+  transition: opacity 220ms ease;
   width: 100%;
   z-index: 0;
 }
@@ -14125,10 +14124,6 @@ figcaption,
 .project-card-preview__image.is-entering {
   opacity: 1;
   z-index: 2;
-}
-
-.project-card-preview.is-resetting .project-card-preview__image {
-  transition: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -14162,7 +14157,7 @@ a {
   color: #c7c7c7;
   text-decoration: none;
 }
-a:hover {
+a:hover, a:focus-visible {
   color: #ffffff;
 }
 
@@ -14462,7 +14457,7 @@ End borders to category filter*/
 
 /* Intro fade */
 :root {
-  --intro-fade: rgb(199, 199, 199);
+  --intro-fade: #c7c7c7;
 }
 
 #introText {
@@ -14996,12 +14991,12 @@ video {
 
 .portfolio-info-introduction:hover,
 .portfolio-info-introduction:focus-visible {
-  background: rgba(199, 199, 199, 0.03);
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-info-introduction.is-active {
-  background: rgba(199, 199, 199, 0.055);
-  color: #fff;
+  background: rgba(199, 199, 199, 0.04);
+  color: #ffffff;
 }
 
 .portfolio-introduction-block {
@@ -15078,13 +15073,12 @@ video {
 
 .portfolio-nav-link:hover,
 .portfolio-nav-link:focus-visible {
-  background: rgba(199, 199, 199, 0.03);
-  color: #c7c7c7;
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-nav-link.is-active,
 .portfolio-category-filter.is-active {
-  background: rgba(199, 199, 199, 0.055);
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-work-group > .portfolio-nav-link.is-active {
@@ -15094,7 +15088,7 @@ video {
 }
 
 .portfolio-shell.is-browser .portfolio-work-group > .portfolio-nav-link.is-active {
-  color: #fff;
+  color: #ffffff;
 }
 
 .portfolio-work-group > .portfolio-nav-link .portfolio-nav-label {
@@ -15169,13 +15163,13 @@ video {
 
 .portfolio-nav-link.is-active,
 .portfolio-category-filter.is-active {
-  color: #fff;
+  color: #ffffff;
 }
 
 .portfolio-category-filter:hover,
 .portfolio-category-filter:focus-visible,
 .portfolio-category-filter.is-active {
-  background: rgba(199, 199, 199, 0.03);
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-info-introduction:focus,
@@ -15192,7 +15186,7 @@ video {
 .portfolio-nav-link:focus-visible,
 .portfolio-sidebar__toggle:focus-visible,
 .portfolio-mobile-toggle:focus-visible {
-  background: rgba(199, 199, 199, 0.03);
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-category-filter::before {
@@ -15224,7 +15218,7 @@ video {
 }
 .portfolio-sidebar__toggle:hover,
 .portfolio-sidebar__toggle:focus-visible {
-  background: rgba(199, 199, 199, 0.03);
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-sidebar__toggle .portfolio-nav-icon {
@@ -15237,7 +15231,7 @@ video {
 
 .portfolio-sidebar__toggle-label {
   align-self: center;
-  color: #c7c7c7;
+  color: currentColor;
   grid-column: 2;
   grid-row: 1;
   margin-top: 0;
@@ -15291,14 +15285,14 @@ video {
 }
 
 .portfolio-project-close:hover {
-  background: rgba(199, 199, 199, 0.055);
-  color: #fff;
+  background: rgba(199, 199, 199, 0.04);
+  color: #ffffff;
 }
 
 .portfolio-project-close:focus-visible {
-  background: rgba(199, 199, 199, 0.055);
-  color: #fff;
-  outline: 1px solid #fff;
+  background: rgba(199, 199, 199, 0.04);
+  color: #ffffff;
+  outline: 1px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -15392,7 +15386,7 @@ video {
 .is-sidebar-collapsed .portfolio-info-introduction:hover::before,
 .is-sidebar-collapsed .portfolio-info-introduction:focus-visible::before,
 .is-sidebar-collapsed .portfolio-info-introduction.is-active::before {
-  background: rgba(199, 199, 199, 0.055);
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction:focus-visible {
@@ -15499,7 +15493,7 @@ video {
 }
 
 .portfolio-project-group__heading {
-  color: #fff;
+  color: #ffffff;
   font-size: 1.125rem;
   line-height: 1.4;
   margin: 0 0 1rem;
@@ -15551,11 +15545,11 @@ video {
 
 .project-card--interactive:hover::before,
 .project-card--interactive:focus-within::before {
-  background-color: rgba(199, 199, 199, 0.055);
+  background-color: rgba(199, 199, 199, 0.04);
 }
 
 .project-card--interactive.is-current::before {
-  background-color: rgba(199, 199, 199, 0.055);
+  background-color: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-project-grid .project-card--interactive::before,
@@ -15577,7 +15571,7 @@ video {
 .project-card--interactive:hover .project-card-title,
 .project-card--interactive:focus-within .project-card-title,
 .project-card--interactive.is-current .project-card-title {
-  color: #fff;
+  color: #ffffff;
 }
 
 .project-card--interactive .portfolio-card-category {
@@ -15587,14 +15581,14 @@ video {
 
 .project-card--interactive .portfolio-card-category:hover,
 .project-card--interactive .portfolio-card-category:focus-visible {
-  color: #fff;
+  color: #ffffff;
 }
 
 .project-card--interactive .project-card-image-link:focus-visible,
 .project-card--interactive .project-card-title:focus-visible,
 .project-card--interactive .portfolio-card-category:focus-visible {
   border-radius: 0.2rem;
-  outline: 1px solid #fff;
+  outline: 1px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -15725,11 +15719,11 @@ video {
 }
 
 .portfolio-project-browser__position:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.2rem rgba(199, 199, 199, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(199, 199, 199, 0.55);
 }
 
 .portfolio-project-browser__position:focus-visible::-moz-range-thumb {
-  box-shadow: 0 0 0 0.2rem rgba(199, 199, 199, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(199, 199, 199, 0.55);
 }
 
 .portfolio-project-browser__scroller {
@@ -15848,16 +15842,16 @@ video {
 }
 
 .portfolio-context-bar .portfolio-section-control:hover {
-  background: rgba(199, 199, 199, 0.03);
+  background: rgba(199, 199, 199, 0.04);
 }
 
 .portfolio-context-bar .portfolio-section-control.is-active {
-  background: rgba(199, 199, 199, 0.055);
-  color: #fff;
+  background: rgba(199, 199, 199, 0.04);
+  color: #ffffff;
 }
 
 .portfolio-context-bar .portfolio-section-control:focus-visible {
-  outline: 1px solid #c7c7c7;
+  outline: 1px solid #ffffff;
   outline-offset: -2px;
 }
 
@@ -15995,7 +15989,7 @@ video {
 
   .portfolio-mobile-wordmark:focus-visible,
 .portfolio-mobile-page-close:focus-visible {
-    outline: 1px solid #c7c7c7;
+    outline: 1px solid #ffffff;
     outline-offset: 2px;
   }
 
@@ -16142,3 +16136,8 @@ video {
     --portfolio-columns: 1;
   }
 }
+.portfolio-shell :where(a, button):is(:hover, :focus-visible) {
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=main.css.map */

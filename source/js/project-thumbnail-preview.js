@@ -1,9 +1,9 @@
 (function () {
   const desktopHover = window.matchMedia('(hover: hover) and (pointer: fine)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const hoverDelay = 400;
-  const imageDuration = 800;
-  const crossfadeDuration = 240;
+  const hoverDelay = 175;
+  const imageDuration = 600;
+  const crossfadeDuration = 220;
   const maximumPreviewImages = 4;
   let activePreview = null;
 
@@ -66,6 +66,7 @@
     let hoverTimer = null;
     let cycleTimer = null;
     let crossfadeTimer = null;
+    let resetTimer = null;
     let session = 0;
 
     function stop() {
@@ -73,18 +74,26 @@
       window.clearTimeout(hoverTimer);
       window.clearTimeout(cycleTimer);
       window.clearTimeout(crossfadeTimer);
+      window.clearTimeout(resetTimer);
       hoverTimer = null;
       cycleTimer = null;
       crossfadeTimer = null;
-      layer.classList.add('is-resetting');
-      layer.replaceChildren();
-      window.requestAnimationFrame(function () { layer.classList.remove('is-resetting'); });
+      layer.querySelectorAll('.project-card-preview__image').forEach(function (image) {
+        image.classList.remove('is-current', 'is-entering');
+      });
+      resetTimer = window.setTimeout(function () {
+        layer.replaceChildren();
+        resetTimer = null;
+      }, crossfadeDuration);
       if (activePreview === stop) activePreview = null;
     }
 
     function begin() {
       if (!desktopHover.matches || reducedMotion.matches) return;
       if (activePreview && activePreview !== stop) activePreview();
+      window.clearTimeout(resetTimer);
+      resetTimer = null;
+      layer.replaceChildren();
       activePreview = stop;
       const currentSession = ++session;
 

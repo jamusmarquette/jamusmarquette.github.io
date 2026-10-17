@@ -20,7 +20,7 @@
   object-fit: cover;
   opacity: 0;
   position: absolute;
-  transition: opacity 240ms ease;
+  transition: opacity 220ms ease;
   width: 100%;
   z-index: 0;
 }
@@ -38,10 +38,6 @@
 .project-card-preview__image.is-entering {
   opacity: 1;
   z-index: 2;
-}
-
-.project-card-preview.is-resetting .project-card-preview__image {
-  transition: none;
 }
 
 @media (hover: hover) and (pointer: fine) {

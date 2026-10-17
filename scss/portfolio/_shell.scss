@@ -24,8 +24,6 @@ $portfolio-edge-space: (
 $portfolio-edge-space-mobile: 1rem;
 $portfolio-project-visible-inset-increase: 0.5rem;
 $portfolio-project-visible-inset-mobile-increase: 0.25rem;
-$portfolio-sidebar-active: rgba($primary, 0.055);
-$portfolio-sidebar-background: #101010;
 $portfolio-sidebar-radius: 1rem;
 $portfolio-project-card-hover-padding: 0.72rem;
 $portfolio-project-card-surface-padding: $portfolio-project-card-hover-padding;
@@ -151,7 +149,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-sidebar {
-  background: $portfolio-sidebar-background;
+  background: $portfolio-color-sidebar;
   bottom: 0;
   left: 0;
   overflow: hidden;
@@ -199,9 +197,9 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-info-introduction {
   align-items: start;
-  background: transparent;
+  background: $portfolio-color-surface-base;
   border-radius: $portfolio-sidebar-radius;
-  color: $primary;
+  color: $portfolio-color-text;
   column-gap: $portfolio-sidebar-icon-row-gap;
   display: grid;
   grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
@@ -216,12 +214,12 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-info-introduction:hover,
 .portfolio-info-introduction:focus-visible {
-  background: rgba($primary, 0.03);
+  background: $portfolio-color-surface-interactive;
 }
 
 .portfolio-info-introduction.is-active {
-  background: $portfolio-sidebar-active;
-  color: $white;
+  background: $portfolio-color-surface-interactive;
+  color: $portfolio-color-text-strong;
 }
 
 .portfolio-introduction-block {
@@ -270,10 +268,10 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-nav-link {
   align-items: center;
-  background: transparent;
+  background: $portfolio-color-surface-base;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
-  color: $primary;
+  color: $portfolio-color-text;
   column-gap: $portfolio-sidebar-icon-row-gap;
   display: grid;
   font-size: $portfolio-sidebar-row-size;
@@ -298,23 +296,22 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-nav-link:hover,
 .portfolio-nav-link:focus-visible {
-  background: rgba($primary, 0.03);
-  color: $primary;
+  background: $portfolio-color-surface-interactive;
 }
 
 .portfolio-nav-link.is-active,
 .portfolio-category-filter.is-active {
-  background: $portfolio-sidebar-active;
+  background: $portfolio-color-surface-interactive;
 }
 
 .portfolio-work-group > .portfolio-nav-link.is-active {
-  background: transparent;
-  color: $primary;
+  background: $portfolio-color-surface-base;
+  color: $portfolio-color-text;
   font-weight: 400 !important;
 }
 
 .portfolio-shell.is-browser .portfolio-work-group > .portfolio-nav-link.is-active {
-  color: $white;
+  color: $portfolio-color-text-strong;
 }
 
 .portfolio-work-group > .portfolio-nav-link .portfolio-nav-label {
@@ -373,10 +370,10 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-shell .portfolio-category-filter {
-  background: transparent;
+  background: $portfolio-color-surface-base;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
-  color: $primary;
+  color: $portfolio-color-text;
   display: block;
   font-size: $portfolio-font-size-small;
   line-height: $portfolio-line-height-small;
@@ -390,13 +387,13 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-nav-link.is-active,
 .portfolio-category-filter.is-active {
-  color: $white;
+  color: $portfolio-color-text-strong;
 }
 
 .portfolio-category-filter:hover,
 .portfolio-category-filter:focus-visible,
 .portfolio-category-filter.is-active {
-  background: rgba($primary, 0.03);
+  background: $portfolio-color-surface-interactive;
 }
 
 .portfolio-info-introduction:focus,
@@ -413,7 +410,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 .portfolio-nav-link:focus-visible,
 .portfolio-sidebar__toggle:focus-visible,
 .portfolio-mobile-toggle:focus-visible {
-  background: rgba($primary, 0.03);
+  background: $portfolio-color-surface-interactive;
 }
 
 .portfolio-category-filter::before {
@@ -422,10 +419,10 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-sidebar__toggle {
   align-items: center;
-  background: transparent;
+  background: $portfolio-color-surface-base;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
-  color: $primary;
+  color: $portfolio-color-text;
   cursor: pointer;
   display: grid;
   grid-template-columns: ($portfolio-sidebar-icon-hit-size + $portfolio-sidebar-collapse-label-gap) minmax(0, 1fr);
@@ -446,7 +443,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-sidebar__toggle:hover,
 .portfolio-sidebar__toggle:focus-visible {
-  background: rgba($primary, 0.03);
+  background: $portfolio-color-surface-interactive;
 }
 
 .portfolio-sidebar__toggle .portfolio-nav-icon {
@@ -459,7 +456,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-sidebar__toggle-label {
   align-self: center;
-  color: $primary;
+  color: currentColor;
   grid-column: 2;
   grid-row: 1;
   margin-top: 0;
@@ -495,10 +492,10 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-project-close {
   align-items: center;
-  background: transparent;
+  background: $portfolio-color-surface-base;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
-  color: $primary;
+  color: $portfolio-color-text;
   display: grid;
   height: $portfolio-sidebar-icon-hit-size;
   justify-items: center;
@@ -517,19 +514,19 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-project-close:hover {
-  background: $portfolio-sidebar-active;
-  color: $white;
+  background: $portfolio-color-surface-interactive;
+  color: $portfolio-color-text-strong;
 }
 
 .portfolio-project-close:focus-visible {
-  background: $portfolio-sidebar-active;
-  color: $white;
-  outline: 1px solid $white;
+  background: $portfolio-color-surface-interactive;
+  color: $portfolio-color-text-strong;
+  outline: 1px solid $portfolio-color-text-strong;
   outline-offset: 2px;
 }
 
 .portfolio-project-close:active {
-  background: rgba($primary, 0.08);
+  background: $portfolio-color-surface-pressed;
 }
 
 // Project heroes and section media share the presentation pane's inset.
@@ -569,7 +566,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   // A filtered section is the primary project view; retain its layout box and
   // content padding while removing only the overview card surface.
   .portfolio-presentation .project-authored-section.is-filtered-section > .project-authored-section__surface {
-    background: transparent;
+    background: $portfolio-color-surface-base;
   }
 }
 
@@ -607,7 +604,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction::before {
-  background: transparent;
+  background: $portfolio-color-surface-base;
   border-radius: $portfolio-sidebar-radius;
   content: '';
   height: $portfolio-global-nav-row-height;
@@ -621,13 +618,13 @@ $portfolio-mobile-header-text-top-adjustment: (
 .is-sidebar-collapsed .portfolio-info-introduction:hover,
 .is-sidebar-collapsed .portfolio-info-introduction:focus-visible,
 .is-sidebar-collapsed .portfolio-info-introduction.is-active {
-  background: transparent;
+  background: $portfolio-color-surface-base;
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction:hover::before,
 .is-sidebar-collapsed .portfolio-info-introduction:focus-visible::before,
 .is-sidebar-collapsed .portfolio-info-introduction.is-active::before {
-  background: $portfolio-sidebar-active;
+  background: $portfolio-color-surface-interactive;
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction:focus-visible {
@@ -700,7 +697,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .is-sidebar-collapsed .portfolio-nav-link.is-active {
-  background: transparent;
+  background: $portfolio-color-surface-base;
 }
 
 .portfolio-mobile-toggle,
@@ -736,7 +733,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-project-group__heading {
-  color: $white;
+  color: $portfolio-color-text-strong;
   font-size: $portfolio-font-size-default;
   line-height: $portfolio-line-height-default;
   margin: 0 0 $portfolio-project-group-heading-gap;
@@ -769,7 +766,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .project-card--interactive::before {
-  background-color: transparent;
+  background-color: $portfolio-color-surface-base;
   border-radius: $portfolio-sidebar-radius;
   content: '';
   inset: -$portfolio-project-card-hover-padding;
@@ -784,7 +781,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .project-card--interactive .content-details {
-  background-color: transparent;
+  background-color: $portfolio-color-surface-base;
 }
 
 .project-card--interactive:hover,
@@ -794,11 +791,11 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .project-card--interactive:hover::before,
 .project-card--interactive:focus-within::before {
-  background-color: $portfolio-sidebar-active;
+  background-color: $portfolio-color-surface-interactive;
 }
 
 .project-card--interactive.is-current::before {
-  background-color: $portfolio-sidebar-active;
+  background-color: $portfolio-color-surface-interactive;
 }
 
 // Work-grid and horizontal-browser cards share one padded interaction surface.
@@ -816,31 +813,31 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .project-card--interactive .project-card-title {
-  color: $primary;
+  color: $portfolio-color-text;
   transition: color 150ms ease;
 }
 
 .project-card--interactive:hover .project-card-title,
 .project-card--interactive:focus-within .project-card-title,
 .project-card--interactive.is-current .project-card-title {
-  color: $white;
+  color: $portfolio-color-text-strong;
 }
 
 .project-card--interactive .portfolio-card-category {
-  color: $primary;
+  color: $portfolio-color-text;
   transition: color 150ms ease;
 }
 
 .project-card--interactive .portfolio-card-category:hover,
 .project-card--interactive .portfolio-card-category:focus-visible {
-  color: $white;
+  color: $portfolio-color-text-strong;
 }
 
 .project-card--interactive .project-card-image-link:focus-visible,
 .project-card--interactive .project-card-title:focus-visible,
 .project-card--interactive .portfolio-card-category:focus-visible {
   border-radius: 0.2rem;
-  outline: 1px solid $white;
+  outline: 1px solid $portfolio-color-focus;
   outline-offset: 2px;
 }
 
@@ -928,7 +925,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-project-browser__position {
   appearance: none;
-  background: transparent;
+  background: $portfolio-color-surface-base;
   cursor: pointer;
   display: block;
   height: 1rem;
@@ -938,14 +935,14 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-project-browser__position::-webkit-slider-runnable-track {
-  background: rgba($primary, 0.55);
+  background: $portfolio-color-slider-track;
   border-radius: 999px;
   height: 1px;
 }
 
 .portfolio-project-browser__position::-webkit-slider-thumb {
   appearance: none;
-  background: $primary;
+  background: $portfolio-color-text;
   border: 0;
   border-radius: 50%;
   height: 0.8rem;
@@ -954,13 +951,13 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-project-browser__position::-moz-range-track {
-  background: rgba($primary, 0.55);
+  background: $portfolio-color-slider-track;
   border-radius: 999px;
   height: 1px;
 }
 
 .portfolio-project-browser__position::-moz-range-thumb {
-  background: $primary;
+  background: $portfolio-color-text;
   border: 0;
   border-radius: 50%;
   height: 0.8rem;
@@ -972,11 +969,11 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-project-browser__position:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.2rem rgba($primary, 0.2);
+  box-shadow: 0 0 0 0.2rem $portfolio-color-focus-ring;
 }
 
 .portfolio-project-browser__position:focus-visible::-moz-range-thumb {
-  box-shadow: 0 0 0 0.2rem rgba($primary, 0.2);
+  box-shadow: 0 0 0 0.2rem $portfolio-color-focus-ring;
 }
 
 .portfolio-project-browser__scroller {
@@ -1053,7 +1050,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .portfolio-context-bar {
   align-items: center;
-  background: $secondary-color;
+  background: $portfolio-color-background;
   bottom: 0;
   box-sizing: border-box;
   height: $portfolio-context-bar-height;
@@ -1085,10 +1082,10 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-context-bar .portfolio-section-control {
-  background: transparent;
+  background: $portfolio-color-surface-base;
   border: 0;
   border-radius: $portfolio-sidebar-radius;
-  color: $primary;
+  color: $portfolio-color-text;
   flex: 0 0 auto;
   line-height: $portfolio-line-height-default;
   min-height: $portfolio-sidebar-filter-min-height;
@@ -1097,16 +1094,16 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .portfolio-context-bar .portfolio-section-control:hover {
-  background: rgba($primary, 0.03);
+  background: $portfolio-color-surface-interactive;
 }
 
 .portfolio-context-bar .portfolio-section-control.is-active {
-  background: $portfolio-sidebar-active;
-  color: $white;
+  background: $portfolio-color-surface-interactive;
+  color: $portfolio-color-text-strong;
 }
 
 .portfolio-context-bar .portfolio-section-control:focus-visible {
-  outline: 1px solid $primary;
+  outline: 1px solid $portfolio-color-focus;
   outline-offset: -2px;
 }
 
@@ -1147,7 +1144,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   .portfolio-sidebar {
     // The mobile takeover preserves its existing pane color; #101010 is the
     // desktop sidebar surface token.
-    background: $secondary-color;
+    background: $portfolio-color-background;
     height: 100dvh;
     max-width: none;
     transform: translateX(-100%);
@@ -1175,7 +1172,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 
   .portfolio-mobile-header {
     align-items: start;
-    background: $secondary-color;
+    background: $portfolio-color-background;
     box-sizing: border-box;
     display: grid;
     grid-template-columns:
@@ -1195,9 +1192,9 @@ $portfolio-mobile-header-text-top-adjustment: (
 
   .portfolio-mobile-toggle {
     align-items: center;
-    background: transparent;
+    background: $portfolio-color-surface-base;
     border: 0;
-    color: $primary;
+    color: $portfolio-color-text;
     display: grid;
     height: $portfolio-sidebar-icon-hit-size;
     padding: 0;
@@ -1229,7 +1226,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   }
 
   .portfolio-mobile-wordmark {
-    color: $primary;
+    color: $portfolio-color-text;
     display: inline;
     font-weight: 700 !important;
     justify-self: start;
@@ -1237,7 +1234,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   }
 
   .portfolio-mobile-header__description {
-    color: $primary;
+    color: $portfolio-color-text;
     display: inline;
     line-height: $portfolio-line-height-default;
     transition: opacity 160ms ease;
@@ -1252,14 +1249,14 @@ $portfolio-mobile-header-text-top-adjustment: (
 
   .portfolio-mobile-wordmark:focus-visible,
   .portfolio-mobile-page-close:focus-visible {
-    outline: 1px solid $primary;
+    outline: 1px solid $portfolio-color-focus;
     outline-offset: 2px;
   }
 
   .portfolio-mobile-page-close,
   .portfolio-mobile-header__end {
     align-items: center;
-    color: $primary;
+    color: $portfolio-color-text;
     display: grid;
     height: $portfolio-sidebar-icon-hit-size;
     justify-self: end;

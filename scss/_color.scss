@@ -1,5 +1,31 @@
-//$primary-color: rgb(146, 150, 151);
-/*$secondary-color: rgba(255, 255, 255);*/
-$secondary-color: rgb(19, 19, 19);
-$interactive-color: #ffffff;
-$inactive-color: #000000; // current page / disabled state
+// Base palette
+$portfolio-gray: rgb(199, 199, 199);
+$portfolio-black: rgb(19, 19, 19);
+$portfolio-sidebar-black: rgb(16, 16, 16);
+$portfolio-white: #ffffff;
+$portfolio-black-pure: #000000;
+
+// Semantic colors
+$portfolio-color-background: $portfolio-black;
+$portfolio-color-sidebar: $portfolio-sidebar-black;
+
+$portfolio-color-text: $portfolio-gray;
+$portfolio-color-text-muted: rgba($portfolio-gray, 0.65);
+$portfolio-color-text-strong: $portfolio-white;
+$portfolio-color-text-interactive: $portfolio-white;
+
+$portfolio-color-border: $portfolio-gray;
+$portfolio-color-focus: $portfolio-white;
+
+$portfolio-color-surface-base: transparent;
+$portfolio-color-surface-interactive: rgba($portfolio-gray, 0.04);
+$portfolio-color-surface-section: rgba($portfolio-gray, 0.055);
+$portfolio-color-surface-pressed: rgba($portfolio-gray, 0.08);
+
+$portfolio-color-slider-track: rgba($portfolio-gray, 0.55);
+$portfolio-color-focus-ring: rgba($portfolio-gray, 0.55);
+
+// Legacy aliases retained for styles outside the active portfolio shell.
+$secondary-color: $portfolio-black;
+$interactive-color: $portfolio-white;
+$inactive-color: $portfolio-black-pure; // current page / disabled state

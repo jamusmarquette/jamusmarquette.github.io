@@ -1,0 +1,7 @@
+# Jekyll templates contain Liquid syntax that the HTML parser can corrupt.
+source/_includes/
+source/_layouts/
+source/_pages/
+source/_projects/
+source/project/
+source/index.html

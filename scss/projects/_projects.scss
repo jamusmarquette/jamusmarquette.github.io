@@ -17,7 +17,6 @@
 
 // Shared project media uses one gutter for columns, wrapped items, and rows.
 $project-media-gap: 0.75rem;
-$project-authored-section-background: rgba($primary, 0.055);
 $project-authored-section-radius: 1rem;
 $project-authored-section-padding: 1.5rem;
 $project-authored-section-padding-top: 0.75rem;
@@ -279,7 +278,7 @@ $project-authored-section-gap: 1.5rem;
 // Authored sections are independent surfaces; the uncontained project
 // introduction and Projects browser remain part of the presentation pane.
 .project-authored-section__surface {
-  background: $project-authored-section-background;
+  background: $portfolio-color-surface-section;
   border-radius: $project-authored-section-radius;
   overflow: hidden;
   padding-bottom: $project-authored-section-padding;
@@ -298,7 +297,7 @@ $project-authored-section-gap: 1.5rem;
 }
 
 .project-section-placeholder {
-  color: rgba($primary, 0.65);
+  color: $portfolio-color-text-muted;
 }
 
 .project-section-placeholder p {
@@ -419,7 +418,7 @@ $project-information-label-gap: 0.15rem;
   font-weight: 300;
   line-height: $portfolio-line-height-default;
   margin: 0 0 $project-opening-title-to-description-gap;
-  color: $white;
+  color: $portfolio-color-text-strong;
   text-decoration-line: none;
   width: 100%;
   max-width: none;
