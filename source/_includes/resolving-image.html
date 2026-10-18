@@ -1,0 +1,13 @@
+{% assign image_preview = site.data.image_previews[include.src] %}
+<img
+  class="{{ include.class }}"
+  src="{{ include.src | relative_url }}"
+  alt="{{ include.alt | escape }}"
+  loading="{{ include.loading | default: 'lazy' }}"
+  decoding="async"
+  {% if include.style %}style="{{ include.style | escape }}"{% endif %}
+  {% if image_preview %}
+  width="{{ image_preview.width }}" height="{{ image_preview.height }}"
+  data-pixel-preview="{{ image_preview.src }}"
+  {% endif %}
+/>

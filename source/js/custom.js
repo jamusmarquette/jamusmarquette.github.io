@@ -269,25 +269,3 @@ if (track) {
 
   setInterval(advanceWords, 2400);
 }
-
-/* Content link click animation */
-document.querySelectorAll('.content a').forEach((link) => {
-  link.addEventListener('click', function (e) {
-    const content = this.closest('.content');
-
-    if (!content) return;
-
-    e.preventDefault();
-
-    content.classList.add('is-clicking');
-
-    setTimeout(() => {
-      content.classList.remove('is-clicking');
-      content.classList.add('is-releasing');
-    }, 120);
-
-    setTimeout(() => {
-      window.location.href = this.href;
-    }, 540);
-  });
-});

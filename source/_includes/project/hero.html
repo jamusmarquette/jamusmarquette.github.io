@@ -2,7 +2,7 @@
 <div class="container-fluid project-inner project-hero project-intro">
   <div class="row" style="height: 90vh">
     <div class="col-16 d-flex justify-content-center align-items-center">
-      <img class="centered-hero-img" src="{{ page.hero | relative_url }}" alt="{{ page.title }}" />
+      {% include resolving-image.html src=page.hero alt=page.title class="centered-hero-img" loading="eager" %}
     </div>
   </div>
 </div>
@@ -10,7 +10,7 @@
 
 {% if page.hero_type == "full-image" %}
 <div class="container-fluid project-inner project-hero project-hero-full">
-  <img class="full-width-img" src="{{ page.hero | relative_url }}" alt="{{ page.title }}" />
+  {% include resolving-image.html src=page.hero alt=page.title class="full-width-img" loading="eager" %}
 </div>
 {% endif %}
 
@@ -18,10 +18,10 @@
 <div class="container-fluid project-inner project-hero topmargin project-hero-split">
   <div class="row">
     <div class="col-md-8">
-      <img class="full-width-img" src="{{ page.hero_left | relative_url }}" alt="{{ page.title }}" />
+      {% include resolving-image.html src=page.hero_left alt=page.title class="full-width-img" loading="eager" %}
     </div>
     <div class="col-md-8 hidemd">
-      <img class="full-width-img" src="{{ page.hero_right | relative_url }}" alt="{{ page.title }}" />
+      {% include resolving-image.html src=page.hero_right alt=page.title class="full-width-img" loading="eager" %}
     </div>
   </div>
 </div>

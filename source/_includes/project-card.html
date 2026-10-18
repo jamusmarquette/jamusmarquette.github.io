@@ -22,11 +22,7 @@
 
             <div class="content-overlay"></div>
 
-            <img
-                class="content-image"
-                src="{{ card_thumbnail | relative_url }}"
-                alt="{{ include.project.title }}"
-            >
+            {% include resolving-image.html src=card_thumbnail alt=include.project.title class="content-image" loading="lazy" %}
 
             <span class="project-card-preview" aria-hidden="true" data-project-preview-layer></span>
 

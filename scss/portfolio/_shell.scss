@@ -841,12 +841,6 @@ $portfolio-mobile-header-text-top-adjustment: (
   outline-offset: 2px;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .project-card--interactive:hover .content-image,
-  .project-card--interactive:focus-within .content-image {
-    transform: rotateX(-12deg);
-  }
-}
 
 .portfolio-project-grid .content-details {
   opacity: 1;

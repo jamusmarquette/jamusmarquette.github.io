@@ -11,20 +11,24 @@
 
 {% if include.item.image %}
 
-<img
-    class="{{ include.item.media_class | default: 'full-width-img' }}"
-    src="{{ include.item.image | relative_url }}"
-    alt="{{ include.item.alt | default: page.title }}"
-    {% if include.item.media_style %}style="{{ include.item.media_style }}"{% endif %} />
+{% assign media_class = include.item.media_class | default: 'full-width-img' %}
+{% assign media_alt = include.item.alt | default: page.title %}
+{% include resolving-image.html src=include.item.image alt=media_alt class=media_class style=include.item.media_style loading="lazy" %}
 
 {% endif %}
 
 
 {% if include.item.video %}
 
+{% assign video_preview = site.data.image_previews[include.item.video] %}
+{% assign poster_preview = site.data.image_previews[include.item.poster] %}
 <video
+    {% unless include.item.poster %}{% if video_preview %}data-pixel-generated-poster{% endif %}{% endunless %}
+    {% if poster_preview %}data-pixel-preview="{{ poster_preview.src }}"
+    {% elsif video_preview %}data-pixel-preview="{{ video_preview.src }}"{% endif %}
+    {% if video_preview %}width="{{ video_preview.width }}" height="{{ video_preview.height }}"{% endif %}
     class="{{ include.item.media_class | default: 'full-width-img' }}"
-    {% if include.item.poster %}poster="{{ include.item.poster | relative_url }}"{% endif %}
+    {% if include.item.poster %}poster="{{ include.item.poster | relative_url }}"{% elsif video_preview %}poster="{{ video_preview.src }}"{% endif %}
     {% if include.item.media_style %}style="{{ include.item.media_style }}"{% endif %}
     {% unless include.item.autoplay == false %}autoplay{% endunless %}
     {% unless include.item.muted == false %}muted{% endunless %}
