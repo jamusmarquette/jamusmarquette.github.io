@@ -163,17 +163,18 @@ $portfolio-mobile-header-text-top-adjustment: (
 .portfolio-sidebar__body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - #{$portfolio-sidebar-icon-hit-size + $portfolio-edge-space});
   min-width: 0;
   overflow: auto;
-  // Instagram and Columns share the same 2.75rem row and line box; subtracting
-  // the row's internal lower half leaves the same outer 0.625rem below each.
+  // Preserve the existing navigation surface insets. The desktop control
+  // occupies a separate bottom region so it remains fixed while this body scrolls.
   padding: $portfolio-edge-space $portfolio-sidebar-padding-x
     (
       $portfolio-edge-space -
         (($portfolio-sidebar-filter-min-height - ($portfolio-font-size-default * $portfolio-line-height-default)) / 2)
     );
-  width: var(--portfolio-sidebar-width);
+  // Keep one desktop layout behind the rail; collapsing only clips it.
+  width: $portfolio-sidebar-width;
 }
 
 .portfolio-wordmark {
@@ -185,14 +186,26 @@ $portfolio-mobile-header-text-top-adjustment: (
   display: flex;
   flex-direction: column;
   gap: $portfolio-global-nav-gap;
-  margin: 0 0 $portfolio-sidebar-identity-bottom-gap (-$portfolio-sidebar-row-padding-x);
+  margin: 0 0 $portfolio-global-nav-gap;
 }
 
 @media (min-width: ($portfolio-mobile-breakpoint + 0.02px)) {
-  .portfolio-shell:not(.is-sidebar-collapsed) .portfolio-sidebar__identity {
-    gap: $portfolio-sidebar-info-introduction-gap;
-    margin-top: $portfolio-sidebar-collapse-row-offset;
+  .portfolio-info-introduction > .portfolio-nav-icon,
+  .portfolio-nav-link > .portfolio-nav-icon {
+    justify-self: center;
   }
+
+  .portfolio-shell .portfolio-sidebar__identity {
+    gap: $portfolio-sidebar-info-introduction-gap;
+    margin-top: calc(#{$portfolio-sidebar-collapse-row-offset} + 2px);
+    margin-bottom: calc(#{$portfolio-global-nav-gap} - 2px);
+  }
+}
+
+.portfolio-info-introduction,
+.portfolio-nav-link {
+  margin-left: $portfolio-sidebar-icon-row-offset;
+  width: calc(100% + #{$portfolio-sidebar-row-padding-x});
 }
 
 .portfolio-info-introduction {
@@ -209,7 +222,6 @@ $portfolio-mobile-header-text-top-adjustment: (
   transition:
     background-color 150ms ease,
     color 150ms ease;
-  width: 100%;
 }
 
 .portfolio-info-introduction:hover,
@@ -249,7 +261,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   display: flex;
   flex-direction: column;
   gap: $portfolio-global-nav-gap;
-  margin: $portfolio-expanded-work-group-offset 0 0;
+  margin: 0;
 }
 
 .portfolio-work-group {
@@ -277,16 +289,24 @@ $portfolio-mobile-header-text-top-adjustment: (
   font-size: $portfolio-sidebar-row-size;
   grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
   line-height: $portfolio-line-height-default;
-  margin-left: $portfolio-sidebar-icon-row-offset;
   min-height: $portfolio-global-nav-row-height;
   padding: 0.45rem $portfolio-sidebar-row-padding-x;
   text-decoration: none;
-  width: calc(100% + #{$portfolio-sidebar-row-padding-x});
 }
 
 .portfolio-nav-link--instagram {
-  margin-top: auto;
+  margin-top: $portfolio-global-nav-gap;
   opacity: 0.72;
+}
+
+@media (min-width: ($portfolio-mobile-breakpoint + 0.02px)) {
+  .portfolio-nav-link--instagram {
+    transition: transform 180ms ease;
+  }
+
+  .is-sidebar-collapsed .portfolio-nav-link--instagram {
+    transform: translateY(var(--portfolio-instagram-collapse-offset, 0px));
+  }
 }
 
 .portfolio-nav-link--instagram:hover,
@@ -425,20 +445,18 @@ $portfolio-mobile-header-text-top-adjustment: (
   color: $portfolio-color-text;
   cursor: pointer;
   display: grid;
-  grid-template-columns: ($portfolio-sidebar-icon-hit-size + $portfolio-sidebar-collapse-label-gap) minmax(0, 1fr);
+  column-gap: $portfolio-sidebar-collapse-label-gap;
+  grid-template-columns: $portfolio-sidebar-icon-hit-size minmax(0, 1fr);
   height: $portfolio-sidebar-collapse-surface-height;
   overflow: visible;
   padding: 0;
   place-items: center start;
-  position: relative;
+  position: absolute;
+  left: ($portfolio-rail-width - $portfolio-sidebar-icon-hit-size) / 2;
+  bottom: $portfolio-edge-space -
+    (($portfolio-sidebar-icon-hit-size - ($portfolio-font-size-default * $portfolio-line-height-default)) / 2);
   transition: background-color 150ms ease;
   width: $portfolio-sidebar-collapse-surface-width;
-}
-
-@media (min-width: ($portfolio-mobile-breakpoint + 0.02px)) {
-  .portfolio-shell:not(.is-sidebar-collapsed) .portfolio-sidebar__toggle {
-    margin-left: $portfolio-sidebar-collapse-horizontal-offset;
-  }
 }
 
 .portfolio-sidebar__toggle:hover,
@@ -579,28 +597,19 @@ $portfolio-mobile-header-text-top-adjustment: (
 }
 
 .is-sidebar-collapsed .portfolio-nav-link .portfolio-nav-label,
-.is-sidebar-collapsed [data-work-count] {
-  display: none;
+.is-sidebar-collapsed [data-work-count],
+.is-sidebar-collapsed .portfolio-info-introduction .portfolio-introduction-block {
+  visibility: hidden;
 }
 
 .is-sidebar-collapsed .portfolio-browser-tools {
-  display: none;
-}
-
-.is-sidebar-collapsed .portfolio-sidebar {
-  overflow: visible;
+  // Reserve the filter block so collapsing never reflows the navigation.
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction {
-  align-items: start;
-  grid-template-columns: 1fr;
-  height: $portfolio-global-nav-row-height;
-  margin: 0 auto;
-  min-height: 0;
-  padding: 0;
-  place-items: start center;
   position: relative;
-  width: $portfolio-sidebar-icon-hit-size;
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction::before {
@@ -611,7 +620,8 @@ $portfolio-mobile-header-text-top-adjustment: (
   left: 0;
   pointer-events: none;
   position: absolute;
-  top: calc((#{$portfolio-sidebar-icon-size} - #{$portfolio-global-nav-row-height}) / 2);
+  top: $portfolio-sidebar-filter-padding-y +
+    (($portfolio-sidebar-icon-size - $portfolio-global-nav-row-height) / 2);
   width: $portfolio-sidebar-icon-hit-size;
 }
 
@@ -636,33 +646,9 @@ $portfolio-mobile-header-text-top-adjustment: (
   z-index: 1;
 }
 
-.is-sidebar-collapsed .portfolio-info-introduction .portfolio-introduction-block {
-  display: none;
-}
-
 .is-sidebar-collapsed .portfolio-nav-link {
-  align-items: center;
-  display: grid;
-  height: $portfolio-global-nav-row-height;
-  margin: 0 auto;
-  min-height: 0;
-  padding: 0;
-  place-items: center;
-  grid-template-columns: 1fr;
-  width: $portfolio-sidebar-icon-hit-size;
-}
-
-.is-sidebar-collapsed .portfolio-sidebar__body {
-  overflow: visible;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.is-sidebar-collapsed .portfolio-sidebar__identity {
-  align-items: center;
-  gap: $portfolio-collapsed-info-gap;
-  margin: $portfolio-collapsed-identity-top 0 $portfolio-collapsed-work-rail-offset;
-  width: 100%;
+  // Retain the existing rail-sized hover surface without reflowing the row.
+  clip-path: inset(0 calc(100% - #{$portfolio-sidebar-icon-hit-size}) 0 0);
 }
 
 .is-sidebar-collapsed .portfolio-sidebar__toggle {
@@ -685,15 +671,6 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 .is-sidebar-collapsed .portfolio-sidebar__toggle-label--collapse {
   display: none;
-}
-
-.is-sidebar-collapsed .portfolio-primary-nav {
-  gap: $portfolio-global-nav-gap;
-  margin-top: 0;
-}
-
-.is-sidebar-collapsed .portfolio-nav-link--instagram {
-  margin-top: auto;
 }
 
 .is-sidebar-collapsed .portfolio-nav-link.is-active {
@@ -1149,6 +1126,7 @@ $portfolio-mobile-header-text-top-adjustment: (
   .portfolio-sidebar__body {
     --portfolio-mobile-menu-top: calc(#{$portfolio-mobile-header-height} + env(safe-area-inset-top));
     box-sizing: border-box;
+    height: 100%;
     padding-bottom: calc(#{$portfolio-edge-space-mobile} + env(safe-area-inset-bottom));
     padding-left: calc(#{$portfolio-sidebar-padding-x} + env(safe-area-inset-left));
     padding-right: calc(#{$portfolio-sidebar-padding-x} + env(safe-area-inset-right));
@@ -1217,6 +1195,25 @@ $portfolio-mobile-header-text-top-adjustment: (
     line-height: $portfolio-line-height-default;
     min-width: 0;
     padding-top: $portfolio-mobile-header-text-top-adjustment;
+  }
+
+  .is-browser .portfolio-mobile-header__identity {
+    display: flex;
+    align-items: baseline;
+    column-gap: 0.25em;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .is-browser .portfolio-mobile-wordmark {
+    flex-shrink: 0;
+  }
+
+  .is-browser .portfolio-mobile-header__description {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .portfolio-mobile-wordmark {
@@ -1289,16 +1286,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 
   .portfolio-sidebar__identity {
     gap: $portfolio-global-nav-gap;
-    margin-bottom: 0;
-    order: 2;
-  }
-
-  .portfolio-primary-nav {
-    order: 1;
-  }
-
-  .portfolio-nav-link--instagram {
-    order: 3;
+    margin-bottom: $portfolio-global-nav-gap;
   }
 
   .portfolio-drawer-open {
@@ -1326,8 +1314,6 @@ $portfolio-mobile-header-text-top-adjustment: (
   .portfolio-info-introduction {
     align-items: center;
     grid-template-columns: $portfolio-sidebar-icon-size minmax(0, 1fr);
-    margin-left: $portfolio-sidebar-icon-row-offset;
-    width: calc(100% + #{$portfolio-sidebar-row-padding-x});
   }
 
   .portfolio-info-introduction .portfolio-introduction-block {
@@ -1381,6 +1367,7 @@ $portfolio-mobile-header-text-top-adjustment: (
 
 @media (prefers-reduced-motion: reduce) {
   .portfolio-sidebar,
+  .portfolio-nav-link--instagram,
   .portfolio-presentation,
   .portfolio-context-bar,
   .portfolio-mobile-header,

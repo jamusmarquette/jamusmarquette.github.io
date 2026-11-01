@@ -32,48 +32,6 @@ is_eligible_project = true %} {% endif %}
   <aside class="portfolio-sidebar" id="portfolio-sidebar" aria-label="Portfolio navigation">
     <div class="portfolio-sidebar__body">
       <div class="portfolio-sidebar__identity">
-        <button
-          class="portfolio-sidebar__toggle"
-          type="button"
-          aria-controls="portfolio-sidebar"
-          aria-expanded="true"
-          data-sidebar-toggle
-          aria-label="Collapse sidebar"
-        >
-          <svg
-            class="portfolio-nav-icon portfolio-nav-icon--collapse"
-            viewBox="0 0 19 19"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
-            data-sidebar-toggle-icon="collapse"
-          >
-            <rect x="0.375" y="0.375" width="18.25" height="18.25" stroke="currentColor" stroke-width="0.75" />
-            <path d="M11 4.5L6 9.5L11 14.5" stroke="currentColor" stroke-width="0.75" />
-          </svg>
-          <svg
-            class="portfolio-nav-icon portfolio-nav-icon--expand"
-            viewBox="0 0 19 19"
-            fill="none"
-            aria-hidden="true"
-            focusable="false"
-            data-sidebar-toggle-icon="expand"
-          >
-            <rect
-              x="-0.375"
-              y="0.375"
-              width="18.25"
-              height="18.25"
-              transform="matrix(-1 0 0 1 18.25 0)"
-              stroke="currentColor"
-              stroke-width="0.75"
-            />
-            <path d="M8 4.5L13 9.5L8 14.5" stroke="currentColor" stroke-width="0.75" />
-          </svg>
-          <span class="portfolio-sidebar__toggle-label portfolio-sidebar__toggle-label--collapse" aria-hidden="true">
-            Collapse
-          </span>
-        </button>
         <a
           class="portfolio-info-introduction{% if page.url == '/information/' %} is-active{% endif %}"
           href="{{ '/information/' | relative_url }}"
@@ -216,6 +174,48 @@ is_eligible_project = true %} {% endif %}
         <span class="portfolio-nav-label">@jamusmarquette</span>
       </a>
     </div>
+    <button
+      class="portfolio-sidebar__toggle"
+      type="button"
+      aria-controls="portfolio-sidebar"
+      aria-expanded="true"
+      data-sidebar-toggle
+      aria-label="Collapse sidebar"
+    >
+      <svg
+        class="portfolio-nav-icon portfolio-nav-icon--collapse"
+        viewBox="0 0 19 19"
+        fill="none"
+        aria-hidden="true"
+        focusable="false"
+        data-sidebar-toggle-icon="collapse"
+      >
+        <rect x="0.375" y="0.375" width="18.25" height="18.25" stroke="currentColor" stroke-width="0.75" />
+        <path d="M11 4.5L6 9.5L11 14.5" stroke="currentColor" stroke-width="0.75" />
+      </svg>
+      <svg
+        class="portfolio-nav-icon portfolio-nav-icon--expand"
+        viewBox="0 0 19 19"
+        fill="none"
+        aria-hidden="true"
+        focusable="false"
+        data-sidebar-toggle-icon="expand"
+      >
+        <rect
+          x="-0.375"
+          y="0.375"
+          width="18.25"
+          height="18.25"
+          transform="matrix(-1 0 0 1 18.25 0)"
+          stroke="currentColor"
+          stroke-width="0.75"
+        />
+        <path d="M8 4.5L13 9.5L8 14.5" stroke="currentColor" stroke-width="0.75" />
+      </svg>
+      <span class="portfolio-sidebar__toggle-label portfolio-sidebar__toggle-label--collapse" aria-hidden="true">
+        Collapse
+      </span>
+    </button>
   </aside>
 
   <header class="portfolio-mobile-header" data-mobile-header>
@@ -245,7 +245,7 @@ is_eligible_project = true %} {% endif %}
     <div class="portfolio-mobile-header__identity">
       <a class="portfolio-mobile-wordmark" href="{{ '/' | relative_url }}" aria-label="JAMUS home">JAMUS</a>
       {% if is_browser %}
-      <span class="portfolio-mobile-header__description">creates<br /> concept-driven...</span>
+      <span class="portfolio-mobile-header__description">creates concept-driven...</span>
       {% endif %}
     </div>
     {% if is_project or is_info %}

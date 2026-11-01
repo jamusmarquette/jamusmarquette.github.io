@@ -17,6 +17,7 @@
   const backdrop = shell.querySelector('[data-sidebar-backdrop]');
   const browser = shell.querySelector('[data-project-browser]');
   const workControl = shell.querySelector('.portfolio-work-group > .portfolio-nav-link');
+  const instagramLink = shell.querySelector('.portfolio-nav-link--instagram');
   const workCount = shell.querySelector('[data-work-count]');
   const emptyState = shell.querySelector('[data-empty-state]');
   const allProjectsControl = shell.querySelector('[data-browser-view="all"]');
@@ -129,7 +130,21 @@
     writeRecentProjectIds(updatedIds);
   }
 
+  function syncInstagramPosition() {
+    if (mobileMedia.matches || !instagramLink || !workControl) return;
+    const center = (element) => {
+      const box = element.querySelector('.portfolio-nav-icon').getBoundingClientRect();
+      return box.top + box.height / 2;
+    };
+    const transform = getComputedStyle(instagramLink).transform;
+    const translation = transform === 'none' ? 0 : new DOMMatrixReadOnly(transform).m42;
+    const expandedCenter = center(instagramLink) - translation;
+    const targetCenter = 2 * center(workControl) - center(shell.querySelector('.portfolio-info-introduction'));
+    instagramLink.style.setProperty('--portfolio-instagram-collapse-offset', `${targetCenter - expandedCenter}px`);
+  }
+
   function setCollapsed(collapsed) {
+    syncInstagramPosition();
     shell.classList.toggle('is-sidebar-collapsed', collapsed);
     sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
     sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
@@ -458,6 +473,7 @@
     emptyState.hidden = visibleCards.length !== 0;
     activeState = normalizedState;
     rememberBrowserState(normalizedState);
+    syncInstagramPosition();
     if (updateHistory) writeUrl(normalizedState, false);
   }
 
@@ -634,6 +650,8 @@
 
   window.addEventListener('popstate', function () { renderState(stateFromUrl(), false); });
   mobileMedia.addEventListener('change', syncResponsiveNavigation);
+  window.addEventListener('resize', syncInstagramPosition);
+  if (document.fonts) document.fonts.ready.then(syncInstagramPosition);
   window.addEventListener('scroll', function () {
     if (!mobileMedia.matches || mobileHeaderScrollFrame) return;
     mobileHeaderScrollFrame = window.requestAnimationFrame(function () {

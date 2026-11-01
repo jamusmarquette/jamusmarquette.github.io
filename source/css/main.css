@@ -14913,11 +14913,11 @@ video {
 .portfolio-sidebar__body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 3.9125rem);
   min-width: 0;
   overflow: auto;
   padding: 1.2125rem 1.25rem 0.875rem;
-  width: var(--portfolio-sidebar-width);
+  width: 22rem;
 }
 
 .portfolio-wordmark {
@@ -14929,15 +14929,27 @@ video {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  margin: 0 0 2.25rem -0.6rem;
+  margin: 0 0 0.4rem;
 }
 
 @media (min-width: 767.02px) {
-  .portfolio-shell:not(.is-sidebar-collapsed) .portfolio-sidebar__identity {
+  .portfolio-info-introduction > .portfolio-nav-icon,
+.portfolio-nav-link > .portfolio-nav-icon {
+    justify-self: center;
+  }
+
+  .portfolio-shell .portfolio-sidebar__identity {
     gap: 0.9875rem;
-    margin-top: -0.5625rem;
+    margin-top: calc(-0.5625rem + 2px);
+    margin-bottom: calc(0.4rem - 2px);
   }
 }
+.portfolio-info-introduction,
+.portfolio-nav-link {
+  margin-left: -0.6rem;
+  width: calc(100% + 0.6rem);
+}
+
 .portfolio-info-introduction {
   align-items: start;
   background: transparent;
@@ -14950,7 +14962,6 @@ video {
   padding: 0.45rem 0.6rem;
   text-decoration: none;
   transition: background-color 150ms ease, color 150ms ease;
-  width: 100%;
 }
 
 .portfolio-info-introduction:hover,
@@ -14990,7 +15001,7 @@ video {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  margin: -1.0375rem 0 0;
+  margin: 0;
 }
 
 .portfolio-work-group {
@@ -15018,18 +15029,25 @@ video {
   font-size: 1.125rem;
   grid-template-columns: 1.5rem minmax(0, 1fr);
   line-height: 1.4;
-  margin-left: -0.6rem;
   min-height: 2.25rem;
   padding: 0.45rem 0.6rem;
   text-decoration: none;
-  width: calc(100% + 0.6rem);
 }
 
 .portfolio-nav-link--instagram {
-  margin-top: auto;
+  margin-top: 0.4rem;
   opacity: 0.72;
 }
 
+@media (min-width: 767.02px) {
+  .portfolio-nav-link--instagram {
+    transition: transform 180ms ease;
+  }
+
+  .is-sidebar-collapsed .portfolio-nav-link--instagram {
+    transform: translateY(var(--portfolio-instagram-collapse-offset, 0px));
+  }
+}
 .portfolio-nav-link--instagram:hover,
 .portfolio-nav-link--instagram:focus-visible {
   opacity: 1;
@@ -15165,21 +15183,19 @@ video {
   color: #c7c7c7;
   cursor: pointer;
   display: grid;
-  grid-template-columns: 3.1rem minmax(0, 1fr);
+  column-gap: 0.4rem;
+  grid-template-columns: 2.7rem minmax(0, 1fr);
   height: 2.7rem;
   overflow: visible;
   padding: 0;
   place-items: center start;
-  position: relative;
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.65rem;
   transition: background-color 150ms ease;
   width: 8.7rem;
 }
 
-@media (min-width: 767.02px) {
-  .portfolio-shell:not(.is-sidebar-collapsed) .portfolio-sidebar__toggle {
-    margin-left: -0.2rem;
-  }
-}
 .portfolio-sidebar__toggle:hover,
 .portfolio-sidebar__toggle:focus-visible {
   background: rgba(199, 199, 199, 0.04);
@@ -15305,28 +15321,18 @@ video {
 }
 
 .is-sidebar-collapsed .portfolio-nav-link .portfolio-nav-label,
-.is-sidebar-collapsed [data-work-count] {
-  display: none;
+.is-sidebar-collapsed [data-work-count],
+.is-sidebar-collapsed .portfolio-info-introduction .portfolio-introduction-block {
+  visibility: hidden;
 }
 
 .is-sidebar-collapsed .portfolio-browser-tools {
-  display: none;
-}
-
-.is-sidebar-collapsed .portfolio-sidebar {
-  overflow: visible;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction {
-  align-items: start;
-  grid-template-columns: 1fr;
-  height: 2.25rem;
-  margin: 0 auto;
-  min-height: 0;
-  padding: 0;
-  place-items: start center;
   position: relative;
-  width: 2.7rem;
 }
 
 .is-sidebar-collapsed .portfolio-info-introduction::before {
@@ -15337,7 +15343,7 @@ video {
   left: 0;
   pointer-events: none;
   position: absolute;
-  top: calc((1.5rem - 2.25rem) / 2);
+  top: 0.075rem;
   width: 2.7rem;
 }
 
@@ -15362,33 +15368,8 @@ video {
   z-index: 1;
 }
 
-.is-sidebar-collapsed .portfolio-info-introduction .portfolio-introduction-block {
-  display: none;
-}
-
 .is-sidebar-collapsed .portfolio-nav-link {
-  align-items: center;
-  display: grid;
-  height: 2.25rem;
-  margin: 0 auto;
-  min-height: 0;
-  padding: 0;
-  place-items: center;
-  grid-template-columns: 1fr;
-  width: 2.7rem;
-}
-
-.is-sidebar-collapsed .portfolio-sidebar__body {
-  overflow: visible;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.is-sidebar-collapsed .portfolio-sidebar__identity {
-  align-items: center;
-  gap: 1.4375rem;
-  margin: -0.5625rem 0 0.9125rem;
-  width: 100%;
+  clip-path: inset(0 calc(100% - 2.7rem) 0 0);
 }
 
 .is-sidebar-collapsed .portfolio-sidebar__toggle {
@@ -15411,15 +15392,6 @@ video {
 
 .is-sidebar-collapsed .portfolio-sidebar__toggle-label--collapse {
   display: none;
-}
-
-.is-sidebar-collapsed .portfolio-primary-nav {
-  gap: 0.4rem;
-  margin-top: 0;
-}
-
-.is-sidebar-collapsed .portfolio-nav-link--instagram {
-  margin-top: auto;
 }
 
 .is-sidebar-collapsed .portfolio-nav-link.is-active {
@@ -15859,6 +15831,7 @@ video {
   .portfolio-sidebar__body {
     --portfolio-mobile-menu-top: calc(3.7rem + env(safe-area-inset-top));
     box-sizing: border-box;
+    height: 100%;
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
     padding-left: calc(1.25rem + env(safe-area-inset-left));
     padding-right: calc(1.25rem + env(safe-area-inset-right));
@@ -15921,6 +15894,25 @@ video {
     line-height: 1.4;
     min-width: 0;
     padding-top: 0.5625rem;
+  }
+
+  .is-browser .portfolio-mobile-header__identity {
+    display: flex;
+    align-items: baseline;
+    column-gap: 0.25em;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .is-browser .portfolio-mobile-wordmark {
+    flex-shrink: 0;
+  }
+
+  .is-browser .portfolio-mobile-header__description {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .portfolio-mobile-wordmark {
@@ -15993,16 +15985,7 @@ video {
 
   .portfolio-sidebar__identity {
     gap: 0.4rem;
-    margin-bottom: 0;
-    order: 2;
-  }
-
-  .portfolio-primary-nav {
-    order: 1;
-  }
-
-  .portfolio-nav-link--instagram {
-    order: 3;
+    margin-bottom: 0.4rem;
   }
 
   .portfolio-drawer-open {
@@ -16026,8 +16009,6 @@ video {
   .portfolio-info-introduction {
     align-items: center;
     grid-template-columns: 1.5rem minmax(0, 1fr);
-    margin-left: -0.6rem;
-    width: calc(100% + 0.6rem);
   }
 
   .portfolio-info-introduction .portfolio-introduction-block {
@@ -16080,6 +16061,7 @@ video {
 }
 @media (prefers-reduced-motion: reduce) {
   .portfolio-sidebar,
+.portfolio-nav-link--instagram,
 .portfolio-presentation,
 .portfolio-context-bar,
 .portfolio-mobile-header,
